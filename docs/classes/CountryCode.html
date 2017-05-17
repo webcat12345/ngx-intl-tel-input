@@ -1,0 +1,1648 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-intl-tel-input</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-intl-tel-input</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">ngx-intl-tel-input</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/NgxIntlTelInputModule.html" >NgxIntlTelInputModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NgxIntlTelInputComponent.html" >NgxIntlTelInputComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/Country.html" >Country</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/CountryCode.html"  data-type="entity-link" class="active" >CountryCode</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/DemoPage.html" >DemoPage</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/NgxIntlTelInputService.html" >NgxIntlTelInputService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">ngx-intl-tel-input</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/NgxIntlTelInputModule.html" >NgxIntlTelInputModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NgxIntlTelInputComponent.html" >NgxIntlTelInputComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/Country.html" >Country</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/CountryCode.html"  data-type="entity-link" class="active" >CountryCode</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/DemoPage.html" >DemoPage</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/NgxIntlTelInputService.html" >NgxIntlTelInputService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>CountryCode</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/resource/country-code.ts</code>
+        </p>
+
+
+
+
+
+
+
+            <section>
+                
+                    <h3 id="inputs">
+                        Properties
+                    </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> allCountries</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>allCountries:     <code>(string | number | string[])[][]</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/resource/country-code.ts:2</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">export class CountryCode {
+    public allCountries &#x3D; [
+        [
+            &#x27;Afghanistan (‫افغانستان‬‎)&#x27;,
+            &#x27;af&#x27;,
+            &#x27;93&#x27;
+        ],
+        [
+            &#x27;Albania (Shqipëri)&#x27;,
+            &#x27;al&#x27;,
+            &#x27;355&#x27;
+        ],
+        [
+            &#x27;Algeria (‫الجزائر‬‎)&#x27;,
+            &#x27;dz&#x27;,
+            &#x27;213&#x27;
+        ],
+        [
+            &#x27;American Samoa&#x27;,
+            &#x27;as&#x27;,
+            &#x27;1684&#x27;
+        ],
+        [
+            &#x27;Andorra&#x27;,
+            &#x27;ad&#x27;,
+            &#x27;376&#x27;
+        ],
+        [
+            &#x27;Angola&#x27;,
+            &#x27;ao&#x27;,
+            &#x27;244&#x27;
+        ],
+        [
+            &#x27;Anguilla&#x27;,
+            &#x27;ai&#x27;,
+            &#x27;1264&#x27;
+        ],
+        [
+            &#x27;Antigua and Barbuda&#x27;,
+            &#x27;ag&#x27;,
+            &#x27;1268&#x27;
+        ],
+        [
+            &#x27;Argentina&#x27;,
+            &#x27;ar&#x27;,
+            &#x27;54&#x27;
+        ],
+        [
+            &#x27;Armenia (Հայաստան)&#x27;,
+            &#x27;am&#x27;,
+            &#x27;374&#x27;
+        ],
+        [
+            &#x27;Aruba&#x27;,
+            &#x27;aw&#x27;,
+            &#x27;297&#x27;
+        ],
+        [
+            &#x27;Australia&#x27;,
+            &#x27;au&#x27;,
+            &#x27;61&#x27;,
+            0
+        ],
+        [
+            &#x27;Austria (Österreich)&#x27;,
+            &#x27;at&#x27;,
+            &#x27;43&#x27;
+        ],
+        [
+            &#x27;Azerbaijan (Azərbaycan)&#x27;,
+            &#x27;az&#x27;,
+            &#x27;994&#x27;
+        ],
+        [
+            &#x27;Bahamas&#x27;,
+            &#x27;bs&#x27;,
+            &#x27;1242&#x27;
+        ],
+        [
+            &#x27;Bahrain (‫البحرين‬‎)&#x27;,
+            &#x27;bh&#x27;,
+            &#x27;973&#x27;
+        ],
+        [
+            &#x27;Bangladesh (বাংলাদেশ)&#x27;,
+            &#x27;bd&#x27;,
+            &#x27;880&#x27;
+        ],
+        [
+            &#x27;Barbados&#x27;,
+            &#x27;bb&#x27;,
+            &#x27;1246&#x27;
+        ],
+        [
+            &#x27;Belarus (Беларусь)&#x27;,
+            &#x27;by&#x27;,
+            &#x27;375&#x27;
+        ],
+        [
+            &#x27;Belgium (België)&#x27;,
+            &#x27;be&#x27;,
+            &#x27;32&#x27;
+        ],
+        [
+            &#x27;Belize&#x27;,
+            &#x27;bz&#x27;,
+            &#x27;501&#x27;
+        ],
+        [
+            &#x27;Benin (Bénin)&#x27;,
+            &#x27;bj&#x27;,
+            &#x27;229&#x27;
+        ],
+        [
+            &#x27;Bermuda&#x27;,
+            &#x27;bm&#x27;,
+            &#x27;1441&#x27;
+        ],
+        [
+            &#x27;Bhutan (འབྲུག)&#x27;,
+            &#x27;bt&#x27;,
+            &#x27;975&#x27;
+        ],
+        [
+            &#x27;Bolivia&#x27;,
+            &#x27;bo&#x27;,
+            &#x27;591&#x27;
+        ],
+        [
+            &#x27;Bosnia and Herzegovina (Босна и Херцеговина)&#x27;,
+            &#x27;ba&#x27;,
+            &#x27;387&#x27;
+        ],
+        [
+            &#x27;Botswana&#x27;,
+            &#x27;bw&#x27;,
+            &#x27;267&#x27;
+        ],
+        [
+            &#x27;Brazil (Brasil)&#x27;,
+            &#x27;br&#x27;,
+            &#x27;55&#x27;
+        ],
+        [
+            &#x27;British Indian Ocean Territory&#x27;,
+            &#x27;io&#x27;,
+            &#x27;246&#x27;
+        ],
+        [
+            &#x27;British Virgin Islands&#x27;,
+            &#x27;vg&#x27;,
+            &#x27;1284&#x27;
+        ],
+        [
+            &#x27;Brunei&#x27;,
+            &#x27;bn&#x27;,
+            &#x27;673&#x27;
+        ],
+        [
+            &#x27;Bulgaria (България)&#x27;,
+            &#x27;bg&#x27;,
+            &#x27;359&#x27;
+        ],
+        [
+            &#x27;Burkina Faso&#x27;,
+            &#x27;bf&#x27;,
+            &#x27;226&#x27;
+        ],
+        [
+            &#x27;Burundi (Uburundi)&#x27;,
+            &#x27;bi&#x27;,
+            &#x27;257&#x27;
+        ],
+        [
+            &#x27;Cambodia (កម្ពុជា)&#x27;,
+            &#x27;kh&#x27;,
+            &#x27;855&#x27;
+        ],
+        [
+            &#x27;Cameroon (Cameroun)&#x27;,
+            &#x27;cm&#x27;,
+            &#x27;237&#x27;
+        ],
+        [
+            &#x27;Canada&#x27;,
+            &#x27;ca&#x27;,
+            &#x27;1&#x27;,
+            1,
+            [
+                &#x27;204&#x27;, &#x27;226&#x27;, &#x27;236&#x27;, &#x27;249&#x27;, &#x27;250&#x27;, &#x27;289&#x27;, &#x27;306&#x27;, &#x27;343&#x27;, &#x27;365&#x27;, &#x27;387&#x27;, &#x27;403&#x27;, &#x27;416&#x27;,
+                &#x27;418&#x27;, &#x27;431&#x27;, &#x27;437&#x27;, &#x27;438&#x27;, &#x27;450&#x27;, &#x27;506&#x27;, &#x27;514&#x27;, &#x27;519&#x27;, &#x27;548&#x27;, &#x27;579&#x27;, &#x27;581&#x27;, &#x27;587&#x27;,
+                &#x27;604&#x27;, &#x27;613&#x27;, &#x27;639&#x27;, &#x27;647&#x27;, &#x27;672&#x27;, &#x27;705&#x27;, &#x27;709&#x27;, &#x27;742&#x27;, &#x27;778&#x27;, &#x27;780&#x27;, &#x27;782&#x27;, &#x27;807&#x27;,
+                &#x27;819&#x27;, &#x27;825&#x27;, &#x27;867&#x27;, &#x27;873&#x27;, &#x27;902&#x27;, &#x27;905&#x27;
+            ]
+        ],
+        [
+            &#x27;Cape Verde (Kabu Verdi)&#x27;,
+            &#x27;cv&#x27;,
+            &#x27;238&#x27;
+        ],
+        [
+            &#x27;Caribbean Netherlands&#x27;,
+            &#x27;bq&#x27;,
+            &#x27;599&#x27;,
+            1
+        ],
+        [
+            &#x27;Cayman Islands&#x27;,
+            &#x27;ky&#x27;,
+            &#x27;1345&#x27;
+        ],
+        [
+            &#x27;Central African Republic (République centrafricaine)&#x27;,
+            &#x27;cf&#x27;,
+            &#x27;236&#x27;
+        ],
+        [
+            &#x27;Chad (Tchad)&#x27;,
+            &#x27;td&#x27;,
+            &#x27;235&#x27;
+        ],
+        [
+            &#x27;Chile&#x27;,
+            &#x27;cl&#x27;,
+            &#x27;56&#x27;
+        ],
+        [
+            &#x27;China (中国)&#x27;,
+            &#x27;cn&#x27;,
+            &#x27;86&#x27;
+        ],
+        [
+            &#x27;Christmas Island&#x27;,
+            &#x27;cx&#x27;,
+            &#x27;61&#x27;,
+            2
+        ],
+        [
+            &#x27;Cocos (Keeling) Islands&#x27;,
+            &#x27;cc&#x27;,
+            &#x27;61&#x27;,
+            1
+        ],
+        [
+            &#x27;Colombia&#x27;,
+            &#x27;co&#x27;,
+            &#x27;57&#x27;
+        ],
+        [
+            &#x27;Comoros (‫جزر القمر‬‎)&#x27;,
+            &#x27;km&#x27;,
+            &#x27;269&#x27;
+        ],
+        [
+            &#x27;Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)&#x27;,
+            &#x27;cd&#x27;,
+            &#x27;243&#x27;
+        ],
+        [
+            &#x27;Congo (Republic) (Congo-Brazzaville)&#x27;,
+            &#x27;cg&#x27;,
+            &#x27;242&#x27;
+        ],
+        [
+            &#x27;Cook Islands&#x27;,
+            &#x27;ck&#x27;,
+            &#x27;682&#x27;
+        ],
+        [
+            &#x27;Costa Rica&#x27;,
+            &#x27;cr&#x27;,
+            &#x27;506&#x27;
+        ],
+        [
+            &#x27;Côte d’Ivoire&#x27;,
+            &#x27;ci&#x27;,
+            &#x27;225&#x27;
+        ],
+        [
+            &#x27;Croatia (Hrvatska)&#x27;,
+            &#x27;hr&#x27;,
+            &#x27;385&#x27;
+        ],
+        [
+            &#x27;Cuba&#x27;,
+            &#x27;cu&#x27;,
+            &#x27;53&#x27;
+        ],
+        [
+            &#x27;Curaçao&#x27;,
+            &#x27;cw&#x27;,
+            &#x27;599&#x27;,
+            0
+        ],
+        [
+            &#x27;Cyprus (Κύπρος)&#x27;,
+            &#x27;cy&#x27;,
+            &#x27;357&#x27;
+        ],
+        [
+            &#x27;Czech Republic (Česká republika)&#x27;,
+            &#x27;cz&#x27;,
+            &#x27;420&#x27;
+        ],
+        [
+            &#x27;Denmark (Danmark)&#x27;,
+            &#x27;dk&#x27;,
+            &#x27;45&#x27;
+        ],
+        [
+            &#x27;Djibouti&#x27;,
+            &#x27;dj&#x27;,
+            &#x27;253&#x27;
+        ],
+        [
+            &#x27;Dominica&#x27;,
+            &#x27;dm&#x27;,
+            &#x27;1767&#x27;
+        ],
+        [
+            &#x27;Dominican Republic (República Dominicana)&#x27;,
+            &#x27;do&#x27;,
+            &#x27;1&#x27;,
+            2,
+            [&#x27;809&#x27;, &#x27;829&#x27;, &#x27;849&#x27;]
+        ],
+        [
+            &#x27;Ecuador&#x27;,
+            &#x27;ec&#x27;,
+            &#x27;593&#x27;
+        ],
+        [
+            &#x27;Egypt (‫مصر‬‎)&#x27;,
+            &#x27;eg&#x27;,
+            &#x27;20&#x27;
+        ],
+        [
+            &#x27;El Salvador&#x27;,
+            &#x27;sv&#x27;,
+            &#x27;503&#x27;
+        ],
+        [
+            &#x27;Equatorial Guinea (Guinea Ecuatorial)&#x27;,
+            &#x27;gq&#x27;,
+            &#x27;240&#x27;
+        ],
+        [
+            &#x27;Eritrea&#x27;,
+            &#x27;er&#x27;,
+            &#x27;291&#x27;
+        ],
+        [
+            &#x27;Estonia (Eesti)&#x27;,
+            &#x27;ee&#x27;,
+            &#x27;372&#x27;
+        ],
+        [
+            &#x27;Ethiopia&#x27;,
+            &#x27;et&#x27;,
+            &#x27;251&#x27;
+        ],
+        [
+            &#x27;Falkland Islands (Islas Malvinas)&#x27;,
+            &#x27;fk&#x27;,
+            &#x27;500&#x27;
+        ],
+        [
+            &#x27;Faroe Islands (Føroyar)&#x27;,
+            &#x27;fo&#x27;,
+            &#x27;298&#x27;
+        ],
+        [
+            &#x27;Fiji&#x27;,
+            &#x27;fj&#x27;,
+            &#x27;679&#x27;
+        ],
+        [
+            &#x27;Finland (Suomi)&#x27;,
+            &#x27;fi&#x27;,
+            &#x27;358&#x27;,
+            0
+        ],
+        [
+            &#x27;France&#x27;,
+            &#x27;fr&#x27;,
+            &#x27;33&#x27;
+        ],
+        [
+            &#x27;French Guiana (Guyane française)&#x27;,
+            &#x27;gf&#x27;,
+            &#x27;594&#x27;
+        ],
+        [
+            &#x27;French Polynesia (Polynésie française)&#x27;,
+            &#x27;pf&#x27;,
+            &#x27;689&#x27;
+        ],
+        [
+            &#x27;Gabon&#x27;,
+            &#x27;ga&#x27;,
+            &#x27;241&#x27;
+        ],
+        [
+            &#x27;Gambia&#x27;,
+            &#x27;gm&#x27;,
+            &#x27;220&#x27;
+        ],
+        [
+            &#x27;Georgia (საქართველო)&#x27;,
+            &#x27;ge&#x27;,
+            &#x27;995&#x27;
+        ],
+        [
+            &#x27;Germany (Deutschland)&#x27;,
+            &#x27;de&#x27;,
+            &#x27;49&#x27;
+        ],
+        [
+            &#x27;Ghana (Gaana)&#x27;,
+            &#x27;gh&#x27;,
+            &#x27;233&#x27;
+        ],
+        [
+            &#x27;Gibraltar&#x27;,
+            &#x27;gi&#x27;,
+            &#x27;350&#x27;
+        ],
+        [
+            &#x27;Greece (Ελλάδα)&#x27;,
+            &#x27;gr&#x27;,
+            &#x27;30&#x27;
+        ],
+        [
+            &#x27;Greenland (Kalaallit Nunaat)&#x27;,
+            &#x27;gl&#x27;,
+            &#x27;299&#x27;
+        ],
+        [
+            &#x27;Grenada&#x27;,
+            &#x27;gd&#x27;,
+            &#x27;1473&#x27;
+        ],
+        [
+            &#x27;Guadeloupe&#x27;,
+            &#x27;gp&#x27;,
+            &#x27;590&#x27;,
+            0
+        ],
+        [
+            &#x27;Guam&#x27;,
+            &#x27;gu&#x27;,
+            &#x27;1671&#x27;
+        ],
+        [
+            &#x27;Guatemala&#x27;,
+            &#x27;gt&#x27;,
+            &#x27;502&#x27;
+        ],
+        [
+            &#x27;Guernsey&#x27;,
+            &#x27;gg&#x27;,
+            &#x27;44&#x27;,
+            1
+        ],
+        [
+            &#x27;Guinea (Guinée)&#x27;,
+            &#x27;gn&#x27;,
+            &#x27;224&#x27;
+        ],
+        [
+            &#x27;Guinea-Bissau (Guiné Bissau)&#x27;,
+            &#x27;gw&#x27;,
+            &#x27;245&#x27;
+        ],
+        [
+            &#x27;Guyana&#x27;,
+            &#x27;gy&#x27;,
+            &#x27;592&#x27;
+        ],
+        [
+            &#x27;Haiti&#x27;,
+            &#x27;ht&#x27;,
+            &#x27;509&#x27;
+        ],
+        [
+            &#x27;Honduras&#x27;,
+            &#x27;hn&#x27;,
+            &#x27;504&#x27;
+        ],
+        [
+            &#x27;Hong Kong (香港)&#x27;,
+            &#x27;hk&#x27;,
+            &#x27;852&#x27;
+        ],
+        [
+            &#x27;Hungary (Magyarország)&#x27;,
+            &#x27;hu&#x27;,
+            &#x27;36&#x27;
+        ],
+        [
+            &#x27;Iceland (Ísland)&#x27;,
+            &#x27;is&#x27;,
+            &#x27;354&#x27;
+        ],
+        [
+            &#x27;India (भारत)&#x27;,
+            &#x27;in&#x27;,
+            &#x27;91&#x27;
+        ],
+        [
+            &#x27;Indonesia&#x27;,
+            &#x27;id&#x27;,
+            &#x27;62&#x27;
+        ],
+        [
+            &#x27;Iran (‫ایران‬‎)&#x27;,
+            &#x27;ir&#x27;,
+            &#x27;98&#x27;
+        ],
+        [
+            &#x27;Iraq (‫العراق‬‎)&#x27;,
+            &#x27;iq&#x27;,
+            &#x27;964&#x27;
+        ],
+        [
+            &#x27;Ireland&#x27;,
+            &#x27;ie&#x27;,
+            &#x27;353&#x27;
+        ],
+        [
+            &#x27;Isle of Man&#x27;,
+            &#x27;im&#x27;,
+            &#x27;44&#x27;,
+            2
+        ],
+        [
+            &#x27;Israel (‫ישראל‬‎)&#x27;,
+            &#x27;il&#x27;,
+            &#x27;972&#x27;
+        ],
+        [
+            &#x27;Italy (Italia)&#x27;,
+            &#x27;it&#x27;,
+            &#x27;39&#x27;,
+            0
+        ],
+        [
+            &#x27;Jamaica&#x27;,
+            &#x27;jm&#x27;,
+            &#x27;1876&#x27;
+        ],
+        [
+            &#x27;Japan (日本)&#x27;,
+            &#x27;jp&#x27;,
+            &#x27;81&#x27;
+        ],
+        [
+            &#x27;Jersey&#x27;,
+            &#x27;je&#x27;,
+            &#x27;44&#x27;,
+            3
+        ],
+        [
+            &#x27;Jordan (‫الأردن‬‎)&#x27;,
+            &#x27;jo&#x27;,
+            &#x27;962&#x27;
+        ],
+        [
+            &#x27;Kazakhstan (Казахстан)&#x27;,
+            &#x27;kz&#x27;,
+            &#x27;7&#x27;,
+            1
+        ],
+        [
+            &#x27;Kenya&#x27;,
+            &#x27;ke&#x27;,
+            &#x27;254&#x27;
+        ],
+        [
+            &#x27;Kiribati&#x27;,
+            &#x27;ki&#x27;,
+            &#x27;686&#x27;
+        ],
+        [
+            &#x27;Kosovo&#x27;,
+            &#x27;xk&#x27;,
+            &#x27;383&#x27;
+        ],
+        [
+            &#x27;Kuwait (‫الكويت‬‎)&#x27;,
+            &#x27;kw&#x27;,
+            &#x27;965&#x27;
+        ],
+        [
+            &#x27;Kyrgyzstan (Кыргызстан)&#x27;,
+            &#x27;kg&#x27;,
+            &#x27;996&#x27;
+        ],
+        [
+            &#x27;Laos (ລາວ)&#x27;,
+            &#x27;la&#x27;,
+            &#x27;856&#x27;
+        ],
+        [
+            &#x27;Latvia (Latvija)&#x27;,
+            &#x27;lv&#x27;,
+            &#x27;371&#x27;
+        ],
+        [
+            &#x27;Lebanon (‫لبنان‬‎)&#x27;,
+            &#x27;lb&#x27;,
+            &#x27;961&#x27;
+        ],
+        [
+            &#x27;Lesotho&#x27;,
+            &#x27;ls&#x27;,
+            &#x27;266&#x27;
+        ],
+        [
+            &#x27;Liberia&#x27;,
+            &#x27;lr&#x27;,
+            &#x27;231&#x27;
+        ],
+        [
+            &#x27;Libya (‫ليبيا‬‎)&#x27;,
+            &#x27;ly&#x27;,
+            &#x27;218&#x27;
+        ],
+        [
+            &#x27;Liechtenstein&#x27;,
+            &#x27;li&#x27;,
+            &#x27;423&#x27;
+        ],
+        [
+            &#x27;Lithuania (Lietuva)&#x27;,
+            &#x27;lt&#x27;,
+            &#x27;370&#x27;
+        ],
+        [
+            &#x27;Luxembourg&#x27;,
+            &#x27;lu&#x27;,
+            &#x27;352&#x27;
+        ],
+        [
+            &#x27;Macau (澳門)&#x27;,
+            &#x27;mo&#x27;,
+            &#x27;853&#x27;
+        ],
+        [
+            &#x27;Macedonia (FYROM) (Македонија)&#x27;,
+            &#x27;mk&#x27;,
+            &#x27;389&#x27;
+        ],
+        [
+            &#x27;Madagascar (Madagasikara)&#x27;,
+            &#x27;mg&#x27;,
+            &#x27;261&#x27;
+        ],
+        [
+            &#x27;Malawi&#x27;,
+            &#x27;mw&#x27;,
+            &#x27;265&#x27;
+        ],
+        [
+            &#x27;Malaysia&#x27;,
+            &#x27;my&#x27;,
+            &#x27;60&#x27;
+        ],
+        [
+            &#x27;Maldives&#x27;,
+            &#x27;mv&#x27;,
+            &#x27;960&#x27;
+        ],
+        [
+            &#x27;Mali&#x27;,
+            &#x27;ml&#x27;,
+            &#x27;223&#x27;
+        ],
+        [
+            &#x27;Malta&#x27;,
+            &#x27;mt&#x27;,
+            &#x27;356&#x27;
+        ],
+        [
+            &#x27;Marshall Islands&#x27;,
+            &#x27;mh&#x27;,
+            &#x27;692&#x27;
+        ],
+        [
+            &#x27;Martinique&#x27;,
+            &#x27;mq&#x27;,
+            &#x27;596&#x27;
+        ],
+        [
+            &#x27;Mauritania (‫موريتانيا‬‎)&#x27;,
+            &#x27;mr&#x27;,
+            &#x27;222&#x27;
+        ],
+        [
+            &#x27;Mauritius (Moris)&#x27;,
+            &#x27;mu&#x27;,
+            &#x27;230&#x27;
+        ],
+        [
+            &#x27;Mayotte&#x27;,
+            &#x27;yt&#x27;,
+            &#x27;262&#x27;,
+            1
+        ],
+        [
+            &#x27;Mexico (México)&#x27;,
+            &#x27;mx&#x27;,
+            &#x27;52&#x27;
+        ],
+        [
+            &#x27;Micronesia&#x27;,
+            &#x27;fm&#x27;,
+            &#x27;691&#x27;
+        ],
+        [
+            &#x27;Moldova (Republica Moldova)&#x27;,
+            &#x27;md&#x27;,
+            &#x27;373&#x27;
+        ],
+        [
+            &#x27;Monaco&#x27;,
+            &#x27;mc&#x27;,
+            &#x27;377&#x27;
+        ],
+        [
+            &#x27;Mongolia (Монгол)&#x27;,
+            &#x27;mn&#x27;,
+            &#x27;976&#x27;
+        ],
+        [
+            &#x27;Montenegro (Crna Gora)&#x27;,
+            &#x27;me&#x27;,
+            &#x27;382&#x27;
+        ],
+        [
+            &#x27;Montserrat&#x27;,
+            &#x27;ms&#x27;,
+            &#x27;1664&#x27;
+        ],
+        [
+            &#x27;Morocco (‫المغرب‬‎)&#x27;,
+            &#x27;ma&#x27;,
+            &#x27;212&#x27;,
+            0
+        ],
+        [
+            &#x27;Mozambique (Moçambique)&#x27;,
+            &#x27;mz&#x27;,
+            &#x27;258&#x27;
+        ],
+        [
+            &#x27;Myanmar (Burma) (မြန်မာ)&#x27;,
+            &#x27;mm&#x27;,
+            &#x27;95&#x27;
+        ],
+        [
+            &#x27;Namibia (Namibië)&#x27;,
+            &#x27;na&#x27;,
+            &#x27;264&#x27;
+        ],
+        [
+            &#x27;Nauru&#x27;,
+            &#x27;nr&#x27;,
+            &#x27;674&#x27;
+        ],
+        [
+            &#x27;Nepal (नेपाल)&#x27;,
+            &#x27;np&#x27;,
+            &#x27;977&#x27;
+        ],
+        [
+            &#x27;Netherlands (Nederland)&#x27;,
+            &#x27;nl&#x27;,
+            &#x27;31&#x27;
+        ],
+        [
+            &#x27;New Caledonia (Nouvelle-Calédonie)&#x27;,
+            &#x27;nc&#x27;,
+            &#x27;687&#x27;
+        ],
+        [
+            &#x27;New Zealand&#x27;,
+            &#x27;nz&#x27;,
+            &#x27;64&#x27;
+        ],
+        [
+            &#x27;Nicaragua&#x27;,
+            &#x27;ni&#x27;,
+            &#x27;505&#x27;
+        ],
+        [
+            &#x27;Niger (Nijar)&#x27;,
+            &#x27;ne&#x27;,
+            &#x27;227&#x27;
+        ],
+        [
+            &#x27;Nigeria&#x27;,
+            &#x27;ng&#x27;,
+            &#x27;234&#x27;
+        ],
+        [
+            &#x27;Niue&#x27;,
+            &#x27;nu&#x27;,
+            &#x27;683&#x27;
+        ],
+        [
+            &#x27;Norfolk Island&#x27;,
+            &#x27;nf&#x27;,
+            &#x27;672&#x27;
+        ],
+        [
+            &#x27;North Korea (조선 민주주의 인민 공화국)&#x27;,
+            &#x27;kp&#x27;,
+            &#x27;850&#x27;
+        ],
+        [
+            &#x27;Northern Mariana Islands&#x27;,
+            &#x27;mp&#x27;,
+            &#x27;1670&#x27;
+        ],
+        [
+            &#x27;Norway (Norge)&#x27;,
+            &#x27;no&#x27;,
+            &#x27;47&#x27;,
+            0
+        ],
+        [
+            &#x27;Oman (‫عُمان‬‎)&#x27;,
+            &#x27;om&#x27;,
+            &#x27;968&#x27;
+        ],
+        [
+            &#x27;Pakistan (‫پاکستان‬‎)&#x27;,
+            &#x27;pk&#x27;,
+            &#x27;92&#x27;
+        ],
+        [
+            &#x27;Palau&#x27;,
+            &#x27;pw&#x27;,
+            &#x27;680&#x27;
+        ],
+        [
+            &#x27;Palestine (‫فلسطين‬‎)&#x27;,
+            &#x27;ps&#x27;,
+            &#x27;970&#x27;
+        ],
+        [
+            &#x27;Panama (Panamá)&#x27;,
+            &#x27;pa&#x27;,
+            &#x27;507&#x27;
+        ],
+        [
+            &#x27;Papua New Guinea&#x27;,
+            &#x27;pg&#x27;,
+            &#x27;675&#x27;
+        ],
+        [
+            &#x27;Paraguay&#x27;,
+            &#x27;py&#x27;,
+            &#x27;595&#x27;
+        ],
+        [
+            &#x27;Peru (Perú)&#x27;,
+            &#x27;pe&#x27;,
+            &#x27;51&#x27;
+        ],
+        [
+            &#x27;Philippines&#x27;,
+            &#x27;ph&#x27;,
+            &#x27;63&#x27;
+        ],
+        [
+            &#x27;Poland (Polska)&#x27;,
+            &#x27;pl&#x27;,
+            &#x27;48&#x27;
+        ],
+        [
+            &#x27;Portugal&#x27;,
+            &#x27;pt&#x27;,
+            &#x27;351&#x27;
+        ],
+        [
+            &#x27;Puerto Rico&#x27;,
+            &#x27;pr&#x27;,
+            &#x27;1&#x27;,
+            3,
+            [&#x27;787&#x27;, &#x27;939&#x27;]
+        ],
+        [
+            &#x27;Qatar (‫قطر‬‎)&#x27;,
+            &#x27;qa&#x27;,
+            &#x27;974&#x27;
+        ],
+        [
+            &#x27;Réunion (La Réunion)&#x27;,
+            &#x27;re&#x27;,
+            &#x27;262&#x27;,
+            0
+        ],
+        [
+            &#x27;Romania (România)&#x27;,
+            &#x27;ro&#x27;,
+            &#x27;40&#x27;
+        ],
+        [
+            &#x27;Russia (Россия)&#x27;,
+            &#x27;ru&#x27;,
+            &#x27;7&#x27;,
+            0
+        ],
+        [
+            &#x27;Rwanda&#x27;,
+            &#x27;rw&#x27;,
+            &#x27;250&#x27;
+        ],
+        [
+            &#x27;Saint Barthélemy (Saint-Barthélemy)&#x27;,
+            &#x27;bl&#x27;,
+            &#x27;590&#x27;,
+            1
+        ],
+        [
+            &#x27;Saint Helena&#x27;,
+            &#x27;sh&#x27;,
+            &#x27;290&#x27;
+        ],
+        [
+            &#x27;Saint Kitts and Nevis&#x27;,
+            &#x27;kn&#x27;,
+            &#x27;1869&#x27;
+        ],
+        [
+            &#x27;Saint Lucia&#x27;,
+            &#x27;lc&#x27;,
+            &#x27;1758&#x27;
+        ],
+        [
+            &#x27;Saint Martin (Saint-Martin (partie française))&#x27;,
+            &#x27;mf&#x27;,
+            &#x27;590&#x27;,
+            2
+        ],
+        [
+            &#x27;Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)&#x27;,
+            &#x27;pm&#x27;,
+            &#x27;508&#x27;
+        ],
+        [
+            &#x27;Saint Vincent and the Grenadines&#x27;,
+            &#x27;vc&#x27;,
+            &#x27;1784&#x27;
+        ],
+        [
+            &#x27;Samoa&#x27;,
+            &#x27;ws&#x27;,
+            &#x27;685&#x27;
+        ],
+        [
+            &#x27;San Marino&#x27;,
+            &#x27;sm&#x27;,
+            &#x27;378&#x27;
+        ],
+        [
+            &#x27;São Tomé and Príncipe (São Tomé e Príncipe)&#x27;,
+            &#x27;st&#x27;,
+            &#x27;239&#x27;
+        ],
+        [
+            &#x27;Saudi Arabia (‫المملكة العربية السعودية‬‎)&#x27;,
+            &#x27;sa&#x27;,
+            &#x27;966&#x27;
+        ],
+        [
+            &#x27;Senegal (Sénégal)&#x27;,
+            &#x27;sn&#x27;,
+            &#x27;221&#x27;
+        ],
+        [
+            &#x27;Serbia (Србија)&#x27;,
+            &#x27;rs&#x27;,
+            &#x27;381&#x27;
+        ],
+        [
+            &#x27;Seychelles&#x27;,
+            &#x27;sc&#x27;,
+            &#x27;248&#x27;
+        ],
+        [
+            &#x27;Sierra Leone&#x27;,
+            &#x27;sl&#x27;,
+            &#x27;232&#x27;
+        ],
+        [
+            &#x27;Singapore&#x27;,
+            &#x27;sg&#x27;,
+            &#x27;65&#x27;
+        ],
+        [
+            &#x27;Sint Maarten&#x27;,
+            &#x27;sx&#x27;,
+            &#x27;1721&#x27;
+        ],
+        [
+            &#x27;Slovakia (Slovensko)&#x27;,
+            &#x27;sk&#x27;,
+            &#x27;421&#x27;
+        ],
+        [
+            &#x27;Slovenia (Slovenija)&#x27;,
+            &#x27;si&#x27;,
+            &#x27;386&#x27;
+        ],
+        [
+            &#x27;Solomon Islands&#x27;,
+            &#x27;sb&#x27;,
+            &#x27;677&#x27;
+        ],
+        [
+            &#x27;Somalia (Soomaaliya)&#x27;,
+            &#x27;so&#x27;,
+            &#x27;252&#x27;
+        ],
+        [
+            &#x27;South Africa&#x27;,
+            &#x27;za&#x27;,
+            &#x27;27&#x27;
+        ],
+        [
+            &#x27;South Korea (대한민국)&#x27;,
+            &#x27;kr&#x27;,
+            &#x27;82&#x27;
+        ],
+        [
+            &#x27;South Sudan (‫جنوب السودان‬‎)&#x27;,
+            &#x27;ss&#x27;,
+            &#x27;211&#x27;
+        ],
+        [
+            &#x27;Spain (España)&#x27;,
+            &#x27;es&#x27;,
+            &#x27;34&#x27;
+        ],
+        [
+            &#x27;Sri Lanka (ශ්‍රී ලංකාව)&#x27;,
+            &#x27;lk&#x27;,
+            &#x27;94&#x27;
+        ],
+        [
+            &#x27;Sudan (‫السودان‬‎)&#x27;,
+            &#x27;sd&#x27;,
+            &#x27;249&#x27;
+        ],
+        [
+            &#x27;Suriname&#x27;,
+            &#x27;sr&#x27;,
+            &#x27;597&#x27;
+        ],
+        [
+            &#x27;Svalbard and Jan Mayen&#x27;,
+            &#x27;sj&#x27;,
+            &#x27;47&#x27;,
+            1
+        ],
+        [
+            &#x27;Swaziland&#x27;,
+            &#x27;sz&#x27;,
+            &#x27;268&#x27;
+        ],
+        [
+            &#x27;Sweden (Sverige)&#x27;,
+            &#x27;se&#x27;,
+            &#x27;46&#x27;
+        ],
+        [
+            &#x27;Switzerland (Schweiz)&#x27;,
+            &#x27;ch&#x27;,
+            &#x27;41&#x27;
+        ],
+        [
+            &#x27;Syria (‫سوريا‬‎)&#x27;,
+            &#x27;sy&#x27;,
+            &#x27;963&#x27;
+        ],
+        [
+            &#x27;Taiwan (台灣)&#x27;,
+            &#x27;tw&#x27;,
+            &#x27;886&#x27;
+        ],
+        [
+            &#x27;Tajikistan&#x27;,
+            &#x27;tj&#x27;,
+            &#x27;992&#x27;
+        ],
+        [
+            &#x27;Tanzania&#x27;,
+            &#x27;tz&#x27;,
+            &#x27;255&#x27;
+        ],
+        [
+            &#x27;Thailand (ไทย)&#x27;,
+            &#x27;th&#x27;,
+            &#x27;66&#x27;
+        ],
+        [
+            &#x27;Timor-Leste&#x27;,
+            &#x27;tl&#x27;,
+            &#x27;670&#x27;
+        ],
+        [
+            &#x27;Togo&#x27;,
+            &#x27;tg&#x27;,
+            &#x27;228&#x27;
+        ],
+        [
+            &#x27;Tokelau&#x27;,
+            &#x27;tk&#x27;,
+            &#x27;690&#x27;
+        ],
+        [
+            &#x27;Tonga&#x27;,
+            &#x27;to&#x27;,
+            &#x27;676&#x27;
+        ],
+        [
+            &#x27;Trinidad and Tobago&#x27;,
+            &#x27;tt&#x27;,
+            &#x27;1868&#x27;
+        ],
+        [
+            &#x27;Tunisia (‫تونس‬‎)&#x27;,
+            &#x27;tn&#x27;,
+            &#x27;216&#x27;
+        ],
+        [
+            &#x27;Turkey (Türkiye)&#x27;,
+            &#x27;tr&#x27;,
+            &#x27;90&#x27;
+        ],
+        [
+            &#x27;Turkmenistan&#x27;,
+            &#x27;tm&#x27;,
+            &#x27;993&#x27;
+        ],
+        [
+            &#x27;Turks and Caicos Islands&#x27;,
+            &#x27;tc&#x27;,
+            &#x27;1649&#x27;
+        ],
+        [
+            &#x27;Tuvalu&#x27;,
+            &#x27;tv&#x27;,
+            &#x27;688&#x27;
+        ],
+        [
+            &#x27;U.S. Virgin Islands&#x27;,
+            &#x27;vi&#x27;,
+            &#x27;1340&#x27;
+        ],
+        [
+            &#x27;Uganda&#x27;,
+            &#x27;ug&#x27;,
+            &#x27;256&#x27;
+        ],
+        [
+            &#x27;Ukraine (Україна)&#x27;,
+            &#x27;ua&#x27;,
+            &#x27;380&#x27;
+        ],
+        [
+            &#x27;United Arab Emirates (‫الإمارات العربية المتحدة‬‎)&#x27;,
+            &#x27;ae&#x27;,
+            &#x27;971&#x27;
+        ],
+        [
+            &#x27;United Kingdom&#x27;,
+            &#x27;gb&#x27;,
+            &#x27;44&#x27;,
+            0
+        ],
+        [
+            &#x27;United States&#x27;,
+            &#x27;us&#x27;,
+            &#x27;1&#x27;,
+            0
+        ],
+        [
+            &#x27;Uruguay&#x27;,
+            &#x27;uy&#x27;,
+            &#x27;598&#x27;
+        ],
+        [
+            &#x27;Uzbekistan (Oʻzbekiston)&#x27;,
+            &#x27;uz&#x27;,
+            &#x27;998&#x27;
+        ],
+        [
+            &#x27;Vanuatu&#x27;,
+            &#x27;vu&#x27;,
+            &#x27;678&#x27;
+        ],
+        [
+            &#x27;Vatican City (Città del Vaticano)&#x27;,
+            &#x27;va&#x27;,
+            &#x27;39&#x27;,
+            1
+        ],
+        [
+            &#x27;Venezuela&#x27;,
+            &#x27;ve&#x27;,
+            &#x27;58&#x27;
+        ],
+        [
+            &#x27;Vietnam (Việt Nam)&#x27;,
+            &#x27;vn&#x27;,
+            &#x27;84&#x27;
+        ],
+        [
+            &#x27;Wallis and Futuna&#x27;,
+            &#x27;wf&#x27;,
+            &#x27;681&#x27;
+        ],
+        [
+            &#x27;Western Sahara (‫الصحراء الغربية‬‎)&#x27;,
+            &#x27;eh&#x27;,
+            &#x27;212&#x27;,
+            1
+        ],
+        [
+            &#x27;Yemen (‫اليمن‬‎)&#x27;,
+            &#x27;ye&#x27;,
+            &#x27;967&#x27;
+        ],
+        [
+            &#x27;Zambia&#x27;,
+            &#x27;zm&#x27;,
+            &#x27;260&#x27;
+        ],
+        [
+            &#x27;Zimbabwe&#x27;,
+            &#x27;zw&#x27;,
+            &#x27;263&#x27;
+        ],
+        [
+            &#x27;Åland Islands&#x27;,
+            &#x27;ax&#x27;,
+            &#x27;358&#x27;,
+            1
+        ]
+    ];
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>
