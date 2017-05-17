@@ -1,35 +1,27 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SampleComponent } from './sample.component';
-import { SampleDirective } from './sample.directive';
-import { SamplePipe } from './sample.pipe';
-import { SampleService } from './sample.service';
+import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
+import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
 
-export * from './sample.component';
-export * from './sample.directive';
-export * from './sample.pipe';
-export * from './sample.service';
+export * from './ngx-intl-tel-input.component';
+export * from './ngx-intl-tel-input.service';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SampleComponent,
-    SampleDirective,
-    SamplePipe
+    NgxIntlTelInputComponent
   ],
   exports: [
-    SampleComponent,
-    SampleDirective,
-    SamplePipe
+    NgxIntlTelInputComponent
   ]
 })
-export class SampleModule {
+export class NgxIntlTelInputModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SampleModule,
-      providers: [SampleService]
+      ngModule: NgxIntlTelInputModule,
+      providers: [NgxIntlTelInputService]
     };
   }
 }
