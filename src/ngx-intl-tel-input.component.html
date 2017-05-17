@@ -1,11 +1,11 @@
 <div class="intl-tel-input allow-dropdown">
     <div class="flag-container" dropdown>
-        <div class="selected-flag" dropdownToggle>
-            <div class="iti-flag"></div>
+        <div class="selected-flag dropdown-toggle" dropdownToggle>
+            <div class="iti-flag" [ngClass]="selectedCountry.flagClass"></div>
             <div class="iti-arrow"></div>
         </div>
-        <ul class="country-list" *dropdownMenu>
-            <li class="country" *ngFor="let country of allCountries">
+        <ul class="country-list dropdown-menu" *dropdownMenu>
+            <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country)">
                 <div class="flag-box">
                     <div class="iti-flag" [ngClass]="country.flagClass"></div>
                 </div>
@@ -14,5 +14,6 @@
             </li>
         </ul>
     </div>
-    <input type="tel" id="phone" class="form-control" autocomplete="off" placeholder="(204) 234-5678">
+    <input type="tel" id="phone" class="form-control" autocomplete="off" [(ngModel)]="phone_number" (ngModelChange)="onPhoneNumberChange()" placeholder="(204) 234-5678">
 </div>
+Selected Value : {{value}}
