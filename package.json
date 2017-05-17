@@ -1,6 +1,6 @@
 {
   "name": "ngx-intl-tel-input",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "^4.1.2",
     "@angular/compiler": "^4.1.2",
@@ -42,5 +41,21 @@
     "ts-node": "~3.0.4",
     "tslint": "~5.2.0",
     "typescript": "~2.3.2"
-  }
+  },
+  "description": "Phone number input field to support internation codes, Angular",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcat12345/ngx-intl-tel-input.git"
+  },
+  "keywords": [
+    "ngx",
+    "phone-number",
+    "angular"
+  ],
+  "author": "webcat12345",
+  "bugs": {
+    "url": "https://github.com/webcat12345/ngx-intl-tel-input/issues"
+  },
+  "homepage": "https://github.com/webcat12345/ngx-intl-tel-input#readme"
 }
