@@ -72,3 +72,6 @@ $ npm run lint
 ## License
 
 MIT © [webcat12345](mailto:webcat91@gmail.com)
+
+
+! npm install bootstrap --save
