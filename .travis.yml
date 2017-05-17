@@ -17,7 +17,6 @@ addons:
      - google-chrome-stable
 
 script:
-  - npm install
   - npm run build
 
 notifications:
