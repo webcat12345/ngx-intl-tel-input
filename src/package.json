@@ -24,6 +24,7 @@
     "zone.js": "^0.8.4"
   },
   "dependencies": {
+    "google-libphonenumber": "^2.0.15",
     "ngx-bootstrap": "^1.6.6"
   }
 }

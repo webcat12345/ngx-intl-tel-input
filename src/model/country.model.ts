@@ -5,6 +5,7 @@ export class Country {
     priority: number;
     areaCode: number;
     flagClass: string;
+    placeHolder: string;
     constructor() {
         this.name = '';
         this.iso2 = '';
@@ -12,5 +13,6 @@ export class Country {
         this.priority = 0;
         this.areaCode = null;
         this.flagClass = '';
+        this.placeHolder = '';
     }
 }

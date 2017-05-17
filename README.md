@@ -10,49 +10,34 @@ To install this library, run:
 $ npm install ngx-intl-tel-input --save
 ```
 
-## Consuming your library
+## Consuming library
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install ngx-intl-tel-input
-```
-
-and then from your Angular `AppModule`:
+From your Angular `AppModule`:
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
 // Import your library
-import { SampleModule } from 'ngx-intl-tel-input';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  ...
   imports: [
-    BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
+      ...
+    NgxIntlTelInputModule
+      ...
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  ...
 })
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+Once library is imported, you can use components in your Angular application:
 
 ```xml
 <!-- You can now use your library component in app.component.html -->
 <h1>
-  {{title}}
+  {{phone_number}}
 </h1>
-<sampleComponent></sampleComponent>
+<ngx-intl-tel-input [(value)]="phone_number"></ngx-intl-tel-input>
 ```
 
 ## Development
@@ -72,6 +57,3 @@ $ npm run lint
 ## License
 
 MIT © [webcat12345](mailto:webcat91@gmail.com)
-
-
-! npm install bootstrap --save

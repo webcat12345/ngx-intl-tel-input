@@ -14,6 +14,9 @@
             </li>
         </ul>
     </div>
-    <input type="tel" id="phone" class="form-control" autocomplete="off" [(ngModel)]="phone_number" (ngModelChange)="onPhoneNumberChange()" placeholder="(204) 234-5678">
+    <input type="tel" id="phone" class="form-control" autocomplete="off"
+           (keypress)="onInputKeyPress($event)"
+           [(ngModel)]="phone_number"
+           (ngModelChange)="onPhoneNumberChange()"
+           [placeholder]="selectedCountry.placeHolder">
 </div>
-Selected Value : {{value}}

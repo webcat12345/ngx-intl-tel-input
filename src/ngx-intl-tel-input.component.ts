@@ -1,6 +1,7 @@
-import { Component, Output, Input, OnInit } from '@angular/core';
+import { Component, Output, Input, OnInit, EventEmitter } from '@angular/core';
 import { CountryCode } from './resource/country-code';
 import { Country } from './model/country.model';
+import * as _ from 'google-libphonenumber';
 
 @Component({
   selector: 'ngx-intl-tel-input',
@@ -10,6 +11,8 @@ import { Country } from './model/country.model';
 })
 export class NgxIntlTelInputComponent implements OnInit {
   @Input() value = '';
+  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
+
   phone_number = '';
   allCountries: Array<Country> = [];
   selectedCountry: Country = new Country();
@@ -23,6 +26,27 @@ export class NgxIntlTelInputComponent implements OnInit {
     this.selectedCountry = this.allCountries[0];
   }
 
+  public onPhoneNumberChange(): void {
+    this.value = this.selectedCountry.dialCode + this.phone_number;
+    this.valueChange.emit(this.value);
+  }
+
+  public onCountrySelect(country: Country): void {
+    this.selectedCountry = country;
+    if (this.phone_number.length > 0) {
+      this.value = this.selectedCountry.dialCode + this.phone_number;
+      this.valueChange.emit(this.value);
+    }
+  }
+
+  public onInputKeyPress(event): void {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+
   protected fetchCountryData(): void {
     this.countryCodeData.allCountries.forEach(c => {
       let country = new Country();
@@ -32,16 +56,21 @@ export class NgxIntlTelInputComponent implements OnInit {
       country.priority = +c[3] || 0;
       country.areaCode = +c[4] || null;
       country.flagClass = country.iso2.toLocaleLowerCase();
+      country.placeHolder = this.getPhoneNumberPlaceHolder(country.iso2.toUpperCase());
       this.allCountries.push(country);
     });
   }
 
-  public onPhoneNumberChange(): void {
-    this.value = this.selectedCountry.dialCode + this.phone_number;
+  protected getPhoneNumberPlaceHolder(countryCode: string): string {
+    const phoneUtil = _.PhoneNumberUtil.getInstance();
+    const pnf = _.PhoneNumberFormat;
+    try {
+      let phoneNumber = phoneUtil.parse('2236512366', countryCode);
+      return phoneUtil.format(phoneNumber, pnf.INTERNATIONAL);
+    } catch (e) {
+      console.log('CountryCode: "' + countryCode + '" ' + e);
+      return e;
+    }
   }
 
-  public onCountrySelect(country: Country): void {
-    this.selectedCountry = country;
-    this.value = this.selectedCountry.dialCode + this.phone_number;
-  }
 }

@@ -1,5 +1,11 @@
-<h1>
-  {{title}}
-</h1>
-<ngx-intl-tel-input [value]="phone_number"></ngx-intl-tel-input>
-<div>{{phone_number}}</div>
+<div class="container-fluid">
+  <div class="page-header">
+    <h1>Angular International Telephone Input</h1>
+  </div>
+  <div class="container">
+    <h2>Demo</h2>
+    <ngx-intl-tel-input [(value)]="phone_number"></ngx-intl-tel-input>
+    <br><br><br>
+    <span>Phone number : </span>{{phone_number}}
+  </div>
+</div>
