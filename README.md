@@ -15,6 +15,28 @@ To install this library, run:
 $ npm install ngx-intl-tel-input --save
 ```
 
+This library depends on `BsDropdownModule` from `ngx-bootstrap/dropdown`.
+To install this library, run:
+```bash
+$ npm install ngx-bootstrap --save
+```
+Then import `BsDropdownModule` at `AppModule`. (more details see : http://valor-software.com/ngx-bootstrap/#/dropdowns)
+
+```typescript
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+@NgModule({
+  ...
+  imports: [
+      ...
+    BsDropdownModule.forRoot()
+      ...
+  ],
+  ...
+})
+export class AppModule { }
+```
+
 ## Consuming library
 
 Injecting StyleSheet

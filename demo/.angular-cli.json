@@ -21,7 +21,8 @@
       "styles": [
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/bootstrap/dist/css/bootstrap-theme.css"
+        "../node_modules/bootstrap/dist/css/bootstrap-theme.css",
+        "../node_modules/ngx-intl-tel-input/resource/intl-tel-input.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
