@@ -17,6 +17,17 @@ $ npm install ngx-intl-tel-input --save
 
 ## Consuming library
 
+Injecting StyleSheet
+
+Inside `angular-cli.json`
+```json
+ "styles": [
+       
+        "../node_modules/ngx-intl-tel-input/resource/intl-tel-input.css"
+      ],
+```
+
+
 From your Angular `AppModule`:
 
 ```typescript

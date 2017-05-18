@@ -12,6 +12,7 @@ const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
+const resourceFolder = path.join(rootFolder, 'src/resource');
 const distFolder = path.join(rootFolder, 'dist');
 
 /**
@@ -137,7 +138,6 @@ gulp.task('copy:build', function () {
   return gulp.src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
     .pipe(gulp.dest(distFolder));
 });
-
 /**
  * 8. Copy package.json from /src to /dist
  */
@@ -153,16 +153,22 @@ gulp.task('copy:readme', function () {
   return gulp.src([path.join(rootFolder, 'README.md')])
     .pipe(gulp.dest(distFolder));
 });
-
 /**
- * 10. Delete /.tmp folder
+ * 10. Copy resource folder
+ */
+gulp.task('copy:resource', function () {
+    return gulp.src([`${resourceFolder}/**/*`])
+        .pipe(gulp.dest(`${distFolder}/resource`));
+});
+/**
+ * 11. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
   return deleteFolders([tmpFolder]);
 });
 
 /**
- * 11. Delete /build folder
+ * 12. Delete /build folder
  */
 gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
@@ -179,6 +185,7 @@ gulp.task('compile', function () {
     'copy:build',
     'copy:manifest',
     'copy:readme',
+    'copy:resource',
     'clean:build',
     'clean:tmp',
     function (err) {

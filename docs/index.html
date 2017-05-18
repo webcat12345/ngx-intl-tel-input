@@ -110,6 +110,9 @@
                                     <a href="./classes/CountryCode.html" >CountryCode</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./classes/CountryCode.html" >CountryCode</a>
+                                </li>
+                                <li class="link">
                                     <a href="./classes/DemoPage.html" >DemoPage</a>
                                 </li>
                         </ul>
@@ -244,6 +247,9 @@
                                            <a href="./classes/CountryCode.html" >CountryCode</a>
                                        </li>
                                        <li class="link">
+                                           <a href="./classes/CountryCode.html" >CountryCode</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="./classes/DemoPage.html" >DemoPage</a>
                                        </li>
                                </ul>
@@ -287,10 +293,17 @@
 <h1 id="international-telephone-input">International Telephone Input</h1>
 <p><a href="https://travis-ci.org/webcat12345/ngx-intl-tel-input"><img src="https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master" alt="Build Status" class="img-responsive"></a> <a href="https://badge.fury.io/js/ngx-intl-tel-input"><img src="https://badge.fury.io/js/ngx-intl-tel-input.svg" alt="npm version" class="img-responsive"></a> <a href="https://www.npmjs.com/package/ngx-intl-tel-input"><img src="https://img.shields.io/npm/dm/localeval.svg" alt="npm" class="img-responsive"></a></p>
 <p>An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user&#39;s country, displays a relevant placeholder and provides formatting/validation methods.</p>
+<h2 id="documentation">Documentation</h2>
+<p><a href="https://webcat12345.github.io/ngx-intl-tel-input/overview.html">https://webcat12345.github.io/ngx-intl-tel-input/overview.html</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm install ngx-intl-tel-input --save</code></pre><h2 id="consuming-library">Consuming library</h2>
-<p>From your Angular <code>AppModule</code>:</p>
+<p>Injecting StyleSheet</p>
+<p>Inside <code>angular-cli.json</code></p>
+<pre class="line-numbers"><code class="language-json"> &quot;styles&quot;: [
+
+        &quot;../node_modules/ngx-intl-tel-input/resource/intl-tel-input.css&quot;
+      ],</code></pre><p>From your Angular <code>AppModule</code>:</p>
 <pre class="line-numbers"><code class="language-typescript">// Import your library
 import { NgxIntlTelInputModule } from &#39;ngx-intl-tel-input&#39;;
 
