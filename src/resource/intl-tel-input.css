@@ -83,6 +83,8 @@
 .intl-tel-input .country-list .divider {
     padding-bottom: 5px;
     margin-bottom: 5px;
+    background-color: transparent;
+    margin-top: 0;
     border-bottom: 1px solid #CCC; }
 .intl-tel-input .country-list .country {
     padding: 5px 10px; }

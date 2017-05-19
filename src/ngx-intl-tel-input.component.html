@@ -5,7 +5,15 @@
             <div class="iti-arrow"></div>
         </div>
         <ul class="country-list dropdown-menu" *dropdownMenu>
-            <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country)">
+            <li class="country" *ngFor="let country of preferredCountriesInDropDown" (click)="onCountrySelect(country, focusable)">
+                <div class="flag-box">
+                    <div class="iti-flag" [ngClass]="country.flagClass"></div>
+                </div>
+                <span class="country-name">{{country.name}}</span>
+                <span class="dial-code">+{{country.dialCode}}</span>
+            </li>
+            <li class="divider"></li>
+            <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country, focusable)">
                 <div class="flag-box">
                     <div class="iti-flag" [ngClass]="country.flagClass"></div>
                 </div>
@@ -18,5 +26,5 @@
            (keypress)="onInputKeyPress($event)"
            [(ngModel)]="phone_number"
            (ngModelChange)="onPhoneNumberChange()"
-           [placeholder]="selectedCountry.placeHolder">
+           [placeholder]="selectedCountry.placeHolder" #focusable>
 </div>
