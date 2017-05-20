@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  phone_number = '';
+  phone_number_standard = '';
+  phone_number_preffered = '';
+  preferredCountries = ['us', 'au', 'ru', 'gb'];
 }

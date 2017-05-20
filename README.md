@@ -11,6 +11,11 @@ An Angular package for entering and validating international telephone numbers. 
 
 https://webcat12345.github.io/ngx-intl-tel-input/overview.html
 
+## Pull requests are welcome!!!
+
+#### Merged pull requests
+https://github.com/webcat12345/ngx-intl-tel-input/pull/3
+
 ## Installation
 
 To install this library, run:
@@ -81,6 +86,15 @@ Once library is imported, you can use components in your Angular application:
 </h1>
 <ngx-intl-tel-input [(value)]="phone_number"></ngx-intl-tel-input>
 ```
+
+### Parameters
+
+Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+
+| Input | Description |
+| ------ | ------ |
+| value | Phone number |
+| preferredCountries | https://github.com/webcat12345/ngx-intl-tel-input/pull/3 |
 
 ## Development
 

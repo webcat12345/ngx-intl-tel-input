@@ -1,3 +1,29 @@
 h2 {
   margin: 40px 10px;
 }
+
+.avatar {
+  margin-left: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid white;
+}
+
+.marquee {
+  background: #ff5d5d;
+  min-height: 250px;
+  padding: 20px;
+  color: white;
+  align-items: center;
+  display: flex;
+}
+
+.marquee h1 {
+  text-align: center;
+  font-size: 52px;
+  font-family: 'Baloo', cursive;
+}
+
+span {
+  margin-left: 50px;
+}

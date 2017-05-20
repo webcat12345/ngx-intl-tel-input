@@ -1,11 +1,20 @@
-<div class="container-fluid">
-  <div class="page-header">
-    <h1>Angular International Telephone Input</h1>
+<header class="marquee">
+  <h1>Angular International Telephone Input</h1>
+  <div class="avatar">
+    <a href="https://github.com/webcat12345">
+      <img src="https://avatars3.githubusercontent.com/u/19761422?v=3&s=460" width="200px">
+    </a>
+  </div>
+</header>
+<div class="container">
+  <div class="container">
+    <h2>Standard Usage</h2>
+    <ngx-intl-tel-input [(value)]="phone_number_standard" [preferredCountries]="preferredCountries"></ngx-intl-tel-input>
+    <span>Phone number : </span>{{phone_number}}
   </div>
   <div class="container">
-    <h2>Demo</h2>
-    <ngx-intl-tel-input [(value)]="phone_number"></ngx-intl-tel-input>
-    <br><br><br>
+    <h2>Preferred Countries</h2>
+    <ngx-intl-tel-input [(value)]="phone_number" [preferredCountries]="phone_number_preffered"></ngx-intl-tel-input>
     <span>Phone number : </span>{{phone_number}}
   </div>
 </div>
