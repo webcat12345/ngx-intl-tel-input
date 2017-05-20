@@ -11,10 +11,12 @@ import * as _ from 'google-libphonenumber';
 })
 export class NgxIntlTelInputComponent implements OnInit {
   @Input() value = '';
+  @Input() preferredCountries: Array<string> = [];
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   phone_number = '';
   allCountries: Array<Country> = [];
+  preferredCountriesInDropDown: Array<Country> = [];
   selectedCountry: Country = new Country();
   constructor(
       private countryCodeData: CountryCode
@@ -23,7 +25,19 @@ export class NgxIntlTelInputComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedCountry = this.allCountries[0];
+    if (this.preferredCountries.length) {
+      this.preferredCountries.forEach(iso2 => {
+        let preferredCountry = this.allCountries.filter((c) => {
+          return c.iso2 === iso2;
+        });
+        this.preferredCountriesInDropDown.push(preferredCountry[0]);
+      });
+    }
+    if (this.preferredCountriesInDropDown.length) {
+      this.selectedCountry = this.preferredCountriesInDropDown[0];
+    } else {
+      this.selectedCountry = this.allCountries[0];
+    }
   }
 
   public onPhoneNumberChange(): void {
@@ -31,12 +45,13 @@ export class NgxIntlTelInputComponent implements OnInit {
     this.valueChange.emit(this.value);
   }
 
-  public onCountrySelect(country: Country): void {
+  public onCountrySelect(country: Country, el): void {
     this.selectedCountry = country;
     if (this.phone_number.length > 0) {
       this.value = this.selectedCountry.dialCode + this.phone_number;
       this.valueChange.emit(this.value);
     }
+    el.focus();
   }
 
   public onInputKeyPress(event): void {
@@ -72,5 +87,4 @@ export class NgxIntlTelInputComponent implements OnInit {
       return e;
     }
   }
-
 }
