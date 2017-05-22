@@ -291,13 +291,33 @@
                <div class="content readme">
                    <div class="content-data">
 <h1 id="international-telephone-input">International Telephone Input</h1>
-<p><a href="https://travis-ci.org/webcat12345/ngx-intl-tel-input"><img src="https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master" alt="Build Status" class="img-responsive"></a> <a href="https://badge.fury.io/js/ngx-intl-tel-input"><img src="https://badge.fury.io/js/ngx-intl-tel-input.svg" alt="npm version" class="img-responsive"></a> <a href="https://www.npmjs.com/package/ngx-intl-tel-input"><img src="https://img.shields.io/npm/dm/localeval.svg" alt="npm" class="img-responsive"></a></p>
+<p><a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/webcat12345/ngx-intl-tel-input.svg" alt="Greenkeeper badge" class="img-responsive"></a>
+<a href="https://travis-ci.org/webcat12345/ngx-intl-tel-input"><img src="https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master" alt="Build Status" class="img-responsive"></a> <a href="https://badge.fury.io/js/ngx-intl-tel-input"><img src="https://badge.fury.io/js/ngx-intl-tel-input.svg" alt="npm version" class="img-responsive"></a> <a href="https://www.npmjs.com/package/ngx-intl-tel-input"><img src="https://img.shields.io/npm/dm/localeval.svg" alt="npm" class="img-responsive"></a>
+<a href="https://waffle.io/webcat12345/ngx-intl-tel-input/metrics"><img src="https://graphs.waffle.io/webcat12345/ngx-intl-tel-input/throughput.svg" alt="Throughput Graph" class="img-responsive"></a></p>
 <p>An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user&#39;s country, displays a relevant placeholder and provides formatting/validation methods.</p>
+<p><img src="ngx-intl-tel-input.jpg" alt="alt" class="img-responsive"></p>
 <h2 id="documentation">Documentation</h2>
 <p><a href="https://webcat12345.github.io/ngx-intl-tel-input/overview.html">https://webcat12345.github.io/ngx-intl-tel-input/overview.html</a></p>
+<h2 id="pull-requests-are-welcome-">Pull requests are welcome!!!</h2>
+<h4 id="merged-pull-requests">Merged pull requests</h4>
+<p><a href="https://github.com/webcat12345/ngx-intl-tel-input/pull/3">https://github.com/webcat12345/ngx-intl-tel-input/pull/3</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
-<pre class="line-numbers"><code class="language-bash">$ npm install ngx-intl-tel-input --save</code></pre><h2 id="consuming-library">Consuming library</h2>
+<pre class="line-numbers"><code class="language-bash">$ npm install ngx-intl-tel-input --save</code></pre><p>This library depends on <code>BsDropdownModule</code> from <code>ngx-bootstrap/dropdown</code>.
+To install this library, run:</p>
+<pre class="line-numbers"><code class="language-bash">$ npm install ngx-bootstrap --save</code></pre><p>Then import <code>BsDropdownModule</code> at <code>AppModule</code>. (more details see : <a href="http://valor-software.com/ngx-bootstrap/#/dropdowns">http://valor-software.com/ngx-bootstrap/#/dropdowns</a>)</p>
+<pre class="line-numbers"><code class="language-typescript">import { BsDropdownModule } from &#39;ngx-bootstrap/dropdown&#39;;
+
+&#40;NgModule({
+  ...
+  imports: [
+      ...
+    BsDropdownModule.forRoot()
+      ...
+  ],
+  ...
+})
+export class AppModule { }</code></pre><h2 id="consuming-library">Consuming library</h2>
 <p>Injecting StyleSheet</p>
 <p>Inside <code>angular-cli.json</code></p>
 <pre class="line-numbers"><code class="language-json"> &quot;styles&quot;: [
@@ -321,7 +341,27 @@ export class AppModule { }</code></pre><p>Once library is imported, you can use 
 &lt;h1&gt;
   {{phone_number}}
 &lt;/h1&gt;
-&lt;ngx-intl-tel-input [(value)]=&quot;phone_number&quot;&gt;&lt;/ngx-intl-tel-input&gt;</code></pre><h2 id="development">Development</h2>
+&lt;ngx-intl-tel-input [(value)]=&quot;phone_number&quot;&gt;&lt;/ngx-intl-tel-input&gt;</code></pre><h3 id="parameters">Parameters</h3>
+<p>Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Phone number</td>
+</tr>
+<tr>
+<td>preferredCountries</td>
+<td><a href="https://github.com/webcat12345/ngx-intl-tel-input/pull/3">https://github.com/webcat12345/ngx-intl-tel-input/pull/3</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre><p>To lint all <code>*.ts</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre><h2 id="license">License</h2>
