@@ -377,18 +377,58 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> phone_number</b>
+                            <b> phone_number_preffered</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>phone_number:     <code>string</code>
+                            <code>phone_number_preffered:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">demo/src/app/app.component.ts:10</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> phone_number_standard</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>phone_number_standard:     <code>string</code>
     </bcode>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">demo/src/app/app.component.ts:9</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> preferredCountries</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>preferredCountries:     <code>string[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">demo/src/app/app.component.ts:11</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -406,20 +446,31 @@
   styleUrls: [&#x27;./app.component.css&#x27;]
 })
 export class AppComponent {
-  phone_number &#x3D; &#x27;&#x27;;
+  phone_number_standard &#x3D; &#x27;&#x27;;
+  phone_number_preffered &#x3D; &#x27;&#x27;;
+  preferredCountries &#x3D; [&#x27;us&#x27;, &#x27;au&#x27;, &#x27;ru&#x27;, &#x27;gb&#x27;];
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
-  &lt;div class&#x3D;&quot;page-header&quot;&gt;
-    &lt;h1&gt;Angular International Telephone Input&lt;/h1&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;marquee&quot;&gt;
+  &lt;h1&gt;Angular International Telephone Input&lt;/h1&gt;
+  &lt;div class&#x3D;&quot;avatar&quot;&gt;
+    &lt;a href&#x3D;&quot;https://github.com/webcat12345&quot;&gt;
+      &lt;img src&#x3D;&quot;https://avatars3.githubusercontent.com/u/19761422?v&#x3D;3&amp;s&#x3D;460&quot; width&#x3D;&quot;200px&quot;&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;h2&gt;Standard Usage&lt;/h2&gt;
+    &lt;ngx-intl-tel-input [(value)]&#x3D;&quot;phone_number_standard&quot; [preferredCountries]&#x3D;&quot;preferredCountries&quot;&gt;&lt;/ngx-intl-tel-input&gt;
+    &lt;span&gt;Phone number : &lt;/span&gt;{{phone_number}}
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;container&quot;&gt;
-    &lt;h2&gt;Demo&lt;/h2&gt;
-    &lt;ngx-intl-tel-input [(value)]&#x3D;&quot;phone_number&quot;&gt;&lt;/ngx-intl-tel-input&gt;
-    &lt;br&gt;&lt;br&gt;&lt;br&gt;
+    &lt;h2&gt;Preferred Countries&lt;/h2&gt;
+    &lt;ngx-intl-tel-input [(value)]&#x3D;&quot;phone_number&quot; [preferredCountries]&#x3D;&quot;phone_number_preffered&quot;&gt;&lt;/ngx-intl-tel-input&gt;
     &lt;span&gt;Phone number : &lt;/span&gt;{{phone_number}}
   &lt;/div&gt;
 &lt;/div&gt;
@@ -449,7 +500,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <div class="page-header">    <h1>Angular International Telephone Input</h1>  </div>  <div class="container">    <h2>Demo</h2>    <ngx-intl-tel-input [(value)]="phone_number"></ngx-intl-tel-input>    <br><br><br>    <span>Phone number : </span>{{phone_number}}  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><header class="marquee">  <h1>Angular International Telephone Input</h1>  <div class="avatar">    <a href="https://github.com/webcat12345">      <img src="https://avatars3.githubusercontent.com/u/19761422?v=3&s=460" width="200px">    </a>  </div></header><div class="container">  <div class="container">    <h2>Standard Usage</h2>    <ngx-intl-tel-input [(value)]="phone_number_standard" [preferredCountries]="preferredCountries"></ngx-intl-tel-input>    <span>Phone number : </span>{{phone_number}}  </div>  <div class="container">    <h2>Preferred Countries</h2>    <ngx-intl-tel-input [(value)]="phone_number" [preferredCountries]="phone_number_preffered"></ngx-intl-tel-input>    <span>Phone number : </span>{{phone_number}}  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'NgxIntlTelInputComponent', 'selector': 'ngx-intl-tel-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
