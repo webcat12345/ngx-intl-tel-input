@@ -90,8 +90,6 @@ Once library is imported, you can use components in your Angular application:
 
 ### Parameters
 
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-
 | Input | Description |
 | ------ | ------ |
 | value | Phone number |
