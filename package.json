@@ -38,7 +38,7 @@
     "@types/node": "~7.0.29",
     "codelyzer": "~3.0.1",
     "core-js": "^2.4.1",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
