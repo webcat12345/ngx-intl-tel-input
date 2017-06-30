@@ -54,7 +54,7 @@
     "node-watch": "^0.5.2",
     "protractor": "~5.1.0",
     "rollup": "^0.42.0",
-    "run-sequence": "^1.2.2",
+    "run-sequence": "^2.0.0",
     "rxjs": "^5.1.0",
     "ts-node": "~3.1.0",
     "tslint": "~5.4.2",
