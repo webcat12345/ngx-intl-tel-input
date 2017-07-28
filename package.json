@@ -42,7 +42,7 @@
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
-    "jasmine-core": "~2.6.2",
+    "jasmine-core": "~2.7.0",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
     "karma-chrome-launcher": "~2.2.0",
