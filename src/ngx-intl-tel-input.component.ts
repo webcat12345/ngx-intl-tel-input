@@ -12,6 +12,9 @@ import * as _ from 'google-libphonenumber';
 export class NgxIntlTelInputComponent implements OnInit {
   @Input() value = '';
   @Input() preferredCountries: Array<string> = [];
+  //Array containing country iso names to restrict the number of countries
+  //to display
+  @Input() onlyCountries: Array<string> = [];
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   phone_number = '';
@@ -25,6 +28,12 @@ export class NgxIntlTelInputComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+    //if onlyCountries option is passed, then filter the allCountries array based on it
+    if(this.onlyCountries.length){
+      this.allCountries = this.allCountries.filter(c=> this.onlyCountries.indexOf(c.iso2)>=0);
+    }
+
     if (this.preferredCountries.length) {
       this.preferredCountries.forEach(iso2 => {
         let preferredCountry = this.allCountries.filter((c) => {
