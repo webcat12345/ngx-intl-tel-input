@@ -27,7 +27,7 @@
     "url": "https://github.com/webcat12345/ngx-intl-tel-input/issues"
   },
   "devDependencies": {
-    "@angular/common": "^4.0.0",
+    "@angular/common": "^4.3.5",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
