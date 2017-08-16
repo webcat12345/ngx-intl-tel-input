@@ -15,7 +15,7 @@ export class NgxIntlTelInputComponent implements OnInit {
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() countryValueChange: EventEmitter<Country> = new EventEmitter<Country>();
 
-  phone_number = this.value;
+  phone_number = '';
   allCountries: Array<Country> = [];
   preferredCountriesInDropDown: Array<Country> = [];
   selectedCountry: Country = new Country();
