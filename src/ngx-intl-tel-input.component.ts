@@ -13,6 +13,7 @@ export class NgxIntlTelInputComponent implements OnInit {
   @Input() value = '';
   @Input() preferredCountries: Array<string> = [];
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() countryValueChange: EventEmitter<Country> = new EventEmitter<Country>();
 
   phone_number = '';
   allCountries: Array<Country> = [];
@@ -47,6 +48,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
   public onCountrySelect(country: Country, el): void {
     this.selectedCountry = country;
+    this.countryValueChange.emit(country);
     if (this.phone_number.length > 0) {
       this.value = this.selectedCountry.dialCode + this.phone_number;
       this.valueChange.emit(this.value);
