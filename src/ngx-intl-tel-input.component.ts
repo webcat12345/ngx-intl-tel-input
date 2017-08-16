@@ -45,7 +45,7 @@ export class NgxIntlTelInputComponent implements OnInit {
   }
 
   public onPhoneNumberChange(): void {
-    this.value = this.selectedCountry.dialCode + this.phone_number;
+    this.value = this.phone_number;
     this.valueChange.emit(this.value);
   }
 
