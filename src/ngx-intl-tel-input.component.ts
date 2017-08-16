@@ -15,12 +15,12 @@ export class NgxIntlTelInputComponent implements OnInit {
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() countryValueChange: EventEmitter<Country> = new EventEmitter<Country>();
 
-  phone_number = '';
+  phone_number = this.value;
   allCountries: Array<Country> = [];
   preferredCountriesInDropDown: Array<Country> = [];
   selectedCountry: Country = new Country();
   constructor(
-      private countryCodeData: CountryCode
+    private countryCodeData: CountryCode
   ) {
     this.fetchCountryData();
   }
@@ -39,6 +39,9 @@ export class NgxIntlTelInputComponent implements OnInit {
     } else {
       this.selectedCountry = this.allCountries[0];
     }
+    if (this.phone_number == '') {
+      this.phone_number = this.value;
+    }
   }
 
   public onPhoneNumberChange(): void {
@@ -47,10 +50,12 @@ export class NgxIntlTelInputComponent implements OnInit {
   }
 
   public onCountrySelect(country: Country, el): void {
+    let previousDailCode = this.selectedCountry ? this.selectedCountry.dialCode : '';
     this.selectedCountry = country;
     this.countryValueChange.emit(country);
     if (this.phone_number.length > 0) {
-      this.value = this.selectedCountry.dialCode + this.phone_number;
+      this.value = this.updateCountryCode(previousDailCode, country.dialCode, this.phone_number);
+      this.phone_number = this.value;
       this.valueChange.emit(this.value);
     }
     el.focus();
@@ -88,5 +93,9 @@ export class NgxIntlTelInputComponent implements OnInit {
       console.log('CountryCode: "' + countryCode + '" ' + e);
       return e;
     }
+  }
+
+  private updateCountryCode(previousDailCode, newDailCode, phoneNumber) {
+    return (previousDailCode == '' || !phoneNumber.startsWith(previousDailCode)) ? newDailCode + phoneNumber : phoneNumber.replace(previousDailCode, newDailCode);
   }
 }
