@@ -22,10 +22,10 @@ export class NgxIntlTelInputComponent implements OnInit {
   constructor(
     private countryCodeData: CountryCode
   ) {
-    this.fetchCountryData();
   }
 
   ngOnInit() {
+    this.fetchCountryData();
     if (this.preferredCountries.length) {
       this.preferredCountries.forEach(iso2 => {
         let preferredCountry = this.allCountries.filter((c) => {
@@ -34,9 +34,9 @@ export class NgxIntlTelInputComponent implements OnInit {
         this.preferredCountriesInDropDown.push(preferredCountry[0]);
       });
     }
-    if (this.preferredCountriesInDropDown.length) {
+    if (this.preferredCountriesInDropDown.length && !this.selectedCountry.dialCode) {
       this.selectedCountry = this.preferredCountriesInDropDown[0];
-    } else {
+    } else if(!this.selectedCountry.dialCode) {
       this.selectedCountry = this.allCountries[0];
     }
     if (this.phone_number == '') {
@@ -79,6 +79,9 @@ export class NgxIntlTelInputComponent implements OnInit {
       country.areaCode = +c[4] || null;
       country.flagClass = country.iso2.toLocaleLowerCase();
       country.placeHolder = this.getPhoneNumberPlaceHolder(country.iso2.toUpperCase());
+      if(this.value && this.value.startsWith(country.dialCode)){
+        this.selectedCountry = country;
+      }
       this.allCountries.push(country);
     });
   }
