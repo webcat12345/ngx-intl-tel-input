@@ -44,9 +44,14 @@ export class NgxIntlTelInputComponent implements OnInit {
     }
   }
 
+  ngAfterViewInit() {
+    this.countryValueChange.emit(this.selectedCountry);
+  }
+
   public onPhoneNumberChange(): void {
-    this.value = this.phone_number;
+    this.value = !this.phone_number.startsWith(this.selectedCountry.dialCode)?this.selectedCountry.dialCode+ this.phone_number:this.phone_number;
     this.valueChange.emit(this.value);
+    this.phone_number = this.value;
   }
 
   public onCountrySelect(country: Country, el): void {
@@ -81,6 +86,7 @@ export class NgxIntlTelInputComponent implements OnInit {
       country.placeHolder = this.getPhoneNumberPlaceHolder(country.iso2.toUpperCase());
       if(this.value && this.value.startsWith(country.dialCode)){
         this.selectedCountry = country;
+        this.countryValueChange.emit(country);
       }
       this.allCountries.push(country);
     });
