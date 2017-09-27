@@ -58,7 +58,7 @@
     "rxjs": "^5.1.0",
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.4.1",
+    "typescript": "~2.5.3",
     "zone.js": "^0.8.4"
   },
   "engines": {
