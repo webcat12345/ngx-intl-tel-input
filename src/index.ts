@@ -11,7 +11,7 @@ export * from './ngx-intl-tel-input.service';
   imports: [
     CommonModule,
     FormsModule,
-    BsDropdownModule
+    BsDropdownModule.forRoot()
   ],
   declarations: [
     NgxIntlTelInputComponent
