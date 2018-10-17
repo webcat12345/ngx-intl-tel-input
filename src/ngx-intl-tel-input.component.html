@@ -22,9 +22,8 @@
             </li>
         </ul>
     </div>
-    <input type="tel" id="phone" class="form-control" autocomplete="off"
+    <input type="tel" id="phone" formControlName="myPhone" autocomplete="off"
            (keypress)="onInputKeyPress($event)"
-           [(ngModel)]="phone_number"
            (ngModelChange)="onPhoneNumberChange()"
-           [placeholder]="selectedCountry.placeHolder" #focusable>
+           [placeholder]="selectedCountry.placeHolder" #focusable required>
 </div>
