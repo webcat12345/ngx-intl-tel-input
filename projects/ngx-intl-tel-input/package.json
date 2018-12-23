@@ -1,0 +1,12 @@
+{
+  "name": "ngx-intl-tel-input",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0",
+    "@angular/forms": "~7.1.0",
+    "google-libphonenumber": "^3.2.1",
+    "intl-tel-input": "^14.0.6",
+    "ngx-bootstrap": "^3.1.3"
+  }
+}
