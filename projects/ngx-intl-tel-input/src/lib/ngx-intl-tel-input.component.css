@@ -1,0 +1,12 @@
+li.country:hover { 
+	background-color: rgba(0, 0, 0, 0.05); 
+}
+.selected-flag.dropdown-toggle:after { 
+	content: none; 
+}
+.flag-container.disabled {
+	cursor: default !important; 
+}
+.intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag { 
+	background: none; 
+}

@@ -1,27 +1,110 @@
-# NgxIntlTelInputApp
+# Internation Telephone Input for Angular (NgxIntlTelInput)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+This package is a rewrite of [ngx-intl-tel-input](https://github.com/webcat12345/ngx-intl-tel-input).
+It's not maintained anymore by the original author, so I've updated it to support Angular 7 with ReactiveFormsModule and FormsModule.
 
-## Development server
+It supports validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In addition it has a new input ```[cssClass]``` which allows to replace default Bootstrap class ```.control-form```. You can replace it with your own class name if you don't want your inbox to be styled by Bootstrap.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install Dependencies
 
-## Build
+```$ npm install intl-tel-input --save```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```$ npm install google-libphonenumber --save```
 
-## Running unit tests
+```$ ng add ngx-bootstrap```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Add Dependency Style
 
-## Running end-to-end tests
+Add *'intl-tel-input'* style file: 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```./node_modules/intl-tel-input/build/css/intlTelInput.css```
 
-## Further help
+to **angular.json** styles array:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```json
+
+"styles": [
+  ...
+  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+  "./node_modules/intl-tel-input/build/css/intlTelInput.css",
+  "src/styles.css"
+  ...
+],
+
+```
+
+### Install This Library
+
+```$ npm install ngx-intl-tel-input --save```
+
+## Usage
+
+### Import
+
+Add ```BsDropDownModule``` and ```NgxIntlTelInputModule``` to your module file:
+
+```json
+
+imports: [
+    ...
+    BsDropdownModule.forRoot(),
+    NgxIntlTelInputModule,
+    ...
+  ]
+
+```
+
+## Example
+
+Refer to main app in this repository for working example.
+
+Or this Stackblitz url (TODO: add URL).
+
+```html
+
+<form #f="ngForm" [formGroup]="phoneForm">
+  <ngx-intl-tel-input
+  [cssClass]="'custom'"
+  [preferredCountries]="['us', 'gb']"
+  [enablePlaceholder]="true"
+  name="phone"
+  formControlName="phone"></ngx-intl-tel-input>
+</form>
+
+```
+
+## Options
+
+| Options            | Type                   | Default            | Description                                                   |
+| -------------------|------------------------|--------------------|---------------------------------------------------------------|
+| cssClass           | ```string```           | ```control-form``` | Bootstrap input css class or your own custom one.             |
+| preferredCountries | ```string[]```         | ```[]```           | List of country abbreviations, which will appear at the top.  |
+| enablePlaceholder  | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.|
+
+## Library Contributions
+
+- Fork repo.
+- Update ```./projects/ngx-intl-tel-input```
+- Build / test library.
+- Update ```./src/app``` with new functionality.
+- Update README.md
+- Pull request.
+
+### Helpful commands
+
+- Build lib: ```$ npm run build_lib```
+- Create package: ```$ npm run npm_pack```
+- Build lib and create package: ```$ npm run package```
+
+### Use localy
+
+After building and creating package, you can use it localy too.
+
+In your project run:
+
+```$ npm install --save {{path to your local '*.tgz' package file}}```

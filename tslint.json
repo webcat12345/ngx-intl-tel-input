@@ -1,9 +1,9 @@
 {
   "rulesDirectory": [
-    "codelyzer"
+    "node_modules/codelyzer"
   ],
   "rules": {
-    "arrow-return-shorthand": true,
+    "no - any": true,
     "callable-types": true,
     "class-name": true,
     "comment-format": [
@@ -11,19 +11,13 @@
       "check-space"
     ],
     "curly": true,
-    "deprecation": {
-      "severity": "warn"
-    },
     "eofline": true,
     "forin": true,
-    "import-blacklist": [
-      true,
-      "rxjs/Rx"
-    ],
+    "import-blacklist": [true],
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "tabs"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -36,10 +30,7 @@
       true,
       {
         "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
+          "variables-before-functions"
         ]
       }
     ],
@@ -55,26 +46,20 @@
     ],
     "no-construct": true,
     "no-debugger": true,
-    "no-duplicate-super": true,
+    "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
-    "no-misused-new": true,
-    "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
+    "no-inferrable-types": [true, "ignore-params"],
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
-    "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
+    "no-null-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
       true,
@@ -107,6 +92,7 @@
         "variable-declaration": "nospace"
       }
     ],
+    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
@@ -117,15 +103,36 @@
       "check-separator",
       "check-type"
     ],
-    "no-output-on-prefix": true,
+
+    // The rule have the following arguments:
+    // [ENABLED, "attribute" | "element", "selectorPrefix" | ["listOfPrefixes"], "camelCase" | "kebab-case"]
+    "directive-selector": [true, "attribute", "app", "camelCase"],
+    "component-selector": [true, "element", "app", "kebab-case"],
+
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
     "no-input-rename": true,
+    "no-output-on-prefix": true,
     "no-output-rename": true,
+    "no-forward-ref": true,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true
+    "no-output-named-after-standard-event": true,
+    "max-inline-declarations": true,
+    "no-life-cycle-call": true,
+    "prefer-output-readonly": true,
+    "no-conflicting-life-cycle-hooks": true,
+    "enforce-component-selector": true,
+    "no-queries-parameter": true,
+    "prefer-inline-decorator": true,
+
+    // [ENABLED, "SUFFIX"]
+    // Where "SUFFIX" is your custom suffix, for instance "Page" for Ionic 2 components.
+    "component-class-suffix": [true, "Component"],
+    "directive-class-suffix": [true, "Directive"]
   }
 }
