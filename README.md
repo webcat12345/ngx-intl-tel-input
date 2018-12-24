@@ -28,12 +28,10 @@ to **angular.json** styles array:
 ```json
 
 "styles": [
-  ...
   "./node_modules/bootstrap/dist/css/bootstrap.min.css",
   "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
   "./node_modules/intl-tel-input/build/css/intlTelInput.css",
   "src/styles.css"
-  ...
 ],
 
 ```
@@ -51,10 +49,8 @@ Add ```BsDropDownModule``` and ```NgxIntlTelInputModule``` to your module file:
 ```json
 
 imports: [
-    ...
     BsDropdownModule.forRoot(),
     NgxIntlTelInputModule,
-    ...
   ]
 
 ```
