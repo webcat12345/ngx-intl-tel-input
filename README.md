@@ -46,7 +46,7 @@ to **angular.json** styles array:
 
 Add ```BsDropDownModule``` and ```NgxIntlTelInputModule``` to your module file:
 
-```json
+```javascript
 
 imports: [
     BsDropdownModule.forRoot(),
