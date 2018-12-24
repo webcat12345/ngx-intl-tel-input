@@ -1,5 +1,10 @@
 # Internation Telephone Input for Angular (NgxIntlTelInput)
 
+## Important:
+*I want to upload this package under original name **ngx-intl-tel-input**.
+I've requested the author @webcat12345 to release it to me. Waiting for the response.
+Meanwhile, you can package it yourself and install it locally.*
+
 This package is a rewrite of [ngx-intl-tel-input](https://github.com/webcat12345/ngx-intl-tel-input).
 It's not maintained anymore by the original author, so I've updated it to support Angular 7 with ReactiveFormsModule and FormsModule.
 
