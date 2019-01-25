@@ -1,6 +1,6 @@
 {
   "name": "ngx-intl-tel-input",
-  "version": "1.0.0",
+  "version": "2.0.4",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0",
@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pasevin/ngx-intl-tel-input"
+    "url": "git+https://github.com/webcat12345/ngx-intl-tel-input"
   },
   "author": {
-    "name": "Aleksandr Pasevin",
-    "email": "pasevin@gmail.com"
+    "name": "webcat12345",
+    "email": "webcat91@gmail.com"
   },
   "keywords": [
     "angular",
@@ -30,6 +30,6 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pasevin/ngx-intl-tel-input/issues"
+    "url": "https://github.com/webcat12345/ngx-intl-tel-input/issues"
   }
 }
