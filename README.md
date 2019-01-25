@@ -4,13 +4,14 @@
 
 An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
-![alt](ngx-intl-tel-input.jpg)
+![alt](readme-assets/ngx-intl-tel-input.jpg)
 
-**Supports:** 
- - Angular 7
- - ReactiveFormsModule
- - FormsModule
- - Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
+**Supports:**
+
+- Angular 7
+- ReactiveFormsModule
+- FormsModule
+- Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 
 ## Installation
 
