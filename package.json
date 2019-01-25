@@ -9,6 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build ngx-intl-tel-input",
+    "copy-license": "cp ./LICENSE ./dist/ngx-intl-tel-input",
+    "copy-readme": "cp ./README.md ./dist/ngx-intl-tel-input",
+    "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/ngx-intl-tel-input && npm pack",
     "package": "npm run build_lib && npm run npm_pack"
   },
