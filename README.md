@@ -1,16 +1,16 @@
 # Internation Telephone Input for Angular (NgxIntlTelInput)
 
-## Important:
-*I want to upload this package under original name **ngx-intl-tel-input**.
-I've requested the author @webcat12345 to release it to me. Waiting for the response.
-Meanwhile, you can package it yourself and install it locally.*
+[![Build Status](https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master)](https://travis-ci.org/webcat12345/ngx-intl-tel-input) [![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
 
-This package is a rewrite of [ngx-intl-tel-input](https://github.com/webcat12345/ngx-intl-tel-input).
-It's not maintained anymore by the original author, so I've updated it to support Angular 7 with ReactiveFormsModule and FormsModule.
+An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
-It supports validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber).
+![alt](ngx-intl-tel-input.jpg)
 
-In addition it has a new input ```[cssClass]``` which allows to replace default Bootstrap class ```.control-form```. You can replace it with your own class name if you don't want your inbox to be styled by Bootstrap.
+**Supports:** 
+ - Angular 7
+ - ReactiveFormsModule
+ - FormsModule
+ - Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 
 ## Installation
 
