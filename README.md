@@ -1,4 +1,4 @@
-# Internation Telephone Input for Angular (NgxIntlTelInput)
+# International Telephone Input for Angular (NgxIntlTelInput)
 
 [![Build Status](https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master)](https://travis-ci.org/webcat12345/ngx-intl-tel-input) [![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
 
@@ -100,6 +100,7 @@ Or this Stackblitz url (TODO: add URL).
 ### Helpful commands
 
 - Build lib: ```$ npm run build_lib```
+- Copy license and readme files: ```$ npm run copy-files```
 - Create package: ```$ npm run npm_pack```
 - Build lib and create package: ```$ npm run package```
 
