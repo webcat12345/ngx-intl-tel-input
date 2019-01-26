@@ -65,7 +65,7 @@ imports: [
 
 Refer to main app in this repository for working example.
 
-Or this Stackblitz url (TODO: add URL).
+Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 
 ```html
 
