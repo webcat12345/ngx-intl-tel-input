@@ -31,5 +31,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/webcat12345/ngx-intl-tel-input/issues"
+  },
+  "devDependencies": {
+    "@types/google-libphonenumber": "^7.4.17"
   }
 }
