@@ -45,6 +45,18 @@
         "review",
         "test"
       ]
+    },
+    {
+      "login": "Dviejopomata",
+      "name": "Dviejo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6862893?v=4",
+      "profile": "https://github.com/Dviejopomata",
+      "contributions": [
+        "code",
+        "bug",
+        "example",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
