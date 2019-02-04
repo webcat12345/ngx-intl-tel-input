@@ -3,11 +3,13 @@
   <h3>Test International Telephone Input Form</h3>
   <br>
   <form #f="ngForm" [formGroup]="phoneForm">
-    <ngx-intl-tel-input 
-    [cssClass]="'custom'" 
-    [preferredCountries]="['us', 'gb']" 
-    [enablePlaceholder]="true" 
-    name="phone" 
+    <ngx-intl-tel-input
+    [cssClass]="'custom'"
+    [preferredCountries]="['us', 'gb']"
+    [onlyCountries]="['us', 'gb', 'es']"
+    [enableAutoCountrySelect]="true"
+    [enablePlaceholder]="true"
+    name="phone"
     formControlName="phone"></ngx-intl-tel-input>
   </form>
   <br>
