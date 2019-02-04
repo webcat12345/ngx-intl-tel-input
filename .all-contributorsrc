@@ -1,0 +1,32 @@
+{
+  "projectName": "ngx-intl-tel-input",
+  "projectOwner": "webcat12345",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "webcat12345",
+      "name": "webcat_black",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19761422?v=4",
+      "profile": "https://github.com/webcat12345",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "ideas",
+        "question",
+        "infra",
+        "example",
+        "maintenance",
+        "review",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
