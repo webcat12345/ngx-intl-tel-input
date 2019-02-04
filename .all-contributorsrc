@@ -26,6 +26,25 @@
         "review",
         "test"
       ]
+    },
+    {
+      "login": "pasevin",
+      "name": "Aleksandr Pasevin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1058469?v=4",
+      "profile": "http://pasevin.com",
+      "contributions": [
+        "code",
+        "doc",
+        "bug",
+        "platform",
+        "plugin",
+        "question",
+        "infra",
+        "example",
+        "maintenance",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
