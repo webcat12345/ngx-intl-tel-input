@@ -55,7 +55,10 @@
         "code",
         "bug",
         "example",
-        "test"
+        "test",
+        "question",
+        "maintenance",
+        "review"
       ]
     }
   ],
