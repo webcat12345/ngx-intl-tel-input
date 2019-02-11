@@ -86,7 +86,6 @@ export class NgxIntlTelInputComponent implements OnInit {
 			countryCode = number && number.getCountryCode()
 				? this.getCountryIsoCode(number.getCountryCode(), number)
 				: this.selectedCountry.iso2;
-			console.log(countryCode);
 			if (countryCode !== this.selectedCountry.iso2) {
 				const newCountry = this.allCountries.find(c => c.iso2 === countryCode);
 				if (newCountry) {
@@ -159,7 +158,6 @@ export class NgxIntlTelInputComponent implements OnInit {
 		try {
 			return this.phoneUtil.format(this.phoneUtil.getExampleNumber(countryCode), lpn.PhoneNumberFormat.INTERNATIONAL);
 		} catch (e) {
-			console.log('CountryCode: "' + countryCode + '" ' + e);
 			return e;
 		}
 	}
@@ -196,8 +194,6 @@ export class NgxIntlTelInputComponent implements OnInit {
 		const secondaryCountries = countries.filter(c => c.areaCodes !== undefined);
 		let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
 
-		console.log(mainCountry);
-		console.log(secondaryCountries);
 		/*
 			Interate over each secondary country and check if nationalNumber starts with any of areaCodes available.
 			If no matches found, fallback to the main country.
@@ -205,7 +201,6 @@ export class NgxIntlTelInputComponent implements OnInit {
 		secondaryCountries.forEach(country => {
 			country.areaCodes.forEach(areaCode => {
 				if (nationalNumber.startsWith(areaCode)) {
-					console.log('Found secondary country: ' + country.name);
 					matchedCountry = country.iso2;
 				}
 			});
