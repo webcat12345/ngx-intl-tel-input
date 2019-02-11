@@ -3,7 +3,7 @@ export interface Country {
 	iso2: string;
 	dialCode: string;
 	priority: number;
-	areaCode?: number;
+	areaCodes?: string[];
 	flagClass: string;
 	placeHolder: string;
 }

@@ -74,6 +74,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
   [cssClass]="'custom'"
   [preferredCountries]="['us', 'gb']"
   [onlyCountries]="['us', 'gb', 'es']"
+  [enableAutoCountrySelect]="true"
   [enablePlaceholder]="true"
   name="phone"
   formControlName="phone"></ngx-intl-tel-input>
@@ -83,12 +84,13 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 
 ## Options
 
-| Options            | Type                   | Default            | Description                                                                         |
-| -------------------|------------------------|--------------------|-------------------------------------------------------------------------------------|
-| cssClass           | ```string```           | ```control-form``` | Bootstrap input css class or your own custom one.                                   |
-| preferredCountries | ```string[]```         | ```[]```           | List of country abbreviations, which will appear at the top.                        |
-| onlyCountries      | ```string[]```         | ```[]```           | List of manually selected country abbreviations, which will appear in the dropdown. |
-| enablePlaceholder  | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
+| Options                       | Type                   | Default            | Description                                                                         |
+| ------------------------------|------------------------|--------------------|-------------------------------------------------------------------------------------|
+| cssClass                      | ```string```           | ```control-form``` | Bootstrap input css class or your own custom one.                                   |
+| preferredCountries            | ```string[]```         | ```[]```           | List of country abbreviations, which will appear at the top.                        |
+| onlyCountries                 | ```string[]```         | ```[]```           | List of manually selected country abbreviations, which will appear in the dropdown. |
+| enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
+| enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
 
 ## Library Contributions
 

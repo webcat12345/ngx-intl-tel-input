@@ -30,8 +30,8 @@ export class NgxIntlTelInputComponent implements OnInit {
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
 	@Input() cssClass = 'form-control';
-  @Input() onlyCountries: Array<string> = [];
-  @Input() enableAutoCountrySelect = false;
+	@Input() onlyCountries: Array<string> = [];
+	@Input() enableAutoCountrySelect = false;
 
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
@@ -61,9 +61,9 @@ export class NgxIntlTelInputComponent implements OnInit {
 				this.preferredCountriesInDropDown.push(preferredCountry[0]);
 			});
 		}
-    if (this.onlyCountries.length) {
-      this.allCountries = this.allCountries.filter(c => this.onlyCountries.includes(c.iso2));
-    }
+		if (this.onlyCountries.length) {
+			this.allCountries = this.allCountries.filter(c => this.onlyCountries.includes(c.iso2));
+		}
 		if (this.preferredCountriesInDropDown.length) {
 			this.selectedCountry = this.preferredCountriesInDropDown[0];
 		} else {
@@ -76,30 +76,31 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 		let number: lpn.PhoneNumber;
 		try {
-      number = this.phoneUtil.parse(this.phoneNumber, this.selectedCountry.iso2.toUpperCase());
+			number = this.phoneUtil.parse(this.phoneNumber, this.selectedCountry.iso2.toUpperCase());
 		} catch (e) {
-    }
+		}
 
-    let countryCode = this.selectedCountry.iso2;
-    // auto select country based on the extension (e.g select spain if number starts with +34)
-    if (this.enableAutoCountrySelect) {
-      countryCode = number && number.getCountryCode()
-        ? this.getCountryIsoCode(number.getCountryCode())
-        : this.selectedCountry.iso2;
-      if (countryCode !== this.selectedCountry.iso2) {
-        const newCountry = this.allCountries.find(c => c.iso2 === countryCode);
-        if (newCountry) {
-          this.selectedCountry = newCountry;
-        }
-      }
-    }
-    countryCode = countryCode ? countryCode : this.selectedCountry.iso2;
+		let countryCode = this.selectedCountry.iso2;
+		// auto select country based on the extension (and areaCode if needed) (e.g select Canada if number starts with +1 416)
+		if (this.enableAutoCountrySelect) {
+			countryCode = number && number.getCountryCode()
+				? this.getCountryIsoCode(number.getCountryCode(), number)
+				: this.selectedCountry.iso2;
+			console.log(countryCode);
+			if (countryCode !== this.selectedCountry.iso2) {
+				const newCountry = this.allCountries.find(c => c.iso2 === countryCode);
+				if (newCountry) {
+					this.selectedCountry = newCountry;
+				}
+			}
+		}
+		countryCode = countryCode ? countryCode : this.selectedCountry.iso2;
 
 		this.propagateChange({
 			number: this.value,
 			internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '',
 			nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
-      countryCode: countryCode.toUpperCase()
+			countryCode: countryCode.toUpperCase()
 		});
 	}
 
@@ -141,7 +142,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 				iso2: c[1].toString(),
 				dialCode: c[2].toString(),
 				priority: +c[3] || 0,
-				areaCode: +c[4] || undefined,
+				areaCodes: c[4] as string[] || undefined,
 				flagClass: c[1].toString().toLocaleLowerCase(),
 				placeHolder: ''
 			};
@@ -182,10 +183,35 @@ export class NgxIntlTelInputComponent implements OnInit {
 				this.onPhoneNumberChange();
 			}, 1);
 		}
-  }
-  private getCountryIsoCode(countryCode: number): string | undefined {
-    const country = this.allCountries.find(c => c.dialCode === countryCode.toString());
-    return country ? country.iso2 : undefined;
-  }
+	}
+
+	private getCountryIsoCode(countryCode: number, number: lpn.PhoneNumber): string | undefined {
+		// Will use this to match area code from the first numbers
+		const nationalNumber = this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL);
+		// List of all countries with countryCode (can be more than one. e.x. US, CA, DO, PR all have +1 countryCode)
+		const countries = this.allCountries.filter(c => c.dialCode === countryCode.toString());
+		// Main country is the country, which has no areaCodes specified in country-code.ts file.
+		const mainCountry = countries.find(c => c.areaCodes === undefined);
+		// Secondary countries are all countries, which have areaCodes specified in country-code.ts file.
+		const secondaryCountries = countries.filter(c => c.areaCodes !== undefined);
+		let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
+
+		console.log(mainCountry);
+		console.log(secondaryCountries);
+		/*
+			Interate over each secondary country and check if nationalNumber starts with any of areaCodes available.
+			If no matches found, fallback to the main country.
+		*/
+		secondaryCountries.forEach(country => {
+			country.areaCodes.forEach(areaCode => {
+				if (nationalNumber.startsWith(areaCode)) {
+					console.log('Found secondary country: ' + country.name);
+					matchedCountry = country.iso2;
+				}
+			});
+		});
+
+		return matchedCountry;
+	}
 
 }

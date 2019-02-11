@@ -14,7 +14,7 @@ export const phoneNumberValidator = (control: FormControl) => {
 	if (!number) {
 		return error;
 	} else {
-		if (!lpn.PhoneNumberUtil.getInstance().isValidNumber(number)) {
+		if (!lpn.PhoneNumberUtil.getInstance().isValidNumberForRegion(number, control.value.countryCode)) {
 			return error;
 		}
 	}
