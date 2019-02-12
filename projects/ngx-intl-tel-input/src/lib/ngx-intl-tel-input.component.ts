@@ -185,7 +185,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 	private getCountryIsoCode(countryCode: number, number: lpn.PhoneNumber): string | undefined {
 		// Will use this to match area code from the first numbers
-		const nationalNumber = this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL);
+		const rawNumber = number.values_['2'].toString();
 		// List of all countries with countryCode (can be more than one. e.x. US, CA, DO, PR all have +1 countryCode)
 		const countries = this.allCountries.filter(c => c.dialCode === countryCode.toString());
 		// Main country is the country, which has no areaCodes specified in country-code.ts file.
@@ -200,7 +200,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 		*/
 		secondaryCountries.forEach(country => {
 			country.areaCodes.forEach(areaCode => {
-				if (nationalNumber.startsWith(areaCode)) {
+				if (rawNumber.startsWith(areaCode)) {
 					matchedCountry = country.iso2;
 				}
 			});
