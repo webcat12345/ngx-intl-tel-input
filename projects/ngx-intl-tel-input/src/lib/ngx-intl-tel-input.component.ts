@@ -73,7 +73,10 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 	public onPhoneNumberChange(): void {
 		this.value = this.phoneNumber;
-
+    if(this.phoneNumber===undefined){
+    let phone = <HTMLInputElement>document.getElementById('ngx-intl-tel-input-phone');
+    phone.value=null;
+    }
 		let number: lpn.PhoneNumber;
 		try {
 			number = this.phoneUtil.parse(this.phoneNumber, this.selectedCountry.iso2.toUpperCase());
