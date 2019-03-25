@@ -47,11 +47,12 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 	constructor(
 		private countryCodeData: CountryCode
-	) {
-		this.fetchCountryData();
-	}
+	) {}
 
 	ngOnInit() {
+
+		this.fetchCountryData();
+
 		if (this.preferredCountries.length) {
 			this.preferredCountries.forEach(iso2 => {
 				const preferredCountry = this.allCountries.filter((c) => {
