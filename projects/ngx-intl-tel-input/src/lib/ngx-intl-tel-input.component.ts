@@ -96,12 +96,17 @@ export class NgxIntlTelInputComponent implements OnInit {
 		}
 		countryCode = countryCode ? countryCode : this.selectedCountry.iso2;
 
-		this.propagateChange({
-			number: this.value,
-			internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '',
-			nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
-			countryCode: countryCode.toUpperCase()
-		});
+		if (!this.value) {
+			// tslint:disable-next-line:no-null-keyword
+			this.propagateChange(null);
+		} else {
+			this.propagateChange({
+				number: this.value,
+				internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '',
+				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
+				countryCode: countryCode.toUpperCase()
+			});
+		}
 	}
 
 	public onCountrySelect(country: Country, el): void {
