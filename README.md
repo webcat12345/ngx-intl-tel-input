@@ -77,6 +77,11 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
   [onlyCountries]="['us', 'gb', 'es']"
   [enableAutoCountrySelect]="true"
   [enablePlaceholder]="true"
+  [searchCountryFlag]="true"
+  [searchCountryFeild]="'all'"
+  [defaultFirstCountrySelected]="true"
+  [maxLength]=""
+  [tooltipField]="'name'"
   name="phone"
   formControlName="phone"></ngx-intl-tel-input>
 </form>
@@ -92,6 +97,11 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | onlyCountries                 | ```string[]```         | ```[]```           | List of manually selected country abbreviations, which will appear in the dropdown. |
 | enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
 | enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
+| searchCountryFlag             | ```boolean```          | ```false```         | toggle if you want to search country usin using inout text      |
+| searchCountryFeild             | ```string```          | ``````         | fields(name, iso2, dialCode, all) based on which search country. 'all' is used when you want to search country based on all(name, iso2, dialCode) fields. |
+| maxLength             | ```number```          | ```true```         | Use this property whenever you want to provide explicit limit to input text.                   |
+| tooltipField             | ```string```          | ``````         | Use this property whenever you want tooltip on selected country. Provide value as name or iso2                      |
+| defaultFirstCountrySelected             | ```boolean```          | ```true```         |  enable default first country selected, either from preferredCountries or allcountries list.                   |
 
 ## Library Contributions
 

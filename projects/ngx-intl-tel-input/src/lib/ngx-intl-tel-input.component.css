@@ -10,3 +10,8 @@ li.country:hover {
 .intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag { 
 	background: none; 
 }
+.intl-tel-input input#country-search-box {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}

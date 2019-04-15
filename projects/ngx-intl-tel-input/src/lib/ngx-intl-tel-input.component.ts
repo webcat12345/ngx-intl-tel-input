@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
+import { Component, OnInit, forwardRef, Input, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 import { CountryCode } from './data/country-code';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
@@ -32,6 +32,11 @@ export class NgxIntlTelInputComponent implements OnInit {
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = false;
+	@Input() searchCountryFlag = false;
+	@Input() searchCountryFeild = 'all'; // dialCode, iso2, name, all
+	@Input() maxLength = ''; // dialCode, iso2, name, all
+	@Input() tooltipField = ''; // iso2, name
+	@Input() defaultFirstCountrySelected = true;
 
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
@@ -40,14 +45,19 @@ export class NgxIntlTelInputComponent implements OnInit {
 	phoneUtil = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
+	countrySearchText = '';
 
 
 	onTouched = () => { };
 	propagateChange = (_: any) => { };
 
+	@ViewChild('countryList') countryList: ElementRef;
+
 	constructor(
-		private countryCodeData: CountryCode
-	) {}
+		private countryCodeData: CountryCode,
+		private render: Renderer2,
+		private elementRef: ElementRef
+	) { }
 
 	ngOnInit() {
 
@@ -65,10 +75,48 @@ export class NgxIntlTelInputComponent implements OnInit {
 		if (this.onlyCountries.length) {
 			this.allCountries = this.allCountries.filter(c => this.onlyCountries.includes(c.iso2));
 		}
-		if (this.preferredCountriesInDropDown.length) {
-			this.selectedCountry = this.preferredCountriesInDropDown[0];
-		} else {
-			this.selectedCountry = this.allCountries[0];
+		if (this.defaultFirstCountrySelected) {
+			if (this.preferredCountriesInDropDown.length) {
+				this.selectedCountry = this.preferredCountriesInDropDown[0];
+			} else {
+				this.selectedCountry = this.allCountries[0];
+			}
+		}
+	}
+
+
+	/**
+	 * Search country based on country name, iso2, dialCode or all of them.
+	 */
+	searchCountry() {
+		if (!this.countrySearchText) {
+			this.countryList.nativeElement.querySelector('li').scrollIntoView();
+			return;
+		}
+		this.countrySearchText = this.countrySearchText.toLowerCase();
+		const country = this.allCountries.filter(c => {
+			if (['all', 'iso2'].indexOf(this.searchCountryFeild) > -1) {
+				if (c.iso2.toLowerCase().startsWith(this.countrySearchText.toLowerCase())) {
+					return c;
+				}
+			}
+			if (['all', 'name'].indexOf(this.searchCountryFeild) > -1) {
+				if (c.name.toLowerCase().startsWith(this.countrySearchText.toLowerCase())) {
+					return c;
+				}
+			}
+			if (['all', 'dialCode'].indexOf(this.searchCountryFeild) > -1) {
+				if (c.dialCode.startsWith(this.countrySearchText)) {
+					return c;
+				}
+			}
+		});
+
+		if (country.length > 0) {
+			const el = this.countryList.nativeElement.querySelector('#' + country[0].iso2);
+			if (el) {
+				el.scrollIntoView({ behavior: 'smooth' });
+			}
 		}
 	}
 

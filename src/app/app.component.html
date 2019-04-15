@@ -6,9 +6,13 @@
     <ngx-intl-tel-input
     [cssClass]="'custom'"
     [preferredCountries]="['us', 'gb']"
-    [onlyCountries]="['us', 'gb', 'ca']"
     [enableAutoCountrySelect]="true"
     [enablePlaceholder]="true"
+    [searchCountryFlag]="true"
+    [searchCountryFeild]="'all'"
+    [defaultFirstCountrySelected]="false"
+    [maxLength]=""
+    [tooltipField]="'name'"
     name="phone"
     formControlName="phone"></ngx-intl-tel-input>
   </form>
