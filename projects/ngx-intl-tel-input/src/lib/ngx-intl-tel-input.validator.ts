@@ -14,6 +14,7 @@ export const phoneNumberValidator = (control: FormControl) => {
 
 	if (control.value) {
 		if (!number) {
+			//then check if it's an email
 			return error;
 		} else {
 			if (!lpn.PhoneNumberUtil.getInstance().isValidNumberForRegion(number, control.value.countryCode)) {

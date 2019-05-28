@@ -10,3 +10,29 @@ li.country:hover {
 .intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag { 
 	background: none; 
 }
+
+.email-input{
+	padding-left: 10px !important; 
+}
+
+.intl-tel-input input, .intl-tel-input input[type=text], .intl-tel-input input[type=tel] ::-webkit-input-placeholder::before{
+    content: "aldfjkajdsf"; 
+}
+
+.intl-tel-input {
+	width: 100% !important; 
+	outline: none; 
+	border-bottom:0 0 0 2px; 
+}
+
+.intl-tel-input:focus{
+	border-color: green;	
+}
+.intl-tel-input input, .intl-tel-input input[type=text], .intl-tel-input input[type=tel] {
+
+    border-top: 0; 
+    border-right: 0; 
+    border-left: 0; 
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}

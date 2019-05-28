@@ -24,6 +24,7 @@ import * as lpn from 'google-libphonenumber';
 		}
 	]
 })
+
 export class NgxIntlTelInputComponent implements OnInit {
 
 	@Input() value = '';
@@ -40,17 +41,21 @@ export class NgxIntlTelInputComponent implements OnInit {
 	phoneUtil = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
-
+	showCountrySelector: boolean = true;
+	email:string = null; 
+	is_an_email:boolean = false; 
 
 	onTouched = () => { };
 	propagateChange = (_: any) => { };
 
 	constructor(
 		private countryCodeData: CountryCode
-	) {}
+	) {
+	}
 
 	ngOnInit() {
 
+	
 		this.fetchCountryData();
 
 		if (this.preferredCountries.length) {
@@ -133,10 +138,25 @@ export class NgxIntlTelInputComponent implements OnInit {
 	}
 
 	public onInputKeyPress(event): void {
-		const pattern = /[0-9\+\-\ ]/;
+		const phonePattern = /[0-9\+\-\ ]/;
+		var emailPattern = /^([\w\.\+]{1,})([^\W])(@)([\w]{1,})(\.[\w]{1,})+$/;
+
 		const inputChar = String.fromCharCode(event.charCode);
-		if (!pattern.test(inputChar)) {
-			event.preventDefault();
+		if(inputChar.length == 0){
+			alert(inputChar);
+			this.showCountrySelector = true; 
+		}
+		else if (phonePattern.test(inputChar)) {
+			this.showCountrySelector = true;
+			this.is_an_email = false; 
+			this.email = null; 
+			console.log('phone number input'); 
+		}
+		else{
+			this.showCountrySelector = false;
+			this.is_an_email = true; 
+			this.email = this.phoneNumber; 
+			console.log('email input');
 		}
 	}
 
@@ -162,7 +182,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 	protected getPhoneNumberPlaceHolder(countryCode: string): string {
 		try {
-			return this.phoneUtil.format(this.phoneUtil.getExampleNumber(countryCode), lpn.PhoneNumberFormat.INTERNATIONAL);
+			return this.phoneUtil.format(this.phoneUtil.getExampleNumberForType(countryCode, lpn.PhoneNumberType.MOBILE), lpn.PhoneNumberFormat.INTERNATIONAL);
 		} catch (e) {
 			return e;
 		}
