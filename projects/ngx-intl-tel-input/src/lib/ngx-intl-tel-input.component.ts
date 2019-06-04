@@ -132,12 +132,19 @@ export class NgxIntlTelInputComponent implements OnInit {
 		el.focus();
 	}
 
-	public onInputKeyPress(event): void {
-		const pattern = /[0-9\+\-\ ]/;
-		const inputChar = String.fromCharCode(event.charCode);
-		if (!pattern.test(inputChar)) {
-			event.preventDefault();
-		}
+	public onInputKeyPress(event: KeyboardEvent): void {
+    const allowedChars = /[0-9\+\-\ ]/;
+    const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
+    const allowedOtherKeys = [
+      'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown',
+      'Home', 'End', 'Insert', 'Delete', 'Backspace'
+    ];
+    
+    if (!allowedChars.test(e.key)
+        && !(e.ctrlKey && allowedCtrlChars.test(e.key))
+        && !(allowedOtherKeys.includes(e.key))) {
+      e.preventDefault();
+    }
 	}
 
 	protected fetchCountryData(): void {
