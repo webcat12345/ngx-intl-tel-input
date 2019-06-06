@@ -460,7 +460,8 @@ export class CountryCode {
 			'Guernsey',
 			'gg',
 			'44',
-			1
+			1,
+			[1481]
 		],
 		[
 			'Guinea (Guinée)',
@@ -531,7 +532,8 @@ export class CountryCode {
 			'Isle of Man',
 			'im',
 			'44',
-			2
+			2,
+			[1624]
 		],
 		[
 			'Israel (‫ישראל‬‎)',
@@ -558,7 +560,8 @@ export class CountryCode {
 			'Jersey',
 			'je',
 			'44',
-			3
+			3,
+			[1534]
 		],
 		[
 			'Jordan (‫الأردن‬‎)',
