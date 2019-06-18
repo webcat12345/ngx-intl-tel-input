@@ -4,11 +4,10 @@
       <div class="iti-flag" [ngClass]="selectedCountry?.flagClass" [tooltip]="selectedCountry? selectedCountry[tooltipField] : ''"></div>
       <div class="iti-arrow"></div>
     </div>
-    <ul #countryList class="country-list dropdown-menu" *dropdownMenu>
-      <input id="country-search-box" *ngIf="searchCountryFlag && searchCountryFeild" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
+    <ul class="country-list dropdown-menu" *dropdownMenu #countryList >
+        <input id="country-search-box" *ngIf="searchCountryFlag && searchCountryField" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
         (click)="$event.stopPropagation()" autofocus>
-      <li class="country" *ngFor="let country of preferredCountriesInDropDown"
-        (click)="onCountrySelect(country, focusable)" [id]="country.iso2">
+      <li class="country" *ngFor="let country of preferredCountriesInDropDown" (click)="onCountrySelect(country, focusable)" [id]="country.iso2">
         <div class="flag-box">
           <div class="iti-flag" [ngClass]="country.flagClass"></div>
         </div>
@@ -16,8 +15,7 @@
         <span class="dial-code">+{{country.dialCode}}</span>
       </li>
       <li class="divider" *ngIf="preferredCountriesInDropDown?.length"></li>
-      <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country, focusable)"
-        [id]="country.iso2">
+      <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country, focusable)" [id]="country.iso2">
         <div class="flag-box">
           <div class="iti-flag" [ngClass]="country.flagClass"></div>
         </div>
@@ -26,7 +24,12 @@
       </li>
     </ul>
   </div>
-  <input type="tel" id="phone" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
-    (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
-    [disabled]="disabled" [placeholder]="selectedCountry?.placeHolder || ''" #focusable [attr.maxLength]="maxLength">
+  <input type="tel" id="phone" autocomplete="off"
+        [ngClass]="cssClass"
+        (blur)="onTouched()"
+        (keypress)="onInputKeyPress($event)"
+        [(ngModel)]="phoneNumber"
+        (ngModelChange)="onPhoneNumberChange()"
+        [disabled]="disabled"
+        [placeholder]="selectedCountry?.placeHolder || ''" [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>
 </div>

@@ -2,17 +2,21 @@
 <div style="margin: 50px">
   <h3>Test International Telephone Input Form</h3>
   <br>
+  <div class="mb-2">
+    <button (click)="changePreferredCountries()">Change Preferred Countries</button>
+  </div>
   <form #f="ngForm" [formGroup]="phoneForm">
     <ngx-intl-tel-input
     [cssClass]="'custom'"
-    [preferredCountries]="['us', 'gb']"
+    [preferredCountries]="preferredCountries"
     [enableAutoCountrySelect]="true"
     [enablePlaceholder]="true"
     [searchCountryFlag]="true"
-    [searchCountryFeild]="'all'"
-    [defaultFirstCountrySelected]="false"
-    [maxLength]=""
+    [searchCountryField]="['iso2']"
+    [selectFirstCountry]="false"
+    [maxLength]="15"
     [tooltipField]="'name'"
+    [phoneValidation]="true"
     name="phone"
     formControlName="phone"></ngx-intl-tel-input>
   </form>
