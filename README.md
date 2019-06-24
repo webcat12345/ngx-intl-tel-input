@@ -73,15 +73,16 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 <form #f="ngForm" [formGroup]="phoneForm">
   <ngx-intl-tel-input
   [cssClass]="'custom'"
-  [preferredCountries]="['us', 'gb']"
+  [preferredCountries]="preferredCountries"
   [onlyCountries]="['us', 'gb', 'es']"
   [enableAutoCountrySelect]="true"
   [enablePlaceholder]="true"
   [searchCountryFlag]="true"
-  [searchCountryFeild]="'all'"
-  [defaultFirstCountrySelected]="true"
-  [maxLength]=""
+  [searchCountryFeild]="['iso2','name']'"
+  [selectFirstCountry]="true"
+  [maxLength]="20"
   [tooltipField]="'name'"
+  [phoneValidation]="true"
   name="phone"
   formControlName="phone"></ngx-intl-tel-input>
 </form>
@@ -98,10 +99,11 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
 | enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
 | searchCountryFlag             | ```boolean```          | ```false```         | toggle if you want to search country usin using inout text      |
-| searchCountryFeild             | ```string```          | ``````         | fields(name, iso2, dialCode, all) based on which search country. 'all' is used when you want to search country based on all(name, iso2, dialCode) fields. |
+| searchCountryFeild             | ```string[]```          | ```[]```         | List of fields having options (name, iso2, dialCode) based on which search country. 'all' is used when you want to search country based on all(name, iso2, dialCode) fields. |
 | maxLength             | ```number```          | ```true```         | Use this property whenever you want to provide explicit limit to input text.                   |
 | tooltipField             | ```string```          | ``````         | Use this property whenever you want tooltip on selected country. Provide value as name or iso2                      |
-| defaultFirstCountrySelected             | ```boolean```          | ```true```         |  enable default first country selected, either from preferredCountries or allcountries list.                   |
+| selectFirstCountry             | ```boolean```          | ```true```         |  enable default first country selected, either from preferredCountries or allcountries list.  Default value is true.                 |
+| phoneValidation             | ```boolean```          | ```true```         |  disable if we want to validate number using library validation. Default value is true.                  |
 
 ## Library Contributions
 
