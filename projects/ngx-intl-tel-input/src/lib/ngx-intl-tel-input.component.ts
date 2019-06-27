@@ -52,7 +52,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
-	// selectedCountry: Country;
 	phoneUtil = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
