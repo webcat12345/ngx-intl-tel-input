@@ -80,6 +80,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
   [searchCountryFlag]="true"
   [searchCountryField]="['iso2','name']'"
   [selectFirstCountry]="true"
+  [selectedCountryISO]=""
   [maxLength]="20"
   [tooltipField]="'name'"
   [phoneValidation]="true"
@@ -104,6 +105,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | tooltipField             | ```string```          | ``````         | Use this property whenever you want tooltip on selected country. Provide value as name or iso2                      |
 | selectFirstCountry             | ```boolean```          | ```true```         |  enable default first country selected, either from preferredCountries or allcountries list.  Default value is true.                 |
 | phoneValidation             | ```boolean```          | ```true```         |  disable if we want to validate number using library validation. Default value is true.                  |
+| selectedCountryISO             | ```string```          | ``````         |  To prepopulate the selected country flag                  |
 
 ## Library Contributions
 

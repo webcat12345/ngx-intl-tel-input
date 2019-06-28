@@ -1,5 +1,5 @@
-import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, Renderer2, SimpleChanges, OnChanges } from '@angular/core';
-import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, SimpleChanges, OnChanges } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CountryCode } from './data/country-code';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { Country } from './model/country.model';
@@ -31,7 +31,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() enablePlaceholder = true;
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];
-	@Input() enableAutoCountrySelect = false;
+	@Input() enableAutoCountrySelect = true;
 	@Input() searchCountryFlag = false;
 	@Input() searchCountryField = []; // dialCode, iso2, name, all
 	@Input() maxLength = ''; // dialCode, iso2, name, all
@@ -64,8 +64,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	constructor(
 		private countryCodeData: CountryCode,
-		private render: Renderer2,
-		private elementRef: ElementRef
 	) { }
 
 	ngOnInit() {
@@ -128,18 +126,18 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 */
 	searchCountry() {
 		if (!this.countrySearchText) {
-			this.countryList.nativeElement.querySelector('li').scrollIntoView();
+			this.countryList.nativeElement.querySelector('li').scrollIntoView({ behavior: 'smooth' });
 			return;
 		}
-		this.countrySearchText = this.countrySearchText.toLowerCase();
+		const searchCountryText = this.countrySearchText.toLowerCase();
 		const country = this.allCountries.filter(c => {
 			if (this.searchCountryField.indexOf('iso2') > -1) {
-				if (c.iso2.toLowerCase().startsWith(this.countrySearchText.toLowerCase())) {
+				if (c.iso2.toLowerCase().startsWith(searchCountryText)) {
 					return c;
 				}
 			}
 			if (this.searchCountryField.indexOf('name') > -1) {
-				if (c.name.toLowerCase().startsWith(this.countrySearchText.toLowerCase())) {
+				if (c.name.toLowerCase().startsWith(searchCountryText)) {
 					return c;
 				}
 			}
@@ -173,7 +171,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			countryCode = number && number.getCountryCode()
 				? this.getCountryIsoCode(number.getCountryCode(), number)
 				: this.selectedCountry.iso2;
-			if (countryCode !== this.selectedCountry.iso2) {
+			if (countryCode && countryCode !== this.selectedCountry.iso2) {
 				const newCountry = this.allCountries.find(c => c.iso2 === countryCode);
 				if (newCountry) {
 					this.selectedCountry = newCountry;
