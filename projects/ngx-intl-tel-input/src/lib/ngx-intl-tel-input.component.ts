@@ -89,7 +89,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		if (this.allCountries && changes['selectedCountryISO'] && changes['selectedCountryISO'].currentValue !== changes['selectedCountryISO'].previousValue) {
+		if (this.allCountries && changes['selectedCountryISO']
+		&& changes['selectedCountryISO'].currentValue !== changes['selectedCountryISO'].previousValue) {
 			this.getSelectedCountry();
 		}
 		if (changes.preferredCountries) {
@@ -112,12 +113,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	getSelectedCountry() {
 		if (this.selectedCountryISO) {
-			this.selectedCountry = this.allCountries.find(c => { return (c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase()) });
+			this.selectedCountry = this.allCountries.find(c => { return (c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase()); });
 			if (this.selectedCountry) {
 				if (this.phoneNumber) {
 					this.onPhoneNumberChange();
 				} else {
-					this.propagateChange(null);
+					this.propagateChange(undefined);
 				}
 			}
 		}
