@@ -1,12 +1,37 @@
-li.country:hover { 
-	background-color: rgba(0, 0, 0, 0.05); 
+li.country:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
-.selected-flag.dropdown-toggle:after { 
-	content: none; 
+.selected-flag.dropdown-toggle:after {
+  content: none;
 }
 .flag-container.disabled {
-	cursor: default !important; 
+  cursor: default !important;
 }
-.intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag { 
-	background: none; 
+.intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag {
+  background: none;
+}
+.country-dropdown {
+  border: 1px solid #CCC;
+  width: fit-content;
+	padding: 1px;
+  border-collapse: collapse;
+}
+.search-container {
+  position: relative;
+}
+.search-container input {
+	width: 100%;
+	border: none;
+  border-bottom: 1px solid #ccc;
+  padding-left: 10px;
+}
+.search-icon{
+	position: absolute;
+	z-index: 2;
+	width: 25px;
+	margin: 1px 10px;
+}
+.country-list {
+	position: relative;
+	border: none;
 }
