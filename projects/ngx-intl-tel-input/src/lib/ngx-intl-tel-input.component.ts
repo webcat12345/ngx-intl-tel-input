@@ -35,6 +35,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 	// display the country dial code next to the selected flag
 	@Input() separateDialCode = false;
+	separateDialCodeClass: string;
 
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
@@ -43,7 +44,6 @@ export class NgxIntlTelInputComponent implements OnInit {
 	phoneUtil = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
-
 
 	onTouched = () => { };
 	propagateChange = (_: any) => { };
@@ -73,6 +73,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 		} else {
 			this.selectedCountry = this.allCountries[0];
 		}
+		this.checkSeparateDialCodeStyle();
 	}
 
 	public onPhoneNumberChange(): void {
@@ -99,6 +100,8 @@ export class NgxIntlTelInputComponent implements OnInit {
 		}
 		countryCode = countryCode ? countryCode : this.selectedCountry.iso2;
 
+		this.checkSeparateDialCodeStyle();
+
 		if (!this.value) {
 			// tslint:disable-next-line:no-null-keyword
 			this.propagateChange(null);
@@ -107,7 +110,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
-				this.phoneNumber = intlNo.substr(intlNo.indexOf(' ') + 1);
+				this.phoneNumber = this.removeDialCode(intlNo);
 			}
 
 			this.propagateChange({
@@ -122,6 +125,8 @@ export class NgxIntlTelInputComponent implements OnInit {
 	public onCountrySelect(country: Country, el): void {
 		this.selectedCountry = country;
 
+		this.checkSeparateDialCodeStyle();
+
 		if (this.phoneNumber.length > 0) {
 			this.value = this.phoneNumber;
 
@@ -131,9 +136,11 @@ export class NgxIntlTelInputComponent implements OnInit {
 			} catch (e) {
 			}
 
+			var intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
+
 			this.propagateChange({
 				number: this.value,
-				internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '',
+				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: this.selectedCountry.iso2.toUpperCase()
 			});
@@ -185,13 +192,6 @@ export class NgxIntlTelInputComponent implements OnInit {
 		}
 	}
 
-	protected separateDialCodePlaceHolder(placeholder: string): string {
-		if (this.separateDialCode && placeholder) {
-			return placeholder.substr(placeholder.indexOf(' ') + 1);
-		}
-		return placeholder;
-	}
-
 	registerOnChange(fn: any): void {
 		this.propagateChange = fn;
 	}
@@ -237,6 +237,26 @@ export class NgxIntlTelInputComponent implements OnInit {
 		});
 
 		return matchedCountry;
+	}
+
+	protected separateDialCodePlaceHolder(placeholder: string): string {
+		return this.removeDialCode(placeholder);
+	}
+
+	private removeDialCode(phoneNumber: string): string {
+		if (this.separateDialCode && phoneNumber) {
+			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
+		}
+		return phoneNumber;
+	}
+
+	// adjust input alignment
+	private checkSeparateDialCodeStyle() {
+		if (this.separateDialCode && this.selectedCountry) {
+			var cntryCd = this.selectedCountry.dialCode;
+			this.separateDialCodeClass = cntryCd.length > 2 ? 'separate-dial-code-3-digit' :
+				(cntryCd.length == 2 ? 'separate-dial-code-2-digit' : 'separate-dial-code');
+		}
 	}
 
 }

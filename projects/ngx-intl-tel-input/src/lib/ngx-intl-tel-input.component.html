@@ -1,8 +1,8 @@
-<div class="intl-tel-input allow-dropdown">
+<div class="intl-tel-input allow-dropdown" [ngClass]="separateDialCodeClass">
   <div class="flag-container" dropdown [ngClass]="{'disabled': disabled}">
-    <div class="selected-flag dropdown-toggle" dropdownToggle>
+    <div class="selected-flag dropdown-toggle" [title]="selectedCountry.name" dropdownToggle>
       <div class="iti-flag" [ngClass]="selectedCountry.flagClass"></div>
-      <div *ngIf="separateDialCode" class="dial-code">+{{selectedCountry.dialCode}}</div>
+      <span *ngIf="separateDialCode" class="dial-code">+{{selectedCountry.dialCode}}</span>
       <div class="iti-arrow"></div>
     </div>
     <ul class="country-list dropdown-menu" *dropdownMenu>
