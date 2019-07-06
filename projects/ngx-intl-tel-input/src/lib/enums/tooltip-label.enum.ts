@@ -1,4 +1,4 @@
-export const enum TooltipLabel {
+export enum TooltipLabel {
 	Name = 'name',
 	Iso2 = 'iso2'
 }
