@@ -2,7 +2,7 @@
   <div class="flag-container" dropdown [ngClass]="{'disabled': disabled}">
     <div class="selected-flag dropdown-toggle" dropdownToggle>
       <div class="iti-flag" [ngClass]="selectedCountry?.flagClass"
-        [tooltip]="selectedCountry? selectedCountry[tooltipField] : ''"></div>
+        [tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
       <div class="iti-arrow"></div>
     </div>
     <div *dropdownMenu class="dropdown-menu country-dropdown">

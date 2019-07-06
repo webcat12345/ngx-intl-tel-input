@@ -1,189 +1,191 @@
+import { CountryISO } from '../enums/country-iso.enum';
+
 export class CountryCode {
 	public allCountries = [
 		[
 			'Afghanistan (‫افغانستان‬‎)',
-			'af',
+			CountryISO.Afghanistan,
 			'93'
 		],
 		[
 			'Albania (Shqipëri)',
-			'al',
+			CountryISO.Albania,
 			'355'
 		],
 		[
 			'Algeria (‫الجزائر‬‎)',
-			'dz',
+			CountryISO.Algeria,
 			'213'
 		],
 		[
 			'American Samoa',
-			'as',
+			CountryISO.AmericanSamoa,
 			'1684'
 		],
 		[
 			'Andorra',
-			'ad',
+			CountryISO.Andorra,
 			'376'
 		],
 		[
 			'Angola',
-			'ao',
+			CountryISO.Angola,
 			'244'
 		],
 		[
 			'Anguilla',
-			'ai',
+			CountryISO.Anguilla,
 			'1264'
 		],
 		[
 			'Antigua and Barbuda',
-			'ag',
+			CountryISO.AntiguaAndBarbuda,
 			'1268'
 		],
 		[
 			'Argentina',
-			'ar',
+			CountryISO.Argentina,
 			'54'
 		],
 		[
 			'Armenia (Հայաստան)',
-			'am',
+			CountryISO.Armenia,
 			'374'
 		],
 		[
 			'Aruba',
-			'aw',
+			CountryISO.Aruba,
 			'297'
 		],
 		[
 			'Australia',
-			'au',
+			CountryISO.Australia,
 			'61',
 			0
 		],
 		[
 			'Austria (Österreich)',
-			'at',
+			CountryISO.Austria,
 			'43'
 		],
 		[
 			'Azerbaijan (Azərbaycan)',
-			'az',
+			CountryISO.Azerbaijan,
 			'994'
 		],
 		[
 			'Bahamas',
-			'bs',
+			CountryISO.Bahamas,
 			'1242'
 		],
 		[
 			'Bahrain (‫البحرين‬‎)',
-			'bh',
+			CountryISO.Bahrain,
 			'973'
 		],
 		[
 			'Bangladesh (বাংলাদেশ)',
-			'bd',
+			CountryISO.Bangladesh,
 			'880'
 		],
 		[
 			'Barbados',
-			'bb',
+			CountryISO.Barbados,
 			'1246'
 		],
 		[
 			'Belarus (Беларусь)',
-			'by',
+			CountryISO.Belarus,
 			'375'
 		],
 		[
 			'Belgium (België)',
-			'be',
+			CountryISO.Belgium,
 			'32'
 		],
 		[
 			'Belize',
-			'bz',
+			CountryISO.Belize,
 			'501'
 		],
 		[
 			'Benin (Bénin)',
-			'bj',
+			CountryISO.Benin,
 			'229'
 		],
 		[
 			'Bermuda',
-			'bm',
+			CountryISO.Bermuda,
 			'1441'
 		],
 		[
 			'Bhutan (འབྲུག)',
-			'bt',
+			CountryISO.Bhutan,
 			'975'
 		],
 		[
 			'Bolivia',
-			'bo',
+			CountryISO.Bolivia,
 			'591'
 		],
 		[
 			'Bosnia and Herzegovina (Босна и Херцеговина)',
-			'ba',
+			CountryISO.BosniaAndHerzegovina,
 			'387'
 		],
 		[
 			'Botswana',
-			'bw',
+			CountryISO.Botswana,
 			'267'
 		],
 		[
 			'Brazil (Brasil)',
-			'br',
+			CountryISO.Brazil,
 			'55'
 		],
 		[
 			'British Indian Ocean Territory',
-			'io',
+			CountryISO.BritishIndianOceanTerritory,
 			'246'
 		],
 		[
 			'British Virgin Islands',
-			'vg',
+			CountryISO.BritishVirginIslands,
 			'1284'
 		],
 		[
 			'Brunei',
-			'bn',
+			CountryISO.Brunei,
 			'673'
 		],
 		[
 			'Bulgaria (България)',
-			'bg',
+			CountryISO.Bulgaria,
 			'359'
 		],
 		[
 			'Burkina Faso',
-			'bf',
+			CountryISO.BurkinaFaso,
 			'226'
 		],
 		[
 			'Burundi (Uburundi)',
-			'bi',
+			CountryISO.Burundi,
 			'257'
 		],
 		[
 			'Cambodia (កម្ពុជា)',
-			'kh',
+			CountryISO.Cambodia,
 			'855'
 		],
 		[
 			'Cameroon (Cameroun)',
-			'cm',
+			CountryISO.Cameroon,
 			'237'
 		],
 		[
 			'Canada',
-			'ca',
+			CountryISO.Canada,
 			'1',
 			1,
 			[
@@ -195,1062 +197,1062 @@ export class CountryCode {
 		],
 		[
 			'Cape Verde (Kabu Verdi)',
-			'cv',
+			CountryISO.CapeVerde,
 			'238'
 		],
 		[
 			'Caribbean Netherlands',
-			'bq',
+			CountryISO.CaribbeanNetherlands,
 			'599',
 			1
 		],
 		[
 			'Cayman Islands',
-			'ky',
+			CountryISO.CaymanIslands,
 			'1345'
 		],
 		[
 			'Central African Republic (République centrafricaine)',
-			'cf',
+			CountryISO.CentralAfricanRepublic,
 			'236'
 		],
 		[
 			'Chad (Tchad)',
-			'td',
+			CountryISO.Chad,
 			'235'
 		],
 		[
 			'Chile',
-			'cl',
+			CountryISO.Chile,
 			'56'
 		],
 		[
 			'China (中国)',
-			'cn',
+			CountryISO.China,
 			'86'
 		],
 		[
 			'Christmas Island',
-			'cx',
+			CountryISO.ChristmasIsland,
 			'61',
 			2
 		],
 		[
 			'Cocos (Keeling) Islands',
-			'cc',
+			CountryISO.Cocos,
 			'61',
 			1
 		],
 		[
 			'Colombia',
-			'co',
+			CountryISO.Colombia,
 			'57'
 		],
 		[
 			'Comoros (‫جزر القمر‬‎)',
-			'km',
+			CountryISO.Comoros,
 			'269'
 		],
 		[
 			'Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)',
-			'cd',
+			CountryISO.CongoDRCJamhuriYaKidemokrasiaYaKongo,
 			'243'
 		],
 		[
 			'Congo (Republic) (Congo-Brazzaville)',
-			'cg',
+			CountryISO.CongoRepublicCongoBrazzaville,
 			'242'
 		],
 		[
 			'Cook Islands',
-			'ck',
+			CountryISO.CookIslands,
 			'682'
 		],
 		[
 			'Costa Rica',
-			'cr',
+			CountryISO.CostaRica,
 			'506'
 		],
 		[
 			'Côte d’Ivoire',
-			'ci',
+			CountryISO.CôteDIvoire,
 			'225'
 		],
 		[
 			'Croatia (Hrvatska)',
-			'hr',
+			CountryISO.Croatia,
 			'385'
 		],
 		[
 			'Cuba',
-			'cu',
+			CountryISO.Cuba,
 			'53'
 		],
 		[
 			'Curaçao',
-			'cw',
+			CountryISO.Curaçao,
 			'599',
 			0
 		],
 		[
 			'Cyprus (Κύπρος)',
-			'cy',
+			CountryISO.Cyprus,
 			'357'
 		],
 		[
 			'Czech Republic (Česká republika)',
-			'cz',
+			CountryISO.CzechRepublic,
 			'420'
 		],
 		[
 			'Denmark (Danmark)',
-			'dk',
+			CountryISO.Denmark,
 			'45'
 		],
 		[
 			'Djibouti',
-			'dj',
+			CountryISO.Djibouti,
 			'253'
 		],
 		[
 			'Dominica',
-			'dm',
+			CountryISO.Dominica,
 			'1767'
 		],
 		[
 			'Dominican Republic (República Dominicana)',
-			'do',
+			CountryISO.DominicanRepublic,
 			'1',
 			2,
 			['809', '829', '849']
 		],
 		[
 			'Ecuador',
-			'ec',
+			CountryISO.Ecuador,
 			'593'
 		],
 		[
 			'Egypt (‫مصر‬‎)',
-			'eg',
+			CountryISO.Egypt,
 			'20'
 		],
 		[
 			'El Salvador',
-			'sv',
+			CountryISO.ElSalvador,
 			'503'
 		],
 		[
 			'Equatorial Guinea (Guinea Ecuatorial)',
-			'gq',
+			CountryISO.EquatorialGuinea,
 			'240'
 		],
 		[
 			'Eritrea',
-			'er',
+			CountryISO.Eritrea,
 			'291'
 		],
 		[
 			'Estonia (Eesti)',
-			'ee',
+			CountryISO.Estonia,
 			'372'
 		],
 		[
 			'Ethiopia',
-			'et',
+			CountryISO.Ethiopia,
 			'251'
 		],
 		[
 			'Falkland Islands (Islas Malvinas)',
-			'fk',
+			CountryISO.FalklandIslands,
 			'500'
 		],
 		[
 			'Faroe Islands (Føroyar)',
-			'fo',
+			CountryISO.FaroeIslands,
 			'298'
 		],
 		[
 			'Fiji',
-			'fj',
+			CountryISO.Fiji,
 			'679'
 		],
 		[
 			'Finland (Suomi)',
-			'fi',
+			CountryISO.Finland,
 			'358',
 			0
 		],
 		[
 			'France',
-			'fr',
+			CountryISO.France,
 			'33'
 		],
 		[
 			'French Guiana (Guyane française)',
-			'gf',
+			CountryISO.FrenchGuiana,
 			'594'
 		],
 		[
 			'French Polynesia (Polynésie française)',
-			'pf',
+			CountryISO.FrenchPolynesia,
 			'689'
 		],
 		[
 			'Gabon',
-			'ga',
+			CountryISO.Gabon,
 			'241'
 		],
 		[
 			'Gambia',
-			'gm',
+			CountryISO.Gambia,
 			'220'
 		],
 		[
 			'Georgia (საქართველო)',
-			'ge',
+			CountryISO.Georgia,
 			'995'
 		],
 		[
 			'Germany (Deutschland)',
-			'de',
+			CountryISO.Germany,
 			'49'
 		],
 		[
 			'Ghana (Gaana)',
-			'gh',
+			CountryISO.Ghana,
 			'233'
 		],
 		[
 			'Gibraltar',
-			'gi',
+			CountryISO.Gibraltar,
 			'350'
 		],
 		[
 			'Greece (Ελλάδα)',
-			'gr',
+			CountryISO.Greece,
 			'30'
 		],
 		[
 			'Greenland (Kalaallit Nunaat)',
-			'gl',
+			CountryISO.Greenland,
 			'299'
 		],
 		[
 			'Grenada',
-			'gd',
+			CountryISO.Grenada,
 			'1473'
 		],
 		[
 			'Guadeloupe',
-			'gp',
+			CountryISO.Guadeloupe,
 			'590',
 			0
 		],
 		[
 			'Guam',
-			'gu',
+			CountryISO.Guam,
 			'1671'
 		],
 		[
 			'Guatemala',
-			'gt',
+			CountryISO.Guatemala,
 			'502'
 		],
 		[
 			'Guernsey',
-			'gg',
+			CountryISO.Guernsey,
 			'44',
 			1,
 			[1481]
 		],
 		[
 			'Guinea (Guinée)',
-			'gn',
+			CountryISO.Guinea,
 			'224'
 		],
 		[
 			'Guinea-Bissau (Guiné Bissau)',
-			'gw',
+			CountryISO.GuineaBissau,
 			'245'
 		],
 		[
 			'Guyana',
-			'gy',
+			CountryISO.Guyana,
 			'592'
 		],
 		[
 			'Haiti',
-			'ht',
+			CountryISO.Haiti,
 			'509'
 		],
 		[
 			'Honduras',
-			'hn',
+			CountryISO.Honduras,
 			'504'
 		],
 		[
 			'Hong Kong (香港)',
-			'hk',
+			CountryISO.HongKong,
 			'852'
 		],
 		[
 			'Hungary (Magyarország)',
-			'hu',
+			CountryISO.Hungary,
 			'36'
 		],
 		[
 			'Iceland (Ísland)',
-			'is',
+			CountryISO.Iceland,
 			'354'
 		],
 		[
 			'India (भारत)',
-			'in',
+			CountryISO.India,
 			'91'
 		],
 		[
 			'Indonesia',
-			'id',
+			CountryISO.Indonesia,
 			'62'
 		],
 		[
 			'Iran (‫ایران‬‎)',
-			'ir',
+			CountryISO.Iran,
 			'98'
 		],
 		[
 			'Iraq (‫العراق‬‎)',
-			'iq',
+			CountryISO.Iraq,
 			'964'
 		],
 		[
 			'Ireland',
-			'ie',
+			CountryISO.Ireland,
 			'353'
 		],
 		[
 			'Isle of Man',
-			'im',
+			CountryISO.IsleOfMan,
 			'44',
 			2,
 			[1624]
 		],
 		[
 			'Israel (‫ישראל‬‎)',
-			'il',
+			CountryISO.Israel,
 			'972'
 		],
 		[
 			'Italy (Italia)',
-			'it',
+			CountryISO.Italy,
 			'39',
 			0
 		],
 		[
 			'Jamaica',
-			'jm',
+			CountryISO.Jamaica,
 			'1876'
 		],
 		[
 			'Japan (日本)',
-			'jp',
+			CountryISO.Japan,
 			'81'
 		],
 		[
 			'Jersey',
-			'je',
+			CountryISO.Jersey,
 			'44',
 			3,
 			[1534]
 		],
 		[
 			'Jordan (‫الأردن‬‎)',
-			'jo',
+			CountryISO.Jordan,
 			'962'
 		],
 		[
 			'Kazakhstan (Казахстан)',
-			'kz',
+			CountryISO.Kazakhstan,
 			'7',
 			1
 		],
 		[
 			'Kenya',
-			'ke',
+			CountryISO.Kenya,
 			'254'
 		],
 		[
 			'Kiribati',
-			'ki',
+			CountryISO.Kiribati,
 			'686'
 		],
 		[
 			'Kosovo',
-			'xk',
+			CountryISO.Kosovo,
 			'383'
 		],
 		[
 			'Kuwait (‫الكويت‬‎)',
-			'kw',
+			CountryISO.Kuwait,
 			'965'
 		],
 		[
 			'Kyrgyzstan (Кыргызстан)',
-			'kg',
+			CountryISO.Kyrgyzstan,
 			'996'
 		],
 		[
 			'Laos (ລາວ)',
-			'la',
+			CountryISO.Laos,
 			'856'
 		],
 		[
 			'Latvia (Latvija)',
-			'lv',
+			CountryISO.Latvia,
 			'371'
 		],
 		[
 			'Lebanon (‫لبنان‬‎)',
-			'lb',
+			CountryISO.Lebanon,
 			'961'
 		],
 		[
 			'Lesotho',
-			'ls',
+			CountryISO.Lesotho,
 			'266'
 		],
 		[
 			'Liberia',
-			'lr',
+			CountryISO.Liberia,
 			'231'
 		],
 		[
 			'Libya (‫ليبيا‬‎)',
-			'ly',
+			CountryISO.Libya,
 			'218'
 		],
 		[
 			'Liechtenstein',
-			'li',
+			CountryISO.Liechtenstein,
 			'423'
 		],
 		[
 			'Lithuania (Lietuva)',
-			'lt',
+			CountryISO.Lithuania,
 			'370'
 		],
 		[
 			'Luxembourg',
-			'lu',
+			CountryISO.Luxembourg,
 			'352'
 		],
 		[
 			'Macau (澳門)',
-			'mo',
+			CountryISO.Macau,
 			'853'
 		],
 		[
 			'Macedonia (FYROM) (Македонија)',
-			'mk',
+			CountryISO.Macedonia,
 			'389'
 		],
 		[
 			'Madagascar (Madagasikara)',
-			'mg',
+			CountryISO.Madagascar,
 			'261'
 		],
 		[
 			'Malawi',
-			'mw',
+			CountryISO.Malawi,
 			'265'
 		],
 		[
 			'Malaysia',
-			'my',
+			CountryISO.Malaysia,
 			'60'
 		],
 		[
 			'Maldives',
-			'mv',
+			CountryISO.Maldives,
 			'960'
 		],
 		[
 			'Mali',
-			'ml',
+			CountryISO.Mali,
 			'223'
 		],
 		[
 			'Malta',
-			'mt',
+			CountryISO.Malta,
 			'356'
 		],
 		[
 			'Marshall Islands',
-			'mh',
+			CountryISO.MarshallIslands,
 			'692'
 		],
 		[
 			'Martinique',
-			'mq',
+			CountryISO.Martinique,
 			'596'
 		],
 		[
 			'Mauritania (‫موريتانيا‬‎)',
-			'mr',
+			CountryISO.Mauritania,
 			'222'
 		],
 		[
 			'Mauritius (Moris)',
-			'mu',
+			CountryISO.Mauritius,
 			'230'
 		],
 		[
 			'Mayotte',
-			'yt',
+			CountryISO.Mayotte,
 			'262',
 			1
 		],
 		[
 			'Mexico (México)',
-			'mx',
+			CountryISO.Mexico,
 			'52'
 		],
 		[
 			'Micronesia',
-			'fm',
+			CountryISO.Micronesia,
 			'691'
 		],
 		[
 			'Moldova (Republica Moldova)',
-			'md',
+			CountryISO.Moldova,
 			'373'
 		],
 		[
 			'Monaco',
-			'mc',
+			CountryISO.Monaco,
 			'377'
 		],
 		[
 			'Mongolia (Монгол)',
-			'mn',
+			CountryISO.Mongolia,
 			'976'
 		],
 		[
 			'Montenegro (Crna Gora)',
-			'me',
+			CountryISO.Montenegro,
 			'382'
 		],
 		[
 			'Montserrat',
-			'ms',
+			CountryISO.Montserrat,
 			'1664'
 		],
 		[
 			'Morocco (‫المغرب‬‎)',
-			'ma',
+			CountryISO.Morocco,
 			'212',
 			0
 		],
 		[
 			'Mozambique (Moçambique)',
-			'mz',
+			CountryISO.Mozambique,
 			'258'
 		],
 		[
 			'Myanmar (Burma) (မြန်မာ)',
-			'mm',
+			CountryISO.Myanmar,
 			'95'
 		],
 		[
 			'Namibia (Namibië)',
-			'na',
+			CountryISO.Namibia,
 			'264'
 		],
 		[
 			'Nauru',
-			'nr',
+			CountryISO.Nauru,
 			'674'
 		],
 		[
 			'Nepal (नेपाल)',
-			'np',
+			CountryISO.Nepal,
 			'977'
 		],
 		[
 			'Netherlands (Nederland)',
-			'nl',
+			CountryISO.Netherlands,
 			'31'
 		],
 		[
 			'New Caledonia (Nouvelle-Calédonie)',
-			'nc',
+			CountryISO.NewCaledonia,
 			'687'
 		],
 		[
 			'New Zealand',
-			'nz',
+			CountryISO.NewZealand,
 			'64'
 		],
 		[
 			'Nicaragua',
-			'ni',
+			CountryISO.Nicaragua,
 			'505'
 		],
 		[
 			'Niger (Nijar)',
-			'ne',
+			CountryISO.Niger,
 			'227'
 		],
 		[
 			'Nigeria',
-			'ng',
+			CountryISO.Nigeria,
 			'234'
 		],
 		[
 			'Niue',
-			'nu',
+			CountryISO.Niue,
 			'683'
 		],
 		[
 			'Norfolk Island',
-			'nf',
+			CountryISO.NorfolkIsland,
 			'672'
 		],
 		[
 			'North Korea (조선 민주주의 인민 공화국)',
-			'kp',
+			CountryISO.NorthKorea,
 			'850'
 		],
 		[
 			'Northern Mariana Islands',
-			'mp',
+			CountryISO.NorthernMarianaIslands,
 			'1670'
 		],
 		[
 			'Norway (Norge)',
-			'no',
+			CountryISO.Norway,
 			'47',
 			0
 		],
 		[
 			'Oman (‫عُمان‬‎)',
-			'om',
+			CountryISO.Oman,
 			'968'
 		],
 		[
 			'Pakistan (‫پاکستان‬‎)',
-			'pk',
+			CountryISO.Pakistan,
 			'92'
 		],
 		[
 			'Palau',
-			'pw',
+			CountryISO.Palau,
 			'680'
 		],
 		[
 			'Palestine (‫فلسطين‬‎)',
-			'ps',
+			CountryISO.Palestine,
 			'970'
 		],
 		[
 			'Panama (Panamá)',
-			'pa',
+			CountryISO.Panama,
 			'507'
 		],
 		[
 			'Papua New Guinea',
-			'pg',
+			CountryISO.PapuaNewGuinea,
 			'675'
 		],
 		[
 			'Paraguay',
-			'py',
+			CountryISO.Paraguay,
 			'595'
 		],
 		[
 			'Peru (Perú)',
-			'pe',
+			CountryISO.Peru,
 			'51'
 		],
 		[
 			'Philippines',
-			'ph',
+			CountryISO.Philippines,
 			'63'
 		],
 		[
 			'Poland (Polska)',
-			'pl',
+			CountryISO.Poland,
 			'48'
 		],
 		[
 			'Portugal',
-			'pt',
+			CountryISO.Portugal,
 			'351'
 		],
 		[
 			'Puerto Rico',
-			'pr',
+			CountryISO.PuertoRico,
 			'1',
 			3,
 			['787', '939']
 		],
 		[
 			'Qatar (‫قطر‬‎)',
-			'qa',
+			CountryISO.Qatar,
 			'974'
 		],
 		[
 			'Réunion (La Réunion)',
-			're',
+			CountryISO.Réunion,
 			'262',
 			0
 		],
 		[
 			'Romania (România)',
-			'ro',
+			CountryISO.Romania,
 			'40'
 		],
 		[
 			'Russia (Россия)',
-			'ru',
+			CountryISO.Russia,
 			'7',
 			0
 		],
 		[
 			'Rwanda',
-			'rw',
+			CountryISO.Rwanda,
 			'250'
 		],
 		[
 			'Saint Barthélemy (Saint-Barthélemy)',
-			'bl',
+			CountryISO.SaintBarthélemy,
 			'590',
 			1
 		],
 		[
 			'Saint Helena',
-			'sh',
+			CountryISO.SaintHelena,
 			'290'
 		],
 		[
 			'Saint Kitts and Nevis',
-			'kn',
+			CountryISO.SaintKittsAndNevis,
 			'1869'
 		],
 		[
 			'Saint Lucia',
-			'lc',
+			CountryISO.SaintLucia,
 			'1758'
 		],
 		[
 			'Saint Martin (Saint-Martin (partie française))',
-			'mf',
+			CountryISO.SaintMartin,
 			'590',
 			2
 		],
 		[
 			'Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)',
-			'pm',
+			CountryISO.SaintPierreAndMiquelon,
 			'508'
 		],
 		[
 			'Saint Vincent and the Grenadines',
-			'vc',
+			CountryISO.SaintVincentAndTheGrenadines,
 			'1784'
 		],
 		[
 			'Samoa',
-			'ws',
+			CountryISO.Samoa,
 			'685'
 		],
 		[
 			'San Marino',
-			'sm',
+			CountryISO.SanMarino,
 			'378'
 		],
 		[
 			'São Tomé and Príncipe (São Tomé e Príncipe)',
-			'st',
+			CountryISO.SãoToméAndPríncipe,
 			'239'
 		],
 		[
 			'Saudi Arabia (‫المملكة العربية السعودية‬‎)',
-			'sa',
+			CountryISO.SaudiArabia,
 			'966'
 		],
 		[
 			'Senegal (Sénégal)',
-			'sn',
+			CountryISO.Senegal,
 			'221'
 		],
 		[
 			'Serbia (Србија)',
-			'rs',
+			CountryISO.Serbia,
 			'381'
 		],
 		[
 			'Seychelles',
-			'sc',
+			CountryISO.Seychelles,
 			'248'
 		],
 		[
 			'Sierra Leone',
-			'sl',
+			CountryISO.SierraLeone,
 			'232'
 		],
 		[
 			'Singapore',
-			'sg',
+			CountryISO.Singapore,
 			'65'
 		],
 		[
 			'Sint Maarten',
-			'sx',
+			CountryISO.SintMaarten,
 			'1721'
 		],
 		[
 			'Slovakia (Slovensko)',
-			'sk',
+			CountryISO.Slovakia,
 			'421'
 		],
 		[
 			'Slovenia (Slovenija)',
-			'si',
+			CountryISO.Slovenia,
 			'386'
 		],
 		[
 			'Solomon Islands',
-			'sb',
+			CountryISO.SolomonIslands,
 			'677'
 		],
 		[
 			'Somalia (Soomaaliya)',
-			'so',
+			CountryISO.Somalia,
 			'252'
 		],
 		[
 			'South Africa',
-			'za',
+			CountryISO.SouthAfrica,
 			'27'
 		],
 		[
 			'South Korea (대한민국)',
-			'kr',
+			CountryISO.SouthKorea,
 			'82'
 		],
 		[
 			'South Sudan (‫جنوب السودان‬‎)',
-			'ss',
+			CountryISO.SouthSudan,
 			'211'
 		],
 		[
 			'Spain (España)',
-			'es',
+			CountryISO.Spain,
 			'34'
 		],
 		[
 			'Sri Lanka (ශ්‍රී ලංකාව)',
-			'lk',
+			CountryISO.SriLanka,
 			'94'
 		],
 		[
 			'Sudan (‫السودان‬‎)',
-			'sd',
+			CountryISO.Sudan,
 			'249'
 		],
 		[
 			'Suriname',
-			'sr',
+			CountryISO.Suriname,
 			'597'
 		],
 		[
 			'Svalbard and Jan Mayen',
-			'sj',
+			CountryISO.SvalbardAndJanMayen,
 			'47',
 			1
 		],
 		[
 			'Swaziland',
-			'sz',
+			CountryISO.Swaziland,
 			'268'
 		],
 		[
 			'Sweden (Sverige)',
-			'se',
+			CountryISO.Sweden,
 			'46'
 		],
 		[
 			'Switzerland (Schweiz)',
-			'ch',
+			CountryISO.Switzerland,
 			'41'
 		],
 		[
 			'Syria (‫سوريا‬‎)',
-			'sy',
+			CountryISO.Syria,
 			'963'
 		],
 		[
 			'Taiwan (台灣)',
-			'tw',
+			CountryISO.Taiwan,
 			'886'
 		],
 		[
 			'Tajikistan',
-			'tj',
+			CountryISO.Tajikistan,
 			'992'
 		],
 		[
 			'Tanzania',
-			'tz',
+			CountryISO.Tanzania,
 			'255'
 		],
 		[
 			'Thailand (ไทย)',
-			'th',
+			CountryISO.Thailand,
 			'66'
 		],
 		[
 			'Timor-Leste',
-			'tl',
+			CountryISO.TimorLeste,
 			'670'
 		],
 		[
 			'Togo',
-			'tg',
+			CountryISO.Togo,
 			'228'
 		],
 		[
 			'Tokelau',
-			'tk',
+			CountryISO.Tokelau,
 			'690'
 		],
 		[
 			'Tonga',
-			'to',
+			CountryISO.Tonga,
 			'676'
 		],
 		[
 			'Trinidad and Tobago',
-			'tt',
+			CountryISO.TrinidadAndTobago,
 			'1868'
 		],
 		[
 			'Tunisia (‫تونس‬‎)',
-			'tn',
+			CountryISO.Tunisia,
 			'216'
 		],
 		[
 			'Turkey (Türkiye)',
-			'tr',
+			CountryISO.Turkey,
 			'90'
 		],
 		[
 			'Turkmenistan',
-			'tm',
+			CountryISO.Turkmenistan,
 			'993'
 		],
 		[
 			'Turks and Caicos Islands',
-			'tc',
+			CountryISO.TurksAndCaicosIslands,
 			'1649'
 		],
 		[
 			'Tuvalu',
-			'tv',
+			CountryISO.Tuvalu,
 			'688'
 		],
 		[
 			'U.S. Virgin Islands',
-			'vi',
+			CountryISO.USVirginIslands,
 			'1340'
 		],
 		[
 			'Uganda',
-			'ug',
+			CountryISO.Uganda,
 			'256'
 		],
 		[
 			'Ukraine (Україна)',
-			'ua',
+			CountryISO.Ukraine,
 			'380'
 		],
 		[
 			'United Arab Emirates (‫الإمارات العربية المتحدة‬‎)',
-			'ae',
+			CountryISO.UnitedArabEmirates,
 			'971'
 		],
 		[
 			'United Kingdom',
-			'gb',
+			CountryISO.UnitedKingdom,
 			'44',
 			0
 		],
 		[
 			'United States',
-			'us',
+			CountryISO.UnitedStates,
 			'1',
 			0
 		],
 		[
 			'Uruguay',
-			'uy',
+			CountryISO.Uruguay,
 			'598'
 		],
 		[
 			'Uzbekistan (Oʻzbekiston)',
-			'uz',
+			CountryISO.Uzbekistan,
 			'998'
 		],
 		[
 			'Vanuatu',
-			'vu',
+			CountryISO.Vanuatu,
 			'678'
 		],
 		[
 			'Vatican City (Città del Vaticano)',
-			'va',
+			CountryISO.VaticanCity,
 			'39',
 			1
 		],
 		[
 			'Venezuela',
-			've',
+			CountryISO.Venezuela,
 			'58'
 		],
 		[
 			'Vietnam (Việt Nam)',
-			'vn',
+			CountryISO.Vietnam,
 			'84'
 		],
 		[
 			'Wallis and Futuna',
-			'wf',
+			CountryISO.WallisAndFutuna,
 			'681'
 		],
 		[
 			'Western Sahara (‫الصحراء الغربية‬‎)',
-			'eh',
+			CountryISO.WesternSahara,
 			'212',
 			1
 		],
 		[
 			'Yemen (‫اليمن‬‎)',
-			'ye',
+			CountryISO.Yemen,
 			'967'
 		],
 		[
 			'Zambia',
-			'zm',
+			CountryISO.Zambia,
 			'260'
 		],
 		[
 			'Zimbabwe',
-			'zw',
+			CountryISO.Zimbabwe,
 			'263'
 		],
 		[
 			'Åland Islands',
-			'ax',
+			CountryISO.ÅlandIslands,
 			'358',
 			1
 		]

@@ -4,6 +4,9 @@ import { CountryCode } from './data/country-code';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { Country } from './model/country.model';
 import * as lpn from 'google-libphonenumber';
+import { SearchCountryField } from './enums/search-country-field.enum';
+import { TooltipLabel } from './enums/tooltip-label.enum';
+import { CountryISO } from './enums/country-iso.enum';
 
 @Component({
 	selector: 'ngx-intl-tel-input',
@@ -33,12 +36,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = true;
 	@Input() searchCountryFlag = false;
-	@Input() searchCountryField = []; // dialCode, iso2, name, all
-	@Input() maxLength = ''; // dialCode, iso2, name, all
-	@Input() tooltipField = ''; // iso2, name
+	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
+	@Input() maxLength = '';
+	@Input() tooltipField: TooltipLabel;
 	@Input() selectFirstCountry = true;
-	@Input() selectedCountryISO = '';
-	@Input() phoneValidation: any = true;
+	@Input() selectedCountryISO: CountryISO;
+	@Input() phoneValidation = true;
 	selectedCountry: Country = {
 		areaCodes: undefined,
 		dialCode: '',
@@ -52,7 +55,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
-	phoneUtil = lpn.PhoneNumberUtil.getInstance();
+	// Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
+	phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
@@ -86,7 +90,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		if (this.allCountries && changes['selectedCountryISO'] && changes['selectedCountryISO'].currentValue !== changes['selectedCountryISO'].previousValue) {
+		if (this.allCountries && changes['selectedCountryISO']
+		&& changes['selectedCountryISO'].currentValue !== changes['selectedCountryISO'].previousValue) {
 			this.getSelectedCountry();
 		}
 		if (changes.preferredCountries) {
@@ -109,12 +114,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	getSelectedCountry() {
 		if (this.selectedCountryISO) {
-			this.selectedCountry = this.allCountries.find(c => { return (c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase()) });
+			this.selectedCountry = this.allCountries.find(c => { return (c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase()); });
 			if (this.selectedCountry) {
 				if (this.phoneNumber) {
 					this.onPhoneNumberChange();
 				} else {
-					this.propagateChange(null);
+					this.propagateChange(undefined);
 				}
 			}
 		}
@@ -129,21 +134,35 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			this.countryList.nativeElement.querySelector('li').scrollIntoView({ behavior: 'smooth' });
 			return;
 		}
-		const searchCountryText = this.countrySearchText.toLowerCase();
+		const countrySearchTextLower = this.countrySearchText.toLowerCase();
 		const country = this.allCountries.filter(c => {
-			if (this.searchCountryField.indexOf('iso2') > -1) {
-				if (c.iso2.toLowerCase().startsWith(searchCountryText)) {
+			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
+				// Search in all fields
+				if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
 					return c;
 				}
-			}
-			if (this.searchCountryField.indexOf('name') > -1) {
-				if (c.name.toLowerCase().startsWith(searchCountryText)) {
+				if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
 					return c;
 				}
-			}
-			if (this.searchCountryField.indexOf('dialCode') > -1) {
 				if (c.dialCode.startsWith(this.countrySearchText)) {
 					return c;
+				}
+			} else {
+				// Or search by specific SearchCountryField(s)
+				if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
+					if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+						return c;
+					}
+				}
+				if (this.searchCountryField.indexOf(SearchCountryField.Name) > -1) {
+					if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+						return c;
+					}
+				}
+				if (this.searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
+					if (c.dialCode.startsWith(this.countrySearchText)) {
+						return c;
+					}
 				}
 			}
 		});
@@ -284,7 +303,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	private getCountryIsoCode(countryCode: number, number: lpn.PhoneNumber): string | undefined {
 		// Will use this to match area code from the first numbers
-		const rawNumber = number.values_['2'].toString();
+		const rawNumber = number['values_']['2'].toString();
 		// List of all countries with countryCode (can be more than one. e.x. US, CA, DO, PR all have +1 countryCode)
 		const countries = this.allCountries.filter(c => c.dialCode === countryCode.toString());
 		// Main country is the country, which has no areaCodes specified in country-code.ts file.

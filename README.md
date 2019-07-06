@@ -95,17 +95,17 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | Options                       | Type                   | Default            | Description                                                                         |
 | ------------------------------|------------------------|--------------------|-------------------------------------------------------------------------------------|
 | cssClass                      | ```string```           | ```control-form``` | Bootstrap input css class or your own custom one.                                   |
-| preferredCountries            | ```string[]```         | ```[]```           | List of country abbreviations, which will appear at the top.                        |
-| onlyCountries                 | ```string[]```         | ```[]```           | List of manually selected country abbreviations, which will appear in the dropdown. |
+| preferredCountries            | ```<CountryISO>[]```         | ```[]```           | List of countries, which will appear at the top.                        |
+| onlyCountries                 | ```<CountryISO>[]```         | ```[]```           | List of manually selected countries, which will appear in the dropdown. |
 | enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
 | enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
-| searchCountryFlag             | ```boolean```          | ```false```         | toggle if you want to search country usin using inout text      |
-| searchCountryField             | ```string[]```          | ```[]```         | List of fields having options (name, iso2, dialCode) based on which search country. 'all' is used when you want to search country based on all(name, iso2, dialCode) fields. |
-| maxLength             | ```number```          | ```true```         | Use this property whenever you want to provide explicit limit to input text.                   |
-| tooltipField             | ```string```          | ``````         | Use this property whenever you want tooltip on selected country. Provide value as name or iso2                      |
-| selectFirstCountry             | ```boolean```          | ```true```         |  enable default first country selected, either from preferredCountries or allcountries list.  Default value is true.                 |
-| phoneValidation             | ```boolean```          | ```true```         |  disable if we want to validate number using library validation. Default value is true.                  |
-| selectedCountryISO             | ```string```          | ``````         |  To prepopulate the selected country flag                  |
+| searchCountryFlag             | ```boolean```          | ```false```         | Enables input search box for countries in the flag dropdown.      |
+| searchCountryField             | ```<SearchCountryField>[]```          | ```[SearchCountryField.All]```         | Customize which fields to search in, if ```searchCountryFlag``` is enabled. Use ```SearchCountryField``` helper enum. |
+| maxLength             | ```number```          | ```None```         | Add character limit.|
+| tooltipField             | ```<TooltipLabel>```          | ```None```         | Set tooltip on flag hover. Use ```TooltipLabel``` helper enum for label type options. |
+| selectFirstCountry             | ```boolean```          | ```true```         | Selects first country from ```preferredCountries``` if is set. If not then uses main list. |
+| phoneValidation             | ```boolean```          | ```true```         | Disable phone validation. |
+| selectedCountryISO             | ```<CountryISO>``` | ```None```| Set specific country on load.                  |
 
 ## Library Contributions
 
