@@ -239,7 +239,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 		return matchedCountry;
 	}
 
-	protected separateDialCodePlaceHolder(placeholder: string): string {
+	separateDialCodePlaceHolder(placeholder: string): string {
 		return this.removeDialCode(placeholder);
 	}
 
