@@ -55,7 +55,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
-	phoneUtil = lpn.PhoneNumberUtil.getInstance();
+	// Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
+	phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
