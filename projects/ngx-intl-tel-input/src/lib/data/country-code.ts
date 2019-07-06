@@ -18,7 +18,11 @@ export class CountryCode {
 		[
 			'American Samoa',
 			'as',
-			'1684'
+			'1',
+			1,
+			[
+				'684',
+			]
 		],
 		[
 			'Andorra',
@@ -33,12 +37,20 @@ export class CountryCode {
 		[
 			'Anguilla',
 			'ai',
-			'1264'
+			'1',
+			1,
+			[
+				'264',
+			]
 		],
 		[
 			'Antigua and Barbuda',
 			'ag',
-			'1268'
+			'1',
+			1,
+			[
+				'268',
+			]
 		],
 		[
 			'Argentina',
@@ -74,7 +86,11 @@ export class CountryCode {
 		[
 			'Bahamas',
 			'bs',
-			'1242'
+			'1',
+			1,
+			[
+				'242',
+			]
 		],
 		[
 			'Bahrain (‫البحرين‬‎)',
@@ -89,7 +105,11 @@ export class CountryCode {
 		[
 			'Barbados',
 			'bb',
-			'1246'
+			'1',
+			1,
+			[
+				'246',
+			]
 		],
 		[
 			'Belarus (Беларусь)',
@@ -114,7 +134,11 @@ export class CountryCode {
 		[
 			'Bermuda',
 			'bm',
-			'1441'
+			'1',
+			1,
+			[
+				'441',
+			]
 		],
 		[
 			'Bhutan (འབྲུག)',
@@ -149,7 +173,11 @@ export class CountryCode {
 		[
 			'British Virgin Islands',
 			'vg',
-			'1284'
+			'1',
+			1,
+			[
+				'284',
+			]
 		],
 		[
 			'Brunei',
@@ -207,7 +235,11 @@ export class CountryCode {
 		[
 			'Cayman Islands',
 			'ky',
-			'1345'
+			'1',
+			1,
+			[
+				'345',
+			]
 		],
 		[
 			'Central African Republic (République centrafricaine)',
@@ -449,7 +481,11 @@ export class CountryCode {
 		[
 			'Guam',
 			'gu',
-			'1671'
+			'1',
+			1,
+			[
+				'671',
+			]
 		],
 		[
 			'Guatemala',
@@ -549,7 +585,11 @@ export class CountryCode {
 		[
 			'Jamaica',
 			'jm',
-			'1876'
+			'1',
+			1,
+			[
+				'876',
+			]
 		],
 		[
 			'Japan (日本)',
@@ -743,7 +783,11 @@ export class CountryCode {
 		[
 			'Montserrat',
 			'ms',
-			'1664'
+			'1',
+			1,
+			[
+				'664',
+			]
 		],
 		[
 			'Morocco (‫المغرب‬‎)',
@@ -940,7 +984,11 @@ export class CountryCode {
 		[
 			'Saint Lucia',
 			'lc',
-			'1758'
+			'1',
+			1,
+			[
+				'758',
+			]
 		],
 		[
 			'Saint Martin (Saint-Martin (partie française))',
@@ -956,7 +1004,11 @@ export class CountryCode {
 		[
 			'Saint Vincent and the Grenadines',
 			'vc',
-			'1784'
+			'1',
+			1,
+			[
+				'784',
+			]
 		],
 		[
 			'Samoa',
@@ -1006,7 +1058,11 @@ export class CountryCode {
 		[
 			'Sint Maarten',
 			'sx',
-			'1721'
+			'1',
+			1,
+			[
+				'721',
+			]
 		],
 		[
 			'Slovakia (Slovensko)',
@@ -1132,7 +1188,11 @@ export class CountryCode {
 		[
 			'Trinidad and Tobago',
 			'tt',
-			'1868'
+			'1',
+			1,
+			[
+				'868',
+			]
 		],
 		[
 			'Tunisia (‫تونس‬‎)',
@@ -1162,7 +1222,11 @@ export class CountryCode {
 		[
 			'U.S. Virgin Islands',
 			'vi',
-			'1340'
+			'1',
+			1,
+			[
+				'340',
+			]
 		],
 		[
 			'Uganda',
