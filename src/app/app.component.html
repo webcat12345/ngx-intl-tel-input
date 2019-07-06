@@ -12,11 +12,11 @@
     [enableAutoCountrySelect]="false"
     [enablePlaceholder]="true"
     [searchCountryFlag]="true"
-    [searchCountryField]="['iso2', 'name']"
+    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
     [selectFirstCountry]="false"
     [selectedCountryISO]="'in'"
     [maxLength]="15"
-    [tooltipField]="'name'"
+    [tooltipField]="TooltipLabel.Name"
     [phoneValidation]="true"
     name="phone"
     formControlName="phone"></ngx-intl-tel-input>
