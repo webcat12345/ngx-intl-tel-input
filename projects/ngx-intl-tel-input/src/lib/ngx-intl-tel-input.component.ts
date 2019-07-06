@@ -4,6 +4,9 @@ import { CountryCode } from './data/country-code';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { Country } from './model/country.model';
 import * as lpn from 'google-libphonenumber';
+import { SearchCountryField } from './enums/search-country-field.enum';
+import { TooltipLabel } from './enums/tooltip-label.enum';
+import { CountryISO } from './enums/country-iso.enum';
 
 @Component({
 	selector: 'ngx-intl-tel-input',
@@ -33,12 +36,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = true;
 	@Input() searchCountryFlag = false;
-	@Input() searchCountryField = []; // dialCode, iso2, name, all
-	@Input() maxLength = ''; // dialCode, iso2, name, all
-	@Input() tooltipField = ''; // iso2, name
+	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
+	@Input() maxLength = '';
+	@Input() tooltipField: TooltipLabel;
 	@Input() selectFirstCountry = true;
-	@Input() selectedCountryISO = '';
-	@Input() phoneValidation: any = true;
+	@Input() selectedCountryISO: CountryISO;
+	@Input() phoneValidation = true;
 	selectedCountry: Country = {
 		areaCodes: undefined,
 		dialCode: '',
@@ -129,21 +132,35 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			this.countryList.nativeElement.querySelector('li').scrollIntoView({ behavior: 'smooth' });
 			return;
 		}
-		const searchCountryText = this.countrySearchText.toLowerCase();
+		const countrySearchTextLower = this.countrySearchText.toLowerCase();
 		const country = this.allCountries.filter(c => {
-			if (this.searchCountryField.indexOf('iso2') > -1) {
-				if (c.iso2.toLowerCase().startsWith(searchCountryText)) {
+			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
+				// Search in all fields
+				if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
 					return c;
 				}
-			}
-			if (this.searchCountryField.indexOf('name') > -1) {
-				if (c.name.toLowerCase().startsWith(searchCountryText)) {
+				if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
 					return c;
 				}
-			}
-			if (this.searchCountryField.indexOf('dialCode') > -1) {
 				if (c.dialCode.startsWith(this.countrySearchText)) {
 					return c;
+				}
+			} else {
+				// Or search by specific SearchCountryField(s)
+				if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
+					if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+						return c;
+					}
+				}
+				if (this.searchCountryField.indexOf(SearchCountryField.Name) > -1) {
+					if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+						return c;
+					}
+				}
+				if (this.searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
+					if (c.dialCode.startsWith(this.countrySearchText)) {
+						return c;
+					}
 				}
 			}
 		});
