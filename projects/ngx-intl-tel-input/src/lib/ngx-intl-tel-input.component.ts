@@ -103,9 +103,16 @@ export class NgxIntlTelInputComponent implements OnInit {
 			// tslint:disable-next-line:no-null-keyword
 			this.propagateChange(null);
 		} else {
+			var intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
+
+			// parse phoneNumber if separate dial code is needed
+			if (this.separateDialCode && intlNo) {
+				this.phoneNumber = intlNo.substr(intlNo.indexOf(' ') + 1);
+			}
+
 			this.propagateChange({
 				number: this.value,
-				internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '',
+				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: countryCode.toUpperCase()
 			});
