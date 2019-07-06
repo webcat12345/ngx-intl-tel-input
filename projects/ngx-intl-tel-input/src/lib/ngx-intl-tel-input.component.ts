@@ -33,6 +33,9 @@ export class NgxIntlTelInputComponent implements OnInit {
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = false;
 
+	// display the country dial code next to the selected flag
+	@Input() separateDialCode = false;
+
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
@@ -47,7 +50,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 	constructor(
 		private countryCodeData: CountryCode
-	) {}
+	) { }
 
 	ngOnInit() {
 
@@ -123,7 +126,7 @@ export class NgxIntlTelInputComponent implements OnInit {
 
 			this.propagateChange({
 				number: this.value,
-				internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '' ,
+				internationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '',
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: this.selectedCountry.iso2.toUpperCase()
 			});
@@ -141,8 +144,8 @@ export class NgxIntlTelInputComponent implements OnInit {
 		];
 
 		if (!allowedChars.test(event.key)
-				&& !(event.ctrlKey && allowedCtrlChars.test(event.key))
-				&& !(allowedOtherKeys.includes(event.key))) {
+			&& !(event.ctrlKey && allowedCtrlChars.test(event.key))
+			&& !(allowedOtherKeys.includes(event.key))) {
 			event.preventDefault();
 		}
 	}
@@ -173,6 +176,13 @@ export class NgxIntlTelInputComponent implements OnInit {
 		} catch (e) {
 			return e;
 		}
+	}
+
+	protected separateDialCodePlaceHolder(placeholder: string): string {
+		if (this.separateDialCode && placeholder) {
+			return placeholder.substr(placeholder.indexOf(' ') + 1);
+		}
+		return placeholder;
 	}
 
 	registerOnChange(fn: any): void {
