@@ -71,22 +71,21 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 ```html
 
 <form #f="ngForm" [formGroup]="phoneForm">
-  <ngx-intl-tel-input
-  [cssClass]="'custom'"
-  [preferredCountries]="preferredCountries"
-  [onlyCountries]="['us', 'gb', 'es']"
-  [enableAutoCountrySelect]="true"
-  [enablePlaceholder]="true"
-  [searchCountryFlag]="true"
-  [searchCountryField]="['iso2','name']'"
-  [selectFirstCountry]="true"
-  [selectedCountryISO]=""
-  [maxLength]="20"
-  [tooltipField]="'name'"
-  [phoneValidation]="true"
-  name="phone"
-  formControlName="phone"></ngx-intl-tel-input>
-</form>
+    <ngx-intl-tel-input
+    [cssClass]="'custom'"
+    [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+    [enableAutoCountrySelect]="false"
+    [enablePlaceholder]="true"
+    [searchCountryFlag]="true"
+    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+    [selectFirstCountry]="false"
+    [selectedCountryISO]="CountryISO.India"
+    [maxLength]="15"
+    [tooltipField]="TooltipLabel.Name"
+    [phoneValidation]="true"
+    name="phone"
+    formControlName="phone"></ngx-intl-tel-input>
+  </form>
 
 ```
 
