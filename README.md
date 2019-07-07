@@ -71,15 +71,21 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 ```html
 
 <form #f="ngForm" [formGroup]="phoneForm">
-  <ngx-intl-tel-input
-  [cssClass]="'custom'"
-  [preferredCountries]="['us', 'gb']"
-  [onlyCountries]="['us', 'gb', 'es']"
-  [enableAutoCountrySelect]="true"
-  [enablePlaceholder]="true"
-  name="phone"
-  formControlName="phone"></ngx-intl-tel-input>
-</form>
+    <ngx-intl-tel-input
+    [cssClass]="'custom'"
+    [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+    [enableAutoCountrySelect]="false"
+    [enablePlaceholder]="true"
+    [searchCountryFlag]="true"
+    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+    [selectFirstCountry]="false"
+    [selectedCountryISO]="CountryISO.India"
+    [maxLength]="15"
+    [tooltipField]="TooltipLabel.Name"
+    [phoneValidation]="true"
+    name="phone"
+    formControlName="phone"></ngx-intl-tel-input>
+  </form>
 
 ```
 
@@ -88,10 +94,17 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | Options                       | Type                   | Default            | Description                                                                         |
 | ------------------------------|------------------------|--------------------|-------------------------------------------------------------------------------------|
 | cssClass                      | ```string```           | ```control-form``` | Bootstrap input css class or your own custom one.                                   |
-| preferredCountries            | ```string[]```         | ```[]```           | List of country abbreviations, which will appear at the top.                        |
-| onlyCountries                 | ```string[]```         | ```[]```           | List of manually selected country abbreviations, which will appear in the dropdown. |
+| preferredCountries            | ```<CountryISO>[]```         | ```[]```           | List of countries, which will appear at the top.                        |
+| onlyCountries                 | ```<CountryISO>[]```         | ```[]```           | List of manually selected countries, which will appear in the dropdown. |
 | enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
 | enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
+| searchCountryFlag             | ```boolean```          | ```false```         | Enables input search box for countries in the flag dropdown.      |
+| searchCountryField             | ```<SearchCountryField>[]```          | ```[SearchCountryField.All]```         | Customize which fields to search in, if ```searchCountryFlag``` is enabled. Use ```SearchCountryField``` helper enum. |
+| maxLength             | ```number```          | ```None```         | Add character limit.|
+| tooltipField             | ```<TooltipLabel>```          | ```None```         | Set tooltip on flag hover. Use ```TooltipLabel``` helper enum for label type options. |
+| selectFirstCountry             | ```boolean```          | ```true```         | Selects first country from ```preferredCountries``` if is set. If not then uses main list. |
+| phoneValidation             | ```boolean```          | ```true```         | Disable phone validation. |
+| selectedCountryISO             | ```<CountryISO>``` | ```None```| Set specific country on load.                  |
 
 ## Library Contributions
 
