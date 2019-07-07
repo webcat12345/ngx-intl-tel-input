@@ -321,9 +321,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	writeValue(obj: any): void {
-		if (typeof obj !== 'object') {
-			this.phoneNumber = obj;
-		}
+		this.phoneNumber = obj;
 		setTimeout(() => {
 			this.onPhoneNumberChange();
 		}, 1);
