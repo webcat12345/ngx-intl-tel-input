@@ -92,6 +92,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			}
 		}
 		this.getSelectedCountry();
+		this.checkSeparateDialCodeStyle();
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
