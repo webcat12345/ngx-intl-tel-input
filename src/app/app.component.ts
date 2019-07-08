@@ -10,6 +10,7 @@ import { CountryISO } from 'projects/ngx-intl-tel-input/src/lib/enums/country-is
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+	separateDialCode = true;
 	SearchCountryField = SearchCountryField;
 	TooltipLabel = TooltipLabel;
 	CountryISO = CountryISO;
