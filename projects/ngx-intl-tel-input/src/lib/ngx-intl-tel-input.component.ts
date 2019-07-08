@@ -103,6 +103,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		if (changes.preferredCountries) {
 			this.getPreferredCountries();
 		}
+		this.checkSeparateDialCodeStyle();
 	}
 
 	getPreferredCountries() {
@@ -367,8 +368,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	// adjust input alignment
 	private checkSeparateDialCodeStyle() {
 		if (this.separateDialCode && this.selectedCountry) {
-			var cntryCd = this.selectedCountry.dialCode;			
-			this.separateDialCodeClass = 'separate-dial-code iti-sdc-' + (cntryCd.length + 1) ;
+			var cntryCd = this.selectedCountry.dialCode;
+			this.separateDialCodeClass = 'separate-dial-code iti-sdc-' + (cntryCd.length + 1);
+		} else {
+			this.separateDialCodeClass = '';
 		}
 	}
 
