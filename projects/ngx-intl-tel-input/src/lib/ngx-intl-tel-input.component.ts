@@ -76,7 +76,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	) { }
 
 	ngOnInit() {
-
 		this.fetchCountryData();
 		if (this.preferredCountries.length) {
 			this.getPreferredCountries();
@@ -102,7 +101,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 		if (changes.preferredCountries) {
 			this.getPreferredCountries();
-		}
+		}		
 		this.checkSeparateDialCodeStyle();
 	}
 
@@ -322,6 +321,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	writeValue(obj: any): void {
+		if (obj == null) {
+			this.ngOnInit();
+		}
 		this.phoneNumber = obj;
 		setTimeout(() => {
 			this.onPhoneNumberChange();
