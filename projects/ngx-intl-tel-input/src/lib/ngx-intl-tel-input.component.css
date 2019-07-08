@@ -35,3 +35,7 @@ padding-left: 10px;
 	position: relative;
 	border: none;
 }
+
+.intl-tel-input input#country-search-box {
+	padding-left: 6px;
+}
