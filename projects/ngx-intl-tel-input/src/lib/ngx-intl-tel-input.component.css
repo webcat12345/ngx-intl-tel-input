@@ -1,29 +1,29 @@
 li.country:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+background-color: rgba(0, 0, 0, 0.05);
 }
 .selected-flag.dropdown-toggle:after {
-  content: none;
+content: none;
 }
 .flag-container.disabled {
-  cursor: default !important;
+cursor: default !important;
 }
 .intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag {
-  background: none;
+background: none;
 }
 .country-dropdown {
-  border: 1px solid #CCC;
-  width: fit-content;
+border: 1px solid #CCC;
+width: fit-content;
 	padding: 1px;
-  border-collapse: collapse;
+border-collapse: collapse;
 }
 .search-container {
-  position: relative;
+position: relative;
 }
 .search-container input {
 	width: 100%;
 	border: none;
-  border-bottom: 1px solid #ccc;
-  padding-left: 10px;
+border-bottom: 1px solid #ccc;
+padding-left: 10px;
 }
 .search-icon{
 	position: absolute;
@@ -34,27 +34,4 @@ li.country:hover {
 .country-list {
 	position: relative;
 	border: none;
-}
-.intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag { 
-	background: none; 
-}
-.intl-tel-input .selected-flag {
-	vertical-align: middle;
-}
-.intl-tel-input .selected-flag .dial-code {
-	vertical-align: middle;
-	margin-left: 3px;
-	margin-top: 1px;
-}
-
-.intl-tel-input.separate-dial-code input#phone {
-	padding-left: 70px;
-}
-
-.intl-tel-input.separate-dial-code-2-digit input#phone {
-	padding-left: 80px;
-}
-
-.intl-tel-input.separate-dial-code-3-digit input#phone {
-	padding-left: 90px;
 }

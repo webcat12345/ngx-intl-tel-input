@@ -367,9 +367,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	// adjust input alignment
 	private checkSeparateDialCodeStyle() {
 		if (this.separateDialCode && this.selectedCountry) {
-			var cntryCd = this.selectedCountry.dialCode;
-			this.separateDialCodeClass = cntryCd.length > 2 ? 'separate-dial-code-3-digit' :
-				(cntryCd.length == 2 ? 'separate-dial-code-2-digit' : 'separate-dial-code');
+			var cntryCd = this.selectedCountry.dialCode;			
+			this.separateDialCodeClass = 'separate-dial-code iti-sdc-' + (cntryCd.length + 1) ;
 		}
 	}
 
