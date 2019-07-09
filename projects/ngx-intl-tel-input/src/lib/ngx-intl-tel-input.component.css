@@ -40,6 +40,14 @@ li.country:hover {
 	padding-left: 6px;
 }
 
-.intl-tel-input.separate-dial-code .selected-flag .iti-arrow {
-    right: 4px;
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag {
+	width: 93px;
+}
+
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input {
+	padding-left: 98px;
 }
