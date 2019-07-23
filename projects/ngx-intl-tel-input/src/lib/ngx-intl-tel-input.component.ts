@@ -37,7 +37,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() enableAutoCountrySelect = true;
 	@Input() searchCountryFlag = false;
 	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
-	@Input() searchCountryPlaceholder = '';
+	@Input() searchCountryPlaceholder = 'Search Country';
 	@Input() maxLength = '';
 	@Input() tooltipField: TooltipLabel;
 	@Input() selectFirstCountry = true;
