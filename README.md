@@ -9,7 +9,7 @@ An Angular package for entering and validating international telephone numbers. 
 
 **Supports:**
 
-- Angular 7
+- Angular 8
 - ReactiveFormsModule
 - FormsModule
 - Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
