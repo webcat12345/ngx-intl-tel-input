@@ -19,8 +19,12 @@ export class CountryCode {
 		],
 		[
 			'American Samoa',
-			CountryISO.AmericanSamoa,
-			'1684'
+			'as',
+			'1',
+			1,
+			[
+				'684',
+			]
 		],
 		[
 			'Andorra',
@@ -34,13 +38,21 @@ export class CountryCode {
 		],
 		[
 			'Anguilla',
-			CountryISO.Anguilla,
-			'1264'
+			'ai',
+			'1',
+			1,
+			[
+				'264',
+			]
 		],
 		[
 			'Antigua and Barbuda',
-			CountryISO.AntiguaAndBarbuda,
-			'1268'
+			'ag',
+			'1',
+			1,
+			[
+				'268',
+			]
 		],
 		[
 			'Argentina',
@@ -75,8 +87,12 @@ export class CountryCode {
 		],
 		[
 			'Bahamas',
-			CountryISO.Bahamas,
-			'1242'
+			'bs',
+			'1',
+			1,
+			[
+				'242',
+			]
 		],
 		[
 			'Bahrain (‫البحرين‬‎)',
@@ -90,8 +106,12 @@ export class CountryCode {
 		],
 		[
 			'Barbados',
-			CountryISO.Barbados,
-			'1246'
+			'bb',
+			'1',
+			1,
+			[
+				'246',
+			]
 		],
 		[
 			'Belarus (Беларусь)',
@@ -115,8 +135,12 @@ export class CountryCode {
 		],
 		[
 			'Bermuda',
-			CountryISO.Bermuda,
-			'1441'
+			'bm',
+			'1',
+			1,
+			[
+				'441',
+			]
 		],
 		[
 			'Bhutan (འབྲུག)',
@@ -150,8 +174,12 @@ export class CountryCode {
 		],
 		[
 			'British Virgin Islands',
-			CountryISO.BritishVirginIslands,
-			'1284'
+			'vg',
+			'1',
+			1,
+			[
+				'284',
+			]
 		],
 		[
 			'Brunei',
@@ -208,8 +236,12 @@ export class CountryCode {
 		],
 		[
 			'Cayman Islands',
-			CountryISO.CaymanIslands,
-			'1345'
+			'ky',
+			'1',
+			1,
+			[
+				'345',
+			]
 		],
 		[
 			'Central African Republic (République centrafricaine)',
@@ -450,8 +482,12 @@ export class CountryCode {
 		],
 		[
 			'Guam',
-			CountryISO.Guam,
-			'1671'
+			'gu',
+			'1',
+			1,
+			[
+				'671',
+			]
 		],
 		[
 			'Guatemala',
@@ -550,8 +586,12 @@ export class CountryCode {
 		],
 		[
 			'Jamaica',
-			CountryISO.Jamaica,
-			'1876'
+			'jm',
+			'1',
+			1,
+			[
+				'876',
+			]
 		],
 		[
 			'Japan (日本)',
@@ -744,8 +784,12 @@ export class CountryCode {
 		],
 		[
 			'Montserrat',
-			CountryISO.Montserrat,
-			'1664'
+			'ms',
+			'1',
+			1,
+			[
+				'664',
+			]
 		],
 		[
 			'Morocco (‫المغرب‬‎)',
@@ -941,8 +985,12 @@ export class CountryCode {
 		],
 		[
 			'Saint Lucia',
-			CountryISO.SaintLucia,
-			'1758'
+			'lc',
+			'1',
+			1,
+			[
+				'758',
+			]
 		],
 		[
 			'Saint Martin (Saint-Martin (partie française))',
@@ -957,8 +1005,12 @@ export class CountryCode {
 		],
 		[
 			'Saint Vincent and the Grenadines',
-			CountryISO.SaintVincentAndTheGrenadines,
-			'1784'
+			'vc',
+			'1',
+			1,
+			[
+				'784',
+			]
 		],
 		[
 			'Samoa',
@@ -1007,8 +1059,12 @@ export class CountryCode {
 		],
 		[
 			'Sint Maarten',
-			CountryISO.SintMaarten,
-			'1721'
+			'sx',
+			'1',
+			1,
+			[
+				'721',
+			]
 		],
 		[
 			'Slovakia (Slovensko)',
@@ -1133,8 +1189,12 @@ export class CountryCode {
 		],
 		[
 			'Trinidad and Tobago',
-			CountryISO.TrinidadAndTobago,
-			'1868'
+			'tt',
+			'1',
+			1,
+			[
+				'868',
+			]
 		],
 		[
 			'Tunisia (‫تونس‬‎)',
@@ -1163,8 +1223,12 @@ export class CountryCode {
 		],
 		[
 			'U.S. Virgin Islands',
-			CountryISO.USVirginIslands,
-			'1340'
+			'vi',
+			'1',
+			1,
+			[
+				'340',
+			]
 		],
 		[
 			'Uganda',

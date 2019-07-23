@@ -1,14 +1,15 @@
-<div class="intl-tel-input allow-dropdown">
+<div class="intl-tel-input allow-dropdown" [ngClass]="separateDialCodeClass">
   <div class="flag-container" dropdown [ngClass]="{'disabled': disabled}">
     <div class="selected-flag dropdown-toggle" dropdownToggle>
       <div class="iti-flag" [ngClass]="selectedCountry?.flagClass"
         [tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
+      <div *ngIf="separateDialCode" class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
       <div class="iti-arrow"></div>
     </div>
     <div *dropdownMenu class="dropdown-menu country-dropdown">
       <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
         <input id="country-search-box" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
-          (click)="$event.stopPropagation()" autofocus>
+          (click)="$event.stopPropagation()" [placeholder]="searchCountryPlaceholder" autofocus>
       </div>
       <ul class="country-list" #countryList>
         <li class="country" *ngFor="let country of preferredCountriesInDropDown"
@@ -33,6 +34,6 @@
   </div>
   <input type="tel" id="phone" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
     (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
-    [disabled]="disabled" [placeholder]="selectedCountry?.placeHolder || ''" [attr.maxLength]="maxLength"
-    [attr.validation]="phoneValidation" #focusable>
+    [disabled]="disabled" [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
+    [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>
 </div>

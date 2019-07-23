@@ -5,21 +5,32 @@
   <div class="mb-2">
     <button (click)="changePreferredCountries()">Change Preferred Countries</button>
   </div>
+  <div class="mb-2">
+    <input type="checkbox" [(ngModel)]="separateDialCode">
+    <label>&nbsp;Separate Dial Code?</label>
+  </div>
   <form #f="ngForm" [formGroup]="phoneForm">
-    <ngx-intl-tel-input
-    [cssClass]="'custom'"
-    [preferredCountries]="preferredCountries"
-    [enableAutoCountrySelect]="false"
-    [enablePlaceholder]="true"
-    [searchCountryFlag]="true"
-    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-    [selectFirstCountry]="false"
-    [selectedCountryISO]="CountryISO.India"
-    [maxLength]="15"
-    [tooltipField]="TooltipLabel.Name"
-    [phoneValidation]="true"
-    name="phone"
-    formControlName="phone"></ngx-intl-tel-input>
+    <div class="mb-2">
+      <ngx-intl-tel-input 
+        [cssClass]="'custom'" 
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="false" 
+        [enablePlaceholder]="true" 
+        [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [searchCountryPlaceholder]="'Search Country'" 
+        [selectFirstCountry]="false" 
+        [selectedCountryISO]="CountryISO.India"
+        [maxLength]="15" 
+        [tooltipField]="TooltipLabel.Name" 
+        [phoneValidation]="true" 
+        [separateDialCode]="separateDialCode"
+        name="phone" formControlName="phone">
+      </ngx-intl-tel-input>
+    </div>
+    <div class="mb-2">
+      <button (click)="f.reset()">Reset</button>
+    </div>
   </form>
   <br>
   <div><strong>Is input valid:</strong> <pre>{{ !f.form.controls['phone'].invalid }}</pre></div>
@@ -28,4 +39,3 @@
   <div><strong>Form value:</strong> <pre>{{ f.form.value | json }}</pre></div>
   <div><strong>Form validation errors:</strong> <pre>{{ f.form.controls['phone'].errors | json }}</pre></div>
 </div>
-
