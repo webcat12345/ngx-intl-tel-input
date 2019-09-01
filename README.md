@@ -18,7 +18,7 @@ An Angular package for entering and validating international telephone numbers. 
 
 ### Install Dependencies
 
-```$ npm install intl-tel-input --save```
+```$ npm install intl-tel-input@14.1.0 --save```
 
 ```$ npm install google-libphonenumber --save```
 
