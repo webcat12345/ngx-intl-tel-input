@@ -1,6 +1,6 @@
 {
-  "name": "ngx-intl-tel-input",
-  "version": "2.3.3",
+  "name": "@wenor/ngx-intl-tel-input",
+  "version": "2.3.4",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
@@ -36,8 +36,5 @@
   },
   "devDependencies": {
     "@types/google-libphonenumber": "^7.4.17"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@wenor"
   }
 }

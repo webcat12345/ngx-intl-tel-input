@@ -1,5 +1,5 @@
 {
-  "name": "@wenor/ngx-intl-tel-input",
+  "name": "@wenor/ngx-intl-tel-input-app",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -9,17 +9,19 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build ngx-intl-tel-input",
-    "copy-license": "cp ./LICENSE ./dist/ngx-intl-tel-input",
-    "copy-readme": "cp ./README.md ./dist/ngx-intl-tel-input",
+    "copy-license": "cp-cli LICENSE ./dist/ngx-intl-tel-input/LICENSE",
+    "copy-readme": "cp-cli README.md ./dist/ngx-intl-tel-input/README.md",
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/ngx-intl-tel-input && npm pack",
-    "package": "npm run build_lib && npm run npm_pack"
+    "package": "npm run build_lib && npm run npm_pack",
+    "publish": "npm publish dist/ngx-intl-tel-input --access public",
+    "deploy": "npm run package && npm run copy-files && npm run publish"
   },
   "dependencies": {
     "@angular/animations": "~8.1.2",
     "@angular/common": "~8.1.2",
     "@angular/compiler": "~8.1.2",
-    "@angular/core": "~8.1.2",
+    "@angular/core": "^8.2.14",
     "@angular/forms": "~8.1.2",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
@@ -29,7 +31,7 @@
     "google-libphonenumber": "^3.2.3",
     "intl-tel-input": "^14.1.0",
     "jquery": "^3.4.1",
-    "ngx-bootstrap": "^3.3.0",
+    "ngx-bootstrap": "^4.3.0",
     "popper.js": "^1.15.0",
     "rxjs": "~6.5.2",
     "zone.js": "~0.9.1"
@@ -53,6 +55,7 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^5.1.0",
+    "cp-cli": "^2.0.0",
     "protractor": "^5.4.2",
     "ts-node": "~7.0.0",
     "tsickle": "^0.35.0",
