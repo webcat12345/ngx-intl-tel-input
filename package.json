@@ -1,5 +1,5 @@
 {
-  "name": "@wenor/ngx-intl-tel-input-app",
+  "name": "@wenor/ngx-intl-tel-input",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
