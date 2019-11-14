@@ -1,6 +1,6 @@
 {
   "name": "ngx-intl-tel-input",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcat12345/ngx-intl-tel-input"
+    "url": "git+https://github.com/wenor/ngx-intl-tel-input"
   },
   "author": {
-    "name": "webcat12345",
-    "email": "webcat91@gmail.com"
+    "name": "christianopaets",
+    "email": "k.opayets@wenortech.com"
   },
   "keywords": [
     "angular",
@@ -36,5 +36,8 @@
   },
   "devDependencies": {
     "@types/google-libphonenumber": "^7.4.17"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@wenor"
   }
 }
