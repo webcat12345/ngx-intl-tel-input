@@ -63,15 +63,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   enableAutoCountrySelect = true;
 
   @Input()
-  searchCountryFlag = false;
-
-  @Input()
-  searchCountryField: SearchCountryField[] = [SearchCountryField.All];
-
-  @Input()
-  searchCountryPlaceholder = 'Search Country';
-
-  @Input()
   maxLength = '';
 
   @Input()
@@ -224,58 +215,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
         }
       }
     }
-  }
-
-
-  /**
-   * Search country based on country name, iso2, dialCode or all of them.
-   */
-  searchCountry() {
-    if (!this.countrySearchText) {
-      this.countryList.nativeElement.querySelector('li').scrollIntoView({behavior: 'smooth'});
-      return;
-    }
-    const countrySearchTextLower = this.countrySearchText.toLowerCase();
-    const country = this.allCountries.filter(c => {
-      if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
-        // Search in all fields
-        if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
-          return c;
-        }
-        if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
-          return c;
-        }
-        if (c.dialCode.startsWith(this.countrySearchText)) {
-          return c;
-        }
-      } else {
-        // Or search by specific SearchCountryField(s)
-        if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
-          if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
-            return c;
-          }
-        }
-        if (this.searchCountryField.indexOf(SearchCountryField.Name) > -1) {
-          if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
-            return c;
-          }
-        }
-        if (this.searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
-          if (c.dialCode.startsWith(this.countrySearchText)) {
-            return c;
-          }
-        }
-      }
-    });
-
-    if (country.length > 0) {
-      const el = this.countryList.nativeElement.querySelector('#' + country[0].iso2);
-      if (el) {
-        el.scrollIntoView({behavior: 'smooth'});
-      }
-    }
-
-    this.checkSeparateDialCodeStyle();
   }
 
   public onPhoneNumberChange(): void {
