@@ -9,12 +9,16 @@
     <input type="checkbox" [(ngModel)]="separateDialCode">
     <label>&nbsp;Separate Dial Code?</label>
   </div>
+    <div class="mb-2">
+        <input type="checkbox" [(ngModel)]="changeDisabled" (ngModelChange)="toggleDisabled()">
+        <label>&nbsp;Disable input</label>
+    </div>
   <form #f="ngForm" [formGroup]="phoneForm">
     <div class="mb-2">
-      <ngx-intl-tel-input 
+      <ngx-intl-tel-input
         [cssClass]="'custom'" 
         [preferredCountries]="preferredCountries"
-        [enableAutoCountrySelect]="false" 
+        [enableAutoCountrySelect]="true"
         [enablePlaceholder]="true" 
         [searchCountryFlag]="true"
         [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
@@ -24,6 +28,8 @@
         [tooltipField]="TooltipLabel.Name" 
         [phoneValidation]="true" 
         [separateDialCode]="separateDialCode"
+        [dropdownParams]="dropdownParams"
+        (countryChange)="lastCountryChange = $event"
         name="phone" formControlName="phone">
       </ngx-intl-tel-input>
     </div>
@@ -36,5 +42,6 @@
   <div><strong>Is input touched:</strong> <pre>{{ f.form.controls['phone'].touched }}</pre></div>
   <div><strong>Is form valid:</strong> <pre>{{ f.form.valid }}</pre></div>
   <div><strong>Form value:</strong> <pre>{{ f.form.value | json }}</pre></div>
+  <div><strong>Last country change:</strong> <pre>{{ lastCountryChange | json }}</pre></div>
   <div><strong>Form validation errors:</strong> <pre>{{ f.form.controls['phone'].errors | json }}</pre></div>
 </div>

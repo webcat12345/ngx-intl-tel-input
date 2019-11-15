@@ -1,39 +1,37 @@
-<div class="intl-tel-input allow-dropdown" [ngClass]="separateDialCodeClass">
-  <div class="flag-container" dropdown [ngClass]="{'disabled': disabled}">
-    <div class="selected-flag dropdown-toggle" dropdownToggle>
-      <div class="iti-flag" [ngClass]="selectedCountry?.flagClass"
-        [tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
-      <div *ngIf="separateDialCode" class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
-      <div class="iti-arrow"></div>
-    </div>
-    <div *dropdownMenu class="dropdown-menu country-dropdown">
-      <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
-        <input id="country-search-box" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
-          (click)="$event.stopPropagation()" [placeholder]="searchCountryPlaceholder" autofocus>
-      </div>
-      <ul class="country-list" #countryList>
-        <li class="country" *ngFor="let country of preferredCountriesInDropDown"
-          (click)="onCountrySelect(country, focusable)" [id]="country.iso2">
-          <div class="flag-box">
-            <div class="iti-flag" [ngClass]="country.flagClass"></div>
-          </div>
-          <span class="country-name">{{country.name}}</span>
-          <span class="dial-code">+{{country.dialCode}}</span>
-        </li>
-        <li class="divider" *ngIf="preferredCountriesInDropDown?.length"></li>
-        <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country, focusable)"
-          [id]="country.iso2">
-          <div class="flag-box">
-            <div class="iti-flag" [ngClass]="country.flagClass"></div>
-          </div>
-          <span class="country-name">{{country.name}}</span>
-          <span class="dial-code">+{{country.dialCode}}</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <input type="tel" id="phone" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
-    (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
-    [disabled]="disabled" [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
-    [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>
+<div class="ngx-intl-tel">
+    <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
+                          [country]="selectedCountry"
+                          [showCode]="separateDialCode"
+                          [matMenuTriggerFor]="appMenu"
+                          [tooltipField]="tooltipField"></ngx-intl-tel-trigger>
+    <mat-form-field [floatLabel]="floatLabel"
+                    class="ngx-intl-tel__form-field">
+        <mat-label class="ngx-intl-tel__label">{{ inputLabel }}</mat-label>
+        <input #focusable
+               matInput
+               type="tel"
+               id="phone"
+               autocomplete="off"
+               [ngClass]="cssClass"
+               [(ngModel)]="phoneNumber"
+               [disabled]="disabled"
+               [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
+               [attr.maxLength]="maxLength"
+               [attr.validation]="phoneValidation"
+               (ngModelChange)="onPhoneNumberChange()"
+               (blur)="onBlurEvent()"
+               (focus)="onFocus.emit()"
+               (keypress)="onInputKeyPress($event)">
+    </mat-form-field>
+    <mat-menu #appMenu="matMenu"
+              yPosition="below"
+              [class]="dropdownClass">
+        <ngx-intl-tel-country [countries]="preferredCountriesInDropDown"
+                              [dropdownParams]="dropdownParamsData"
+                              (countryClick)="onCountrySelect($event, focusable)" ></ngx-intl-tel-country>
+        <mat-divider *ngIf="preferredCountriesInDropDown?.length"></mat-divider>
+        <ngx-intl-tel-country [countries]="allCountries"
+                              [dropdownParams]="dropdownParamsData"
+                              (countryClick)="onCountrySelect($event, focusable)"></ngx-intl-tel-country>
+    </mat-menu>
 </div>

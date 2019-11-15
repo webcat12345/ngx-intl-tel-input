@@ -1,0 +1,29 @@
+@mixin ngx-intl-tel-country {
+  .ngx-intl-tel-country {
+    @content;
+  }
+}
+
+@mixin ngx-intl-tel-country-flag {
+  @include ngx-intl-tel-country {
+    &__flag {
+      @content;
+    }
+  }
+}
+
+@mixin ngx-intl-tel-country-name {
+  @include ngx-intl-tel-country {
+    &__name {
+      @content;
+    }
+  }
+}
+
+@mixin ngx-intl-tel-country-dial {
+  @include ngx-intl-tel-country {
+    &__dial {
+      @content;
+    }
+  }
+}

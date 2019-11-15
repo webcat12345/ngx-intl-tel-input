@@ -17,7 +17,7 @@
     "import-spacing": true,
     "indent": [
       true,
-      "tabs"
+      "spaces"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -50,7 +50,7 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [true, "ignore-params"],
+    "no-inferrable-types": [false, "ignore-params"],
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -124,11 +124,11 @@
     "no-output-native": true,
     "component-max-inline-declarations": true,
     "no-lifecycle-call": true,
-    "prefer-output-readonly": true,
+    "prefer-output-readonly": false,
     "no-conflicting-lifecycle": true,
     "use-component-selector": true,
     "no-queries-metadata-property": true,
-    "prefer-inline-decorator": true,
+    "prefer-inline-decorator": false,
 
     // [ENABLED, "SUFFIX"]
     // Where "SUFFIX" is your custom suffix, for instance "Page" for Ionic 2 components.

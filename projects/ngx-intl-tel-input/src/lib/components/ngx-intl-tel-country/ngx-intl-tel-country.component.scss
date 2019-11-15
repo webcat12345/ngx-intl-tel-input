@@ -1,0 +1,16 @@
+.ngx-intl-tel-country {
+  display: flex;
+  align-items: center;
+
+  &__flag {
+    display: block;
+  }
+
+  &__name {
+    padding-left: 8px;
+  }
+
+  &__dial {
+    padding-left: 8px;
+  }
+}

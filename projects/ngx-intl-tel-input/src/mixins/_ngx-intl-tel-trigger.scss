@@ -1,0 +1,29 @@
+@mixin ngx-intl-tel-trigger {
+  .ngx-intl-tel-trigger {
+    @content;
+  }
+}
+
+@mixin ngx-intl-tel-trigger-flag {
+  @include ngx-intl-tel-trigger {
+    &__flag {
+      @content;
+    }
+  }
+}
+
+@mixin ngx-intl-tel-trigger-dial {
+  @include ngx-intl-tel-trigger {
+    &__dial {
+      @content;
+    }
+  }
+}
+
+@mixin ngx-intl-tel-trigger-icon {
+  @include ngx-intl-tel-trigger {
+    &__icon {
+      @content;
+    }
+  }
+}
