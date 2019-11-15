@@ -87,6 +87,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   separateDialCode = false;
 
   @Input()
+  stroked: boolean;
+
+  @Input()
   set dropdownClass(panelClass: string | string[]) {
     const classes = (typeof panelClass === 'string') ? [panelClass] : panelClass;
     this._dropdownPanelClass.push(...classes);
