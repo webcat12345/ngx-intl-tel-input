@@ -30,7 +30,7 @@
                               [dropdownParams]="dropdownParamsData"
                               (countryClick)="onCountrySelect($event, focusable)" ></ngx-intl-tel-country>
         <mat-divider *ngIf="preferredCountriesInDropDown?.length"></mat-divider>
-        <ngx-intl-tel-country [countries]="allCountries"
+        <ngx-intl-tel-country [countries]="ngxIntlTelInputService.allCountries"
                               [dropdownParams]="dropdownParamsData"
                               (countryClick)="onCountrySelect($event, focusable)"></ngx-intl-tel-country>
     </mat-menu>
