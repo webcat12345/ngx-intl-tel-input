@@ -113,6 +113,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   stroked: boolean;
 
   @Input()
+  isMenuOpened: boolean;
+
+  @Input()
+  isFocused: boolean = false;
+
+  @Input()
   set dropdownClass(panelClass: string | string[]) {
     const classes = (typeof panelClass === 'string') ? [panelClass] : panelClass;
     this._dropdownPanelClass.push(...classes);
@@ -131,13 +137,19 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   onBlur = new EventEmitter<void>();
 
   @Output()
-  onFocus = new EventEmitter<void>();
+  onFocus = new EventEmitter<boolean>();
+
+  @Output()
+  menuClosed = new EventEmitter<boolean>();
+
+  @Output()
+  menuOpened = new EventEmitter<boolean>();
 
   get dropdownClass(): string | string[] {
     return this._dropdownPanelClass.join(' ');
   }
 
-  private readonly _dropdownPanelClass: string[] = ['ngx-intl-tel__dropdown'];
+  private readonly _dropdownPanelClass: string[] = this.stroked ? ['ngx-intl-tel__dropdown'] : ['ngx-intl-tel__dropdown-stroked'];
 
   selectedCountry: Country = {
     areaCodes: undefined,
@@ -391,6 +403,23 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   onBlurEvent(): void {
     this.onTouched();
     this.onBlur.emit();
+    this.isFocused = !this.isFocused;
+    console.log(this.isFocused);
   }
 
+  onFocusEvent(): void {
+    this.onFocus.emit();
+    this.isFocused = !this.isFocused;
+    console.log(this.isFocused);
+  }
+
+  isMenuOpen() {
+    this.isMenuOpened = true;
+    this.menuOpened.emit();
+  }
+
+  isMenuClose() {
+    this.isMenuOpened = false;
+    this.menuClosed.emit();
+  }
 }
