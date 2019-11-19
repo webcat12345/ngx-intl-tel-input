@@ -4,8 +4,6 @@
           [ngClass]="country.flagClass"
           [matTooltip]="country[tooltipField]"
           [matTooltipDisabled]="!tooltipField"></span>
-    <span class="ngx-intl-tel-trigger__dial"
-          *ngIf="showCode">+{{country.dialCode}}</span>
     <mat-icon class="ngx-intl-tel-trigger__icon"
               [class.ngx-intl-tel-trigger__icon_active]="true">
         {{ 'arrow_drop_down' }}

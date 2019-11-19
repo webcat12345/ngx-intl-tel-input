@@ -12,12 +12,13 @@ import {CountryDropdownDisplayOptions} from '../../projects/ngx-intl-tel-input/s
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  separateDialCode = true;
+  separateDialCode = false;
+  replaceDialCode = true;
   changeDisabled = false;
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
-  preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+  preferredCountries: CountryISO[] = [CountryISO.Ukraine, CountryISO.Russia, CountryISO.Israel];
   phoneForm = new FormGroup({
     phone: new FormControl(undefined, [Validators.required])
   });
