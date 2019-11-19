@@ -34,16 +34,16 @@ $input-border-radius: 8px;
     &:focus-within {
       border-bottom-left-radius: 0;
     }
-  }
 
-  &_stroked-opened {
-    border: 1px solid $color-border-hover;
-    background: $color-background-hover;
-    border-bottom-left-radius: 0;
+    &#{$this}_opened {
+      border: 1px solid $color-border-hover;
+      background: $color-background-hover;
+      border-bottom-left-radius: 0;
 
-    #{$this}__icon {
-      color: $color-text;
-      transform: rotateX(180deg);
+      #{$this}__icon {
+        color: $color-text;
+        transform: rotateX(180deg);
+      }
     }
   }
 

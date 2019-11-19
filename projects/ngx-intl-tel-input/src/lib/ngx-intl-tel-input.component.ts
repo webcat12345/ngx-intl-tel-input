@@ -411,13 +411,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.isFocused = !this.isFocused;
   }
 
-  isMenuOpen() {
+  isMenuOpen(): void {
     this.searchBuffer = '';
     this.isMenuOpened = true;
     this.menuOpened.emit();
   }
 
-  isMenuClose() {
+  isMenuClose(): void {
     this.isMenuOpened = false;
     this.menuClosed.emit();
   }
