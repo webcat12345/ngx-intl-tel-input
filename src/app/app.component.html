@@ -16,19 +16,20 @@
   <form #f="ngForm" [formGroup]="phoneForm">
     <div class="mb-2">
       <ngx-intl-tel-input
-        [cssClass]="'custom'" 
+        [cssClass]="'custom'"
         [preferredCountries]="preferredCountries"
         [enableAutoCountrySelect]="true"
         [enablePlaceholder]="true"
-        [selectFirstCountry]="false" 
+        [selectFirstCountry]="false"
         [selectedCountryISO]="CountryISO.India"
-        [maxLength]="15" 
-        [tooltipField]="TooltipLabel.Name" 
-        [phoneValidation]="true" 
+        [maxLength]="15"
+        [tooltipField]="TooltipLabel.Name"
+        [phoneValidation]="true"
         [separateDialCode]="separateDialCode"
         [dropdownParams]="dropdownParams"
         (countryChange)="lastCountryChange = $event"
-        name="phone" formControlName="phone">
+        name="phone" formControlName="phone"
+        [stroked]="true">
       </ngx-intl-tel-input>
     </div>
     <div class="mb-2">

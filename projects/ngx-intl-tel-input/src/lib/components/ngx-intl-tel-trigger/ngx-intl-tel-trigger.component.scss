@@ -1,3 +1,7 @@
+@import "../../mixins/index.scss";
+
+$input-border-radius: 8px;
+
 .ngx-intl-tel-trigger {
   display: flex;
   width: 100%;
@@ -5,19 +9,33 @@
   min-width: 48px;
   min-height: 48px;
   align-items: center;
+  $this: &;
+
+  &_stroked {
+    border: 1px solid $color-border;
+    border-radius: $input-border-radius 0 0 $input-border-radius;
+    padding: 0 0 0 16px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+
+    #{$this}__icon {
+      color: $color-border;
+    }
+
+    &:hover {
+      border: 1px solid $color-border-hover;
+    }
+
+    &:focus-within {
+      border-bottom-left-radius: 0;
+    }
+  }
 
   &__flag {
     display: block;
   }
 
   &__dial {
-
-  }
-
-  &__icon {
-
-    &_active {
-
-    }
+    display: none;
   }
 }

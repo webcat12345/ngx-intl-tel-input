@@ -1,7 +1,84 @@
+@import "./mixins/index.scss";
+
+$component-height: 48px;
+$input-border-radius: 8px;
+
 .ngx-intl-tel {
   display: flex;
+  $this: &;
+
+  &_stroked {
+
+    #{$this}__trigger {
+      height: $component-height;
+      transition: .3s ease-in-out;
+      z-index: 2;
+    }
+
+    #{$this}__label {
+      @include Text-Normal($font-size-s, 16px, $color-label-text);
+    }
+
+    #{$this}__form-field {
+      @include Text-Normal($font-size-l, 20px, $color-text);
+      height: $component-height;
+      border: 1px solid $color-border;
+      transform: translateX(-1px);
+      border-radius: 0 $input-border-radius $input-border-radius 0;
+      padding-left: 13px;
+      transition: .3s ease-in-out;
+      z-index: 1;
+
+      &:hover {
+        border: 1px solid $color-border-hover;
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      @include mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+
+      @include mat-form-field-underline {
+        display: none;
+      }
+
+      @include mat-form-field-subscript-wrapper {
+        display: none;
+      }
+
+      @include mat-input-element {
+        caret-color: $color-text;
+        line-height: 20px;
+
+        &::placeholder {
+          @include Text-Normal($font-size-l, 23px, $color-placeholder);
+        }
+      }
+    }
+  }
 
   &__dropdown {
     max-height: 288px !important;
+  }
+
+  &__dropdown-stroked {
+    max-height: 288px !important;
+    border: solid 1px $color-border-hover;
+    border-radius: 0 0 $input-border-radius $input-border-radius !important;
+
+    @include mat-menu-content-not-empty {
+      padding: 0;
+    }
+
+    @include mat-menu-item {
+      @include Text-Bold(14px, 18px);
+      height: 23px;
+      transition: .2s ease-in-out;
+
+      &:hover {
+        background: $color-background-hover;
+      }
+    }
   }
 }

@@ -16,7 +16,6 @@ import {CountryCode} from './data/country-code';
 import {phoneNumberValidator} from './ngx-intl-tel-input.validator';
 import {Country} from './model/country.model';
 import * as lpn from 'google-libphonenumber';
-import {SearchCountryField} from './enums/search-country-field.enum';
 import {TooltipLabel} from './enums/tooltip-label.enum';
 import {CountryISO} from './enums/country-iso.enum';
 import {FloatLabelType} from '@angular/material/core';
@@ -110,11 +109,17 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Output()
   onFocus = new EventEmitter<void>();
 
+  @Output()
+  menuClosed = new EventEmitter<void>();
+
+  @Output()
+  menuOpened = new EventEmitter<void>();
+
   get dropdownClass(): string | string[] {
     return this._dropdownPanelClass.join(' ');
   }
 
-  private readonly _dropdownPanelClass: string[] = ['ngx-intl-tel__dropdown'];
+  private readonly _dropdownPanelClass: string[] = this.stroked ? ['ngx-intl-tel__dropdown'] : ['ngx-intl-tel__dropdown-stroked'];
 
   selectedCountry: Country = {
     areaCodes: undefined,
@@ -418,5 +423,4 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.onTouched();
     this.onBlur.emit();
   }
-
 }

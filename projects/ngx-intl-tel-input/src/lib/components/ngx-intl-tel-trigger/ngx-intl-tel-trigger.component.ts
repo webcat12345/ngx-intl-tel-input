@@ -18,5 +18,8 @@ export class NgxIntlTelTriggerComponent {
   showCode: boolean;
 
   @Input()
+  stroked: boolean;
+
+  @Input()
   tooltipField: TooltipLabel;
 }

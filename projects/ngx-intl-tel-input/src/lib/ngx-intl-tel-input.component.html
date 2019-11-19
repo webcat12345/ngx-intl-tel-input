@@ -1,13 +1,20 @@
-<div class="ngx-intl-tel">
+<div class="ngx-intl-tel"
+     [class.ngx-intl-tel_stroked]="stroked">
     <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
+                          [class.ngx-intl-tel__trigger_stroked]="stroked"
                           [country]="selectedCountry"
                           [showCode]="separateDialCode"
                           [matMenuTriggerFor]="appMenu"
-                          [tooltipField]="tooltipField"></ngx-intl-tel-trigger>
+                          [tooltipField]="tooltipField"
+                          [stroked]="stroked">
+    </ngx-intl-tel-trigger>
     <mat-form-field [floatLabel]="floatLabel"
                     class="ngx-intl-tel__form-field">
-        <mat-label class="ngx-intl-tel__label">{{ inputLabel }}</mat-label>
-        <input #focusable
+        <mat-label class="ngx-intl-tel__label">
+          {{ inputLabel }}
+        </mat-label>
+        <input class="ngx-intl-tel__input"
+               #focusable
                matInput
                type="tel"
                id="phone"
@@ -28,10 +35,12 @@
               [class]="dropdownClass">
         <ngx-intl-tel-country [countries]="preferredCountriesInDropDown"
                               [dropdownParams]="dropdownParamsData"
-                              (countryClick)="onCountrySelect($event, focusable)" ></ngx-intl-tel-country>
+                              (countryClick)="onCountrySelect($event, focusable)" >
+        </ngx-intl-tel-country>
         <mat-divider *ngIf="preferredCountriesInDropDown?.length"></mat-divider>
         <ngx-intl-tel-country [countries]="allCountries"
                               [dropdownParams]="dropdownParamsData"
-                              (countryClick)="onCountrySelect($event, focusable)"></ngx-intl-tel-country>
+                              (countryClick)="onCountrySelect($event, focusable)">
+        </ngx-intl-tel-country>
     </mat-menu>
 </div>

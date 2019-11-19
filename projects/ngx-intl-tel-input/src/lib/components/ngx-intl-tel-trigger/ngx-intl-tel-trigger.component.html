@@ -1,4 +1,5 @@
-<section class="ngx-intl-tel-trigger">
+<section class="ngx-intl-tel-trigger"
+         [class.ngx-intl-tel-trigger_stroked]="stroked">
     <span class="ngx-intl-tel-trigger__flag iti-flag"
           [ngClass]="country.flagClass"
           [matTooltip]="country[tooltipField]"
@@ -6,7 +7,7 @@
     <span class="ngx-intl-tel-trigger__dial"
           *ngIf="showCode">+{{country.dialCode}}</span>
     <mat-icon class="ngx-intl-tel-trigger__icon"
-              [class.ngx-intl-tel-trigger__trigger_active]="true">
+              [class.ngx-intl-tel-trigger__icon_active]="true">
         {{ 'arrow_drop_down' }}
     </mat-icon>
 </section>
