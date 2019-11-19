@@ -1,0 +1,51 @@
+@mixin mat-form-field {
+  .mat-form-field {
+    @content
+  }
+}
+
+@mixin mat-form-field-wrapper {
+  .mat-form-field-wrapper {
+    @content
+  }
+}
+
+@mixin mat-form-field-underline {
+  @include mat-form-field-wrapper {
+    .mat-form-field-underline {
+      @content
+    }
+  }
+}
+
+@mixin mat-form-field-subscript-wrapper {
+  @include mat-form-field-wrapper {
+    .mat-form-field-subscript-wrapper {
+      @content
+    }
+  }
+}
+
+@mixin mat-form-field-flex() {
+  @include mat-form-field-wrapper {
+    .mat-form-field-flex {
+      @content
+    }
+  }
+}
+
+@mixin mat-form-field-infix() {
+  @include mat-form-field-flex() {
+    .mat-form-field-infix {
+      @content;
+    }
+  }
+}
+
+@mixin mat-input-element() {
+  @include mat-form-field-infix() {
+    .mat-input-element {
+      @content;
+    }
+  }
+}

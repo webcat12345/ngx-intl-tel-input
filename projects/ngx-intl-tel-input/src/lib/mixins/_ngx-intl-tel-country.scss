@@ -1,3 +1,25 @@
+@mixin mat-menu-content {
+  .mat-menu-content {
+    @content
+  }
+}
+
+@mixin mat-menu-content-not-empty {
+  @include mat-menu-content {
+    &:not(:empty) {
+      @content
+    }
+  }
+}
+
+@mixin mat-menu-item {
+  @include mat-menu-content {
+    .mat-menu-item {
+      @content;
+    }
+  }
+}
+
 @mixin ngx-intl-tel-country {
   .ngx-intl-tel-country {
     @content;

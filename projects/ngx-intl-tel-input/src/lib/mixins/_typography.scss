@@ -1,0 +1,31 @@
+@import "colors";
+
+$font-family: "Source Sans Pro" !default;
+$font-size-xs: 10px;
+$font-size-s: 12px;
+$font-size-m: 14px;
+$font-size-l: 16px;
+$font-size-xl: 18px;
+
+@mixin Text-Normal($font-size, $line-height, $color: $color-text) {
+  font-family: $font-family, sans-serif;
+  font-size: $font-size;
+  font-weight: 400;
+  line-height: $line-height;
+  color: $color;
+}
+
+@mixin Text-Medium($font-size, $line-height, $color: $color-text) {
+  @include Text-Normal($font-size, $line-height, $color);
+  font-weight: 500;
+}
+
+@mixin Text-Bold($font-size, $line-height, $color: $color-text) {
+  @include Text-Normal($font-size, $line-height, $color);
+  font-weight: 600;
+}
+
+@mixin Text-Strong-Bold($font-size, $line-height, $color: $color-text) {
+  @include Text-Normal($font-size, $line-height, $color);
+  font-weight: 700;
+}
