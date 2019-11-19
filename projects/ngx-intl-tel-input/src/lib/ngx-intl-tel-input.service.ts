@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {CountryCode} from './data/country-code';
 import {Country} from './model/country.model';
 import * as lpn from 'google-libphonenumber';
+import {SearchCountryField} from './enums/search-country-field.enum';
+import {NgxIntlTelCountryComponent} from './components/ngx-intl-tel-country/ngx-intl-tel-country.component';
 
 @Injectable({
   providedIn: 'root'
@@ -84,5 +86,59 @@ export class NgxIntlTelInputService {
     });
 
     return matchedCountry;
+  }
+
+  /**
+   * Search country based on country name, iso2, dialCode or all of them.
+   */
+  searchCountry(searchText, searchCountryField: SearchCountryField[], countryList: NgxIntlTelCountryComponent): Country[] {
+    if (!searchText) {
+      countryList.countryItem.first.focus();
+      return [];
+    }
+    const countrySearchTextLower = searchText.toLowerCase();
+    const country = this.allCountries.filter(c => {
+      if (searchCountryField.indexOf(SearchCountryField.All) > -1) {
+        // Search in all fields
+        if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+          return c;
+        }
+        if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+          return c;
+        }
+        if (c.dialCode.startsWith(searchText)) {
+          return c;
+        }
+      } else {
+        // Or search by specific SearchCountryField(s)
+        if (searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
+          if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+            return c;
+          }
+        }
+        if (searchCountryField.indexOf(SearchCountryField.Name) > -1) {
+          if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+            return c;
+          }
+        }
+        if (searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
+          if (c.dialCode.startsWith(searchText)) {
+            return c;
+          }
+        }
+      }
+    });
+    if (country.length > 0) {
+      const el = countryList.countryItem.find((countryComponent, index) => {
+        const id = countryList.countryItemHtml.toArray()[index].nativeElement.getAttribute('id');
+        return id === country[0].iso2;
+      });
+      if (el) {
+        el.focus();
+      }
+    } else {
+      countryList.countryItem.first.focus();
+    }
+    return country;
   }
 }

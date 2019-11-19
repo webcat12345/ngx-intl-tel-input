@@ -1,8 +1,9 @@
-<button  mat-menu-item
-         class="ngx-intl-tel-country"
-         *ngFor="let country of countries"
-         (click)="countryClick.emit(country)"
-         [id]="country.iso2">
+<button mat-menu-item
+        #countryItem
+        class="ngx-intl-tel-country"
+        *ngFor="let country of countries"
+        (click)="countryClick.emit(country)"
+        [id]="country.iso2">
     <span *ngIf="showFlag"
           class="iti-flag
                  ngx-intl-tel-country__flag"
