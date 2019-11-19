@@ -5,7 +5,8 @@
   --ngx-intl-tel-color-border-hover: #AFB3CF;
   --ngx-intl-tel-color-placeholder: #C3C6DC;
   --ngx-intl-tel-background-hover: #F3F6FD;
-  --ngx-intl-tel-shadow: 0px 5px 24px rgba(57, 65, 92, 0.15);;
+  --ngx-intl-tel-error-color: #EA5D73;
+  --ngx-intl-tel-shadow: 0px 5px 24px rgba(57, 65, 92, 0.15);
 }
 
 $color-border: var(--ngx-intl-tel-color-border);
@@ -14,3 +15,4 @@ $color-text: var(--ngx-intl-tel-color-text);
 $color-label-text: var(--ngx-intl-tel-color-label);
 $color-placeholder: var(--ngx-intl-tel-color-placeholder);
 $color-background-hover: var(--ngx-intl-tel-background-hover);
+$color-error: var(--ngx-intl-tel-error-color);

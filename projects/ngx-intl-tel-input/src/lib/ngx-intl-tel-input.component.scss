@@ -48,8 +48,8 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
         display: none;
       }
 
-      @include mat-form-field-subscript-wrapper {
-        display: none;
+      @include mat-error {
+        color: $color-error;
       }
 
       @include mat-input-element {
@@ -65,6 +65,27 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
   &_stroked-opened {
     box-shadow: $box-shadow;
+  }
+
+  &_stroked-error {
+
+    #{$this}__label {
+      color: $color-error;
+    }
+
+    #{$this}__form-field {
+      border-color: $color-error;
+      color: $color-error;
+
+      @include mat-input-element {
+        caret-color: $color-error;
+
+        &::placeholder {
+          color: $color-error;
+          opacity: .7;
+        }
+      }
+    }
   }
 
   &_stroked-opened-focus {
