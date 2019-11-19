@@ -189,7 +189,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   constructor(
     private readonly countryCodeData: CountryCode,
-    private readonly ngxIntlTelInputService: NgxIntlTelInputService
+    public readonly ngxIntlTelInputService: NgxIntlTelInputService
   ) {
   }
 
