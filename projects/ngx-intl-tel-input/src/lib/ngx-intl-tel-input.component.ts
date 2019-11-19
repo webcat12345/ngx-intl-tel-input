@@ -52,7 +52,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   @HostListener('window:keypress', ['$event'])
   onKeyPress($event: KeyboardEvent): void {
-    if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key)) {
+    if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.isMenuOpened) {
       this.searchBuffer = `${this.searchBuffer}${$event.key}`;
       const countries = this.ngxIntlTelInputService.searchCountry(this.searchBuffer, [SearchCountryField.All], this.countryComponent);
       if (countries.length === 0) {
@@ -404,16 +404,15 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.onTouched();
     this.onBlur.emit();
     this.isFocused = !this.isFocused;
-    console.log(this.isFocused);
   }
 
   onFocusEvent(): void {
     this.onFocus.emit();
     this.isFocused = !this.isFocused;
-    console.log(this.isFocused);
   }
 
   isMenuOpen() {
+    this.searchBuffer = '';
     this.isMenuOpened = true;
     this.menuOpened.emit();
   }
