@@ -15,5 +15,14 @@ export class NgxIntlTelTriggerComponent {
   country: Country;
 
   @Input()
+  showCode: boolean;
+
+  @Input()
+  stroked: boolean;
+
+  @Input()
   tooltipField: TooltipLabel;
+
+  @Input()
+  isMenuOpened: boolean;
 }
