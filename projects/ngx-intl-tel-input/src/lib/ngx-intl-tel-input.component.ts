@@ -14,7 +14,7 @@ import {
   ViewChildren,
   ViewEncapsulation
 } from '@angular/core';
-import {NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 import {CountryCode} from './data/country-code';
 import {phoneNumberValidator} from './ngx-intl-tel-input.validator';
 import {Country} from './model/country.model';
@@ -119,6 +119,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   isFocused: boolean = false;
 
   @Input()
+  isError: boolean;
+
+  @Input()
   set dropdownClass(panelClass: string | string[]) {
     const classes = (typeof panelClass === 'string') ? [panelClass] : panelClass;
     this._dropdownPanelClass.push(...classes);
@@ -178,8 +181,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     CountryDropdownDisplayOptions.Flag,
     CountryDropdownDisplayOptions.Name
   ];
-
-  @ViewChild('countryList', {static: false}) countryList: ElementRef;
 
   onTouched = () => {
   };

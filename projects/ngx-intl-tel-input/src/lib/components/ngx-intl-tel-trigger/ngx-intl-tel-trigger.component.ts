@@ -25,4 +25,7 @@ export class NgxIntlTelTriggerComponent {
 
   @Input()
   isMenuOpened: boolean;
+
+  @Input()
+  isError: boolean;
 }

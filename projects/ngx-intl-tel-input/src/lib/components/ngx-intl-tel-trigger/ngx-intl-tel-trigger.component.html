@@ -1,11 +1,13 @@
 <section class="ngx-intl-tel-trigger"
          [class.ngx-intl-tel-trigger_stroked]="stroked"
+         [class.ngx-intl-tel-trigger_stroked-error]="stroked && isError"
          [class.ngx-intl-tel-trigger_opened]="isMenuOpened">
     <span class="ngx-intl-tel-trigger__flag iti-flag"
           [ngClass]="country.flagClass"
           [matTooltip]="country[tooltipField]"
           [matTooltipDisabled]="!tooltipField"></span>
     <mat-icon class="ngx-intl-tel-trigger__icon"
+              [class.ngx-intl-tel-trigger__icon_error]="isError"
               [class.ngx-intl-tel-trigger__icon_active]="true">
         {{ 'arrow_drop_down' }}
     </mat-icon>
