@@ -6,7 +6,7 @@ $input-border-radius: 8px;
   display: flex;
   width: 100%;
   height: 100%;
-  min-width: 48px;
+  min-width: 68px;
   min-height: 48px;
   align-items: center;
   $this: &;
@@ -20,14 +20,30 @@ $input-border-radius: 8px;
 
     #{$this}__icon {
       color: $color-border;
+      transition: .3s ease-in-out;
     }
 
     &:hover {
       border: 1px solid $color-border-hover;
+
+      #{$this}__icon {
+        color: $color-text;
+      }
     }
 
     &:focus-within {
       border-bottom-left-radius: 0;
+    }
+  }
+
+  &_stroked-opened {
+    border: 1px solid $color-border-hover;
+    background: $color-background-hover;
+    border-bottom-left-radius: 0;
+
+    #{$this}__icon {
+      color: $color-text;
+      transform: rotateX(180deg);
     }
   }
 

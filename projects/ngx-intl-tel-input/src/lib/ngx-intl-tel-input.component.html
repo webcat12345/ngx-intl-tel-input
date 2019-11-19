@@ -1,9 +1,13 @@
 <div class="ngx-intl-tel"
-     [class.ngx-intl-tel_stroked]="stroked">
+     [class.ngx-intl-tel_stroked]="stroked"
+     [class.ngx-intl-tel_stroked-opened]="stroked && isMenuOpened"
+     [class.ngx-intl-tel_stroked-opened-focus]="stroked && isFocused">
     <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
-                          [class.ngx-intl-tel__trigger_stroked]="stroked"
                           [country]="selectedCountry"
                           [matMenuTriggerFor]="appMenu"
+                          (menuOpened)="isMenuOpen()"
+                          (menuClosed)="isMenuClose()"
+                          [isMenuOpened]="isMenuOpened"
                           [tooltipField]="tooltipField"
                           [stroked]="stroked">
     </ngx-intl-tel-trigger>
@@ -26,7 +30,7 @@
                [attr.validation]="phoneValidation"
                (ngModelChange)="onPhoneNumberChange()"
                (blur)="onBlurEvent()"
-               (focus)="onFocus.emit()"
+               (focus)="onFocusEvent()"
                (keypress)="onInputKeyPress($event)">
     </mat-form-field>
     <mat-menu #appMenu="matMenu"

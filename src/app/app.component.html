@@ -31,10 +31,10 @@
         [phoneValidation]="true"
         [separateDialCode]="separateDialCode"
         [replaceDialCode]="replaceDialCode"
+        [stroked]="true"
         [dropdownParams]="dropdownParams"
         (countryChange)="lastCountryChange = $event"
-        name="phone" formControlName="phone"
-        [stroked]="true">
+        name="phone" formControlName="phone">
       </ngx-intl-tel-input>
     </div>
     <div class="mb-2">

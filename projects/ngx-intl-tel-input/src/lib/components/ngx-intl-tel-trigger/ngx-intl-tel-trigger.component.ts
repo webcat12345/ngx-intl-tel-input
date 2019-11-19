@@ -22,4 +22,7 @@ export class NgxIntlTelTriggerComponent {
 
   @Input()
   tooltipField: TooltipLabel;
+
+  @Input()
+  isMenuOpened: boolean;
 }
