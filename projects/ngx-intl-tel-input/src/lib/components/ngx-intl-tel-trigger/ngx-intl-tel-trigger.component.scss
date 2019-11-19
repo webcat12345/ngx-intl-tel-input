@@ -21,6 +21,10 @@ $input-border-radius: 8px;
     #{$this}__icon {
       color: $color-border;
       transition: .3s ease-in-out;
+
+      &_error {
+        color: $color-error;
+      }
     }
 
     &:hover {
@@ -44,7 +48,15 @@ $input-border-radius: 8px;
     #{$this}__icon {
       color: $color-text;
       transform: rotateX(180deg);
+
+      &_error {
+        color: $color-error;
+      }
     }
+  }
+
+  &_stroked-error {
+    border-color: $color-error;
   }
 
   &__flag {

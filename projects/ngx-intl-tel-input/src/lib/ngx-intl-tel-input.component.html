@@ -1,9 +1,11 @@
 <div class="ngx-intl-tel"
      [class.ngx-intl-tel_stroked]="stroked"
+     [class.ngx-intl-tel_stroked-error]="stroked && isError"
      [class.ngx-intl-tel_stroked-opened]="stroked && isMenuOpened"
      [class.ngx-intl-tel_stroked-opened-focus]="stroked && isFocused">
     <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
                           [country]="selectedCountry"
+                          [isError]="isError"
                           [matMenuTriggerFor]="appMenu"
                           (menuOpened)="isMenuOpen()"
                           (menuClosed)="isMenuClose()"
@@ -32,6 +34,7 @@
                (blur)="onBlurEvent()"
                (focus)="onFocusEvent()"
                (keypress)="onInputKeyPress($event)">
+        <ng-content select="mat-error"></ng-content>
     </mat-form-field>
     <mat-menu #appMenu="matMenu"
               yPosition="below"
