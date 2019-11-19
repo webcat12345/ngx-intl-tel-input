@@ -20,7 +20,7 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
     }
 
     #{$this}__label {
-      @include Text-Normal($font-size-s, 16px, $color-label-text);
+      @include Text-Normal($font-size-m, 16px, $color-label-text);
     }
 
     #{$this}__form-field {
@@ -48,10 +48,6 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
         display: none;
       }
 
-      @include mat-form-field-subscript-wrapper {
-        display: none;
-      }
-
       @include mat-input-element {
         caret-color: $color-text;
         line-height: 20px;
@@ -61,17 +57,43 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
         }
       }
     }
-  }
 
-  &_stroked-opened {
-    box-shadow: $box-shadow;
-  }
+    &#{$this}_opened {
+      box-shadow: $box-shadow;
+    }
 
-  &_stroked-opened-focus {
-    box-shadow: $box-shadow;
+    &#{$this}_focus {
+      box-shadow: $box-shadow;
+    }
 
-    #{$this}__form-field {
-      border: 1px solid $color-border-hover;
+    &#{$this}_error {
+
+      #{$this}__label {
+        color: $color-error;
+      }
+
+      #{$this}__form-field {
+        border-color: $color-error;
+        color: $color-error;
+
+        @include mat-input-element {
+          caret-color: $color-error;
+
+          &::placeholder {
+            color: $color-error;
+            opacity: .7;
+          }
+        }
+
+        &:hover {
+          border-color: $color-error;
+        }
+
+        @include mat-error {
+          color: $color-error !important;
+          margin-top: 5px !important;
+        }
+      }
     }
   }
 

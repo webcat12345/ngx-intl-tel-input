@@ -26,6 +26,14 @@
   }
 }
 
+@mixin mat-error {
+  @include mat-form-field-infix {
+    .mat-error {
+      @content
+    }
+  }
+}
+
 @mixin mat-form-field-flex() {
   @include mat-form-field-wrapper {
     .mat-form-field-flex {
