@@ -3,12 +3,15 @@ import {
   ElementRef,
   EventEmitter,
   forwardRef,
+  HostListener,
   Input,
   OnChanges,
   OnInit,
   Output,
+  QueryList,
   SimpleChanges,
   ViewChild,
+  ViewChildren,
   ViewEncapsulation
 } from '@angular/core';
 import {NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
@@ -21,6 +24,8 @@ import {CountryISO} from './enums/country-iso.enum';
 import {FloatLabelType} from '@angular/material/core';
 import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-options.enum';
 import {NgxIntlTelInputService} from './ngx-intl-tel-input.service';
+import {NgxIntlTelCountryComponent} from './components/ngx-intl-tel-country/ngx-intl-tel-country.component';
+import {SearchCountryField} from './enums/search-country-field.enum';
 
 @Component({
   selector: 'ngx-intl-tel-input',
@@ -44,6 +49,20 @@ import {NgxIntlTelInputService} from './ngx-intl-tel-input.service';
   ]
 })
 export class NgxIntlTelInputComponent implements OnInit, OnChanges {
+
+  @HostListener('window:keypress', ['$event'])
+  onKeyPress($event: KeyboardEvent): void {
+    if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.isMenuOpened) {
+      this.searchBuffer = `${this.searchBuffer}${$event.key}`;
+      const countries = this.ngxIntlTelInputService.searchCountry(this.searchBuffer, [SearchCountryField.All], this.countryComponent);
+      if (countries.length === 0) {
+        this.searchBuffer = '';
+      }
+    }
+  }
+
+  @ViewChild('countryComponent', {static: true})
+  countryComponent: NgxIntlTelCountryComponent;
 
   @Input()
   value = '';
@@ -142,6 +161,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     priority: 0
   };
 
+  searchBuffer: string = '';
+
   separateDialCodeClass: string;
 
   phoneNumber = '';
@@ -161,10 +182,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @ViewChild('countryList', {static: false}) countryList: ElementRef;
 
   onTouched = () => {
-  }
+  };
 
   propagateChange = (_: any) => {
-  }
+  };
 
   constructor(
     private readonly countryCodeData: CountryCode,
@@ -307,7 +328,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       dialCode: '+' + this.selectedCountry.dialCode
     });
 
-    if (el)  {
+    if (el) {
       el.focus();
     }
   }
@@ -383,16 +404,15 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.onTouched();
     this.onBlur.emit();
     this.isFocused = !this.isFocused;
-    console.log(this.isFocused);
   }
 
   onFocusEvent(): void {
     this.onFocus.emit();
     this.isFocused = !this.isFocused;
-    console.log(this.isFocused);
   }
 
   isMenuOpen() {
+    this.searchBuffer = '';
     this.isMenuOpened = true;
     this.menuOpened.emit();
   }
