@@ -15,8 +15,5 @@ export class NgxIntlTelTriggerComponent {
   country: Country;
 
   @Input()
-  showCode: boolean;
-
-  @Input()
   tooltipField: TooltipLabel;
 }

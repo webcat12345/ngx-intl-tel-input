@@ -9,6 +9,10 @@
     <input type="checkbox" [(ngModel)]="separateDialCode">
     <label>&nbsp;Separate Dial Code?</label>
   </div>
+  <div class="mb-2">
+    <input type="checkbox" [(ngModel)]="replaceDialCode">
+    <label>&nbsp;Replace Dial Code?</label>
+  </div>
     <div class="mb-2">
         <input type="checkbox" [(ngModel)]="changeDisabled" (ngModelChange)="toggleDisabled()">
         <label>&nbsp;Disable input</label>
@@ -16,16 +20,17 @@
   <form #f="ngForm" [formGroup]="phoneForm">
     <div class="mb-2">
       <ngx-intl-tel-input
-        [cssClass]="'custom'" 
+        [cssClass]="'custom'"
         [preferredCountries]="preferredCountries"
         [enableAutoCountrySelect]="true"
         [enablePlaceholder]="true"
-        [selectFirstCountry]="false" 
-        [selectedCountryISO]="CountryISO.India"
-        [maxLength]="15" 
-        [tooltipField]="TooltipLabel.Name" 
-        [phoneValidation]="true" 
+        [selectFirstCountry]="true"
+        [selectedCountryISO]="CountryISO.Ukraine"
+        [maxLength]="15"
+        [tooltipField]="TooltipLabel.Name"
+        [phoneValidation]="true"
         [separateDialCode]="separateDialCode"
+        [replaceDialCode]="replaceDialCode"
         [dropdownParams]="dropdownParams"
         (countryChange)="lastCountryChange = $event"
         name="phone" formControlName="phone">
