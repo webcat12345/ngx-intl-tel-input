@@ -27,7 +27,7 @@
 }
 
 @mixin mat-error {
-  @include mat-form-field-subscript-wrapper {
+  @include mat-form-field-infix {
     .mat-error {
       @content
     }

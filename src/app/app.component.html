@@ -34,9 +34,11 @@
         [stroked]="true"
         [dropdownParams]="dropdownParams"
         (countryChange)="lastCountryChange = $event"
-        [isError]="phoneForm.invalid"
+        [isError]="phoneForm.invalid && phoneForm.touched"
         name="phone" formControlName="phone">
-          <mat-error *ngIf="phoneForm.get('phone').invalid">some error text</mat-error>
+          <mat-error *ngIf="phoneForm.get('phone').invalid && phoneForm.touched">
+            some error text
+          </mat-error>
       </ngx-intl-tel-input>
     </div>
     <div class="mb-2">
