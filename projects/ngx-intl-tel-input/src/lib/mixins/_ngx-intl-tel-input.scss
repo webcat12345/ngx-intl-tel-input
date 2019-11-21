@@ -57,3 +57,11 @@
     }
   }
 }
+
+@mixin form-control-focus {
+  @include mat-form-field-infix() {
+    .form-control:focus {
+      @content;
+    }
+  }
+}
