@@ -1,7 +1,7 @@
 @import "./mixins/index.scss";
 
 $component-height: 48px;
-$component-width: 100%;
+$component-width: 322px;
 $input-border-radius: 8px;
 $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
@@ -55,10 +55,6 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
         &::placeholder {
           @include Text-Normal($font-size-l, 20px, $color-placeholder);
         }
-      }
-
-      @include form-control-focus {
-        border-color: unset !important;
       }
     }
 
