@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CountryCode } from './data/country-code';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
@@ -43,6 +43,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
+
+	@Output() readonly countryChange = new EventEmitter<Country>();
+
 	selectedCountry: Country = {
 		areaCodes: undefined,
 		dialCode: '',
@@ -85,9 +88,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 		if (this.selectFirstCountry) {
 			if (this.preferredCountriesInDropDown.length) {
-				this.selectedCountry = this.preferredCountriesInDropDown[0];
+				this.setSelectedCountry(this.preferredCountriesInDropDown[0]);
 			} else {
-				this.selectedCountry = this.allCountries[0];
+				this.setSelectedCountry(this.allCountries[0]);
 			}
 		}
 		this.getSelectedCountry();
@@ -129,6 +132,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				}
 			}
 		}
+	}
+
+	setSelectedCountry(country: Country) {
+		this.selectedCountry = country;
+		this.countryChange.emit(country);
 	}
 
 
@@ -231,7 +239,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	public onCountrySelect(country: Country, el): void {
-		this.selectedCountry = country;
+		this.setSelectedCountry(country);
 
 		this.checkSeparateDialCodeStyle();
 
