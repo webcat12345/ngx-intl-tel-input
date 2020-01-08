@@ -141,4 +141,19 @@ export class NgxIntlTelInputService {
     }
     return country;
   }
+
+  onInputKeyPress(event: KeyboardEvent): void {
+    const allowedChars = /[0-9\+\-\ ]/;
+    const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
+    const allowedOtherKeys = [
+      'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown',
+      'Home', 'End', 'Insert', 'Delete', 'Backspace'
+    ];
+
+    if (!allowedChars.test(event.key)
+      && !(event.ctrlKey && allowedCtrlChars.test(event.key))
+      && !(allowedOtherKeys.includes(event.key))) {
+      event.preventDefault();
+    }
+  }
 }

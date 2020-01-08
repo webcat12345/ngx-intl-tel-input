@@ -107,6 +107,8 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
   &__dropdown-stroked {
     max-height: 288px !important;
+    min-height: 288px !important;
+    height: 288px !important;
     border: solid 1px $color-border-hover;
     border-radius: 0 0 $input-border-radius $input-border-radius !important;
 
@@ -118,6 +120,7 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
       @include Text-Bold(14px, 18px);
       height: 23px;
       transition: .2s ease-in-out;
+      outline-color: #fff;
 
       &:hover {
         background: $color-background-hover;

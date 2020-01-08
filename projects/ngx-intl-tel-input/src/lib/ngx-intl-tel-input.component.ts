@@ -26,6 +26,7 @@ import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-op
 import {NgxIntlTelInputService} from './ngx-intl-tel-input.service';
 import {NgxIntlTelCountryComponent} from './components/ngx-intl-tel-country/ngx-intl-tel-country.component';
 import {SearchCountryField} from './enums/search-country-field.enum';
+import {MatMenuItem} from '@angular/material/menu';
 
 @Component({
   selector: 'ngx-intl-tel-input',
@@ -122,6 +123,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   isError: boolean;
 
   @Input()
+  applyCodeOnFocus: boolean = true;
+
+  @Input()
   set dropdownClass(panelClass: string | string[]) {
     const classes = (typeof panelClass === 'string') ? [panelClass] : panelClass;
     this._dropdownPanelClass.push(...classes);
@@ -174,7 +178,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   // Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
   phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
   disabled = false;
-  errors: Array<any> = ['Phone number is required.'];
+  lastMatMenuItem: MatMenuItem;
 
   dropdownParamsData: CountryDropdownDisplayOptions[] = [
     CountryDropdownDisplayOptions.Dial,
@@ -188,10 +192,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   propagateChange = (_: any) => {
   };
 
-  constructor(
-    private readonly countryCodeData: CountryCode,
-    public readonly ngxIntlTelInputService: NgxIntlTelInputService
-  ) {
+  constructor(public readonly ngxIntlTelInputService: NgxIntlTelInputService) {
   }
 
   ngOnInit() {
@@ -277,7 +278,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.checkSeparateDialCodeStyle();
 
     if (!this.value) {
-      // tslint:disable-next-line:no-null-keyword
       this.propagateChange(null);
     } else {
       const intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
@@ -297,7 +297,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     }
   }
 
-  public onCountrySelect(country: Country, el?): void {
+  public onCountrySelect(country: Country, el?: HTMLInputElement): void {
     this.setSelectedCountry(country);
 
     this.checkSeparateDialCodeStyle();
@@ -334,21 +334,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     }
   }
 
-  public onInputKeyPress(event: KeyboardEvent): void {
-    const allowedChars = /[0-9\+\-\ ]/;
-    const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
-    const allowedOtherKeys = [
-      'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown',
-      'Home', 'End', 'Insert', 'Delete', 'Backspace'
-    ];
-
-    if (!allowedChars.test(event.key)
-      && !(event.ctrlKey && allowedCtrlChars.test(event.key))
-      && !(allowedOtherKeys.includes(event.key))) {
-      event.preventDefault();
-    }
-  }
-
   registerOnChange(fn: any): void {
     this.propagateChange = fn;
   }
@@ -371,11 +356,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     }, 1);
   }
 
-  separateDialCodePlaceHolder(placeholder: string): string {
-    return this.removeDialCode(placeholder);
-  }
-
-  private removeDialCode(phoneNumber: string): string {
+  removeDialCode(phoneNumber: string): string {
     if (this.separateDialCode && phoneNumber) {
       phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
     }
@@ -401,6 +382,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     }
   }
 
+  private _applyDialCode(): void {
+    if (!this.phoneNumber) {
+      this.phoneNumber = `+${this.selectedCountry.dialCode}`;
+      this.onPhoneNumberChange();
+    }
+  }
+
   onBlurEvent(): void {
     this.onTouched();
     this.onBlur.emit();
@@ -410,12 +398,18 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   onFocusEvent(): void {
     this.onFocus.emit();
     this.isFocused = !this.isFocused;
+    if (this.applyCodeOnFocus) {
+      this._applyDialCode();
+    }
   }
 
   isMenuOpen(): void {
+    this.menuOpened.emit();
     this.searchBuffer = '';
     this.isMenuOpened = true;
-    this.menuOpened.emit();
+    if (this.lastMatMenuItem) {
+      this.lastMatMenuItem.focus();
+    }
   }
 
   isMenuClose(): void {
