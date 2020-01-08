@@ -16,7 +16,7 @@
     <mat-form-field [floatLabel]="floatLabel"
                     class="ngx-intl-tel__form-field">
         <mat-label class="ngx-intl-tel__label">
-          {{ inputLabel }}
+            {{ inputLabel }}
         </mat-label>
         <input class="ngx-intl-tel__input"
                #focusable
@@ -27,27 +27,30 @@
                [ngClass]="cssClass"
                [(ngModel)]="phoneNumber"
                [disabled]="disabled"
-               [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
+               [placeholder]="removeDialCode(selectedCountry?.placeHolder || '')"
                [attr.maxLength]="maxLength"
                [attr.validation]="phoneValidation"
                (ngModelChange)="onPhoneNumberChange()"
                (blur)="onBlurEvent()"
                (focus)="onFocusEvent()"
-               (keypress)="onInputKeyPress($event)">
+               (keypress)="ngxIntlTelInputService.onInputKeyPress($event)">
         <ng-content select="mat-error"></ng-content>
     </mat-form-field>
     <mat-menu #appMenu="matMenu"
               yPosition="below"
+              [overlapTrigger]="false"
               [class]="dropdownClass">
         <ngx-intl-tel-country [countries]="preferredCountriesInDropDown"
                               [dropdownParams]="dropdownParamsData"
-                              (countryClick)="onCountrySelect($event, focusable)" >
+                              (countryClick)="onCountrySelect($event, focusable)"
+                              (onMatItemSelect)="lastMatMenuItem = $event">
         </ngx-intl-tel-country>
         <mat-divider *ngIf="preferredCountriesInDropDown?.length"></mat-divider>
         <ngx-intl-tel-country #countryComponent
                               [countries]="ngxIntlTelInputService.allCountries"
                               [dropdownParams]="dropdownParamsData"
-                              (countryClick)="onCountrySelect($event, focusable)">
+                              (countryClick)="onCountrySelect($event, focusable)"
+                              (onMatItemSelect)="lastMatMenuItem = $event">
         </ngx-intl-tel-country>
     </mat-menu>
 </div>

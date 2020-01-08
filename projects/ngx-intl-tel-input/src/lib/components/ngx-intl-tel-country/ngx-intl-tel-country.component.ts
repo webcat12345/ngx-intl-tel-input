@@ -37,6 +37,9 @@ export class NgxIntlTelCountryComponent {
   @Output()
   countryClick = new EventEmitter<Country>();
 
+  @Output()
+  onMatItemSelect = new EventEmitter<MatMenuItem>();
+
   get showFlag(): boolean {
     return this.dropdownParams.some(value => value === CountryDropdownDisplayOptions.Flag);
   }
@@ -47,6 +50,11 @@ export class NgxIntlTelCountryComponent {
 
   get showDial(): boolean {
     return this.dropdownParams.some(value => value === CountryDropdownDisplayOptions.Dial);
+  }
+
+  onCountryClick(country: Country, matMenuItem: MatMenuItem): void {
+    this.onMatItemSelect.emit(matMenuItem);
+    this.countryClick.emit(country);
   }
 
 }

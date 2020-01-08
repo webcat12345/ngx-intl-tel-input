@@ -8,7 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
-import {MatMenuModule} from '@angular/material/menu';
+import {MAT_MENU_DEFAULT_OPTIONS, MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {ComponentsModule} from './components/components.module';
 
@@ -34,7 +34,15 @@ export class NgxIntlTelInputModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: NgxIntlTelInputModule,
-      providers: [NgxIntlTelInputService]
+      providers: [
+        NgxIntlTelInputService,
+        {
+          provide: MAT_MENU_DEFAULT_OPTIONS,
+          useValue: {
+            yPosition: 'above'
+          }
+        }
+      ]
     };
   }
 }
