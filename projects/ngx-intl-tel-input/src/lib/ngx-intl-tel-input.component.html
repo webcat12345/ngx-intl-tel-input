@@ -4,14 +4,13 @@
      [class.ngx-intl-tel_opened]="isMenuOpened"
      [class.ngx-intl-tel_focus]="isFocused">
     <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
+                          #connectedElement
                           [country]="selectedCountry"
                           [isError]="isError"
-                          [matMenuTriggerFor]="appMenu"
                           [isMenuOpened]="isMenuOpened"
                           [tooltipField]="tooltipField"
                           [stroked]="stroked"
-                          (menuOpened)="isMenuOpen()"
-                          (menuClosed)="isMenuClose()">
+                          (click)="openDropdown()">
     </ngx-intl-tel-trigger>
     <mat-form-field [floatLabel]="floatLabel"
                     class="ngx-intl-tel__form-field">
@@ -36,21 +35,19 @@
                (keypress)="ngxIntlTelInputService.onInputKeyPress($event)">
         <ng-content select="mat-error"></ng-content>
     </mat-form-field>
-    <mat-menu #appMenu="matMenu"
-              yPosition="below"
-              [overlapTrigger]="false"
-              [class]="dropdownClass">
-        <ngx-intl-tel-country [countries]="preferredCountriesInDropDown"
-                              [dropdownParams]="dropdownParamsData"
-                              (countryClick)="onCountrySelect($event, focusable)"
-                              (onMatItemSelect)="lastMatMenuItem = $event">
-        </ngx-intl-tel-country>
-        <mat-divider *ngIf="preferredCountriesInDropDown?.length"></mat-divider>
-        <ngx-intl-tel-country #countryComponent
-                              [countries]="ngxIntlTelInputService.allCountries"
-                              [dropdownParams]="dropdownParamsData"
-                              (countryClick)="onCountrySelect($event, focusable)"
-                              (onMatItemSelect)="lastMatMenuItem = $event">
-        </ngx-intl-tel-country>
-    </mat-menu>
+    <ng-template #dropdownTemplate>
+        <div [class]="dropdownClass">
+            <ngx-intl-tel-country [countries]="preferredCountriesInDropDown"
+                                  [dropdownParams]="dropdownParamsData"
+                                  [stroked]="stroked"
+                                  (countryClick)="onCountrySelect($event, focusable)">
+            </ngx-intl-tel-country>
+            <mat-divider *ngIf="preferredCountriesInDropDown?.length"></mat-divider>
+            <ngx-intl-tel-country [countries]="ngxIntlTelInputService.allCountries"
+                                  [dropdownParams]="dropdownParamsData"
+                                  [stroked]="stroked"
+                                  (countryClick)="onCountrySelect($event, focusable)">
+            </ngx-intl-tel-country>
+        </div>
+    </ng-template>
 </div>

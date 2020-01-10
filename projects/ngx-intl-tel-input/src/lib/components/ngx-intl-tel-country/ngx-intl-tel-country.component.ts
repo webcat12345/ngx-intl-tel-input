@@ -22,23 +22,17 @@ import {MatMenuItem} from '@angular/material/menu';
 })
 export class NgxIntlTelCountryComponent {
 
-  @ViewChildren('countryItem')
-  countryItem: QueryList<MatMenuItem>;
-
-  @ViewChildren('countryItem', {read: ElementRef})
-  countryItemHtml: QueryList<ElementRef<HTMLButtonElement>>;
-
   @Input()
   countries: Country[];
 
   @Input()
   dropdownParams: CountryDropdownDisplayOptions[];
 
-  @Output()
-  countryClick = new EventEmitter<Country>();
+  @Input()
+  stroked: boolean;
 
   @Output()
-  onMatItemSelect = new EventEmitter<MatMenuItem>();
+  countryClick = new EventEmitter<Country>();
 
   get showFlag(): boolean {
     return this.dropdownParams.some(value => value === CountryDropdownDisplayOptions.Flag);
@@ -50,11 +44,6 @@ export class NgxIntlTelCountryComponent {
 
   get showDial(): boolean {
     return this.dropdownParams.some(value => value === CountryDropdownDisplayOptions.Dial);
-  }
-
-  onCountryClick(country: Country, matMenuItem: MatMenuItem): void {
-    this.onMatItemSelect.emit(matMenuItem);
-    this.countryClick.emit(country);
   }
 
 }
