@@ -59,11 +59,11 @@
 }
 
 @mixin mat-label-float() {
-  //@include mat-form-field {
-    .mat-form-field-should-float .mat-form-field-label {
+  @include mat-form-field {
+    &.mat-form-field-should-float .mat-form-field-label {
       @content;
     }
-  //}
+  }
 }
 
 @mixin form-control-focus {

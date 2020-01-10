@@ -50,7 +50,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   @HostListener('window:keypress', ['$event'])
   onKeyPress($event: KeyboardEvent): void {
-    console.log('aaaa');
     if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.isMenuOpened) {
       this.searchBuffer = `${this.searchBuffer}${$event.key}`;
       const countries = this.ngxIntlTelInputService.searchCountry(this.searchBuffer, [SearchCountryField.All]);
