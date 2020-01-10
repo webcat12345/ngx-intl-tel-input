@@ -1,4 +1,4 @@
 export enum TooltipLabel {
-	Name = 'name',
-	Iso2 = 'iso2'
+  Name = 'name',
+  Iso2 = 'iso2'
 }

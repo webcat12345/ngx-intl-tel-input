@@ -2,7 +2,8 @@
  * Public API Surface of ngx-intl-tel-input
  */
 
-export * from './lib/ngx-intl-tel-input.service';
+export * from './lib/services/ngx-intl-tel-input.service';
+export * from './lib/services/ngx-dropdown.service';
 export * from './lib/ngx-intl-tel-input.component';
 export * from './lib/ngx-intl-tel-input.module';
 export * from './lib/enums/country-iso.enum';

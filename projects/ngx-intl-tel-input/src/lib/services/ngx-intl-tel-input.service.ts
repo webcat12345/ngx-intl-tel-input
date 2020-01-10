@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {CountryCode} from './data/country-code';
-import {Country} from './model/country.model';
+import {CountryCode} from '../data/country-code';
+import {Country} from '../model/country.model';
 import * as lpn from 'google-libphonenumber';
-import {SearchCountryField} from './enums/search-country-field.enum';
-import {NgxIntlTelCountryComponent} from './components/ngx-intl-tel-country/ngx-intl-tel-country.component';
+import {SearchCountryField} from '../enums/search-country-field.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -74,7 +73,7 @@ export class NgxIntlTelInputService {
     let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
 
     /*
-      Interate over each secondary country and check if nationalNumber starts with any of areaCodes available.
+      Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
       If no matches found, fallback to the main country.
     */
     secondaryCountries.forEach(country => {
@@ -91,13 +90,12 @@ export class NgxIntlTelInputService {
   /**
    * Search country based on country name, iso2, dialCode or all of them.
    */
-  searchCountry(searchText, searchCountryField: SearchCountryField[], countryList: NgxIntlTelCountryComponent): Country[] {
+  searchCountry(searchText: string, searchCountryField: SearchCountryField[]): Country[] {
     if (!searchText) {
-      countryList.countryItem.first.focus();
       return [];
     }
     const countrySearchTextLower = searchText.toLowerCase();
-    const country = this.allCountries.filter(c => {
+    return this.allCountries.filter(c => {
       if (searchCountryField.indexOf(SearchCountryField.All) > -1) {
         // Search in all fields
         if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
@@ -128,18 +126,6 @@ export class NgxIntlTelInputService {
         }
       }
     });
-    if (country.length > 0) {
-      const el = countryList.countryItem.find((countryComponent, index) => {
-        const id = countryList.countryItemHtml.toArray()[index].nativeElement.getAttribute('id');
-        return id === country[0].iso2;
-      });
-      if (el) {
-        el.focus();
-      }
-    } else {
-      countryList.countryItem.first.focus();
-    }
-    return country;
   }
 
   onInputKeyPress(event: KeyboardEvent): void {

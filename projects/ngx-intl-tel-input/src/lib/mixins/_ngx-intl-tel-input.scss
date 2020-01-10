@@ -58,6 +58,14 @@
   }
 }
 
+@mixin mat-label-float() {
+  @include mat-form-field {
+    &.mat-form-field-should-float .mat-form-field-label {
+      @content;
+    }
+  }
+}
+
 @mixin form-control-focus {
   @include mat-form-field-infix() {
     .form-control:focus {

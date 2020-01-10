@@ -1,6 +1,22 @@
+@import "./../../mixins/index.scss";
+
 .ngx-intl-tel-country {
   display: flex;
   align-items: center;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #fff;
+
+  &_stroked {
+    @include Text-Bold(14px, 18px);
+    height: 23px;
+    transition: .2s ease-in-out;
+    outline-color: #fff;
+
+    &:hover {
+      background: $color-background-hover;
+    }
+  }
 
   &__flag {
     display: block;
