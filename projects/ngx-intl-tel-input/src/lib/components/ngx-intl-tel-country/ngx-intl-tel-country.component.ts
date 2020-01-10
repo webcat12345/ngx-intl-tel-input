@@ -1,17 +1,13 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   Output,
-  QueryList,
-  ViewChild, ViewChildren,
   ViewEncapsulation
 } from '@angular/core';
 import {Country} from '../../model/country.model';
 import {CountryDropdownDisplayOptions} from '../../enums/country-dropdown-display-options.enum';
-import {MatMenuItem} from '@angular/material/menu';
 
 @Component({
   selector: 'ngx-intl-tel-country',

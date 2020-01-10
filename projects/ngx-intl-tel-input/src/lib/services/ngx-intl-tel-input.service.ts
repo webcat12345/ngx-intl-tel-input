@@ -3,7 +3,6 @@ import {CountryCode} from '../data/country-code';
 import {Country} from '../model/country.model';
 import * as lpn from 'google-libphonenumber';
 import {SearchCountryField} from '../enums/search-country-field.enum';
-import {NgxIntlTelCountryComponent} from '../components/ngx-intl-tel-country/ngx-intl-tel-country.component';
 
 @Injectable({
   providedIn: 'root'

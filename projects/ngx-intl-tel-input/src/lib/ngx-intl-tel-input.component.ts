@@ -1,6 +1,5 @@
 import {
-  Component, ContentChild,
-  ElementRef,
+  Component, ElementRef,
   EventEmitter,
   forwardRef,
   HostListener,
@@ -8,13 +7,12 @@ import {
   OnChanges,
   OnInit,
   Output,
-  QueryList,
   SimpleChanges, TemplateRef,
   ViewChild,
-  ViewChildren, ViewContainerRef,
+  ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
-import {NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
+import {NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {CountryCode} from './data/country-code';
 import {phoneNumberValidator} from './ngx-intl-tel-input.validator';
 import {Country} from './model/country.model';
@@ -24,9 +22,7 @@ import {CountryISO} from './enums/country-iso.enum';
 import {FloatLabelType} from '@angular/material/core';
 import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-options.enum';
 import {NgxIntlTelInputService} from './services/ngx-intl-tel-input.service';
-import {NgxIntlTelCountryComponent} from './components/ngx-intl-tel-country/ngx-intl-tel-country.component';
 import {SearchCountryField} from './enums/search-country-field.enum';
-import {MatMenuItem} from '@angular/material/menu';
 import {NgxDropdownService} from './services/ngx-dropdown.service';
 
 @Component({
