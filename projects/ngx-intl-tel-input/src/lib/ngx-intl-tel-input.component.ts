@@ -145,7 +145,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 */
 	searchCountry() {
 		if (!this.countrySearchText) {
-			this.countryList.nativeElement.querySelector('li').scrollIntoView({ behavior: 'smooth' });
+      this.countryList.nativeElement.querySelector('.country-list li').scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 			return;
 		}
 		const countrySearchTextLower = this.countrySearchText.toLowerCase();
@@ -184,7 +184,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		if (country.length > 0) {
 			const el = this.countryList.nativeElement.querySelector('#' + country[0].iso2);
 			if (el) {
-				el.scrollIntoView({ behavior: 'smooth' });
+				el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start'  });
 			}
 		}
 
