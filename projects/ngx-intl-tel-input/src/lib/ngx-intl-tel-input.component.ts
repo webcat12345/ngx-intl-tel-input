@@ -43,6 +43,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
+	@Input() id = 'phone';
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
 

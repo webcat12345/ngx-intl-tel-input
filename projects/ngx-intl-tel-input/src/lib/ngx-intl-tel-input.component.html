@@ -32,7 +32,7 @@
       </ul>
     </div>
   </div>
-  <input type="tel" id="phone" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
+  <input type="tel" [id]="id" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
     (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
     [disabled]="disabled" [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
     [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>
