@@ -234,7 +234,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: countryCode.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode
+				dialCode: '+' + this.selectedCountry.dialCode,
+				id: this.id
 			});
 		}
 	}
@@ -265,7 +266,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: this.selectedCountry.iso2.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode
+				dialCode: '+' + this.selectedCountry.dialCode,
+				id: this.id
 			});
 		} else {
 			this.propagateChange(null);
