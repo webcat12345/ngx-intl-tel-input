@@ -83,6 +83,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
     [maxLength]="15"
     [tooltipField]="TooltipLabel.Name"
     [phoneValidation]="true"
+    [id]="my-input-id"
     name="phone"
     formControlName="phone"></ngx-intl-tel-input>
   </form>
@@ -105,6 +106,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | tooltipField             | ```<TooltipLabel>```          | ```None```         | Set tooltip on flag hover. Use ```TooltipLabel``` helper enum for label type options. |
 | selectFirstCountry             | ```boolean```          | ```true```         | Selects first country from ```preferredCountries``` if is set. If not then uses main list. |
 | phoneValidation             | ```boolean```          | ```true```         | Disable phone validation. |
+| id             | ```string```          | ```phone```         | Unique ID for input. |
 | selectedCountryISO             | ```<CountryISO>``` | ```None```| Set specific country on load.                  |
 | separateDialCode | ```boolean``` | ```false``` | Visually separate dialcode into the drop down element. |
 | countryChange | ```<Country>``` | ```None``` | Emits country value when the user selects a country from the dropdown. |
