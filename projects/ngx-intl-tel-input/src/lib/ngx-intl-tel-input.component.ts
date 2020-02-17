@@ -289,6 +289,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	protected fetchCountryData(): void {
+		/* Clearing the list to avoid duplicates (https://github.com/webcat12345/ngx-intl-tel-input/issues/248) */
+		this.allCountries = [];
+
 		this.countryCodeData.allCountries.forEach(c => {
 			const country: Country = {
 				name: c[0].toString(),
