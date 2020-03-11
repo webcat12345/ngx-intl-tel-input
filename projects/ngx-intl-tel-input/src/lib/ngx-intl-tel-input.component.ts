@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CountryCode } from './data/country-code';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
@@ -43,6 +43,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
+	@Input() id = 'phone';
+
+	@Output() readonly countryChange = new EventEmitter<Country>();
+
 	selectedCountry: Country = {
 		areaCodes: undefined,
 		dialCode: '',
@@ -76,22 +80,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	) { }
 
 	ngOnInit() {
-		this.fetchCountryData();
-		if (this.preferredCountries.length) {
-			this.getPreferredCountries();
-		}
-		if (this.onlyCountries.length) {
-			this.allCountries = this.allCountries.filter(c => this.onlyCountries.includes(c.iso2));
-		}
-		if (this.selectFirstCountry) {
-			if (this.preferredCountriesInDropDown.length) {
-				this.selectedCountry = this.preferredCountriesInDropDown[0];
-			} else {
-				this.selectedCountry = this.allCountries[0];
-			}
-		}
-		this.getSelectedCountry();
-		this.checkSeparateDialCodeStyle();
+		this.init();
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
@@ -101,7 +90,30 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 		if (changes.preferredCountries) {
 			this.getPreferredCountries();
-		}		
+		}
+		this.checkSeparateDialCodeStyle();
+	}
+
+	/*
+		This is a wrapper method to avoid calling this.ngOnInit() in writeValue().
+		Ref: http://codelyzer.com/rules/no-life-cycle-call/
+	*/
+	init() {
+		this.fetchCountryData();
+		if (this.preferredCountries.length) {
+			this.getPreferredCountries();
+		}
+		if (this.onlyCountries.length) {
+			this.allCountries = this.allCountries.filter(c => this.onlyCountries.includes(c.iso2));
+		}
+		if (this.selectFirstCountry) {
+			if (this.preferredCountriesInDropDown.length) {
+				this.setSelectedCountry(this.preferredCountriesInDropDown[0]);
+			} else {
+				this.setSelectedCountry(this.allCountries[0]);
+			}
+		}
+		this.getSelectedCountry();
 		this.checkSeparateDialCodeStyle();
 	}
 
@@ -131,13 +143,22 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 	}
 
+	setSelectedCountry(country: Country) {
+		this.selectedCountry = country;
+		this.countryChange.emit(country);
+	}
+
 
 	/**
 	 * Search country based on country name, iso2, dialCode or all of them.
 	 */
 	searchCountry() {
 		if (!this.countrySearchText) {
-			this.countryList.nativeElement.querySelector('li').scrollIntoView({ behavior: 'smooth' });
+			this.countryList.nativeElement.querySelector('.country-list li').scrollIntoView({
+				behavior: 'smooth',
+				block: 'nearest',
+				inline: 'nearest'
+			});
 			return;
 		}
 		const countrySearchTextLower = this.countrySearchText.toLowerCase();
@@ -176,7 +197,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		if (country.length > 0) {
 			const el = this.countryList.nativeElement.querySelector('#' + country[0].iso2);
 			if (el) {
-				el.scrollIntoView({ behavior: 'smooth' });
+				el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest'  });
 			}
 		}
 
@@ -213,7 +234,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			// tslint:disable-next-line:no-null-keyword
 			this.propagateChange(null);
 		} else {
-			var intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
+			const intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
@@ -225,17 +246,18 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: countryCode.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode
+				dialCode: '+' + this.selectedCountry.dialCode,
+				id: this.id
 			});
 		}
 	}
 
 	public onCountrySelect(country: Country, el): void {
-		this.selectedCountry = country;
+		this.setSelectedCountry(country);
 
 		this.checkSeparateDialCodeStyle();
 
-		if (this.phoneNumber != null && this.phoneNumber.length > 0) {
+		if (this.phoneNumber !== undefined && this.phoneNumber.length > 0) {
 			this.value = this.phoneNumber;
 
 			let number: lpn.PhoneNumber;
@@ -244,7 +266,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			} catch (e) {
 			}
 
-			var intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
+			const intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
@@ -256,10 +278,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
 				countryCode: this.selectedCountry.iso2.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode
+				dialCode: '+' + this.selectedCountry.dialCode,
+				id: this.id
 			});
 		} else {
-			this.propagateChange(null);
+			this.propagateChange(undefined);
 		}
 
 		el.focus();
@@ -281,6 +304,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	protected fetchCountryData(): void {
+		/* Clearing the list to avoid duplicates (https://github.com/webcat12345/ngx-intl-tel-input/issues/248) */
+		this.allCountries = [];
+
 		this.countryCodeData.allCountries.forEach(c => {
 			const country: Country = {
 				name: c[0].toString(),
@@ -321,8 +347,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	writeValue(obj: any): void {
-		if (obj == null) {
-			this.ngOnInit();
+		if (obj === undefined) {
+			this.init();
 		}
 		this.phoneNumber = obj;
 		setTimeout(() => {
@@ -370,7 +396,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	// adjust input alignment
 	private checkSeparateDialCodeStyle() {
 		if (this.separateDialCode && this.selectedCountry) {
-			var cntryCd = this.selectedCountry.dialCode;
+			const cntryCd = this.selectedCountry.dialCode;
 			this.separateDialCodeClass = 'separate-dial-code iti-sdc-' + (cntryCd.length + 1);
 		} else {
 			this.separateDialCodeClass = '';
