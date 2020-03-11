@@ -231,8 +231,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		this.checkSeparateDialCodeStyle();
 
 		if (!this.value) {
-			// tslint:disable-next-line:no-null-keyword
-			this.propagateChange(null);
+			this.propagateChange(undefined);
 		} else {
 			const intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
 
@@ -257,7 +256,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 		this.checkSeparateDialCodeStyle();
 
-		if (this.phoneNumber !== undefined && this.phoneNumber.length > 0) {
+		if (this.phoneNumber && this.phoneNumber.length > 0) {
 			this.value = this.phoneNumber;
 
 			let number: lpn.PhoneNumber;
