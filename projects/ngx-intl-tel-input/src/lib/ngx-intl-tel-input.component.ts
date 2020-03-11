@@ -105,7 +105,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 		if (changes.preferredCountries) {
 			this.getPreferredCountries();
-		}		
+		}
 		this.checkSeparateDialCodeStyle();
 	}
 
@@ -146,7 +146,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 */
 	searchCountry() {
 		if (!this.countrySearchText) {
-      this.countryList.nativeElement.querySelector('.country-list li').scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+			this.countryList.nativeElement.querySelector('.country-list li').scrollIntoView({
+				behavior: 'smooth',
+				block: 'nearest',
+				inline: 'nearest'
+			});
 			return;
 		}
 		const countrySearchTextLower = this.countrySearchText.toLowerCase();
@@ -222,7 +226,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			// tslint:disable-next-line:no-null-keyword
 			this.propagateChange(null);
 		} else {
-			var intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
+			const intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
@@ -245,7 +249,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 		this.checkSeparateDialCodeStyle();
 
-		if (this.phoneNumber != null && this.phoneNumber.length > 0) {
+		if (this.phoneNumber !== undefined && this.phoneNumber.length > 0) {
 			this.value = this.phoneNumber;
 
 			let number: lpn.PhoneNumber;
@@ -254,7 +258,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			} catch (e) {
 			}
 
-			var intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
+			const intlNo = number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL) : '';
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
@@ -270,7 +274,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				id: this.id
 			});
 		} else {
-			this.propagateChange(null);
+			this.propagateChange(undefined);
 		}
 
 		el.focus();
@@ -335,7 +339,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	writeValue(obj: any): void {
-		if (obj == null) {
+		if (obj === undefined) {
 			this.ngOnInit();
 		}
 		this.phoneNumber = obj;
@@ -384,7 +388,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	// adjust input alignment
 	private checkSeparateDialCodeStyle() {
 		if (this.separateDialCode && this.selectedCountry) {
-			var cntryCd = this.selectedCountry.dialCode;
+			const cntryCd = this.selectedCountry.dialCode;
 			this.separateDialCodeClass = 'separate-dial-code iti-sdc-' + (cntryCd.length + 1);
 		} else {
 			this.separateDialCodeClass = '';
