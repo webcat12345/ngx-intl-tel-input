@@ -80,6 +80,25 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	) { }
 
 	ngOnInit() {
+		this.init();
+	}
+
+	ngOnChanges(changes: SimpleChanges) {
+		if (this.allCountries && changes['selectedCountryISO']
+			&& changes['selectedCountryISO'].currentValue !== changes['selectedCountryISO'].previousValue) {
+			this.getSelectedCountry();
+		}
+		if (changes.preferredCountries) {
+			this.getPreferredCountries();
+		}
+		this.checkSeparateDialCodeStyle();
+	}
+
+	/*
+		This is a wrapper method to avoid calling this.ngOnInit() in writeValue().
+		Ref: http://codelyzer.com/rules/no-life-cycle-call/
+	*/
+	init() {
 		this.fetchCountryData();
 		if (this.preferredCountries.length) {
 			this.getPreferredCountries();
@@ -95,17 +114,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			}
 		}
 		this.getSelectedCountry();
-		this.checkSeparateDialCodeStyle();
-	}
-
-	ngOnChanges(changes: SimpleChanges) {
-		if (this.allCountries && changes['selectedCountryISO']
-			&& changes['selectedCountryISO'].currentValue !== changes['selectedCountryISO'].previousValue) {
-			this.getSelectedCountry();
-		}
-		if (changes.preferredCountries) {
-			this.getPreferredCountries();
-		}
 		this.checkSeparateDialCodeStyle();
 	}
 
@@ -340,7 +348,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	writeValue(obj: any): void {
 		if (obj === undefined) {
-			this.ngOnInit();
+			this.init();
 		}
 		this.phoneNumber = obj;
 		setTimeout(() => {
