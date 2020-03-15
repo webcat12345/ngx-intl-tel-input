@@ -237,7 +237,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
-				this.phoneNumber = this.removeDialCode(intlNo);
+				this.value = this.removeDialCode(intlNo);
 			}
 
 			this.propagateChange({
@@ -269,7 +269,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
-				this.phoneNumber = this.removeDialCode(intlNo);
+				this.value = this.removeDialCode(intlNo);
 			}
 
 			this.propagateChange({
