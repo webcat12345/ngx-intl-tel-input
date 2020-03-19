@@ -7,21 +7,21 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
-	declarations: [NgxIntlTelInputComponent],
-	imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		BsDropdownModule.forRoot(),
-		TooltipModule.forRoot()
-	],
-	exports: [NgxIntlTelInputComponent]
+  declarations: [NgxIntlTelInputComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot()
+  ],
+  exports: [NgxIntlTelInputComponent]
 })
 export class NgxIntlTelInputModule {
-	static forRoot(): ModuleWithProviders {
-		return {
-			ngModule: NgxIntlTelInputModule,
-			providers: [NgxIntlTelInputService]
-		};
-	}
+  static forRoot(): ModuleWithProviders<NgxIntlTelInputModule> {
+    return {
+      ngModule: NgxIntlTelInputModule,
+      providers: [NgxIntlTelInputService]
+    };
+  }
 }

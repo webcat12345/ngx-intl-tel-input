@@ -6,16 +6,14 @@ import { NgxIntlTelInputModule } from 'projects/ngx-intl-tel-input/src/lib/ngx-i
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-	declarations: [
-		AppComponent
-	],
-	imports: [
-		BrowserModule,
-		FormsModule,
-		ReactiveFormsModule,
-		NgxIntlTelInputModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxIntlTelInputModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
