@@ -111,6 +111,13 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | separateDialCode | ```boolean``` | ```false``` | Visually separate dialcode into the drop down element. |
 | countryChange | ```<Country>``` | ```None``` | Emits country value when the user selects a country from the dropdown. |
 
+## Supported Formats
+
+Following formats are supported
+- NATIONAL // Produces "044 668 18 00"
+- INTERNATIONAL // Produces "+41 44 668 18 00"
+- E164 // Produces "+41446681800"
+
 ## Library Contributions
 
 - Fork repo.
