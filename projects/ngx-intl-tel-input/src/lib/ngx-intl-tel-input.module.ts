@@ -18,7 +18,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 	exports: [NgxIntlTelInputComponent]
 })
 export class NgxIntlTelInputModule {
-	static forRoot(): ModuleWithProviders {
+	static forRoot(): ModuleWithProviders<NgxIntlTelInputModule> {
 		return {
 			ngModule: NgxIntlTelInputModule,
 			providers: [NgxIntlTelInputService]
