@@ -99,6 +99,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | onlyCountries                 | ```<CountryISO>[]```         | ```[]```           | List of manually selected countries, which will appear in the dropdown. |
 | enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
 | enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
+| globalPlaceholder             | ```string```          | ``````         | Global placeholder which can overwrite the placeholder function.                      |
 | searchCountryFlag             | ```boolean```          | ```false```         | Enables input search box for countries in the flag dropdown.      |
 | searchCountryField             | ```<SearchCountryField>[]```          | ```[SearchCountryField.All]```         | Customize which fields to search in, if ```searchCountryFlag``` is enabled. Use ```SearchCountryField``` helper enum. |
 | searchCountryPlaceholder | ```string``` | ```'Search Country'``` | Placeholder value for ```searchCountryField``` |
