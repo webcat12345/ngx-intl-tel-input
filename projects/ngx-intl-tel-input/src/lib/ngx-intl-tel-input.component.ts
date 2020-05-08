@@ -38,6 +38,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() searchCountryFlag = false;
 	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
 	@Input() searchCountryPlaceholder = 'Search Country';
+	@Input() globalPlaceholder = '';
 	@Input() maxLength = '';
 	@Input() tooltipField: TooltipLabel;
 	@Input() selectFirstCountry = true;
@@ -314,7 +315,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				priority: +c[3] || 0,
 				areaCodes: c[4] as string[] || undefined,
 				flagClass: c[1].toString().toLocaleLowerCase(),
-				placeHolder: ''
+				placeHolder: this.globalPlaceholder !== '' ? this.globalPlaceholder : ''
 			};
 
 			if (this.enablePlaceholder) {
@@ -382,6 +383,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	separateDialCodePlaceHolder(placeholder: string): string {
+		if (this.globalPlaceholder !== '') {
+			return this.globalPlaceholder;
+		}
 		return this.removeDialCode(placeholder);
 	}
 
