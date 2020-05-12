@@ -6,6 +6,10 @@
       <div *ngIf="separateDialCode" class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
       <div class="iti-arrow"></div>
     </div>
+    <input type="tel" [id]="id" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
+    (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
+    [disabled]="disabled" [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
+    [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>
     <div *dropdownMenu class="dropdown-menu country-dropdown">
       <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
         <input id="country-search-box" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
@@ -31,9 +35,5 @@
         </li>
       </ul>
     </div>
-  </div>
-  <input type="tel" [id]="id" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
-    (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
-    [disabled]="disabled" [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
-    [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>
+  </div>  
 </div>

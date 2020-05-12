@@ -154,6 +154,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 * Search country based on country name, iso2, dialCode or all of them.
 	 */
 	searchCountry() {
+		this.fetchCountryData();
+		this.getPreferredCountries();
 		if (!this.countrySearchText) {
 			this.countryList.nativeElement.querySelector('.country-list li').scrollIntoView({
 				behavior: 'smooth',
@@ -166,39 +168,40 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		const country = this.allCountries.filter(c => {
 			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
 				// Search in all fields
-				if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+				if (c.iso2.toLowerCase().includes(countrySearchTextLower)) {
 					return c;
 				}
-				if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+				if (c.name.toLowerCase().includes(countrySearchTextLower)) {
 					return c;
 				}
-				if (c.dialCode.startsWith(this.countrySearchText)) {
+				if (c.dialCode.includes(this.countrySearchText)) {
 					return c;
 				}
 			} else {
 				// Or search by specific SearchCountryField(s)
 				if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
-					if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+					if (c.iso2.toLowerCase().includes(countrySearchTextLower)) {
 						return c;
 					}
 				}
 				if (this.searchCountryField.indexOf(SearchCountryField.Name) > -1) {
-					if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+					if (c.name.toLowerCase().includes(countrySearchTextLower)) {
 						return c;
 					}
 				}
 				if (this.searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
-					if (c.dialCode.startsWith(this.countrySearchText)) {
+					if (c.dialCode.includes(this.countrySearchText)) {
 						return c;
 					}
 				}
 			}
 		});
-
 		if (country.length > 0) {
 			const el = this.countryList.nativeElement.querySelector('#' + country[0].iso2);
 			if (el) {
-				el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest'  });
+				//el.scrollIntoView(true, { behavior: 'smooth', block: 'nearest', inline: 'nearest'  });				
+				this.preferredCountriesInDropDown = [];
+				this.allCountries = this.allCountries.filter(x => country.includes(x));
 			}
 		}
 
