@@ -1,12 +1,12 @@
 <div class="intl-tel-input allow-dropdown" [ngClass]="separateDialCodeClass">
-  <div class="flag-container" dropdown [ngClass]="{'disabled': disabled}">
+  <div class="flag-container" dropdown [ngClass]="{'disabled': disabled,'flagfocus': flagfocus}">
     <div class="selected-flag dropdown-toggle" dropdownToggle>
       <div class="iti-flag" [ngClass]="selectedCountry?.flagClass"
         [tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
       <div *ngIf="separateDialCode" class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
       <div class="iti-arrow"></div>
     </div>
-    <input type="tel" [id]="id" autocomplete="off" [ngClass]="cssClass" (blur)="onTouched()"
+    <input type="tel" [id]="id" autocomplete="off" [ngClass]="cssClass" (blur)="onPhoneBlur()" (focus)="onPhoneFocus()"
     (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneNumberChange()"
     [disabled]="disabled" [placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
     [attr.maxLength]="maxLength" [attr.validation]="phoneValidation" #focusable>

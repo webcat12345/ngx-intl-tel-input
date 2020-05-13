@@ -70,6 +70,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
+	flagfocus = false;
 
 	@ViewChild('countryList', { static: false }) countryList: ElementRef;
 
@@ -93,6 +94,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			this.getPreferredCountries();
 		}
 		this.checkSeparateDialCodeStyle();
+	}
+	onPhoneFocus() {
+		this.flagfocus = true;
+	}
+	onPhoneBlur() {
+		console.log('z');
+		this.flagfocus = false;
 	}
 
 	/*
