@@ -1,9 +1,10 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
 import { CommonModule } from '@angular/common';
-import { BsDropdownModule, TooltipModule } from 'ngx-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
 	declarations: [NgxIntlTelInputComponent],
