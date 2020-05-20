@@ -47,6 +47,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() id = 'phone';
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
+	@Output() readonly inputFocus: EventEmitter<void> = new EventEmitter<void>();
+	@Output() readonly inputBlur: EventEmitter<void> = new EventEmitter<void>();
 
 	selectedCountry: Country = {
 		areaCodes: undefined,
@@ -97,10 +99,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 	onPhoneFocus() {
 		this.flagfocus = true;
+		this.inputFocus.emit();
 	}
 	onPhoneBlur() {
-		console.log('z');
 		this.flagfocus = false;
+		this.inputBlur.emit();
 	}
 
 	/*
