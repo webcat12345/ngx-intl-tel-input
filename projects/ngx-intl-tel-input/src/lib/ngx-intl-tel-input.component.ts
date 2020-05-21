@@ -195,10 +195,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   ];
 
   onTouched = () => {
-  };
+  }
 
   propagateChange = (_: any) => {
-  };
+  }
 
   constructor(public readonly ngxIntlTelInputService: NgxIntlTelInputService,
               private readonly ngxDropdownService: NgxDropdownService,
