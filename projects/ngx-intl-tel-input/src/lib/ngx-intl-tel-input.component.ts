@@ -68,37 +68,40 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   connectedElement: ElementRef<HTMLDivElement>;
 
   @Input()
-  value = '';
+  value: string = '';
+
+  @Input()
+  small: boolean = false;
 
   @Input()
   preferredCountries: string[] = [];
 
   @Input()
-  enablePlaceholder = true;
+  enablePlaceholder: boolean = true;
 
   @Input()
-  cssClass = 'form-control';
+  cssClass: string = 'form-control';
 
   @Input()
   onlyCountries: string[] = [];
 
   @Input()
-  enableAutoCountrySelect = true;
+  enableAutoCountrySelect: boolean = true;
 
   @Input()
-  maxLength = '';
+  maxLength: number | string = '';
 
   @Input()
   tooltipField: TooltipLabel;
 
   @Input()
-  selectFirstCountry = true;
+  selectFirstCountry: boolean = true;
 
   @Input()
   selectedCountryISO: CountryISO;
 
   @Input()
-  phoneValidation = true;
+  phoneValidation: boolean = true;
 
   @Input()
   floatLabel: FloatLabelType = 'always';
@@ -107,10 +110,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   inputLabel: string = 'Phone number';
 
   @Input()
-  separateDialCode = false;
+  separateDialCode: boolean = false;
 
   @Input()
-  replaceDialCode = true;
+  replaceDialCode: boolean = true;
 
   @Input()
   stroked: boolean;
@@ -188,9 +191,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     CountryDropdownDisplayOptions.Name
   ];
 
-  onTouched = () => {};
+  onTouched = () => {
+  };
 
-  propagateChange = (_: any) => {};
+  propagateChange = (_: any) => {
+  };
 
   constructor(public readonly ngxIntlTelInputService: NgxIntlTelInputService,
               private readonly ngxDropdownService: NgxDropdownService,
@@ -310,7 +315,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let number: lpn.PhoneNumber;
     try {
       number = this.phoneUtil.parse(this.phoneNumber, this.selectedCountry.iso2.toUpperCase());
-    } catch (e) {}
+    } catch (e) {
+    }
 
     if (this.replaceDialCode) {
       this.phoneNumber = this._replaceDialCode(number, country.dialCode);

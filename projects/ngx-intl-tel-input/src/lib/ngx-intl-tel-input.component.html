@@ -4,6 +4,7 @@
      [class.ngx-intl-tel_opened]="isMenuOpened"
      [class.ngx-intl-tel_focus]="isFocused">
     <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
+                          [class.ngx-intl-tel__trigger_small]="small"
                           #connectedElement
                           [country]="selectedCountry"
                           [isError]="isError"
@@ -13,7 +14,8 @@
                           (click)="openDropdown()">
     </ngx-intl-tel-trigger>
     <mat-form-field [floatLabel]="floatLabel"
-                    class="ngx-intl-tel__form-field">
+                    class="ngx-intl-tel__form-field"
+                    [class.ngx-intl-tel__form-field_small]="small">
         <mat-label class="ngx-intl-tel__label">
             {{ inputLabel }}
         </mat-label>
