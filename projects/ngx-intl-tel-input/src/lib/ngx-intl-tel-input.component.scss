@@ -12,6 +12,13 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
   border-radius: 0 $input-border-radius $input-border-radius 0;
   $this: &;
 
+  &__input {
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+
   &_stroked {
 
     @include mat-label-float {
