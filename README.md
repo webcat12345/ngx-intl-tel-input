@@ -107,6 +107,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | phoneValidation             | ```boolean```          | ```true```         | Disable phone validation. |
 | selectedCountryISO             | ```<CountryISO>``` | ```None```| Set specific country on load.                  |
 | separateDialCode | ```boolean``` | ```false``` | Visually separate dialcode into the drop down element. |
+| id             | ```string```          | ```phone```         | Unique ID for input. |
 
 ## Library Contributions
 
