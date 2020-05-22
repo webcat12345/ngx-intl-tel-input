@@ -83,6 +83,7 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
       @include mat-input-element {
         caret-color: $color-text;
         line-height: 20px;
+        color: $color-text;
 
         &::placeholder {
           @include Text-Normal($font-size-l, 20px, $color-placeholder);
@@ -93,9 +94,13 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
         border-color: unset !important;
       }
 
+      @include mat-form-field-subscript-wrapper {
+        margin-top: $mat-subscript-wrapper-margin-top;
+      }
+
       @include mat-error {
         @include Text-Normal($font-size-xs, 13px, $color-error);
-        margin-top: 18px !important;
+        margin-top: $mat-error-margin-top !important;
       }
     }
 
@@ -119,6 +124,7 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
         @include mat-input-element {
           caret-color: $color-error;
+          color: $color-error;
 
           &::placeholder {
             color: $color-error;
