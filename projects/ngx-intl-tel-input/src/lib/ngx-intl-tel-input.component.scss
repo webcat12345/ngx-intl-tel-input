@@ -1,6 +1,7 @@
 @import "./mixins/index.scss";
 
-$component-height: 48px;
+$component-height-small: 48px;
+$component-height: 56px;
 $component-width: 100%;
 $input-border-radius: 8px;
 $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
@@ -10,6 +11,13 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
   width: $component-width;
   border-radius: 0 $input-border-radius $input-border-radius 0;
   $this: &;
+
+  &__input {
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
 
   &_stroked {
 
@@ -21,6 +29,11 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
       height: $component-height;
       transition: .3s ease-in-out;
       z-index: 2;
+
+
+      &_small {
+        height: $component-height-small;
+      }
     }
 
     #{$this}__label {
@@ -37,6 +50,16 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
       padding-left: 13px;
       transition: .3s ease-in-out;
       z-index: 1;
+      box-sizing: border-box;
+
+      &_small {
+        height: $component-height-small;
+
+        @include mat-form-field-infix {
+          padding: .4375em 0 !important;
+          border-top: .84375em solid transparent !important;
+        }
+      }
 
       &:hover {
         border: 1px solid $color-border-hover;
@@ -46,6 +69,11 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
       @include mat-form-field-wrapper {
         padding-bottom: 0;
+      }
+
+      @include mat-form-field-infix {
+        padding: 0.6375em 0;
+        border-top: .9375em solid transparent;
       }
 
       @include mat-form-field-underline {
@@ -63,6 +91,11 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
       @include form-control-focus {
         border-color: unset !important;
+      }
+
+      @include mat-error {
+        @include Text-Normal($font-size-xs, 13px, $color-error);
+        margin-top: 18px !important;
       }
     }
 
@@ -95,11 +128,6 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
         &:hover {
           border-color: $color-error;
-        }
-
-        @include mat-error {
-          color: $color-error !important;
-          margin-top: 5px !important;
         }
       }
     }

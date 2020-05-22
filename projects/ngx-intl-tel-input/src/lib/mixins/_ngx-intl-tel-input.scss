@@ -27,10 +27,8 @@
 }
 
 @mixin mat-error {
-  @include mat-form-field-infix {
-    .mat-error {
-      @content
-    }
+  .mat-error {
+    @content
   }
 }
 

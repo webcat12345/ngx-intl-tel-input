@@ -1,6 +1,6 @@
 {
   "name": "@wenor/ngx-intl-tel-input",
-  "version": "2.4.4",
+  "version": "2.5.0",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/cdk": "~8.2.3",
@@ -8,8 +8,7 @@
     "@angular/core": "^8.0.0",
     "@angular/forms": "^8.0.0",
     "google-libphonenumber": "^3.2.1",
-    "intl-tel-input": "^14.0.6",
-    "ngx-bootstrap": "^5.1.0"
+    "intl-tel-input": "^14.0.6"
   },
   "repository": {
     "type": "git",

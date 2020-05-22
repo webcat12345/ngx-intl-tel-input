@@ -9,6 +9,7 @@ $input-border-radius: 8px;
   min-width: 68px;
   min-height: 48px;
   align-items: center;
+  box-sizing: border-box;
   $this: &;
 
   &_stroked {

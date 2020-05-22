@@ -5,6 +5,7 @@ import {TooltipLabel} from 'projects/ngx-intl-tel-input/src/lib/enums/tooltip-la
 import {CountryISO} from 'projects/ngx-intl-tel-input/src/lib/enums/country-iso.enum';
 import {Country} from 'projects/ngx-intl-tel-input/src/lib/model/country.model';
 import {CountryDropdownDisplayOptions} from '../../projects/ngx-intl-tel-input/src/lib/enums/country-dropdown-display-options.enum';
+import {NgxIntlTelFormService} from '../../projects/ngx-intl-tel-input/src/lib/services/ngx-intl-tel-form.service';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,9 @@ export class AppComponent {
 
   lastCountryChange: Country;
 
+  constructor(private readonly ngxIntlTelForm: NgxIntlTelFormService) {
+  }
+
   changePreferredCountries() {
     this.preferredCountries = [CountryISO.India, CountryISO.Canada];
   }
@@ -35,6 +39,10 @@ export class AppComponent {
     } else {
       this.phoneForm.get('phone').disable();
     }
+  }
+
+  onSubmit(): void {
+    this.ngxIntlTelForm.submit();
   }
 
   dropdownParams = [CountryDropdownDisplayOptions.Flag, CountryDropdownDisplayOptions.Dial];

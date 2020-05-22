@@ -1,7 +1,6 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {NgxIntlTelInputComponent} from './ngx-intl-tel-input.component';
 import {CommonModule} from '@angular/common';
-import {BsDropdownModule, TooltipModule} from 'ngx-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxIntlTelInputService} from './services/ngx-intl-tel-input.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -13,6 +12,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {ComponentsModule} from './components/components.module';
 import {NgxDropdownService} from './services/ngx-dropdown.service';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {NgxIntlTelFormService} from './services/ngx-intl-tel-form.service';
 
 @NgModule({
   declarations: [NgxIntlTelInputComponent],
@@ -20,8 +20,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BsDropdownModule.forRoot(),
-    TooltipModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -31,6 +29,9 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     ComponentsModule,
     ScrollingModule
   ],
+  providers: [
+    NgxIntlTelFormService,
+  ],
   exports: [NgxIntlTelInputComponent]
 })
 export class NgxIntlTelInputModule {
@@ -39,7 +40,8 @@ export class NgxIntlTelInputModule {
       ngModule: NgxIntlTelInputModule,
       providers: [
         NgxIntlTelInputService,
-        NgxDropdownService
+        NgxDropdownService,
+        NgxIntlTelFormService
       ]
     };
   }

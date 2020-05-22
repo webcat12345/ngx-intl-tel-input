@@ -2,10 +2,15 @@ import {FormControl} from '@angular/forms';
 import * as lpn from 'google-libphonenumber';
 
 export const phoneNumberValidator = (control: FormControl) => {
-  const isCheckValidation = document.getElementById(control.value.id || 'phone').getAttribute('validation');
-  if (isCheckValidation == 'true') {
+  const id = control && control.value && control.value.id ? control.value.id : 'phone';
+  const input = document.getElementById(id);
+  if (!input) {
+    return;
+  }
+  const isCheckValidation = document.getElementById(id).getAttribute('validation');
+  if (isCheckValidation === 'true') {
     const isRequired = control.errors && control.errors.required === true;
-    const error = {validatePhoneNumber: {valid: false}};
+    const error = {invalidPhoneNumber: 'Phone number is invalid'};
     let number: lpn.PhoneNumber;
 
     try {
@@ -25,7 +30,7 @@ export const phoneNumberValidator = (control: FormControl) => {
         }
       }
     }
-  } else if (isCheckValidation == 'false') {
+  } else if (isCheckValidation === 'false') {
     control.clearValidators();
   }
   return;

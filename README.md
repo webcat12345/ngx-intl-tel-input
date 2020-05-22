@@ -5,7 +5,7 @@
 
 An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
-![alt](readme-assets/ngx-intl-tel-input.jpg)
+![alt](readme-assets/ngx-intl-tel-input.png)
 
 **Supports:**
 
@@ -22,8 +22,6 @@ An Angular package for entering and validating international telephone numbers. 
 
 ```$ npm install google-libphonenumber --save```
 
-```$ ng add ngx-bootstrap```
-
 ### Add Dependency Style
 
 Add *'intl-tel-input'* style file: 
@@ -35,8 +33,6 @@ to **angular.json** styles array:
 ```json
 
 "styles": [
-  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
   "./node_modules/intl-tel-input/build/css/intlTelInput.css",
   "src/styles.css"
 ],
@@ -51,12 +47,11 @@ to **angular.json** styles array:
 
 ### Import
 
-Add ```BsDropDownModule``` and ```NgxIntlTelInputModule``` to your module file:
+Add ```NgxIntlTelInputModule``` to your module file:
 
 ```javascript
 
 imports: [
-    BsDropdownModule.forRoot(),
     NgxIntlTelInputModule,
   ]
 
@@ -108,6 +103,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | selectedCountryISO             | ```<CountryISO>``` | ```None```| Set specific country on load.                  |
 | separateDialCode | ```boolean``` | ```false``` | Visually separate dialcode into the drop down element. |
 | id             | ```string```          | ```phone```         | Unique ID for input. |
+| small             | ```boolean```          | ```false```         | Small height for input. |
 
 ## Library Contributions
 

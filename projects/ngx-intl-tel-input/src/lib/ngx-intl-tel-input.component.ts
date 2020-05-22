@@ -1,8 +1,9 @@
 import {
+  AfterViewInit,
   Component, ElementRef,
   EventEmitter,
   forwardRef,
-  HostListener,
+  HostListener, Injector,
   Input,
   OnChanges,
   OnInit,
@@ -12,18 +13,20 @@ import {
   ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
-import {NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 import {CountryCode} from './data/country-code';
 import {phoneNumberValidator} from './ngx-intl-tel-input.validator';
 import {Country} from './model/country.model';
 import * as lpn from 'google-libphonenumber';
 import {TooltipLabel} from './enums/tooltip-label.enum';
 import {CountryISO} from './enums/country-iso.enum';
-import {FloatLabelType} from '@angular/material/core';
+import {ErrorStateMatcher, FloatLabelType} from '@angular/material/core';
 import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-options.enum';
 import {NgxIntlTelInputService} from './services/ngx-intl-tel-input.service';
 import {SearchCountryField} from './enums/search-country-field.enum';
 import {NgxDropdownService} from './services/ngx-dropdown.service';
+import {NgxIntlTelInputErrorMatcher} from './services/ngx-intl-tel-input-error-matcher';
+import {NgxIntlTelFormService} from './services/ngx-intl-tel-form.service';
 
 @Component({
   selector: 'ngx-intl-tel-input',
@@ -46,7 +49,7 @@ import {NgxDropdownService} from './services/ngx-dropdown.service';
     }
   ]
 })
-export class NgxIntlTelInputComponent implements OnInit, OnChanges {
+export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewInit {
 
   @HostListener('window:keypress', ['$event'])
   onKeyPress($event: KeyboardEvent): void {
@@ -68,16 +71,19 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   connectedElement: ElementRef<HTMLDivElement>;
 
   @Input()
-  value = '';
+  value: string = '';
+
+  @Input()
+  small: boolean = false;
 
   @Input()
   preferredCountries: string[] = [];
 
   @Input()
-  enablePlaceholder = true;
+  enablePlaceholder: boolean = true;
 
   @Input()
-  cssClass = 'form-control';
+  cssClass: string = 'form-control';
 
   @Input()
   onlyCountries: string[] = [];
@@ -86,22 +92,22 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   id: string = 'phone';
 
   @Input()
-  enableAutoCountrySelect = true;
+  enableAutoCountrySelect: boolean = true;
 
   @Input()
-  maxLength = '';
+  maxLength: number | string = '';
 
   @Input()
   tooltipField: TooltipLabel;
 
   @Input()
-  selectFirstCountry = true;
+  selectFirstCountry: boolean = true;
 
   @Input()
   selectedCountryISO: CountryISO;
 
   @Input()
-  phoneValidation = true;
+  phoneValidation: boolean = true;
 
   @Input()
   floatLabel: FloatLabelType = 'always';
@@ -110,10 +116,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   inputLabel: string = 'Phone number';
 
   @Input()
-  separateDialCode = false;
+  separateDialCode: boolean = false;
 
   @Input()
-  replaceDialCode = true;
+  replaceDialCode: boolean = true;
 
   @Input()
   stroked: boolean;
@@ -123,9 +129,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   @Input()
   isFocused: boolean = false;
-
-  @Input()
-  isError: boolean;
 
   @Input()
   applyCodeOnFocus: boolean = true;
@@ -142,6 +145,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       this.dropdownParamsData = params;
     }
   }
+
+  @Input()
+  errors: Record<string, string>;
 
   @Output()
   countryChange = new EventEmitter<Country>();
@@ -160,6 +166,30 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   get dropdownClass(): string | string[] {
     return this._dropdownPanelClass.join(' ');
+  }
+
+  get errorStateMatcher(): ErrorStateMatcher {
+    return new NgxIntlTelInputErrorMatcher(this.control);
+  }
+
+  get errorKey(): string {
+    const keys = this.control.errors && Object.keys(this.control.errors);
+    return keys && keys.length !== 0 ? keys[0] : '';
+  }
+
+  get hasError(): boolean {
+    if (!this.control) {
+      return false;
+    }
+    return this.control.hasError(this.errorKey);
+  }
+
+  get invalid(): boolean {
+    return this.control && this.control.invalid;
+  }
+
+  get dirtyAndTouched(): boolean {
+    return this.control.dirty && this.control.touched;
   }
 
   private readonly _dropdownPanelClass: string[] = this.stroked ? ['ngx-intl-tel__dropdown'] : ['ngx-intl-tel__dropdown-stroked'];
@@ -191,13 +221,19 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     CountryDropdownDisplayOptions.Name
   ];
 
-  onTouched = () => {};
+  onTouched = () => {
+  }
 
-  propagateChange = (_: any) => {};
+  propagateChange = (_: any) => {
+  }
+
+  control: FormControl;
 
   constructor(public readonly ngxIntlTelInputService: NgxIntlTelInputService,
+              public readonly ngxIntlTelForm: NgxIntlTelFormService,
               private readonly ngxDropdownService: NgxDropdownService,
-              private readonly viewContainerRef: ViewContainerRef) {
+              private readonly viewContainerRef: ViewContainerRef,
+              private injector: Injector) {
   }
 
   ngOnInit() {
@@ -215,6 +251,15 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       this.preferredCountriesInDropDown = this.ngxIntlTelInputService.getPreferredCountries(this.preferredCountries);
     }
     this.checkSeparateDialCodeStyle();
+  }
+
+  ngAfterViewInit(): void {
+    const ngControl: NgControl = this.injector.get(NgControl, null);
+    if (ngControl) {
+      setTimeout(() => {
+        this.control = ngControl.control as FormControl;
+      });
+    }
   }
 
   private init(): void {
@@ -314,7 +359,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let number: lpn.PhoneNumber;
     try {
       number = this.phoneUtil.parse(this.phoneNumber, this.selectedCountry.iso2.toUpperCase());
-    } catch (e) {}
+    } catch (e) {
+    }
 
     if (this.replaceDialCode) {
       this.phoneNumber = this._replaceDialCode(number, country.dialCode);
