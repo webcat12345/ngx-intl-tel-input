@@ -10,7 +10,7 @@ export const phoneNumberValidator = (control: FormControl) => {
   const isCheckValidation = document.getElementById(id).getAttribute('validation');
   if (isCheckValidation === 'true') {
     const isRequired = control.errors && control.errors.required === true;
-    const error = {validatePhoneNumber: {valid: false}};
+    const error = {invalidPhoneNumber: 'Phone number is invalid'};
     let number: lpn.PhoneNumber;
 
     try {

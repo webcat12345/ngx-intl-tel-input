@@ -92,6 +92,11 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
       @include form-control-focus {
         border-color: unset !important;
       }
+
+      @include mat-error {
+        @include Text-Normal($font-size-xs, 13px, $color-error);
+        margin-top: 18px !important;
+      }
     }
 
     &#{$this}_opened {
@@ -123,11 +128,6 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
         &:hover {
           border-color: $color-error;
-        }
-
-        @include mat-error {
-          color: $color-error !important;
-          margin-top: 5px !important;
         }
       }
     }

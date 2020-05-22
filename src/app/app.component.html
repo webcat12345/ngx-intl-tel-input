@@ -6,18 +6,15 @@
         <button (click)="changePreferredCountries()">Change Preferred Countries</button>
     </div>
     <div class="mb-2">
-        <input type="checkbox" [(ngModel)]="separateDialCode">
-        <label>&nbsp;Separate Dial Code?</label>
+        <label><input type="checkbox" [(ngModel)]="separateDialCode">&nbsp;Separate Dial Code?</label>
     </div>
     <div class="mb-2">
-        <input type="checkbox" [(ngModel)]="replaceDialCode">
-        <label>&nbsp;Replace Dial Code?</label>
+        <label><input type="checkbox" [(ngModel)]="replaceDialCode"> Replace Dial Code?</label>
     </div>
     <div class="mb-2">
-        <input type="checkbox" [(ngModel)]="changeDisabled" (ngModelChange)="toggleDisabled()">
-        <label>&nbsp;Disable input</label>
+        <label><input type="checkbox" [(ngModel)]="changeDisabled" (ngModelChange)="toggleDisabled()">Disable input</label>
     </div>
-    <form #f="ngForm" [formGroup]="phoneForm">
+    <form #f="ngForm" [formGroup]="phoneForm" (ngSubmit)="onSubmit($event)">
         <div class="mb-2
                 ngx-intl-tel-input-wrapper">
             <ngx-intl-tel-input
@@ -35,15 +32,14 @@
                     [stroked]="true"
                     [dropdownParams]="dropdownParams"
                     (countryChange)="lastCountryChange = $event"
-                    [isError]="phoneForm.invalid && phoneForm.touched"
-                    name="phone" formControlName="phone">
-                <mat-error *ngIf="phoneForm.get('phone').invalid && phoneForm.touched">
-                    some error text
-                </mat-error>
+                    formControlName="phone">
             </ngx-intl-tel-input>
         </div>
         <div class="mb-2">
             <button (click)="f.reset()">Reset</button>
+        </div>
+        <div class="mb-2">
+            <button type="submit">Submit</button>
         </div>
     </form>
     <br>
