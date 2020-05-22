@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SearchCountryField} from 'projects/ngx-intl-tel-input/src/lib/enums/search-country-field.enum';
 import {TooltipLabel} from 'projects/ngx-intl-tel-input/src/lib/enums/tooltip-label.enum';
@@ -10,7 +10,8 @@ import {NgxIntlTelFormService} from '../../projects/ngx-intl-tel-input/src/lib/s
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   separateDialCode = false;

@@ -1,7 +1,7 @@
 import {ElementRef, Injectable, TemplateRef, ViewContainerRef} from '@angular/core';
 import {Overlay, OverlayConfig, OverlayRef, PositionStrategy} from '@angular/cdk/overlay';
 import {TemplatePortal} from '@angular/cdk/portal';
-import {Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {Country} from '../model/country.model';
 
 @Injectable({
@@ -14,6 +14,10 @@ export class NgxDropdownService {
   private readonly _onMenuClose: Subject<void> = new Subject<void>();
 
   readonly onMenuClose: Observable<void> = this._onMenuClose.asObservable();
+
+  private readonly _menuState$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  readonly menuState$: Observable<boolean> = this._menuState$.asObservable();
 
   constructor(private readonly overlay: Overlay) {
   }
@@ -28,6 +32,7 @@ export class NgxDropdownService {
     this._overlayRef = this.overlay.create(config);
     const templatePortal: TemplatePortal<T> = new TemplatePortal(template, viewContainerRef);
     this._overlayRef.attach(templatePortal);
+    this._menuState$.next(true);
     this._overlayRef.backdropClick().subscribe(() => {
       this.close();
     });
@@ -57,6 +62,7 @@ export class NgxDropdownService {
     if (this._overlayRef) {
       this._overlayRef.dispose();
       this._onMenuClose.next();
+      this._menuState$.next(false);
     }
   }
 
@@ -68,5 +74,9 @@ export class NgxDropdownService {
     if (countryElement) {
       countryElement.scrollIntoView();
     }
+  }
+
+  getMenuState(): boolean {
+    return this._menuState$.value;
   }
 }

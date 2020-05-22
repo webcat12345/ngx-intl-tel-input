@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ChangeDetectorRef,
   Component, ElementRef,
   EventEmitter,
   forwardRef,
@@ -53,7 +53,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
 
   @HostListener('window:keypress', ['$event'])
   onKeyPress($event: KeyboardEvent): void {
-    if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.isMenuOpened) {
+    if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.ngxDropdownService.getMenuState()) {
       this.searchBuffer = `${this.searchBuffer}${$event.key}`;
       const countries = this.ngxIntlTelInputService.searchCountry(this.searchBuffer, [SearchCountryField.All]);
       if (countries.length === 0) {
@@ -123,9 +123,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
 
   @Input()
   stroked: boolean;
-
-  @Input()
-  isMenuOpened: boolean;
 
   @Input()
   isFocused: boolean = false;
@@ -231,8 +228,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
 
   constructor(public readonly ngxIntlTelInputService: NgxIntlTelInputService,
               public readonly ngxIntlTelForm: NgxIntlTelFormService,
-              private readonly ngxDropdownService: NgxDropdownService,
+              public readonly ngxDropdownService: NgxDropdownService,
               private readonly viewContainerRef: ViewContainerRef,
+              private readonly changeDetector: ChangeDetectorRef,
               private injector: Injector) {
   }
 
@@ -459,14 +457,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
   isMenuOpen(): void {
     this.menuOpened.emit();
     this.searchBuffer = '';
-    this.isMenuOpened = true;
     if (this.selectedCountry) {
       this.ngxDropdownService.scrollToCountry(this.selectedCountry);
     }
   }
 
   isMenuClose(): void {
-    this.isMenuOpened = false;
     this.menuClosed.emit();
   }
 
