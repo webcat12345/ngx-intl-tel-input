@@ -1,10 +1,12 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
+import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
 
 @NgModule({
 	declarations: [NgxIntlTelInputComponent],
@@ -13,15 +15,15 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 		FormsModule,
 		ReactiveFormsModule,
 		BsDropdownModule.forRoot(),
-		TooltipModule.forRoot()
+		TooltipModule.forRoot(),
 	],
-	exports: [NgxIntlTelInputComponent]
+	exports: [NgxIntlTelInputComponent],
 })
 export class NgxIntlTelInputModule {
 	static forRoot(): ModuleWithProviders {
 		return {
 			ngModule: NgxIntlTelInputModule,
-			providers: [NgxIntlTelInputService]
+			providers: [NgxIntlTelInputService],
 		};
 	}
 }
