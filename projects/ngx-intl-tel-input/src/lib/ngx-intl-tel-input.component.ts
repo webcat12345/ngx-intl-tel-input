@@ -147,7 +147,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				if (this.phoneNumber) {
 					this.onPhoneNumberChange();
 				} else {
-					this.propagateChange(undefined);
+					// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+					// tslint:disable-next-line: no-null-keyword
+					this.propagateChange(null);
 				}
 			}
 		}
@@ -253,7 +255,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		this.checkSeparateDialCodeStyle();
 
 		if (!this.value) {
-			this.propagateChange(undefined);
+			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+			// tslint:disable-next-line: no-null-keyword
+			this.propagateChange(null);
 		} else {
 			const intlNo = number
 				? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL)
@@ -319,7 +323,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				id: this.id,
 			});
 		} else {
-			this.propagateChange(undefined);
+			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+			// tslint:disable-next-line: no-null-keyword
+			this.propagateChange(null);
 		}
 
 		el.focus();
