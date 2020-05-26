@@ -244,6 +244,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				number: this.value,
 				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
+				e164Number: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.E164): '',
 				countryCode: countryCode.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
 				id: this.id
@@ -276,6 +277,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				number: this.value,
 				internationalNumber: intlNo,
 				nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
+				e164Number: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.E164): '',
 				countryCode: this.selectedCountry.iso2.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
 				id: this.id
