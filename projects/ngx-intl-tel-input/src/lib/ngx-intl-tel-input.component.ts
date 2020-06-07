@@ -87,11 +87,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
+		const selectedISO = changes['selectedCountryISO'];
 		if (
 			this.allCountries &&
-			changes['selectedCountryISO'] &&
-			changes['selectedCountryISO'].currentValue !==
-				changes['selectedCountryISO'].previousValue
+			selectedISO &&
+			selectedISO.currentValue !== selectedISO.previousValue
 		) {
 			this.getSelectedCountry();
 		}
