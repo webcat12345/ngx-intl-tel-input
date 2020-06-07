@@ -14,6 +14,7 @@ import { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 
 @Component({
+	// tslint:disable-next-line: component-selector
 	selector: 'ngx-intl-tel-input',
 	templateUrl: './ngx-intl-tel-input.component.html',
 	styleUrls: ['./ngx-intl-tel-input.component.css'],
@@ -432,7 +433,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
 
 		/*
-			Interate over each secondary country and check if nationalNumber starts with any of areaCodes available.
+			Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
 			If no matches found, fallback to the main country.
 		*/
 		secondaryCountries.forEach((country) => {
