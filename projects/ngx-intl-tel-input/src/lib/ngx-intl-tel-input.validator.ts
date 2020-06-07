@@ -18,7 +18,6 @@ export const phoneNumberValidator = (control: any) => {
 	const inputBox: HTMLInputElement = el.querySelector('input[type="tel"]');
 	if (inputBox) {
 		const id = inputBox.id;
-		console.log(id);
 		const isCheckValidation = inputBox.getAttribute('validation');
 		if (isCheckValidation === 'true') {
 			const isRequired = control.errors && control.errors.required === true;
