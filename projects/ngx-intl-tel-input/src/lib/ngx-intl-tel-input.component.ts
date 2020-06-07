@@ -147,7 +147,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				if (this.phoneNumber) {
 					this.onPhoneNumberChange();
 				} else {
-					// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+					// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 					// tslint:disable-next-line: no-null-keyword
 					this.propagateChange(null);
 				}
@@ -255,7 +255,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		this.checkSeparateDialCodeStyle();
 
 		if (!this.value) {
-			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+			// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 			// tslint:disable-next-line: no-null-keyword
 			this.propagateChange(null);
 		} else {
@@ -321,7 +321,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				dialCode: '+' + this.selectedCountry.dialCode,
 			});
 		} else {
-			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+			// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 			// tslint:disable-next-line: no-null-keyword
 			this.propagateChange(null);
 		}
