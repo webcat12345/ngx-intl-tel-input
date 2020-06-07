@@ -49,7 +49,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
-	@Input() id = 'phone';
+	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
 	separateDialCodeClass: string;
 
