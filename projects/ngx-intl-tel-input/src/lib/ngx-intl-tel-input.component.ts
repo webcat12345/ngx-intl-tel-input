@@ -49,6 +49,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
 	@Input() id = 'phone';
+	@Input() separateDialCode = false;
+	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
 
@@ -61,10 +63,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		placeHolder: '',
 		priority: 0,
 	};
-
-	// display the country dial code next to the selected flag
-	@Input() separateDialCode = false;
-	separateDialCodeClass: string;
 
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
