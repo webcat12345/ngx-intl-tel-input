@@ -279,7 +279,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					: '',
 				countryCode: countryCode.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
-				id: this.id,
 			});
 		}
 	}
@@ -320,7 +319,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					: '',
 				countryCode: this.selectedCountry.iso2.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
-				id: this.id,
 			});
 		} else {
 			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
