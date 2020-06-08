@@ -74,7 +74,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
 
-	@ViewChild('countryList', { static: false }) countryList: ElementRef;
+	@ViewChild('countryList') countryList: ElementRef;
 
 	onTouched = () => {};
 	propagateChange = (_: ChangeData) => {};

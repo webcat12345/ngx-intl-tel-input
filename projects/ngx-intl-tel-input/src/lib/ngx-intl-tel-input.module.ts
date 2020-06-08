@@ -21,7 +21,7 @@ import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
 	exports: [NgxIntlTelInputComponent, NativeElementInjectorDirective],
 })
 export class NgxIntlTelInputModule {
-	static forRoot(): ModuleWithProviders {
+	static forRoot(): ModuleWithProviders<NgxIntlTelInputModule> {
 		return {
 			ngModule: NgxIntlTelInputModule,
 			providers: [NgxIntlTelInputService],
