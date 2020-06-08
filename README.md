@@ -11,6 +11,7 @@ An Angular package for entering and validating international telephone numbers. 
 **Supports:**
 
 - Angular 8
+- Angular 9
 - ReactiveFormsModule
 - FormsModule
 - Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
