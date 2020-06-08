@@ -1,4 +1,5 @@
 # International Telephone Input for Angular (NgxIntlTelInput)
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
 [![Build Status](https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master)](https://travis-ci.org/webcat12345/ngx-intl-tel-input) [![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
@@ -18,17 +19,17 @@ An Angular package for entering and validating international telephone numbers. 
 
 ### Install Dependencies
 
-```$ npm install intl-tel-input@14.1.0 --save```
+`$ npm install intl-tel-input@14.1.0 --save`
 
-```$ npm install google-libphonenumber --save```
+`$ npm install google-libphonenumber --save`
 
-```$ ng add ngx-bootstrap```
+`$ ng add ngx-bootstrap`
 
 ### Add Dependency Style
 
-Add *'intl-tel-input'* style file: 
+Add _'intl-tel-input'_ style file:
 
-```./node_modules/intl-tel-input/build/css/intlTelInput.css```
+`./node_modules/intl-tel-input/build/css/intlTelInput.css`
 
 to **angular.json** styles array:
 
@@ -45,21 +46,16 @@ to **angular.json** styles array:
 
 ### Install This Library
 
-```$ npm install ngx-intl-tel-input --save```
+`$ npm install ngx-intl-tel-input --save`
 
 ## Usage
 
 ### Import
 
-Add ```BsDropDownModule``` and ```NgxIntlTelInputModule``` to your module file:
+Add `BsDropDownModule` and `NgxIntlTelInputModule` to your module file:
 
 ```javascript
-
-imports: [
-    BsDropdownModule.forRoot(),
-    NgxIntlTelInputModule,
-  ]
-
+imports: [BsDropdownModule.forRoot(), NgxIntlTelInputModule];
 ```
 
 ## Example
@@ -69,51 +65,51 @@ Refer to main app in this repository for working example.
 Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 
 ```html
-
 <form #f="ngForm" [formGroup]="phoneForm">
-    <ngx-intl-tel-input
-    [cssClass]="'custom'"
-    [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
-    [enableAutoCountrySelect]="false"
-    [enablePlaceholder]="true"
-    [searchCountryFlag]="true"
-    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-    [selectFirstCountry]="false"
-    [selectedCountryISO]="CountryISO.India"
-    [maxLength]="15"
-    [tooltipField]="TooltipLabel.Name"
-    [phoneValidation]="true"
-    [id]="my-input-id"
-    name="phone"
-    formControlName="phone"></ngx-intl-tel-input>
-  </form>
-
+	<ngx-intl-tel-input
+		[cssClass]="'custom'"
+		[preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+		[enableAutoCountrySelect]="false"
+		[enablePlaceholder]="true"
+		[searchCountryFlag]="true"
+		[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+		[selectFirstCountry]="false"
+		[selectedCountryISO]="CountryISO.India"
+		[maxLength]="15"
+		[tooltipField]="TooltipLabel.Name"
+		[phoneValidation]="true"
+		[inputId]="my-input-id"
+		name="phone"
+		formControlName="phone"
+	></ngx-intl-tel-input>
+</form>
 ```
 
 ## Options
 
-| Options                       | Type                   | Default            | Description                                                                         |
-| ------------------------------|------------------------|--------------------|-------------------------------------------------------------------------------------|
-| cssClass                      | ```string```           | ```control-form``` | Bootstrap input css class or your own custom one.                                   |
-| preferredCountries            | ```<CountryISO>[]```         | ```[]```           | List of countries, which will appear at the top.                        |
-| onlyCountries                 | ```<CountryISO>[]```         | ```[]```           | List of manually selected countries, which will appear in the dropdown. |
-| enableAutoCountrySelect       | ```boolean```          | ```false```        | Toggle automatic country (flag) selection based on user input.                      |
-| enablePlaceholder             | ```boolean```          | ```true```         | Input placeholder text, which addapts to the country selected.                      |
-| searchCountryFlag             | ```boolean```          | ```false```         | Enables input search box for countries in the flag dropdown.      |
-| searchCountryField             | ```<SearchCountryField>[]```          | ```[SearchCountryField.All]```         | Customize which fields to search in, if ```searchCountryFlag``` is enabled. Use ```SearchCountryField``` helper enum. |
-| searchCountryPlaceholder | ```string``` | ```'Search Country'``` | Placeholder value for ```searchCountryField``` |
-| maxLength             | ```number```          | ```None```         | Add character limit.|
-| tooltipField             | ```<TooltipLabel>```          | ```None```         | Set tooltip on flag hover. Use ```TooltipLabel``` helper enum for label type options. |
-| selectFirstCountry             | ```boolean```          | ```true```         | Selects first country from ```preferredCountries``` if is set. If not then uses main list. |
-| phoneValidation             | ```boolean```          | ```true```         | Disable phone validation. |
-| id             | ```string```          | ```phone```         | Unique ID for input. |
-| selectedCountryISO             | ```<CountryISO>``` | ```None```| Set specific country on load.                  |
-| separateDialCode | ```boolean``` | ```false``` | Visually separate dialcode into the drop down element. |
-| countryChange | ```<Country>``` | ```None``` | Emits country value when the user selects a country from the dropdown. |
+| Options                  | Type                     | Default                    | Description                                                                                                   |
+| ------------------------ | ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| cssClass                 | `string`                 | `control-form`             | Bootstrap input css class or your own custom one.                                                             |
+| preferredCountries       | `<CountryISO>[]`         | `[]`                       | List of countries, which will appear at the top.                                                              |
+| onlyCountries            | `<CountryISO>[]`         | `[]`                       | List of manually selected countries, which will appear in the dropdown.                                       |
+| enableAutoCountrySelect  | `boolean`                | `false`                    | Toggle automatic country (flag) selection based on user input.                                                |
+| enablePlaceholder        | `boolean`                | `true`                     | Input placeholder text, which addapts to the country selected.                                                |
+| searchCountryFlag        | `boolean`                | `false`                    | Enables input search box for countries in the flag dropdown.                                                  |
+| searchCountryField       | `<SearchCountryField>[]` | `[SearchCountryField.All]` | Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
+| searchCountryPlaceholder | `string`                 | `'Search Country'`         | Placeholder value for `searchCountryField`                                                                    |
+| maxLength                | `number`                 | `None`                     | Add character limit.                                                                                          |
+| tooltipField             | `<TooltipLabel>`         | `None`                     | Set tooltip on flag hover. Use `TooltipLabel` helper enum for label type options.                             |
+| selectFirstCountry       | `boolean`                | `true`                     | Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
+| phoneValidation          | `boolean`                | `true`                     | Disable phone validation.                                                                                     |
+| inputId                  | `string`                 | `phone`                    | Unique ID for `<input>` element.                                                                              |
+| selectedCountryISO       | `<CountryISO>`           | `None`                     | Set specific country on load.                                                                                 |
+| separateDialCode         | `boolean`                | `false`                    | Visually separate dialcode into the drop down element.                                                        |
+| countryChange            | `<Country>`              | `None`                     | Emits country value when the user selects a country from the dropdown.                                        |
 
 ## Supported Formats
 
 Following formats are supported
+
 - NATIONAL // Produces "044 668 18 00"
 - INTERNATIONAL // Produces "+41 44 668 18 00"
 - E164 // Produces "+41446681800"
@@ -121,18 +117,18 @@ Following formats are supported
 ## Library Contributions
 
 - Fork repo.
-- Update ```./projects/ngx-intl-tel-input```
+- Update `./projects/ngx-intl-tel-input`
 - Build / test library.
-- Update ```./src/app``` with new functionality.
+- Update `./src/app` with new functionality.
 - Update README.md
 - Pull request.
 
 ### Helpful commands
 
-- Build lib: ```$ npm run build_lib```
-- Copy license and readme files: ```$ npm run copy-files```
-- Create package: ```$ npm run npm_pack```
-- Build lib and create package: ```$ npm run package```
+- Build lib: `$ npm run build_lib`
+- Copy license and readme files: `$ npm run copy-files`
+- Create package: `$ npm run npm_pack`
+- Build lib and create package: `$ npm run package`
 
 ### Use localy
 
@@ -140,7 +136,7 @@ After building and creating package, you can use it localy too.
 
 In your project run:
 
-```$ npm install --save {{path to your local '*.tgz' package file}}```
+`$ npm install --save {{path to your local '*.tgz' package file}}`
 
 ## Contributors
 

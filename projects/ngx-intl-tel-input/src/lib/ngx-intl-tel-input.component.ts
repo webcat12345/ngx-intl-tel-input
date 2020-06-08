@@ -10,10 +10,12 @@ import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
 import { TooltipLabel } from './enums/tooltip-label.enum';
+import { ChangeData } from './interfaces/change-data';
 import { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 
 @Component({
+	// tslint:disable-next-line: component-selector
 	selector: 'ngx-intl-tel-input',
 	templateUrl: './ngx-intl-tel-input.component.html',
 	styleUrls: ['./ngx-intl-tel-input.component.css'],
@@ -47,7 +49,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
-	@Input() id = 'phone';
+	@Input() inputId = 'phone';
+	@Input() separateDialCode = false;
+	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
 
@@ -61,10 +65,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		priority: 0,
 	};
 
-	// display the country dial code next to the selected flag
-	@Input() separateDialCode = false;
-	separateDialCodeClass: string;
-
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
@@ -74,10 +74,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
 
-	@ViewChild('countryList', { static: false }) countryList: ElementRef;
+	@ViewChild('countryList') countryList: ElementRef;
 
 	onTouched = () => {};
-	propagateChange = (_: any) => {};
+	propagateChange = (_: ChangeData) => {};
 
 	constructor(private countryCodeData: CountryCode) {}
 
@@ -86,11 +86,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
+		const selectedISO = changes['selectedCountryISO'];
 		if (
 			this.allCountries &&
-			changes['selectedCountryISO'] &&
-			changes['selectedCountryISO'].currentValue !==
-				changes['selectedCountryISO'].previousValue
+			selectedISO &&
+			selectedISO.currentValue !== selectedISO.previousValue
 		) {
 			this.getSelectedCountry();
 		}
@@ -147,7 +147,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				if (this.phoneNumber) {
 					this.onPhoneNumberChange();
 				} else {
-					// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+					// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 					// tslint:disable-next-line: no-null-keyword
 					this.propagateChange(null);
 				}
@@ -255,7 +255,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		this.checkSeparateDialCodeStyle();
 
 		if (!this.value) {
-			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+			// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 			// tslint:disable-next-line: no-null-keyword
 			this.propagateChange(null);
 		} else {
@@ -279,7 +279,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					: '',
 				countryCode: countryCode.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
-				id: this.id,
 			});
 		}
 	}
@@ -320,10 +319,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					: '',
 				countryCode: this.selectedCountry.iso2.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
-				id: this.id,
 			});
 		} else {
-			// Must use null here instead of undefined to avoid https://stackoverflow.com/a/54358133/1617590
+			// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 			// tslint:disable-next-line: no-null-keyword
 			this.propagateChange(null);
 		}
@@ -432,7 +430,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
 
 		/*
-			Interate over each secondary country and check if nationalNumber starts with any of areaCodes available.
+			Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
 			If no matches found, fallback to the main country.
 		*/
 		secondaryCountries.forEach((country) => {

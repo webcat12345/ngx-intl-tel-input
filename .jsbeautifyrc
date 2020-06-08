@@ -1,0 +1,6 @@
+{
+	"indent_inner_html": true,
+	"indent_with_tabs": true,
+	"tab_size": 2,
+	"wrap_attributes": "force"
+}

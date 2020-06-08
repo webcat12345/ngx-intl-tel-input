@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NativeElementInjectorDirective } from './directives/native-element-injector.directive';
 import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
 import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
 
 @NgModule({
-	declarations: [NgxIntlTelInputComponent],
+	declarations: [NgxIntlTelInputComponent, NativeElementInjectorDirective],
 	imports: [
 		CommonModule,
 		FormsModule,
@@ -17,10 +18,10 @@ import { NgxIntlTelInputService } from './ngx-intl-tel-input.service';
 		BsDropdownModule.forRoot(),
 		TooltipModule.forRoot(),
 	],
-	exports: [NgxIntlTelInputComponent],
+	exports: [NgxIntlTelInputComponent, NativeElementInjectorDirective],
 })
 export class NgxIntlTelInputModule {
-	static forRoot(): ModuleWithProviders {
+	static forRoot(): ModuleWithProviders<NgxIntlTelInputModule> {
 		return {
 			ngModule: NgxIntlTelInputModule,
 			providers: [NgxIntlTelInputService],
