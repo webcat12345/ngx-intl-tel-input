@@ -11,12 +11,16 @@ https://stackoverflow.com/a/54075119/1617590
 */
 @Directive({
 	// tslint:disable-next-line: directive-selector
-	selector: '[formControlName]',
+	selector: '[ngModel], [formControl], [formControlName]',
 })
 export class NativeElementInjectorDirective implements OnInit {
-	constructor(private el: ElementRef, private control: NgControl) {}
-
+	constructor(
+		private controlDir: NgControl,
+		private host: ElementRef<HTMLFormElement>
+	) {}
 	ngOnInit() {
-		(this.control.control as any).nativeElement = this.el.nativeElement;
+		if (this.controlDir.control) {
+			this.controlDir.control['nativeElement'] = this.host.nativeElement;
+		}
 	}
 }
