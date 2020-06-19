@@ -15,7 +15,9 @@ export const phoneNumberValidator = (control: any) => {
 	}
 	// Find <input> inside injected nativeElement and get its "id".
 	const el: HTMLElement = control.nativeElement as HTMLElement;
-	const inputBox: HTMLInputElement = el.querySelector('input[type="tel"]');
+	const inputBox: HTMLInputElement = el
+		? el.querySelector('input[type="tel"]')
+		: undefined;
 	if (inputBox) {
 		const id = inputBox.id;
 		const isCheckValidation = inputBox.getAttribute('validation');
