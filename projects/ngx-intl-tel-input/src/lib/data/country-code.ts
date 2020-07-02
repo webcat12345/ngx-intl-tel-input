@@ -614,7 +614,8 @@ export class CountryCode {
       'Kazakhstan (Казахстан)',
       CountryISO.Kazakhstan,
       '7',
-      1
+      1,
+      [33, 7]
     ],
     [
       'Kenya',
