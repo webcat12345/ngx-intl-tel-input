@@ -69,7 +69,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kinoroy",
+      "name": "Kino Roy",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/22554212?v=4",
+      "profile": "http://kino.codes",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
