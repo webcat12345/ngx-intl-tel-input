@@ -224,17 +224,25 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	public onPhoneNumberChange(): void {
-		this.value = this.phoneNumber;
 
+		let countryCode: string | undefined;
+		// Handle the case where the user sets the value programatically based on a persisted ChangeData obj.
+		if (this.phoneNumber && typeof this.phoneNumber === 'object') {
+			const numberObj: ChangeData = this.phoneNumber;
+			this.phoneNumber = numberObj.number;
+			countryCode = numberObj.countryCode;
+		}
+
+		this.value = this.phoneNumber;
+		countryCode = countryCode || this.selectedCountry.iso2.toUpperCase();
 		let number: lpn.PhoneNumber;
 		try {
 			number = this.phoneUtil.parse(
 				this.phoneNumber,
-				this.selectedCountry.iso2.toUpperCase()
+				countryCode,
 			);
 		} catch (e) {}
 
-		let countryCode = this.selectedCountry.iso2;
 		// auto select country based on the extension (and areaCode if needed) (e.g select Canada if number starts with +1 416)
 		if (this.enableAutoCountrySelect) {
 			countryCode =
