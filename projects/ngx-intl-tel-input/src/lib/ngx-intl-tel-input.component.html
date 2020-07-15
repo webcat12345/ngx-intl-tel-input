@@ -17,6 +17,7 @@
 			<div class="search-container"
 				*ngIf="searchCountryFlag && searchCountryField">
 				<input id="country-search-box"
+					class="form-control"
 					[(ngModel)]="countrySearchText"
 					(keyup)="searchCountry()"
 					(click)="$event.stopPropagation()"
