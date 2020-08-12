@@ -10,8 +10,8 @@ import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
 import { TooltipLabel } from './enums/tooltip-label.enum';
-import { ChangeData } from './interfaces/change-data';
-import { Country } from './model/country.model';
+import type { ChangeData } from './interfaces/change-data';
+import type { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 
 @Component({

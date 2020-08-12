@@ -153,12 +153,7 @@
             "tsConfig": "projects/ngx-intl-tel-input/tsconfig.lib.json",
             "project": "projects/ngx-intl-tel-input/ng-package.json"
           }
-        ,          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-intl-tel-input/tsconfig.lib.prod.json"
-            }
-          }
-},
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

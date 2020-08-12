@@ -2,8 +2,8 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../../out-tsc/lib",
-		"target": "es2015",
-		"module": "es2015",
+		"target": "es2017",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"declaration": true,
 		"sourceMap": true,
@@ -16,12 +16,10 @@
 			"dom",
 			"es2018"
 		]
-	},
-	"angularCompilerOptions": {
+  },
+  "angularCompilerOptions": {
 		"skipTemplateCodegen": true,
 		"strictMetadataEmit": true,
-		"fullTemplateTypeCheck": true,
-		"strictInjectionParameters": true,
 		"enableResourceInlining": true,
 		"enableIvy": false
 	},
