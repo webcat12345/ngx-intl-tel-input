@@ -2,7 +2,7 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../../out-tsc/lib",
-		"target": "es2017",
+		"target": "es2015",
 		"module": "esnext",
 		"moduleResolution": "node",
 		"declaration": true,
@@ -16,8 +16,8 @@
 			"dom",
 			"es2018"
 		]
-  },
-  "angularCompilerOptions": {
+	},
+	"angularCompilerOptions": {
 		"skipTemplateCodegen": true,
 		"strictMetadataEmit": true,
 		"enableResourceInlining": true,
