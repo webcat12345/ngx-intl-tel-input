@@ -1,23 +1,23 @@
-li.country:hover {
+li.iti__country:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 }
-.selected-flag.dropdown-toggle:after {
+.iti__selected-flag.dropdown-toggle:after {
 	content: none;
 }
-.flag-container.disabled {
+.iti__flag-container.disabled {
 	cursor: default !important;
 }
-.intl-tel-input.allow-dropdown .flag-container.disabled:hover .selected-flag {
+.iti.iti--allow-dropdown .flag-container.disabled:hover .iti__selected-flag {
 	background: none;
 }
 .country-dropdown {
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	width: fit-content;
 	padding: 1px;
 	border-collapse: collapse;
 }
 .search-container {
-	position: relative; 
+	position: relative;
 }
 .search-container input {
 	width: 100%;
@@ -25,32 +25,35 @@ li.country:hover {
 	border-bottom: 1px solid #ccc;
 	padding-left: 10px;
 }
-.search-icon{
+.search-icon {
 	position: absolute;
 	z-index: 2;
 	width: 25px;
 	margin: 1px 10px;
 }
-.country-list {
+.iti__country-list {
 	position: relative;
 	border: none;
 }
 
-.intl-tel-input input#country-search-box {
+.iti input#country-search-box {
 	padding-left: 6px;
 }
 
-.intl-tel-input.separate-dial-code .selected-flag,
-.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag,
-.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag,
-.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag {
+.iti .selected-dial-code {
+	margin-left: 6px;
+}
+
+.iti.separate-dial-code .iti__selected-flag,
+.iti.separate-dial-code.iti--allow-dropdown.iti-sdc-2 .iti__selected-flag,
+.iti.separate-dial-code.iti--allow-dropdown.iti-sdc-3 .iti__selected-flag,
+.iti.separate-dial-code.iti--allow-dropdown.iti-sdc-4 .iti__selected-flag {
 	width: 93px;
 }
 
-
-.intl-tel-input.separate-dial-code input,
-.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input,
-.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input,
-.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input {
+.iti.separate-dial-code input,
+.iti.separate-dial-code.iti--allow-dropdown.iti-sdc-2 input,
+.iti.separate-dial-code.iti--allow-dropdown.iti-sdc-3 input,
+.iti.separate-dial-code.iti--allow-dropdown.iti-sdc-4 input {
 	padding-left: 98px;
 }

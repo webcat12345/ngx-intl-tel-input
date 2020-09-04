@@ -1,8 +1,16 @@
 import * as lpn from 'google-libphonenumber';
 
 import {
-	Component, ElementRef, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output,
-	SimpleChanges, ViewChild
+	Component,
+	ElementRef,
+	EventEmitter,
+	forwardRef,
+	Input,
+	OnChanges,
+	OnInit,
+	Output,
+	SimpleChanges,
+	ViewChild,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -58,6 +66,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	selectedCountry: Country = {
 		areaCodes: undefined,
 		dialCode: '',
+		htmlId: '',
 		flagClass: '',
 		iso2: '',
 		name: '',
@@ -166,7 +175,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	searchCountry() {
 		if (!this.countrySearchText) {
 			this.countryList.nativeElement
-				.querySelector('.country-list li')
+				.querySelector('.iti__country-list li')
 				.scrollIntoView({
 					behavior: 'smooth',
 					block: 'nearest',
@@ -209,7 +218,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 		if (country.length > 0) {
 			const el = this.countryList.nativeElement.querySelector(
-				'#' + country[0].iso2
+				'#' + country[0].htmlId
 			);
 			if (el) {
 				el.scrollIntoView({
@@ -224,7 +233,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	public onPhoneNumberChange(): void {
-
 		let countryCode: string | undefined;
 		// Handle the case where the user sets the value programatically based on a persisted ChangeData obj.
 		if (this.phoneNumber && typeof this.phoneNumber === 'object') {
@@ -237,10 +245,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		countryCode = countryCode || this.selectedCountry.iso2.toUpperCase();
 		let number: lpn.PhoneNumber;
 		try {
-			number = this.phoneUtil.parse(
-				this.phoneNumber,
-				countryCode,
-			);
+			number = this.phoneUtil.parse(this.phoneNumber, countryCode);
 		} catch (e) {}
 
 		// auto select country based on the extension (and areaCode if needed) (e.g select Canada if number starts with +1 416)
@@ -372,7 +377,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				dialCode: c[2].toString(),
 				priority: +c[3] || 0,
 				areaCodes: (c[4] as string[]) || undefined,
-				flagClass: c[1].toString().toLocaleLowerCase(),
+				htmlId: `iti-0__item-${c[1].toString()}`,
+				flagClass: `iti__${c[1].toString().toLocaleLowerCase()}`,
 				placeHolder: '',
 			};
 
