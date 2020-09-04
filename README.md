@@ -12,10 +12,10 @@ An Angular package for entering and validating international telephone numbers. 
 
 Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 
-| ngx-intl-tel-input | Angular        |
-| ------------------ | -------------- |
-| 3.x.x              | 9.x.x - 10.x.x |
-| 2.x.x              | 8.x.x - 9.1.x  |
+| ngx-intl-tel-input | Angular        | ngx-bootstrap |
+| ------------------ | -------------- | ------------- |
+| 3.x.x              | 9.x.x - 10.x.x | 6.0.0         |
+| 2.x.x              | 8.x.x - 9.1.x  | 5.6.x         |
 
 ## Installation
 
