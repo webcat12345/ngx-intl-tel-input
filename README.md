@@ -8,19 +8,20 @@ An Angular package for entering and validating international telephone numbers. 
 
 ![alt](readme-assets/ngx-intl-tel-input.jpg)
 
-**Supports:**
+**Compatibility:**
 
-- Angular 8
-- Angular 9
-- ReactiveFormsModule
-- FormsModule
-- Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
+Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
+
+| ngx-intl-tel-input | Angular        |
+| ------------------ | -------------- |
+| 3.x.x              | 9.x.x - 10.x.x |
+| 2.x.x              | 8.x.x - 9.1.x  |
 
 ## Installation
 
 ### Install Dependencies
 
-`$ npm install intl-tel-input@14.1.0 --save`
+`$ npm install intl-tel-input@17.0.3 --save`
 
 `$ npm install google-libphonenumber --save`
 
@@ -38,7 +39,6 @@ to **angular.json** styles array:
 
 "styles": [
   "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
   "./node_modules/intl-tel-input/build/css/intlTelInput.css",
   "src/styles.css"
 ],
@@ -53,10 +53,10 @@ to **angular.json** styles array:
 
 ### Import
 
-Add `BsDropDownModule` and `NgxIntlTelInputModule` to your module file:
+Add `NgxIntlTelInputModule` to your module file:
 
 ```javascript
-imports: [BsDropdownModule.forRoot(), NgxIntlTelInputModule];
+imports: [NgxIntlTelInputModule];
 ```
 
 ## Example
@@ -94,7 +94,7 @@ Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
 | preferredCountries       | `<CountryISO>[]`         | `[]`                       | List of countries, which will appear at the top.                                                              |
 | onlyCountries            | `<CountryISO>[]`         | `[]`                       | List of manually selected countries, which will appear in the dropdown.                                       |
 | enableAutoCountrySelect  | `boolean`                | `false`                    | Toggle automatic country (flag) selection based on user input.                                                |
-| enablePlaceholder        | `boolean`                | `true`                     | Input placeholder text, which addapts to the country selected.                                                |
+| enablePlaceholder        | `boolean`                | `true`                     | Input placeholder text, which adapts to the country selected.                                                 |
 | searchCountryFlag        | `boolean`                | `false`                    | Enables input search box for countries in the flag dropdown.                                                  |
 | searchCountryField       | `<SearchCountryField>[]` | `[SearchCountryField.All]` | Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
 | searchCountryPlaceholder | `string`                 | `'Search Country'`         | Placeholder value for `searchCountryField`                                                                    |
@@ -131,9 +131,9 @@ Following formats are supported
 - Create package: `$ npm run npm_pack`
 - Build lib and create package: `$ npm run package`
 
-### Use localy
+### Use locally
 
-After building and creating package, you can use it localy too.
+After building and creating package, you can use it locally too.
 
 In your project run:
 
@@ -158,6 +158,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
