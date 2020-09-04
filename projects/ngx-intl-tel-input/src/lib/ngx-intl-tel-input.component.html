@@ -1,17 +1,17 @@
-<div class="intl-tel-input allow-dropdown"
+<div class="iti iti--allow-dropdown"
 	[ngClass]="separateDialCodeClass">
-	<div class="flag-container"
+	<div class="iti__flag-container"
 		dropdown
 		[ngClass]="{'disabled': disabled}"
 		[isDisabled]="disabled">
-		<div class="selected-flag dropdown-toggle"
+		<div class="iti__selected-flag dropdown-toggle"
 			dropdownToggle>
-			<div class="iti-flag"
+			<div class="iti__flag"
 				[ngClass]="selectedCountry?.flagClass"
 				[tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
 			<div *ngIf="separateDialCode"
 				class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
-			<div class="iti-arrow"></div>
+			<div class="iti__arrow"></div>
 		</div>
 		<div *dropdownMenu
 			class="dropdown-menu country-dropdown">
@@ -24,31 +24,31 @@
 					[placeholder]="searchCountryPlaceholder"
 					autofocus>
 			</div>
-			<ul class="country-list"
+			<ul class="iti__country-list"
 				#countryList>
-				<li class="country"
+				<li class="iti__country iti__preferred"
 					*ngFor="let country of preferredCountriesInDropDown"
 					(click)="onCountrySelect(country, focusable)"
-					[id]="country.iso2">
-					<div class="flag-box">
-						<div class="iti-flag"
+					[id]="country.htmlId+'-preferred'">
+					<div class="iti__flag-box">
+						<div class="iti__flag"
 							[ngClass]="country.flagClass"></div>
 					</div>
-					<span class="country-name">{{country.name}}</span>
-					<span class="dial-code">+{{country.dialCode}}</span>
+					<span class="iti__country-name">{{country.name}}</span>
+					<span class="iti__dial-code">+{{country.dialCode}}</span>
 				</li>
-				<li class="divider"
+				<li class="iti__divider"
 					*ngIf="preferredCountriesInDropDown?.length"></li>
-				<li class="country"
+				<li class="iti__country iti__standard"
 					*ngFor="let country of allCountries"
 					(click)="onCountrySelect(country, focusable)"
-					[id]="country.iso2">
-					<div class="flag-box">
-						<div class="iti-flag"
+					[id]="country.htmlId">
+					<div class="iti__flag-box">
+						<div class="iti__flag"
 							[ngClass]="country.flagClass"></div>
 					</div>
-					<span class="country-name">{{country.name}}</span>
-					<span class="dial-code">+{{country.dialCode}}</span>
+					<span class="iti__country-name">{{country.name}}</span>
+					<span class="iti__dial-code">+{{country.dialCode}}</span>
 				</li>
 			</ul>
 		</div>
