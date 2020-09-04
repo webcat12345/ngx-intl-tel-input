@@ -63,7 +63,12 @@ imports: [NgxIntlTelInputModule];
 
 Refer to main app in this repository for working example.
 
-Or this [Stackblitz Demo](https://stackblitz.com/edit/ngx-intl-tel-input-demo).
+Or this:
+[Stackblitz Demo (Angular 8)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng8)
+
+[Stackblitz Demo (Angular 9)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng9)
+
+[Stackblitz Demo (Angular 10)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng10)
 
 ```html
 <form #f="ngForm" [formGroup]="phoneForm">
