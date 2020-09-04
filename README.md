@@ -14,8 +14,8 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 | ngx-intl-tel-input | Angular        |
 | ------------------ | -------------- |
-| 3.0.0              | 9.x.x - 10.x.x |
-| 2.x.x              | 8.x.x - 9.1.0  |
+| 3.x.x              | 9.x.x - 10.x.x |
+| 2.x.x              | 8.x.x - 9.1.x  |
 
 ## Installation
 
@@ -39,7 +39,6 @@ to **angular.json** styles array:
 
 "styles": [
   "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
   "./node_modules/intl-tel-input/build/css/intlTelInput.css",
   "src/styles.css"
 ],
@@ -54,10 +53,10 @@ to **angular.json** styles array:
 
 ### Import
 
-Add `BsDropDownModule` and `NgxIntlTelInputModule` to your module file:
+Add `NgxIntlTelInputModule` to your module file:
 
 ```javascript
-imports: [BsDropdownModule.forRoot(), NgxIntlTelInputModule];
+imports: [NgxIntlTelInputModule];
 ```
 
 ## Example
