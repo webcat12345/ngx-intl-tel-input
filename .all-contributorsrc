@@ -78,6 +78,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "NathanWalker",
+      "name": "Nathan Walker",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/457187?v=4",
+      "profile": "https://twitter.com/wwwalkerrun",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
