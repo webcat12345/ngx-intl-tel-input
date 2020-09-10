@@ -1,6 +1,6 @@
 {
 	"name": "ngx-intl-tel-input",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"peerDependencies": {
 		"@angular/common": "8.x - 10.x",
 		"@angular/core": "8.x - 10.x",
@@ -20,11 +20,11 @@
 	"keywords": [
 		"angular",
 		"ng8",
-    "ng9",
-    "ng10",
+		"ng9",
+		"ng10",
 		"angular 8",
-    "angular 9",
-    "angular 10",
+		"angular 9",
+		"angular 10",
 		"intl-tel-input",
 		"phone number",
 		"validation"
