@@ -255,7 +255,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					? this.getCountryIsoCode(number.getCountryCode(), number)
 					: this.selectedCountry.iso2;
 			if (countryCode && countryCode !== this.selectedCountry.iso2) {
-				const newCountry = this.allCountries.find(
+				const newCountry = this.allCountries.sort((a, b) => {
+					return a.priority - b.priority;
+				}).find(
 					(c) => c.iso2 === countryCode
 				);
 				if (newCountry) {
