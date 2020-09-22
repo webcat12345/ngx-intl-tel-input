@@ -14,6 +14,8 @@ import {
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+import { setTheme } from 'ngx-bootstrap/utils';
+
 import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
@@ -26,7 +28,7 @@ import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 	// tslint:disable-next-line: component-selector
 	selector: 'ngx-intl-tel-input',
 	templateUrl: './ngx-intl-tel-input.component.html',
-	styleUrls: ['./ngx-intl-tel-input.component.css'],
+	styleUrls: ['./bootstrap-dropdown.css', './bootstrap-tooltip.css', './ngx-intl-tel-input.component.css'],
 	providers: [
 		CountryCode,
 		{
@@ -88,7 +90,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	onTouched = () => {};
 	propagateChange = (_: ChangeData) => {};
 
-	constructor(private countryCodeData: CountryCode) {}
+	constructor(private countryCodeData: CountryCode) {
+		// If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
+		// Add the wrong classes and such
+		setTheme('bs4');
+	}
 
 	ngOnInit() {
 		this.init();
