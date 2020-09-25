@@ -3,7 +3,7 @@ body {
 	font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
-.container {
+.wrapper {
 	margin-bottom: 20px;
 }
 
@@ -27,7 +27,7 @@ body {
 	box-shadow: none;
 	font-size: 14px;
 	margin-left: 0;
-	width: 249px;
+	width: 244px;
 	max-height: 170px;
 }
 
