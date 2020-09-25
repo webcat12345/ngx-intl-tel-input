@@ -1,7 +1,5 @@
 import { CountryISO } from 'projects/ngx-intl-tel-input/src/lib/enums/country-iso.enum';
-import {
-	SearchCountryField
-} from 'projects/ngx-intl-tel-input/src/lib/enums/search-country-field.enum';
+import { SearchCountryField } from 'projects/ngx-intl-tel-input/src/lib/enums/search-country-field.enum';
 import { TooltipLabel } from 'projects/ngx-intl-tel-input/src/lib/enums/tooltip-label.enum';
 
 import { Component } from '@angular/core';
@@ -13,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 	styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-	separateDialCode = true;
+	separateDialCode = false;
 	SearchCountryField = SearchCountryField;
 	TooltipLabel = TooltipLabel;
 	CountryISO = CountryISO;
