@@ -8,6 +8,8 @@
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e",
+		"build_stats": "ng build --stats-json",
+		"analyze": "webpack-bundle-analyzer dist/ngx-intl-tel-input-app/stats.json",
 		"build_lib": "ng build ngx-intl-tel-input",
 		"copy-license": "cp ./LICENSE ./dist/ngx-intl-tel-input",
 		"copy-readme": "cp ./README.md ./dist/ngx-intl-tel-input",
@@ -57,10 +59,11 @@
 		"ng-packagr": "~10.0.0",
 		"prettier": "^2.0.5",
 		"protractor": "^5.4.2",
+		"rollup": "^2.22.0",
 		"ts-node": "~7.0.0",
 		"tslint": "~5.11.0",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "~3.9.0",
-		"rollup": "^2.22.0"
+		"webpack-bundle-analyzer": "^3.9.0"
 	}
 }
