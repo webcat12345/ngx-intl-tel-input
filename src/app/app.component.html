@@ -2,17 +2,17 @@
 <div style="margin: 50px">
 	<h1>Test International Telephone Input Form</h1>
 	<br>
-	<div class="container">
+	<div class="wrapper">
 		<button (click)="changePreferredCountries()">Change Preferred Countries</button>
 	</div>
-	<div class="container">
+	<div class="wrapper">
 		<input type="checkbox"
 			[(ngModel)]="separateDialCode">
 		<label>&nbsp;Separate Dial Code?</label>
 	</div>
 	<form #f="ngForm"
 		[formGroup]="phoneForm">
-		<div class="container">
+		<div class="wrapper">
 			<ngx-intl-tel-input [cssClass]="'custom'"
 				[preferredCountries]="preferredCountries"
 				[enableAutoCountrySelect]="true"
@@ -29,7 +29,7 @@
 				formControlName="phone">
 			</ngx-intl-tel-input>
 		</div>
-		<div class="container">
+		<div class="wrapper">
 			<button (click)="f.reset()">Reset</button>
 		</div>
 	</form>
