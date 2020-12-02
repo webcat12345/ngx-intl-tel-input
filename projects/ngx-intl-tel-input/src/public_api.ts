@@ -8,4 +8,5 @@ export * from './lib/ngx-intl-tel-input.module';
 export * from './lib/enums/country-iso.enum';
 export * from './lib/enums/search-country-field.enum';
 export * from './lib/enums/tooltip-label.enum';
+export * from './lib/enums/phone-number-format.enum';
 export * from './lib/interfaces/change-data';
