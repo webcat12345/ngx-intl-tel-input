@@ -394,9 +394,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		if (this.separateDialCode && phoneNumber) {
 			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
 		}
-		const number = this.getParsedNumber(phoneNumber, this.selectedCountry.iso2);
-		const c = this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL);
-		return c;
+		return phoneNumber;
 	}
 
 	/**
