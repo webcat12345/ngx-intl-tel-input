@@ -46,6 +46,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() value = '';
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
+	@Input() customPlaceholder: string;
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = true;
@@ -101,10 +102,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			selectedISO &&
 			selectedISO.currentValue !== selectedISO.previousValue
 		) {
-			this.getSelectedCountry();
+			this.updateSelectedCountry();
 		}
 		if (changes.preferredCountries) {
-			this.getPreferredCountries();
+			this.updatePreferredCountries();
 		}
 		this.checkSeparateDialCodeStyle();
 	}
@@ -116,7 +117,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	init() {
 		this.fetchCountryData();
 		if (this.preferredCountries.length) {
-			this.getPreferredCountries();
+			this.updatePreferredCountries();
 		}
 		if (this.onlyCountries.length) {
 			this.allCountries = this.allCountries.filter((c) =>
@@ -130,38 +131,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				this.setSelectedCountry(this.allCountries[0]);
 			}
 		}
-		this.getSelectedCountry();
+		this.updateSelectedCountry();
 		this.checkSeparateDialCodeStyle();
-	}
-
-	getPreferredCountries() {
-		if (this.preferredCountries.length) {
-			this.preferredCountriesInDropDown = [];
-			this.preferredCountries.forEach((iso2) => {
-				const preferredCountry = this.allCountries.filter((c) => {
-					return c.iso2 === iso2;
-				});
-
-				this.preferredCountriesInDropDown.push(preferredCountry[0]);
-			});
-		}
-	}
-
-	getSelectedCountry() {
-		if (this.selectedCountryISO) {
-			this.selectedCountry = this.allCountries.find((c) => {
-				return c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase();
-			});
-			if (this.selectedCountry) {
-				if (this.phoneNumber) {
-					this.onPhoneNumberChange();
-				} else {
-					// Reason: avoid https://stackoverflow.com/a/54358133/1617590
-					// tslint:disable-next-line: no-null-keyword
-					this.propagateChange(null);
-				}
-			}
-		}
 	}
 
 	setSelectedCountry(country: Country) {
@@ -172,7 +143,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	/**
 	 * Search country based on country name, iso2, dialCode or all of them.
 	 */
-	searchCountry() {
+	public searchCountry() {
 		if (!this.countrySearchText) {
 			this.countryList.nativeElement
 				.querySelector('.iti__country-list li')
@@ -242,11 +213,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 
 		this.value = this.phoneNumber;
-		countryCode = countryCode || this.selectedCountry.iso2.toUpperCase();
-		let number: lpn.PhoneNumber;
-		try {
-			number = this.phoneUtil.parse(this.phoneNumber, countryCode);
-		} catch (e) {}
+		countryCode = countryCode || this.selectedCountry.iso2;
+		const number = this.getParsedNumber(this.phoneNumber, countryCode);
 
 		// auto select country based on the extension (and areaCode if needed) (e.g select Canada if number starts with +1 416)
 		if (this.enableAutoCountrySelect) {
@@ -255,11 +223,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					? this.getCountryIsoCode(number.getCountryCode(), number)
 					: this.selectedCountry.iso2;
 			if (countryCode && countryCode !== this.selectedCountry.iso2) {
-				const newCountry = this.allCountries.sort((a, b) => {
-					return a.priority - b.priority;
-				}).find(
-					(c) => c.iso2 === countryCode
-				);
+				const newCountry = this.allCountries
+					.sort((a, b) => {
+						return a.priority - b.priority;
+					})
+					.find((c) => c.iso2 === countryCode);
 				if (newCountry) {
 					this.selectedCountry = newCountry;
 				}
@@ -305,19 +273,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 		if (this.phoneNumber && this.phoneNumber.length > 0) {
 			this.value = this.phoneNumber;
-
-			let number: lpn.PhoneNumber;
-			try {
-				number = this.phoneUtil.parse(
-					this.phoneNumber,
-					this.selectedCountry.iso2.toUpperCase()
-				);
-			} catch (e) {}
-
+			const number = this.getParsedNumber(
+				this.phoneNumber,
+				this.selectedCountry.iso2
+			);
 			const intlNo = number
 				? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL)
 				: '';
-
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
 				this.value = this.removeDialCode(intlNo);
@@ -368,43 +330,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 	}
 
-	protected fetchCountryData(): void {
-		/* Clearing the list to avoid duplicates (https://github.com/webcat12345/ngx-intl-tel-input/issues/248) */
-		this.allCountries = [];
-
-		this.countryCodeData.allCountries.forEach((c) => {
-			const country: Country = {
-				name: c[0].toString(),
-				iso2: c[1].toString(),
-				dialCode: c[2].toString(),
-				priority: +c[3] || 0,
-				areaCodes: (c[4] as string[]) || undefined,
-				htmlId: `iti-0__item-${c[1].toString()}`,
-				flagClass: `iti__${c[1].toString().toLocaleLowerCase()}`,
-				placeHolder: '',
-			};
-
-			if (this.enablePlaceholder) {
-				country.placeHolder = this.getPhoneNumberPlaceHolder(
-					country.iso2.toUpperCase()
-				);
-			}
-
-			this.allCountries.push(country);
-		});
-	}
-
-	protected getPhoneNumberPlaceHolder(countryCode: string): string {
-		try {
-			return this.phoneUtil.format(
-				this.phoneUtil.getExampleNumber(countryCode),
-				lpn.PhoneNumberFormat.INTERNATIONAL
-			);
-		} catch (e) {
-			return e;
-		}
-	}
-
 	registerOnChange(fn: any): void {
 		this.propagateChange = fn;
 	}
@@ -427,6 +352,59 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}, 1);
 	}
 
+	separateDialCodePlaceHolder(placeholder: string): string {
+		return this.removeDialCode(placeholder);
+	}
+
+	/* --------------------------------- Helpers -------------------------------- */
+	/**
+	 * Returns parse PhoneNumber object.
+	 * @param phoneNumber string
+	 * @param countryCode string
+	 */
+	private getParsedNumber(
+		phoneNumber: string,
+		countryCode: string
+	): lpn.PhoneNumber {
+		let number: lpn.PhoneNumber;
+		try {
+			number = this.phoneUtil.parse(phoneNumber, countryCode.toUpperCase());
+		} catch (e) {}
+		return number;
+	}
+
+	/**
+	 * Adjusts input alignment based on the dial code presentation style.
+	 */
+	private checkSeparateDialCodeStyle() {
+		if (this.separateDialCode && this.selectedCountry) {
+			const cntryCd = this.selectedCountry.dialCode;
+			this.separateDialCodeClass =
+				'separate-dial-code iti-sdc-' + (cntryCd.length + 1);
+		} else {
+			this.separateDialCodeClass = '';
+		}
+	}
+
+	/**
+	 * Cleans dialcode from phone number string.
+	 * @param phoneNumber string
+	 */
+	private removeDialCode(phoneNumber: string): string {
+		if (this.separateDialCode && phoneNumber) {
+			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
+		}
+		const number = this.getParsedNumber(phoneNumber, this.selectedCountry.iso2);
+		const c = this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL);
+		return c;
+	}
+
+	/**
+	 * Sifts through all countries and returns iso code of the primary country
+	 * based on the number provided.
+	 * @param countryCode country code in number format
+	 * @param number PhoneNumber object
+	 */
 	private getCountryIsoCode(
 		countryCode: number,
 		number: lpn.PhoneNumber
@@ -460,25 +438,82 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		return matchedCountry;
 	}
 
-	separateDialCodePlaceHolder(placeholder: string): string {
-		return this.removeDialCode(placeholder);
-	}
-
-	private removeDialCode(phoneNumber: string): string {
-		if (this.separateDialCode && phoneNumber) {
-			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
+	/**
+	 * Gets formatted example phone number from phoneUtil.
+	 * @param countryCode string
+	 */
+	protected getPhoneNumberPlaceHolder(countryCode: string): string {
+		try {
+			return this.phoneUtil.format(
+				this.phoneUtil.getExampleNumber(countryCode),
+				lpn.PhoneNumberFormat.INTERNATIONAL
+			);
+		} catch (e) {
+			return e;
 		}
-		return phoneNumber;
 	}
 
-	// adjust input alignment
-	private checkSeparateDialCodeStyle() {
-		if (this.separateDialCode && this.selectedCountry) {
-			const cntryCd = this.selectedCountry.dialCode;
-			this.separateDialCodeClass =
-				'separate-dial-code iti-sdc-' + (cntryCd.length + 1);
-		} else {
-			this.separateDialCodeClass = '';
+	/**
+	 * Clearing the list to avoid duplicates (https://github.com/webcat12345/ngx-intl-tel-input/issues/248)
+	 */
+	protected fetchCountryData(): void {
+		this.allCountries = [];
+
+		this.countryCodeData.allCountries.forEach((c) => {
+			const country: Country = {
+				name: c[0].toString(),
+				iso2: c[1].toString(),
+				dialCode: c[2].toString(),
+				priority: +c[3] || 0,
+				areaCodes: (c[4] as string[]) || undefined,
+				htmlId: `iti-0__item-${c[1].toString()}`,
+				flagClass: `iti__${c[1].toString().toLocaleLowerCase()}`,
+				placeHolder: '',
+			};
+
+			if (this.enablePlaceholder) {
+				country.placeHolder = this.getPhoneNumberPlaceHolder(
+					country.iso2.toUpperCase()
+				);
+			}
+
+			this.allCountries.push(country);
+		});
+	}
+
+	/**
+	 * Populates preferredCountriesInDropDown with prefferred countries.
+	 */
+	private updatePreferredCountries() {
+		if (this.preferredCountries.length) {
+			this.preferredCountriesInDropDown = [];
+			this.preferredCountries.forEach((iso2) => {
+				const preferredCountry = this.allCountries.filter((c) => {
+					return c.iso2 === iso2;
+				});
+
+				this.preferredCountriesInDropDown.push(preferredCountry[0]);
+			});
+		}
+	}
+
+	/**
+	 * Updates selectedCountry.
+	 */
+	private updateSelectedCountry() {
+		if (this.selectedCountryISO) {
+			this.selectedCountry = this.allCountries.find((c) => {
+				return c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase();
+			});
+			if (this.selectedCountry) {
+				if (this.phoneNumber) {
+					this.onPhoneNumberChange();
+				} else {
+					// Reason: avoid https://stackoverflow.com/a/54358133/1617590
+					// tslint:disable-next-line: no-null-keyword
+					this.propagateChange(null);
+				}
+			}
 		}
 	}
 }
