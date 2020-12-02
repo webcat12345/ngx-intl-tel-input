@@ -4,6 +4,7 @@ import { TooltipLabel } from 'projects/ngx-intl-tel-input/src/lib/enums/tooltip-
 
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
 
 @Component({
 	selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
 	SearchCountryField = SearchCountryField;
 	TooltipLabel = TooltipLabel;
 	CountryISO = CountryISO;
+	PhoneNumberFormat = PhoneNumberFormat;
 	preferredCountries: CountryISO[] = [
 		CountryISO.UnitedStates,
 		CountryISO.UnitedKingdom,
