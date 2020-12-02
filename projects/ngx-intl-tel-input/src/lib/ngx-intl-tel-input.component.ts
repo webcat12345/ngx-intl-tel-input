@@ -21,6 +21,8 @@ import { TooltipLabel } from './enums/tooltip-label.enum';
 import type { ChangeData } from './interfaces/change-data';
 import type { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
+import { PhoneNumberFormat } from './enums/phone-number-format.enum';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -46,6 +48,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() value = '';
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
+	@Input() customPlaceholder: string;
+	@Input() numberFormat: PhoneNumberFormat = PhoneNumberFormat.International;
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = true;
@@ -306,7 +310,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	public onInputKeyPress(event: KeyboardEvent): void {
-		const allowedChars = /[0-9\+\-\ ]/;
+		const allowedChars = /[0-9\+\-\(\)\ ]/;
 		const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
 		const allowedOtherKeys = [
 			'ArrowLeft',
@@ -351,8 +355,17 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}, 1);
 	}
 
-	separateDialCodePlaceHolder(placeholder: string): string {
-		return this.removeDialCode(placeholder);
+	resolvePlaceholder(): string {
+		let placeholder = '';
+		if (this.customPlaceholder) {
+			placeholder = this.customPlaceholder;
+		} else if (this.selectedCountry.placeHolder) {
+			placeholder = this.selectedCountry.placeHolder;
+			if (this.separateDialCode) {
+				placeholder = this.removeDialCode(placeholder);
+			}
+		}
+		return placeholder;
 	}
 
 	/* --------------------------------- Helpers -------------------------------- */
@@ -390,7 +403,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 * @param phoneNumber string
 	 */
 	private removeDialCode(phoneNumber: string): string {
-		if (this.separateDialCode && phoneNumber) {
+		console.log(phoneNumber);
+		const number = this.getParsedNumber(phoneNumber, this.selectedCountry.iso2);
+		phoneNumber = this.phoneUtil.format(
+			number,
+			lpn.PhoneNumberFormat[this.numberFormat]
+		);
+		if (phoneNumber.startsWith('+') && this.separateDialCode) {
 			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
 		}
 		return phoneNumber;
@@ -443,7 +462,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		try {
 			return this.phoneUtil.format(
 				this.phoneUtil.getExampleNumber(countryCode),
-				lpn.PhoneNumberFormat.INTERNATIONAL
+				lpn.PhoneNumberFormat[this.numberFormat]
 			);
 		} catch (e) {
 			return e;
