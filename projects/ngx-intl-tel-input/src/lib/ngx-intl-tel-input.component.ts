@@ -403,7 +403,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 * @param phoneNumber string
 	 */
 	private removeDialCode(phoneNumber: string): string {
-		console.log(phoneNumber);
 		const number = this.getParsedNumber(phoneNumber, this.selectedCountry.iso2);
 		phoneNumber = this.phoneUtil.format(
 			number,
