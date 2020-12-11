@@ -63,6 +63,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
+	@Input() container: string = 'body';
 	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
@@ -81,6 +82,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	phoneNumber = '';
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
+	visibleCountries: Array<Country> = [];
 	// Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
 	phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
@@ -148,6 +150,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 */
 	public searchCountry() {
 		if (!this.countrySearchText) {
+			this.visibleCountries = [...this.allCountries];
 			this.countryList.nativeElement
 				.querySelector('.iti__country-list li')
 				.scrollIntoView({
@@ -158,7 +161,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			return;
 		}
 		const countrySearchTextLower = this.countrySearchText.toLowerCase();
-		const country = this.allCountries.filter((c) => {
+		this.visibleCountries = this.allCountries.filter((c) => {
 			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
 				// Search in all fields
 				if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
@@ -172,6 +175,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				}
 			} else {
 				// Or search by specific SearchCountryField(s)
+				if (c.iso2.toLowerCase().includes(countrySearchTextLower)) {
+					return c;
+				}
+				if (c.name.toLowerCase().includes(countrySearchTextLower)) {
+					return c;
+				}
 				if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
 					if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
 						return c;
@@ -189,19 +198,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				}
 			}
 		});
-
-		if (country.length > 0) {
-			const el = this.countryList.nativeElement.querySelector(
-				'#' + country[0].htmlId
-			);
-			if (el) {
-				el.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
-				});
-			}
-		}
 
 		this.checkSeparateDialCodeStyle();
 	}
@@ -494,6 +490,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 			this.allCountries.push(country);
 		});
+
+		this.visibleCountries = [...this.allCountries];
 	}
 
 	/**

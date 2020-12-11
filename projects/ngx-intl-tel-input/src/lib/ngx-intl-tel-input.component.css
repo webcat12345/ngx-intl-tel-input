@@ -1,5 +1,11 @@
+li.iti__country {
+	cursor: pointer;
+}
 li.iti__country:hover {
 	background-color: rgba(0, 0, 0, 0.05);
+}
+li.iti__country:active {
+	color: black;
 }
 .iti__selected-flag.dropdown-toggle:after {
 	content: none;
@@ -12,18 +18,23 @@ li.iti__country:hover {
 }
 .country-dropdown {
 	border: 1px solid #ccc;
-	width: fit-content;
+	width: 100%;
+	min-width: 30rem;
 	padding: 1px;
 	border-collapse: collapse;
 }
 .search-container {
 	position: relative;
+	border: none !important;
 }
 .search-container input {
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #ccc;
-	padding-left: 10px;
+	padding: 0.5rem;
+}
+.search-container input:focus {
+	outline: none;
 }
 .search-icon {
 	position: absolute;
@@ -35,15 +46,12 @@ li.iti__country:hover {
 	position: relative;
 	border: none;
 }
-
 .iti input#country-search-box {
 	padding-left: 6px;
 }
-
 .iti .selected-dial-code {
 	margin-left: 6px;
 }
-
 .iti.separate-dial-code .iti__selected-flag,
 .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-2 .iti__selected-flag,
 .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-3 .iti__selected-flag,
@@ -56,4 +64,10 @@ li.iti__country:hover {
 .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-3 input,
 .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-4 input {
 	padding-left: 98px;
+}
+input[type="tel"] {
+	width: 100%;
+}
+input[type="tel"]:hover {
+	box-shadow: none;
 }
