@@ -62,7 +62,7 @@
 		[(ngModel)]="phoneNumber"
 		(ngModelChange)="onPhoneNumberChange()"
 		[disabled]="disabled"
-		[placeholder]="separateDialCodePlaceHolder(selectedCountry?.placeHolder || '')"
+		[placeholder]="resolvePlaceholder()"
 		[attr.maxLength]="maxLength"
 		[attr.validation]="phoneValidation"
 		#focusable>
