@@ -30,7 +30,7 @@ import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 	// tslint:disable-next-line: component-selector
 	selector: 'ngx-intl-tel-input',
 	templateUrl: './ngx-intl-tel-input.component.html',
-	styleUrls: ['./bootstrap-dropdown.css', './bootstrap-tooltip.css', './ngx-intl-tel-input.component.css'],
+	styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
 	providers: [
 		CountryCode,
 		{
