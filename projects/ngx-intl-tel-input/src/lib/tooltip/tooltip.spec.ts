@@ -27,7 +27,7 @@ function getWindow(element) {
 }
 
 describe('ngb-tooltip-window', () => {
-  beforeEach(() => { TestBed.configureTestingModule({imports: [NgxIntlTelInputModule]}); });
+  beforeEach(() => { TestBed.configureTestingModule({declarations: [NgbTooltip, NgbTooltipWindow]}); });
 
   afterEach(() => {
     // Cleaning elements, because of a TestBed issue with the id attribute
@@ -66,7 +66,7 @@ describe('ngb-tooltip', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule(
-        {declarations: [TestComponent, TestOnPushComponent, TestHooksComponent], imports: [NgxIntlTelInputModule]});
+        {declarations: [TestComponent, TestOnPushComponent, TestHooksComponent, NgbTooltip, NgbTooltipWindow]});
   });
 
   describe('basic functionality', () => {
@@ -596,7 +596,7 @@ describe('ngb-tooltip', () => {
     let config: NgbTooltipConfig;
 
     beforeEach(() => {
-      TestBed.configureTestingModule({imports: [NgxIntlTelInputModule]});
+      TestBed.configureTestingModule({declarations: [NgbTooltip, NgbTooltipWindow]});
       TestBed.overrideComponent(TestComponent, {set: {template: `<div ngbTooltip="Great tip!"></div>`}});
     });
 
@@ -660,8 +660,7 @@ if (isBrowserVisible('ngb-tooltip animations')) {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        declarations: [TestAnimationComponent],
-        imports: [NgxIntlTelInputModule]
+        declarations: [TestAnimationComponent, NgbTooltip, NgbTooltipWindow]
       });
     });
 
