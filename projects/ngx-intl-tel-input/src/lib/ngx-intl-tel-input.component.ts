@@ -23,6 +23,7 @@ import type { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { of } from 'rxjs';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -45,6 +46,7 @@ import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 	],
 })
 export class NgxIntlTelInputComponent implements OnInit, OnChanges {
+	@Input() resetSearchContainer = false;
 	@Input() value = '';
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
@@ -141,6 +143,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	setSelectedCountry(country: Country) {
 		this.selectedCountry = country;
 		this.countryChange.emit(country);
+	}
+
+	public resetCountrySearch(){
+		if(this.resetSearchContainer)
+			this.countrySearchText = '';
 	}
 
 	/**

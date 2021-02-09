@@ -1,5 +1,5 @@
 <div class="iti iti--allow-dropdown"
-	[ngClass]="separateDialCodeClass">
+	[ngClass]="separateDialCodeClass" (click)="resetCountrySearch()">
 	<div class="iti__flag-container"
 		dropdown
 		[ngClass]="{'disabled': disabled}"
