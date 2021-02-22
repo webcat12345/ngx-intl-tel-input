@@ -19,12 +19,10 @@ import { setTheme } from 'ngx-bootstrap/utils';
 import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
-import { TooltipLabel } from './enums/tooltip-label.enum';
 import type { ChangeData } from './interfaces/change-data';
 import type { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -59,7 +57,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
 	@Input() searchCountryPlaceholder = 'Search Country';
 	@Input() maxLength = '';
-	@Input() tooltipField: TooltipLabel;
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
