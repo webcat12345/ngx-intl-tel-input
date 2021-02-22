@@ -88,7 +88,6 @@ Or this:
 		[selectFirstCountry]="false"
 		[selectedCountryISO]="CountryISO.India"
 		[maxLength]="15"
-		[tooltipField]="TooltipLabel.Name"
 		[phoneValidation]="true"
 		[inputId]="my-input-id"
 		name="phone"
@@ -112,7 +111,6 @@ Or this:
 | searchCountryField       | `<SearchCountryField>[]` | `[SearchCountryField.All]`        | Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
 | searchCountryPlaceholder | `string`                 | `'Search Country'`                | Placeholder value for `searchCountryField`                                                                    |
 | maxLength                | `number`                 | `None`                            | Add character limit.                                                                                          |
-| tooltipField             | `<TooltipLabel>`         | `None`                            | Set tooltip on flag hover. Use `TooltipLabel` helper enum for label type options.                             |
 | selectFirstCountry       | `boolean`                | `true`                            | Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
 | phoneValidation          | `boolean`                | `true`                            | Disable phone validation.                                                                                     |
 | inputId                  | `string`                 | `phone`                           | Unique ID for `<input>` element.                                                                              |
