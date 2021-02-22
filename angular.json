@@ -38,7 +38,6 @@
 							"optimization": true,
 							"outputHashing": "all",
 							"sourceMap": false,
-							"extractCss": true,
 							"namedChunks": false,
 							"aot": true,
 							"extractLicenses": true,
@@ -133,7 +132,7 @@
 			"prefix": "ngx",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-ng-packagr:build",
+					"builder": "@angular-devkit/build-angular:ng-packagr",
 					"options": {
 						"tsConfig": "projects/ngx-intl-tel-input/tsconfig.lib.json",
 						"project": "projects/ngx-intl-tel-input/ng-package.json"
