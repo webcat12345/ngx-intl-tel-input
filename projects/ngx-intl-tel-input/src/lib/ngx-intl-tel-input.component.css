@@ -59,7 +59,7 @@ li.iti__country:hover {
 }
 
 
-.input-box label{
+/* .input-box label{
     position: absolute;
     cursor: text;
     z-index: 2;
@@ -71,11 +71,31 @@ li.iti__country:hover {
     color: #828282;
     transition: all 0.2s ease;
 	width: 95%;
+} */
+
+.input-box{
+	position: relative;
 }
+
+.input-box label{
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    /* // bottom: 0; */
+    top:3px;
+    left: 52px;
+    font-size: 13px;
+    padding: 0;
+    color: #828282;
+    transition: all 0.2s ease;
+	background-color: white;
+	width: 80%;
+}
+
 
 .input-box input:focus + label,
 .active-input-state {
     font-size: 9px!important;
-    top:-5px!important;
+    top:-17px!important;
 	background-color: none;
 }
