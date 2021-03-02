@@ -82,7 +82,7 @@ li.iti__country:hover {
     cursor: text;
     z-index: 2;
     /* // bottom: 0; */
-    top:3px;
+    top:0px;
     left: 52px;
     font-size: 13px;
     padding: 0;
