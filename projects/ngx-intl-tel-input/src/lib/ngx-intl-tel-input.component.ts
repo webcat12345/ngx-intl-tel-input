@@ -51,6 +51,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
 	@Input() customPlaceholder: string;
+	@Input() label: string;
 	@Input() numberFormat: PhoneNumberFormat = PhoneNumberFormat.International;
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];

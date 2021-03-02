@@ -97,3 +97,12 @@ ngx-intl-tel-input input::placeholder {
 ngx-intl-tel-input input[disabled] {
 	background-color: #e5eaf1;
 }
+
+
+.borderless-input{
+    border: none;
+    color: #828282;
+    font-weight: 200;
+    font-size: 13px;
+    width: 95%;
+}

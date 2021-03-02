@@ -1,11 +1,11 @@
-<div class="iti iti--allow-dropdown"
-	[ngClass]="separateDialCodeClass" (click)="resetCountrySearch()">
+<div class="iti iti--allow-dropdown input-box"
+	[ngClass]="separateDialCodeClass">
 	<div class="iti__flag-container"
 		dropdown
 		[ngClass]="{'disabled': disabled}"
 		[isDisabled]="disabled">
 		<div class="iti__selected-flag dropdown-toggle"
-			dropdownToggle>
+			dropdownToggle (click)="resetCountrySearch()">
 			<div class="iti__flag"
 				[ngClass]="selectedCountry?.flagClass"
 				[tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
@@ -66,4 +66,7 @@
 		[attr.maxLength]="maxLength"
 		[attr.validation]="phoneValidation"
 		#focusable>
+	<label [for]="inputId" [class.active-input-state]="phoneNumber != null && phoneNumber != ''" *ngIf="label">
+		{{label}}
+	</label>
 </div>

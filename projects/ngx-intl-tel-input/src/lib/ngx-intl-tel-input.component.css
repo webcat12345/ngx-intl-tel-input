@@ -57,3 +57,25 @@ li.iti__country:hover {
 .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-4 input {
 	padding-left: 98px;
 }
+
+
+.input-box label{
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+	background-color: white;
+    top:10px;
+    left: 0;
+    font-size: 13px;
+    padding: 0;
+    color: #828282;
+    transition: all 0.2s ease;
+	width: 95%;
+}
+
+.input-box input:focus + label,
+.active-input-state {
+    font-size: 9px!important;
+    top:-5px!important;
+	background-color: none;
+}

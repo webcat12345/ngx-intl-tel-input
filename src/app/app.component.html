@@ -10,10 +10,11 @@
 			[(ngModel)]="separateDialCode">
 		<label>&nbsp;Separate Dial Code?</label>
 	</div>
-	<form #f="ngForm"
+	<div>
+		<form #f="ngForm"
 		[formGroup]="phoneForm">
 		<div class="wrapper">
-			<ngx-intl-tel-input [cssClass]="'custom'"
+			<ngx-intl-tel-input [cssClass]="'borderless-input'"
 				[resetSearchContainer]="true"
 				[preferredCountries]="preferredCountries"
 				[enableAutoCountrySelect]="true"
@@ -27,6 +28,7 @@
 				[phoneValidation]="true"
 				[separateDialCode]="separateDialCode"
 				[numberFormat]="PhoneNumberFormat.National"
+				[label]="'Phone Number'"
 				name="phone"
 				formControlName="phone">
 			</ngx-intl-tel-input>
@@ -35,6 +37,8 @@
 			<button (click)="f.reset()">Reset</button>
 		</div>
 	</form>
+
+	</div>
 	<br>
 	<div><strong>Is input valid:</strong>
 		<pre>{{ !f.form.controls['phone'].invalid }}</pre>
