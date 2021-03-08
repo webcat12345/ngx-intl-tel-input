@@ -6,8 +6,7 @@
     "umdModuleIds": {
       "google-libphonenumber": "^3.2.3",
       "ngx-bootstrap": "^6.0.0",
-      "ngx-bootstrap/dropdown": "ngx-bootstrap-dropdown",
-      "ngx-bootstrap/tooltip": "ngx-bootstrap-tooltip"
+      "ngx-bootstrap/dropdown": "ngx-bootstrap-dropdown"
     }
   }
 }
