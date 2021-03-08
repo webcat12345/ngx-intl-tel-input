@@ -10,7 +10,7 @@
 		"e2e": "ng e2e",
 		"build_stats": "ng build --stats-json",
 		"analyze": "webpack-bundle-analyzer dist/ngx-intl-tel-input-app/stats.json",
-		"build_lib": "ng build ngx-intl-tel-input --prod",
+		"build_lib": "ng build ngx-intl-tel-input",
 		"copy-license": "cp ./LICENSE ./dist/ngx-intl-tel-input",
 		"copy-readme": "cp ./README.md ./dist/ngx-intl-tel-input",
 		"copy-files": "npm run copy-license && npm run copy-readme",
