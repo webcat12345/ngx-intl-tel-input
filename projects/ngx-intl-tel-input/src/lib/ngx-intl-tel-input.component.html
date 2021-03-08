@@ -7,8 +7,7 @@
 		<div class="iti__selected-flag dropdown-toggle"
 			dropdownToggle>
 			<div class="iti__flag"
-				[ngClass]="selectedCountry?.flagClass"
-				[tooltip]="selectedCountry ? selectedCountry[tooltipField] : ''"></div>
+				[ngClass]="selectedCountry?.flagClass"></div>
 			<div *ngIf="separateDialCode"
 				class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
 			<div class="iti__arrow"></div>

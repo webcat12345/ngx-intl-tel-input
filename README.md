@@ -27,6 +27,12 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 `$ ng add ngx-bootstrap`
 
+If you do not wish to use Bootstrap's global CSS, we now package the project with only the relevant
+bootstrap styling needed for the dropdown. As such, you can remove the bootstrap styling from `angular.json`.
+
+Further, Angular CLI should tree-shake the rest of Ngx-Boostrap away if you don't utilize other dependencies from
+the bootstrap package. This should keep this dependency a lean feature-add
+
 ### Add Dependency Style
 
 Add _'intl-tel-input'_ style file:
@@ -38,7 +44,6 @@ to **angular.json** styles array:
 ```json
 
 "styles": [
-  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
   "./node_modules/intl-tel-input/build/css/intlTelInput.css",
   "src/styles.css"
 ],
@@ -83,7 +88,6 @@ Or this:
 		[selectFirstCountry]="false"
 		[selectedCountryISO]="CountryISO.India"
 		[maxLength]="15"
-		[tooltipField]="TooltipLabel.Name"
 		[phoneValidation]="true"
 		[inputId]="my-input-id"
 		name="phone"
@@ -107,7 +111,6 @@ Or this:
 | searchCountryField       | `<SearchCountryField>[]` | `[SearchCountryField.All]`        | Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
 | searchCountryPlaceholder | `string`                 | `'Search Country'`                | Placeholder value for `searchCountryField`                                                                    |
 | maxLength                | `number`                 | `None`                            | Add character limit.                                                                                          |
-| tooltipField             | `<TooltipLabel>`         | `None`                            | Set tooltip on flag hover. Use `TooltipLabel` helper enum for label type options.                             |
 | selectFirstCountry       | `boolean`                | `true`                            | Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
 | phoneValidation          | `boolean`                | `true`                            | Disable phone validation.                                                                                     |
 | inputId                  | `string`                 | `phone`                           | Unique ID for `<input>` element.                                                                              |
@@ -162,12 +165,12 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://www.fosforito.net"><img src="https://avatars3.githubusercontent.com/u/5000255?v=4" width="100px;" alt=""/><br /><sub><b>Jens Wagner</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=Fosforito" title="Code">💻</a></td>
     <td align="center"><a href="http://kino.codes"><img src="https://avatars3.githubusercontent.com/u/22554212?v=4" width="100px;" alt=""/><br /><sub><b>Kino Roy</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=kinoroy" title="Code">💻</a></td>
     <td align="center"><a href="https://twitter.com/wwwalkerrun"><img src="https://avatars2.githubusercontent.com/u/457187?v=4" width="100px;" alt=""/><br /><sub><b>Nathan Walker</b></sub></a><br /><a href="#maintenance-NathanWalker" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=NathanWalker" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/jiarongxu"><img src="https://avatars0.githubusercontent.com/u/502605?v=4" width="100px;" alt=""/><br /><sub><b>Jiarong Xu</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=jiarongxu" title="Code">💻</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
