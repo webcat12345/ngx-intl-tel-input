@@ -105,7 +105,7 @@ Or this:
 | cssClass                 | `string`                 | `control-form`                    | Bootstrap input css class or your own custom one.                                                             |
 | preferredCountries       | `<CountryISO>[]`         | `[]`                              | List of countries, which will appear at the top.                                                              |
 | onlyCountries            | `<CountryISO>[]`         | `[]`                              | List of manually selected countries, which will appear in the dropdown.                                       |
-| enableAutoCountrySelect  | `boolean`                | `false`                           | Toggle automatic country (flag) selection based on user input.                                                |
+| enableAutoCountrySelect  | `boolean`                | `true`                            | Toggle automatic country (flag) selection based on user input.                                                |
 | enablePlaceholder        | `boolean`                | `true`                            | Input placeholder text, which adapts to the country selected.                                                 |
 | customPlaceholder        | `string`                 | `None`                            | Custom string to be inserted as a placeholder.                                                                |
 | numberFormat             | `<PhoneNumberFormat>`    | `PhoneNumberFormat.International` | Custom string to be inserted as a placeholder.                                                                |
