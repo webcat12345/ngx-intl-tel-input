@@ -8,23 +8,43 @@
 			<form [formGroup]="phoneForm">
 				<div class="form-group">
 					<label for="phone">Phone number</label>
-					<ngx-intl-tel-input [cssClass]="'form-control'" [preferredCountries]="preferredCountries"
-						[enableAutoCountrySelect]="false" [enablePlaceholder]="true" [searchCountryFlag]="true"
-						[searchCountryField]="[searchField.Iso2, searchField.Name]" [selectFirstCountry]="false"
-						[selectedCountryISO]="countries.India" [maxLength]="15" [tooltipField]="tooltipLabel"
-						[phoneValidation]="true" [separateDialCode]="separateDialCode" name="phone" formControlName="phone">
+					<ngx-intl-tel-input
+						[cssClass]="'form-control'"
+						[preferredCountries]="preferredCountries"
+						[enableAutoCountrySelect]="false"
+						[enablePlaceholder]="true"
+						[searchCountryFlag]="true"
+						[searchCountryField]="[searchField.Iso2, searchField.Name]"
+						[selectFirstCountry]="false"
+						[selectedCountryISO]="countries.India"
+						[maxLength]="15"
+						[phoneValidation]="true"
+						[separateDialCode]="separateDialCode"
+						name="phone"
+						formControlName="phone"
+					>
 					</ngx-intl-tel-input>
 				</div>
-				<button class="btn btn-danger" (click)="phoneForm.reset()">Reset</button>
+				<button class="btn btn-danger" (click)="phoneForm.reset()">
+					Reset
+				</button>
 			</form>
-
 		</div>
 		<div class="col-md-4">
 			<div class="my-2">
-				<button class="btn btn-primary" (click)="changePreferredCountries()">Change Preferred Countries</button>
+				<button class="btn btn-primary" (click)="changePreferredCountries()">
+					Change Preferred Countries
+				</button>
 				<div class="form-check">
-					<input name="separateDialCode" class="form-check-input" type="checkbox" [(ngModel)]="separateDialCode">
-					<label class="form-check-label" for="separateDialCode">Separate Dial Code?</label>
+					<input
+						name="separateDialCode"
+						class="form-check-input"
+						type="checkbox"
+						[(ngModel)]="separateDialCode"
+					/>
+					<label class="form-check-label" for="separateDialCode"
+						>Separate Dial Code?</label
+					>
 				</div>
 			</div>
 

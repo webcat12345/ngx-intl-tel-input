@@ -13,7 +13,6 @@ import { PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
 export class AppComponent {
 	public separateDialCode = true;
 	public searchField = SearchCountryField;
-	public tooltipLabel = TooltipLabel.Name;
 	public countries = CountryISO;
 
 	public preferredCountries: CountryISO[] = [
