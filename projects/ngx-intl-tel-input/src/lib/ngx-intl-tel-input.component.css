@@ -57,3 +57,8 @@ li.iti__country:hover {
 .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-4 input {
 	padding-left: 98px;
 }
+
+.intl-tel-input {
+  width: 100%;
+  display: block;
+}

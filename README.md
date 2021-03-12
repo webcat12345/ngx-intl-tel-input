@@ -102,7 +102,7 @@ Or this:
 
 | Options                  | Type                     | Default                           | Description                                                                                                   |
 | ------------------------ | ------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| cssClass                 | `string`                 | `control-form`                    | Bootstrap input css class or your own custom one.                                                             |
+| cssClass                 | `string`                 | `form-control`                    | Bootstrap input css class or your own custom one.                                                             |
 | preferredCountries       | `<CountryISO>[]`         | `[]`                              | List of countries, which will appear at the top.                                                              |
 | onlyCountries            | `<CountryISO>[]`         | `[]`                              | List of manually selected countries, which will appear in the dropdown.                                       |
 | enableAutoCountrySelect  | `boolean`                | `true`                            | Toggle automatic country (flag) selection based on user input.                                                |

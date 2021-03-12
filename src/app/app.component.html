@@ -1,52 +1,73 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="margin: 50px">
-	<h1>Test International Telephone Input Form</h1>
-	<br>
-	<div class="wrapper">
-		<button (click)="changePreferredCountries()">Change Preferred Countries</button>
-	</div>
-	<div class="wrapper">
-		<input type="checkbox"
-			[(ngModel)]="separateDialCode">
-		<label>&nbsp;Separate Dial Code?</label>
-	</div>
-	<form #f="ngForm"
-		[formGroup]="phoneForm">
-		<div class="wrapper">
-			<ngx-intl-tel-input [cssClass]="'custom'"
-				[preferredCountries]="preferredCountries"
-				[enableAutoCountrySelect]="true"
-				[enablePlaceholder]="true"
-				[searchCountryFlag]="true"
-				[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-				[selectFirstCountry]="false"
-				[selectedCountryISO]="CountryISO.India"
-				[maxLength]="15"
-				[phoneValidation]="true"
-				[separateDialCode]="separateDialCode"
-				[numberFormat]="PhoneNumberFormat.National"
-				name="phone"
-				formControlName="phone">
-			</ngx-intl-tel-input>
+<div class="container mt-5">
+	<h3>Test International Telephone Input Form</h3>
+	<hr />
+
+	<div class="row">
+		<div class="col-md-8">
+			<form [formGroup]="phoneForm">
+				<div class="form-group">
+					<label for="phone">Phone number</label>
+					<ngx-intl-tel-input
+						[cssClass]="'form-control'"
+						[preferredCountries]="preferredCountries"
+						[enableAutoCountrySelect]="false"
+						[enablePlaceholder]="true"
+						[searchCountryFlag]="true"
+						[searchCountryField]="[searchField.Iso2, searchField.Name]"
+						[selectFirstCountry]="false"
+						[selectedCountryISO]="countries.India"
+						[maxLength]="15"
+						[phoneValidation]="true"
+						[separateDialCode]="separateDialCode"
+						name="phone"
+						formControlName="phone"
+					>
+					</ngx-intl-tel-input>
+				</div>
+				<button class="btn btn-danger" (click)="phoneForm.reset()">
+					Reset
+				</button>
+			</form>
 		</div>
-		<div class="wrapper">
-			<button (click)="f.reset()">Reset</button>
+		<div class="col-md-4">
+			<div class="my-2">
+				<button class="btn btn-primary" (click)="changePreferredCountries()">
+					Change Preferred Countries
+				</button>
+				<div class="form-check">
+					<input
+						name="separateDialCode"
+						class="form-check-input"
+						type="checkbox"
+						[(ngModel)]="separateDialCode"
+					/>
+					<label class="form-check-label" for="separateDialCode"
+						>Separate Dial Code?</label
+					>
+				</div>
+			</div>
+
+			<div>
+				<b>Is input valid:</b>
+				<pre>{{ !f.phone?.invalid }}</pre>
+			</div>
+			<div>
+				<b>Is input touched:</b>
+				<pre>{{ f.phone?.touched }}</pre>
+			</div>
+			<div>
+				<b>Is form valid:</b>
+				<pre>{{ phoneForm.valid }}</pre>
+			</div>
+			<div>
+				<b>Form value:</b>
+				<pre>{{ phoneForm.value | json }}</pre>
+			</div>
+			<div>
+				<b>Form validation errors:</b>
+				<pre>{{ f.phone?.errors | json }}</pre>
+			</div>
 		</div>
-	</form>
-	<br>
-	<div><strong>Is input valid:</strong>
-		<pre>{{ !f.form.controls['phone'].invalid }}</pre>
-	</div>
-	<div><strong>Is input touched:</strong>
-		<pre>{{ f.form.controls['phone'].touched }}</pre>
-	</div>
-	<div><strong>Is form valid:</strong>
-		<pre>{{ f.form.valid }}</pre>
-	</div>
-	<div><strong>Form value:</strong>
-		<pre>{{ f.form.value | json }}</pre>
-	</div>
-	<div><strong>Form validation errors:</strong>
-		<pre>{{ f.form.controls['phone'].errors | json }}</pre>
 	</div>
 </div>

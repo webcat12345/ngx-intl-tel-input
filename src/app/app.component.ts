@@ -11,19 +11,24 @@ import { PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
 	styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-	separateDialCode = false;
-	SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-	PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [
+	public separateDialCode = true;
+	public searchField = SearchCountryField;
+	public countries = CountryISO;
+
+	public preferredCountries: CountryISO[] = [
 		CountryISO.UnitedStates,
 		CountryISO.UnitedKingdom,
 	];
-	phoneForm = new FormGroup({
+
+	public phoneForm = new FormGroup({
 		phone: new FormControl(undefined, [Validators.required]),
 	});
 
-	changePreferredCountries() {
+	public get f() {
+		return this.phoneForm.controls;
+	}
+
+	public changePreferredCountries() {
 		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
 	}
 }
