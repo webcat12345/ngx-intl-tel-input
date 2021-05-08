@@ -1,16 +1,16 @@
 import * as lpn from 'google-libphonenumber';
 
 import {
-	Component,
-	ElementRef,
-	EventEmitter,
-	forwardRef,
-	Input,
-	OnChanges,
-	OnInit,
-	Output,
-	SimpleChanges,
-	ViewChild,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -25,24 +25,24 @@ import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 
 @Component({
-	// tslint:disable-next-line: component-selector
-	selector: 'ngx-intl-tel-input',
-	templateUrl: './ngx-intl-tel-input.component.html',
-	styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
-	providers: [
-		CountryCode,
-		{
-			provide: NG_VALUE_ACCESSOR,
-			// tslint:disable-next-line:no-forward-ref
-			useExisting: forwardRef(() => NgxIntlTelInputComponent),
-			multi: true,
-		},
-		{
-			provide: NG_VALIDATORS,
-			useValue: phoneNumberValidator,
-			multi: true,
-		},
-	],
+  // tslint:disable-next-line: component-selector
+  selector: 'ngx-intl-tel-input',
+  templateUrl: './ngx-intl-tel-input.component.html',
+  styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
+  providers: [
+    CountryCode,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      // tslint:disable-next-line:no-forward-ref
+      useExisting: forwardRef(() => NgxIntlTelInputComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useValue: phoneNumberValidator,
+      multi: true,
+    },
+  ],
 })
 export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() value = '';
