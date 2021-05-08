@@ -58,7 +58,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() searchCountryPlaceholder = 'Search Country';
 	@Input() maxLength = '';
 	@Input() selectFirstCountry = true;
-	@Input() selectedCountryISO: CountryISO;
+	@Input() selectedCountryCode: string;
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
@@ -102,7 +102,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		const selectedISO = changes['selectedCountryISO'];
+		const selectedISO = changes['selectedCountryCode'];
 		if (
 			this.allCountries &&
 			selectedISO &&
@@ -519,9 +519,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 * Updates selectedCountry.
 	 */
 	private updateSelectedCountry() {
-		if (this.selectedCountryISO) {
+		if (this.selectedCountryCode) {
 			this.selectedCountry = this.allCountries.find((c) => {
-				return c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase();
+				return ((c.iso2.toLowerCase() === this.selectedCountryCode.toLowerCase()) ||
+          (c.dialCode.toLowerCase() === this.selectedCountryCode.toLowerCase()));
 			});
 			if (this.selectedCountry) {
 				if (this.phoneNumber) {
