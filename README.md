@@ -120,7 +120,7 @@ Or this:
 | selectedCountryISO       | `<CountryISO>`           								| `None`                            							| Set specific country on load.                                                                                 |
 | separateDialCode         | `boolean`                								| `false`                           							| Visually separate dialcode into the drop down element.                                                        |
 | countryChange            | `<Country>`              								| `None`                            							| Emits country value when the user selects a country from the dropdown.                                        |
-| scrollIntoViewOptions    | `{ behavior: string, block: string, inline: string }`  | `{ behavior: 'smooth', block: 'nearest', inline: 'nearest' }` | Options to display countries in different positions of the dropdown using the scorllIntoView options: behavior: Defines the transition animation => 'auto'|'smooth', block: Defines vertical alignment => 'start' | 'center' | 'end' | 'nearest', inline: Defines horizontal alignment => 'start' | 'center' | 'end' | 'nearest'                                      |
+| scrollIntoViewOptions    | `{ behavior: string, block: string, inline: string }`  | `{ behavior: 'smooth', block: 'nearest', inline: 'nearest' }` | Options to display countries in different positions of the dropdown using the scorllIntoView options: behavior: Defines the transition animation => 'auto'-'smooth', block: Defines vertical alignment => 'start' - 'center' - 'end' - 'nearest', inline: Defines horizontal alignment => 'start' - 'center' - 'end' - 'nearest'                                      |
 
 ## Supported Formats
 
