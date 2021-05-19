@@ -80,45 +80,47 @@ Or this:
 
 ```html
 <form #f="ngForm" [formGroup]="phoneForm">
-	<ngx-intl-tel-input
-		[cssClass]="'custom'"
-		[preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
-		[enableAutoCountrySelect]="false"
-		[enablePlaceholder]="true"
-		[searchCountryFlag]="true"
-		[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-		[selectFirstCountry]="false"
-		[selectedCountryISO]="CountryISO.India"
-		[maxLength]="15"
-		[phoneValidation]="true"
-		[inputId]="my-input-id"
-		name="phone"
-		formControlName="phone"
-	></ngx-intl-tel-input>
+		<ngx-intl-tel-input 
+				[cssClass]="'custom'" 
+				[preferredCountries]="preferredCountries"
+				[enableAutoCountrySelect]="true" 
+				[enablePlaceholder]="true" 
+				[searchCountryFlag]="true"
+				[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" 
+				[selectFirstCountry]="false"
+				[selectedCountryISO]="CountryISO.India" 
+				[maxLength]="15" 
+				[phoneValidation]="true"
+				[separateDialCode]="separateDialCode" 
+				[numberFormat]="PhoneNumberFormat.National" name="phone"
+				[scrollIntoViewOptions]="{ behavior: 'smooth', block: 'start', inline: 'nearest' }"
+				formControlName="phone">
+		</ngx-intl-tel-input>
 </form>
 ```
 
 ## Options
 
-| Options                  | Type                     | Default                           | Description                                                                                                   |
-| ------------------------ | ------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| cssClass                 | `string`                 | `control-form`                    | Bootstrap input css class or your own custom one.                                                             |
-| preferredCountries       | `<CountryISO>[]`         | `[]`                              | List of countries, which will appear at the top.                                                              |
-| onlyCountries            | `<CountryISO>[]`         | `[]`                              | List of manually selected countries, which will appear in the dropdown.                                       |
-| enableAutoCountrySelect  | `boolean`                | `true`                            | Toggle automatic country (flag) selection based on user input.                                                |
-| enablePlaceholder        | `boolean`                | `true`                            | Input placeholder text, which adapts to the country selected.                                                 |
-| customPlaceholder        | `string`                 | `None`                            | Custom string to be inserted as a placeholder.                                                                |
-| numberFormat             | `<PhoneNumberFormat>`    | `PhoneNumberFormat.International` | Custom string to be inserted as a placeholder.                                                                |
-| searchCountryFlag        | `boolean`                | `false`                           | Enables input search box for countries in the flag dropdown.                                                  |
-| searchCountryField       | `<SearchCountryField>[]` | `[SearchCountryField.All]`        | Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
-| searchCountryPlaceholder | `string`                 | `'Search Country'`                | Placeholder value for `searchCountryField`                                                                    |
-| maxLength                | `number`                 | `None`                            | Add character limit.                                                                                          |
-| selectFirstCountry       | `boolean`                | `true`                            | Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
-| phoneValidation          | `boolean`                | `true`                            | Disable phone validation.                                                                                     |
-| inputId                  | `string`                 | `phone`                           | Unique ID for `<input>` element.                                                                              |
-| selectedCountryISO       | `<CountryISO>`           | `None`                            | Set specific country on load.                                                                                 |
-| separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
-| countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
+| Options                  | Type                     								| Default                           							| Description                                                                                                   |
+| ------------------------ | ------------------------------------------------------ | -------------------------------------------------------------	| ------------------------------------------------------------------------------------------------------------- |
+| cssClass                 | `string`                 								| `control-form`                    							| Bootstrap input css class or your own custom one.                                                             |
+| preferredCountries       | `<CountryISO>[]`         								| `[]`                              							| List of countries, which will appear at the top.                                                              |
+| onlyCountries            | `<CountryISO>[]`         								| `[]`                              							| List of manually selected countries, which will appear in the dropdown.                                       |
+| enableAutoCountrySelect  | `boolean`                								| `true`                            							| Toggle automatic country (flag) selection based on user input.                                                |
+| enablePlaceholder        | `boolean`                								| `true`                            							| Input placeholder text, which adapts to the country selected.                                                 |
+| customPlaceholder        | `string`                 								| `None`                            							| Custom string to be inserted as a placeholder.                                                                |
+| numberFormat             | `<PhoneNumberFormat>`    								| `PhoneNumberFormat.International` 							| Custom string to be inserted as a placeholder.                                                                |
+| searchCountryFlag        | `boolean`                								| `false`                           							| Enables input search box for countries in the flag dropdown.                                                  |
+| searchCountryField       | `<SearchCountryField>[]` 								| `[SearchCountryField.All]`        							| Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
+| searchCountryPlaceholder | `string`                 								| `'Search Country'`                							| Placeholder value for `searchCountryField`                                                                    |
+| maxLength                | `number`                 								| `None`                            							| Add character limit.                                                                                          |
+| selectFirstCountry       | `boolean`                								| `true`                            							| Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
+| phoneValidation          | `boolean`                								| `true`                            							| Disable phone validation.                                                                                     |
+| inputId                  | `string`                								| `phone`                           							| Unique ID for `<input>` element.                                                                              |
+| selectedCountryISO       | `<CountryISO>`           								| `None`                            							| Set specific country on load.                                                                                 |
+| separateDialCode         | `boolean`                								| `false`                           							| Visually separate dialcode into the drop down element.                                                        |
+| countryChange            | `<Country>`              								| `None`                            							| Emits country value when the user selects a country from the dropdown.                                        |
+| scrollIntoViewOptions    | `{ behavior: string, block: string, inline: string }`  | `{ behavior: 'smooth', block: 'nearest', inline: 'nearest' }` | Options to display countries in different positions of the dropdown using the scorllIntoView options: behavior: Defines the transition animation => 'auto'|'smooth', block: Defines vertical alignment => 'start' | 'center' | 'end' | 'nearest', inline: Defines horizontal alignment => 'start' | 'center' | 'end' | 'nearest'                                      |
 
 ## Supported Formats
 
