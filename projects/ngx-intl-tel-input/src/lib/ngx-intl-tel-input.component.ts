@@ -62,6 +62,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
+	@Input() scrollIntoViewOptions: {
+		behavior: string,
+		block: string,
+		inline: string,
+	};
+
 	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
@@ -88,8 +94,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	@ViewChild('countryList') countryList: ElementRef;
 
-	onTouched = () => {};
-	propagateChange = (_: ChangeData) => {};
+	onTouched = () => { };
+	propagateChange = (_: ChangeData) => { };
 
 	constructor(private countryCodeData: CountryCode) {
 		// If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
@@ -139,6 +145,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		}
 		this.updateSelectedCountry();
 		this.checkSeparateDialCodeStyle();
+		if (!this.scrollIntoViewOptions) this.scrollIntoViewOptions = { behavior: 'smooth', block: 'nearest', inline: 'nearest' };
 	}
 
 	setSelectedCountry(country: Country) {
@@ -154,9 +161,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			this.countryList.nativeElement
 				.querySelector('.iti__country-list li')
 				.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
+					behavior: this.scrollIntoViewOptions.behavior,
+					block: this.scrollIntoViewOptions.block,
+					inline: this.scrollIntoViewOptions.inline,
 				});
 			return;
 		}
@@ -199,9 +206,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			);
 			if (el) {
 				el.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
+					behavior: this.scrollIntoViewOptions.behavior,
+					block: this.scrollIntoViewOptions.block,
+					inline: this.scrollIntoViewOptions.inline,
 				});
 			}
 		}
@@ -384,7 +391,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		let number: lpn.PhoneNumber;
 		try {
 			number = this.phoneUtil.parse(phoneNumber, countryCode.toUpperCase());
-		} catch (e) {}
+		} catch (e) { }
 		return number;
 	}
 
