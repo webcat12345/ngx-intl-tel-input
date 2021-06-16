@@ -94,6 +94,8 @@ Or this:
 		[inputId]="my-input-id"
 		name="phone"
 		formControlName="phone"
+		searchCountryPopupContainer="ngx-intl-tel-input"
+		searchCountryPopupPlacement="bottom left"
 	></ngx-intl-tel-input>
 </form>
 ```
@@ -118,7 +120,10 @@ Or this:
 | inputId                  | `string`                 | `phone`                           | Unique ID for `<input>` element.                                                                              |
 | selectedCountryISO       | `<CountryISO>`           | `None`                            | Set specific country on load.                                                                                 |
 | separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
-| countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
+| countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        | 
+|	searchCountryPopupContainer	|	`string` | `undefined`	|	A selector specifying the element the popover should be appended to.
+|	searchCountryPopupPlacement	| `string`	| `'bottom left'`	| Placement of a popover. Accepts: `top`, `bottom`, `left`, `right`
+|
 
 ## Supported Formats
 

@@ -1,5 +1,6 @@
 li.iti__country:hover {
 	background-color: rgba(0, 0, 0, 0.05);
+	cursor: pointer;
 }
 .iti__selected-flag.dropdown-toggle:after {
 	content: none;
@@ -15,6 +16,7 @@ li.iti__country:hover {
 	width: fit-content;
 	padding: 1px;
 	border-collapse: collapse;
+	margin-top: 0;
 }
 .search-container {
 	position: relative;
@@ -36,7 +38,7 @@ li.iti__country:hover {
 	border: none;
 }
 
-.iti input#country-search-box {
+.iti__country-dropdown input#country-search-box {
 	padding-left: 6px;
 }
 
