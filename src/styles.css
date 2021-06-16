@@ -16,14 +16,16 @@ body {
 	margin-bottom: 20px;
 }
 
-.iti .dropdown-menu.country-dropdown {
+.iti .dropdown-menu.country-dropdown,
+.iti__country-dropdown.dropdown-menu.country-dropdown {
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	border-color: #c7cace;
 	margin-top: -1px;
 }
 
-.iti .iti__country-list {
+.iti .iti__country-list,
+.iti__country-dropdown .iti__country-list {
 	box-shadow: none;
 	font-size: 14px;
 	margin-left: 0;
@@ -36,24 +38,27 @@ body {
 	border-bottom-right-radius: 0px;
 }
 
-.iti .search-container input {
+.iti .search-container input,
+.iti__country-dropdown .search-container input {
 	font-size: 14px;
 	border-color: #c7cace;
 	border-radius: 0;
 	padding: 5px 10px;
 }
 
-.iti .search-container input:focus {
+.iti .search-container input:focus,
+.iti__country-dropdown .search-container input:focus {
 	outline: none;
 }
 
 @media screen and (max-width: 479px) {
-	.iti .iti__country-list {
+	.iti .iti__country-list,
+	.iti__country-dropdown .iti__country-list {
 		width: 88.3vw;
 	}
 }
 
-ngx-intl-tel-input input {
+ngx-intl-tel-input input, .iti input {
 	height: 44px;
 	margin-bottom: 20px;
 	padding: 10px;
