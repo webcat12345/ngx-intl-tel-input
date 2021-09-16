@@ -7,15 +7,15 @@
 		"@angular/forms": "8.x - 11.x",
 		"google-libphonenumber": "^3.2.3",
 		"intl-tel-input": "^17.0.3",
-		"ngx-bootstrap": "^6.0.0"
+		"@ng-bootstrap/ng-bootstrap": "^9.1.3"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/webcat12345/ngx-intl-tel-input"
+		"url": "https://github.com/travelnetsolutions/ngx-intl-tel-input"
 	},
 	"author": {
-		"name": "webcat12345",
-		"email": "webcat91@gmail.com"
+		"name": "Andrew Darts",
+		"email": "adarts@tnsinc.com"
 	},
 	"keywords": [
 		"angular",
@@ -32,7 +32,7 @@
 	],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/webcat12345/ngx-intl-tel-input/issues"
+		"url": "https://github.com/travelnetsolutions/ngx-intl-tel-input/issues"
 	},
 	"devDependencies": {
 		"@types/google-libphonenumber": "^7.4.17"

@@ -1,4 +1,4 @@
-import * as lpn from 'google-libphonenumber';
+import * as lpn from "google-libphonenumber";
 
 import {
 	Component,
@@ -11,24 +11,22 @@ import {
 	Output,
 	SimpleChanges,
 	ViewChild,
-} from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+} from "@angular/core";
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { setTheme } from 'ngx-bootstrap/utils';
-
-import { CountryCode } from './data/country-code';
-import { CountryISO } from './enums/country-iso.enum';
-import { SearchCountryField } from './enums/search-country-field.enum';
-import type { ChangeData } from './interfaces/change-data';
-import type { Country } from './model/country.model';
-import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
-import { PhoneNumberFormat } from './enums/phone-number-format.enum';
+import { CountryCode } from "./data/country-code";
+import { CountryISO } from "./enums/country-iso.enum";
+import { SearchCountryField } from "./enums/search-country-field.enum";
+import type { ChangeData } from "./interfaces/change-data";
+import type { Country } from "./model/country.model";
+import { phoneNumberValidator } from "./ngx-intl-tel-input.validator";
+import { PhoneNumberFormat } from "./enums/phone-number-format.enum";
 
 @Component({
 	// tslint:disable-next-line: component-selector
-	selector: 'ngx-intl-tel-input',
-	templateUrl: './ngx-intl-tel-input.component.html',
-	styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
+	selector: "ngx-intl-tel-input",
+	templateUrl: "./ngx-intl-tel-input.component.html",
+	styleUrls: ["./bootstrap-dropdown.css", "./ngx-intl-tel-input.component.css"],
 	providers: [
 		CountryCode,
 		{
@@ -45,22 +43,22 @@ import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 	],
 })
 export class NgxIntlTelInputComponent implements OnInit, OnChanges {
-	@Input() value = '';
+	@Input() value = "";
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
 	@Input() customPlaceholder: string;
 	@Input() numberFormat: PhoneNumberFormat = PhoneNumberFormat.International;
-	@Input() cssClass = 'form-control';
+	@Input() cssClass = "form-control";
 	@Input() onlyCountries: Array<string> = [];
 	@Input() enableAutoCountrySelect = true;
 	@Input() searchCountryFlag = false;
 	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
-	@Input() searchCountryPlaceholder = 'Search Country';
-	@Input() maxLength = '';
+	@Input() searchCountryPlaceholder = "Search Country";
+	@Input() maxLength = "";
 	@Input() selectFirstCountry = true;
 	@Input() selectedCountryISO: CountryISO;
 	@Input() phoneValidation = true;
-	@Input() inputId = 'phone';
+	@Input() inputId = "phone";
 	@Input() separateDialCode = false;
 	separateDialCodeClass: string;
 
@@ -68,41 +66,37 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	selectedCountry: Country = {
 		areaCodes: undefined,
-		dialCode: '',
-		htmlId: '',
-		flagClass: '',
-		iso2: '',
-		name: '',
-		placeHolder: '',
+		dialCode: "",
+		htmlId: "",
+		flagClass: "",
+		iso2: "",
+		name: "",
+		placeHolder: "",
 		priority: 0,
 	};
 
-	phoneNumber = '';
+	phoneNumber = "";
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
 	// Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
 	phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
 	disabled = false;
-	errors: Array<any> = ['Phone number is required.'];
-	countrySearchText = '';
+	errors: Array<any> = ["Phone number is required."];
+	countrySearchText = "";
 
-	@ViewChild('countryList') countryList: ElementRef;
+	@ViewChild("countryList") countryList: ElementRef;
 
 	onTouched = () => {};
 	propagateChange = (_: ChangeData) => {};
 
-	constructor(private countryCodeData: CountryCode) {
-		// If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
-		// Add the wrong classes and such
-		setTheme('bs4');
-	}
+	constructor(private countryCodeData: CountryCode) {}
 
 	ngOnInit() {
 		this.init();
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		const selectedISO = changes['selectedCountryISO'];
+		const selectedISO = changes["selectedCountryISO"];
 		if (
 			this.allCountries &&
 			selectedISO &&
@@ -152,11 +146,11 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	public searchCountry() {
 		if (!this.countrySearchText) {
 			this.countryList.nativeElement
-				.querySelector('.iti__country-list li')
+				.querySelector(".iti__country-list li")
 				.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
+					behavior: "smooth",
+					block: "nearest",
+					inline: "nearest",
 				});
 			return;
 		}
@@ -195,13 +189,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 		if (country.length > 0) {
 			const el = this.countryList.nativeElement.querySelector(
-				'#' + country[0].htmlId
+				"#" + country[0].htmlId
 			);
 			if (el) {
 				el.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
+					behavior: "smooth",
+					block: "nearest",
+					inline: "nearest",
 				});
 			}
 		}
@@ -212,7 +206,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	public onPhoneNumberChange(): void {
 		let countryCode: string | undefined;
 		// Handle the case where the user sets the value programatically based on a persisted ChangeData obj.
-		if (this.phoneNumber && typeof this.phoneNumber === 'object') {
+		if (this.phoneNumber && typeof this.phoneNumber === "object") {
 			const numberObj: ChangeData = this.phoneNumber;
 			this.phoneNumber = numberObj.number;
 			countryCode = numberObj.countryCode;
@@ -250,7 +244,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		} else {
 			const intlNo = number
 				? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL)
-				: '';
+				: "";
 
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
@@ -262,12 +256,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				internationalNumber: intlNo,
 				nationalNumber: number
 					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL)
-					: '',
+					: "",
 				e164Number: number
 					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.E164)
-					: '',
+					: "",
 				countryCode: countryCode.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode,
+				dialCode: "+" + this.selectedCountry.dialCode,
 			});
 		}
 	}
@@ -285,7 +279,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			);
 			const intlNo = number
 				? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL)
-				: '';
+				: "";
 			// parse phoneNumber if separate dial code is needed
 			if (this.separateDialCode && intlNo) {
 				this.value = this.removeDialCode(intlNo);
@@ -296,12 +290,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				internationalNumber: intlNo,
 				nationalNumber: number
 					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL)
-					: '',
+					: "",
 				e164Number: number
 					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.E164)
-					: '',
+					: "",
 				countryCode: this.selectedCountry.iso2.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode,
+				dialCode: "+" + this.selectedCountry.dialCode,
 			});
 		} else {
 			// Reason: avoid https://stackoverflow.com/a/54358133/1617590
@@ -316,15 +310,15 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		const allowedChars = /[0-9\+\-\(\)\ ]/;
 		const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
 		const allowedOtherKeys = [
-			'ArrowLeft',
-			'ArrowUp',
-			'ArrowRight',
-			'ArrowDown',
-			'Home',
-			'End',
-			'Insert',
-			'Delete',
-			'Backspace',
+			"ArrowLeft",
+			"ArrowUp",
+			"ArrowRight",
+			"ArrowDown",
+			"Home",
+			"End",
+			"Insert",
+			"Delete",
+			"Backspace",
 		];
 
 		if (
@@ -359,7 +353,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	resolvePlaceholder(): string {
-		let placeholder = '';
+		let placeholder = "";
 		if (this.customPlaceholder) {
 			placeholder = this.customPlaceholder;
 		} else if (this.selectedCountry.placeHolder) {
@@ -395,9 +389,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		if (this.separateDialCode && this.selectedCountry) {
 			const cntryCd = this.selectedCountry.dialCode;
 			this.separateDialCodeClass =
-				'separate-dial-code iti-sdc-' + (cntryCd.length + 1);
+				"separate-dial-code iti-sdc-" + (cntryCd.length + 1);
 		} else {
-			this.separateDialCodeClass = '';
+			this.separateDialCodeClass = "";
 		}
 	}
 
@@ -411,8 +405,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			number,
 			lpn.PhoneNumberFormat[this.numberFormat]
 		);
-		if (phoneNumber.startsWith('+') && this.separateDialCode) {
-			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
+		if (phoneNumber.startsWith("+") && this.separateDialCode) {
+			phoneNumber = phoneNumber.substr(phoneNumber.indexOf(" ") + 1);
 		}
 		return phoneNumber;
 	}
@@ -428,7 +422,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		number: lpn.PhoneNumber
 	): string | undefined {
 		// Will use this to match area code from the first numbers
-		const rawNumber = number['values_']['2'].toString();
+		const rawNumber = number["values_"]["2"].toString();
 		// List of all countries with countryCode (can be more than one. e.x. US, CA, DO, PR all have +1 countryCode)
 		const countries = this.allCountries.filter(
 			(c) => c.dialCode === countryCode.toString()
@@ -486,7 +480,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				areaCodes: (c[4] as string[]) || undefined,
 				htmlId: `iti-0__item-${c[1].toString()}`,
 				flagClass: `iti__${c[1].toString().toLocaleLowerCase()}`,
-				placeHolder: '',
+				placeHolder: "",
 			};
 
 			if (this.enablePlaceholder) {

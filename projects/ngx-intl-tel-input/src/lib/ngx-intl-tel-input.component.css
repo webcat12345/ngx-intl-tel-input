@@ -1,9 +1,15 @@
 li.iti__country:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 }
+
 .iti__selected-flag.dropdown-toggle:after {
 	content: none;
 }
+
+.iti__flag-container {
+	position: absolute;
+}
+
 .iti__flag-container.disabled {
 	cursor: default !important;
 }
@@ -34,6 +40,10 @@ li.iti__country:hover {
 .iti__country-list {
 	position: relative;
 	border: none;
+}
+
+.iti__country-list::-webkit-scrollbar {
+	display: none;
 }
 
 .iti input#country-search-box {
