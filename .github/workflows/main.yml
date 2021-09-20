@@ -17,6 +17,6 @@ jobs:
           scope: '@travelnetsolutions'
       - run: npm install
       - run: npm run package
-      - run: npm publish
+      - run: cd dist/ngx-intl-tel-input && npm publish
         env: 
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
