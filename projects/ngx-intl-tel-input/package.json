@@ -36,5 +36,8 @@
 	},
 	"devDependencies": {
 		"@types/google-libphonenumber": "^7.4.17"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/@travelnetsolutions"
 	}
 }
