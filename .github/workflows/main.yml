@@ -16,7 +16,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@travelnetsolutions'
       - run: npm install
-      - run: npm package
+      - run: npm run package
       - run: npm publish
         env: 
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
