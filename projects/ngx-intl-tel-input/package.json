@@ -1,10 +1,10 @@
 {
 	"name": "ngx-intl-tel-input",
-	"version": "3.1.1",
+	"version": "3.1.2",
 	"peerDependencies": {
-		"@angular/common": "8.x - 11.x",
-		"@angular/core": "8.x - 11.x",
-		"@angular/forms": "8.x - 11.x",
+		"@angular/common": "8.x - 12.x",
+		"@angular/core": "8.x - 12.x",
+		"@angular/forms": "8.x - 12.x",
 		"google-libphonenumber": "^3.2.3",
 		"intl-tel-input": "^17.0.3",
 		"ngx-bootstrap": "^6.0.0"
@@ -26,6 +26,7 @@
 		"angular 9",
 		"angular 10",
 		"angular 11",
+		"angular 12",
 		"intl-tel-input",
 		"phone number",
 		"validation"

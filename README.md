@@ -14,7 +14,7 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 | ngx-intl-tel-input | Angular        | ngx-bootstrap |
 | ------------------ | -------------- | ------------- |
-| 3.x.x              | 9.x.x - 11.x.x | 6.0.0         |
+| 3.x.x              | 9.x.x - 12.x.x | 6.0.0         |
 | 2.x.x              | 8.x.x - 9.1.x  | 5.6.x         |
 
 ## Installation
@@ -77,6 +77,8 @@ Or this:
 [Stackblitz Demo (Angular 10)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-10)
 
 [Stackblitz Demo (Angular 11)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-11)
+
+[Stackblitz Demo (Angular 12)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-12)
 
 ```html
 <form #f="ngForm" [formGroup]="phoneForm">
