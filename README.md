@@ -90,7 +90,7 @@ Or this:
 		[searchCountryFlag]="true"
 		[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
 		[selectFirstCountry]="false"
-		[selectedCountryISO]="CountryISO.India"
+		[selectedCountryCode]="CountryISO.India"
 		[maxLength]="15"
 		[phoneValidation]="true"
 		[inputId]="my-input-id"
@@ -118,7 +118,7 @@ Or this:
 | selectFirstCountry       | `boolean`                | `true`                            | Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
 | phoneValidation          | `boolean`                | `true`                            | Disable phone validation.                                                                                     |
 | inputId                  | `string`                 | `phone`                           | Unique ID for `<input>` element.                                                                              |
-| selectedCountryISO       | `<CountryISO>`           | `None`                            | Set specific country on load.                                                                                 |
+| selectedCountryCode       | `string (<CountryISO> or 'dial code' )`           | `None`                            | Set specific country on load.                                                                                 |
 | separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
 | countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
 

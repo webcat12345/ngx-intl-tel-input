@@ -1,16 +1,16 @@
 import * as lpn from 'google-libphonenumber';
 
 import {
-	Component,
-	ElementRef,
-	EventEmitter,
-	forwardRef,
-	Input,
-	OnChanges,
-	OnInit,
-	Output,
-	SimpleChanges,
-	ViewChild,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -25,24 +25,24 @@ import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 
 @Component({
-	// tslint:disable-next-line: component-selector
-	selector: 'ngx-intl-tel-input',
-	templateUrl: './ngx-intl-tel-input.component.html',
-	styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
-	providers: [
-		CountryCode,
-		{
-			provide: NG_VALUE_ACCESSOR,
-			// tslint:disable-next-line:no-forward-ref
-			useExisting: forwardRef(() => NgxIntlTelInputComponent),
-			multi: true,
-		},
-		{
-			provide: NG_VALIDATORS,
-			useValue: phoneNumberValidator,
-			multi: true,
-		},
-	],
+  // tslint:disable-next-line: component-selector
+  selector: 'ngx-intl-tel-input',
+  templateUrl: './ngx-intl-tel-input.component.html',
+  styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
+  providers: [
+    CountryCode,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      // tslint:disable-next-line:no-forward-ref
+      useExisting: forwardRef(() => NgxIntlTelInputComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useValue: phoneNumberValidator,
+      multi: true,
+    },
+  ],
 })
 export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() value = '';
@@ -58,7 +58,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() searchCountryPlaceholder = 'Search Country';
 	@Input() maxLength = '';
 	@Input() selectFirstCountry = true;
-	@Input() selectedCountryISO: CountryISO;
+	@Input() selectedCountryCode: string;
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
@@ -102,7 +102,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		const selectedISO = changes['selectedCountryISO'];
+		const selectedISO = changes['selectedCountryCode'];
 		if (
 			this.allCountries &&
 			selectedISO &&
@@ -519,9 +519,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 * Updates selectedCountry.
 	 */
 	private updateSelectedCountry() {
-		if (this.selectedCountryISO) {
+		if (this.selectedCountryCode) {
 			this.selectedCountry = this.allCountries.find((c) => {
-				return c.iso2.toLowerCase() === this.selectedCountryISO.toLowerCase();
+				return ((c.iso2.toLowerCase() === this.selectedCountryCode.toLowerCase()) ||
+          (c.dialCode.toLowerCase() === this.selectedCountryCode.toLowerCase()));
 			});
 			if (this.selectedCountry) {
 				if (this.phoneNumber) {
