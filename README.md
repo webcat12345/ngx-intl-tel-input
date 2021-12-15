@@ -121,6 +121,7 @@ Or this:
 | selectedCountryISO       | `<CountryISO>`           | `None`                            | Set specific country on load.                                                                                 |
 | separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
 | countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
+| noCountriesText		   | `string`                 | `'No Countries Found'`                | Custom string to be displayed when searching for not found country                                                                |
 
 ## Supported Formats
 
