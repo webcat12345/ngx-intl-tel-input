@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 		FormsModule,
 		ReactiveFormsModule,
 		NgxIntlTelInputModule,
-		BrowserAnimationsModule,
+		BrowserAnimationsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],
