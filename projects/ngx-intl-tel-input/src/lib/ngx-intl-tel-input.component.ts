@@ -19,8 +19,8 @@ import { setTheme } from 'ngx-bootstrap/utils';
 import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
-import type { ChangeData } from './interfaces/change-data';
-import type { Country } from './model/country.model';
+import { ChangeData } from './interfaces/change-data';
+import { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 
@@ -89,6 +89,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	countrySearchText = '';
 	// flag if no countries found
 	noCountriesFound : boolean = false;
+	// flag to do the settimeout if the view not ended yet
+	comingFromFalseFlag : boolean = false;
 
 	@ViewChild('countryList') countryList: ElementRef;
 
@@ -203,19 +205,30 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				'#' + country[0].htmlId
 			);
 			if (el) {
-				// added setTimeout to make scroll happen because the view is 
-				// not done yet before setTimeout if this.noCountriesFound changed state from true to false 
-				setTimeout(()=>{
+				if(!this.comingFromFalseFlag){
 					el.scrollIntoView({
 						behavior: 'smooth',
 						block: 'nearest',
 						inline: 'nearest',
 					});
-				},0)
+				}
+				else{
+					// added setTimeout to make scroll happen because the view is 
+					// not done yet before setTimeout if this.noCountriesFound changed state from true to false
+					setTimeout(()=>{
+						el.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest',
+							inline: 'nearest',
+						});
+					},0)
+					this.comingFromFalseFlag = false;
+				}
 			}
 		}
 		else{
 			this.noCountriesFound = true;
+			this.comingFromFalseFlag = true;
 		}
 
 		this.checkSeparateDialCodeStyle();
