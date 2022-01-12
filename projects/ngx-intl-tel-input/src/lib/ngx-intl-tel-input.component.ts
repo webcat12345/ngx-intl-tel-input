@@ -19,8 +19,8 @@ import { setTheme } from 'ngx-bootstrap/utils';
 import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
-import type { ChangeData } from './interfaces/change-data';
-import type { Country } from './model/country.model';
+import { ChangeData } from './interfaces/change-data';
+import { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 
