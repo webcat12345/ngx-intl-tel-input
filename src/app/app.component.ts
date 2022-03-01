@@ -30,6 +30,7 @@ export class AppComponent {
 	}
 
 	onValueChange(event) {
+		console.info(event);
 		this.changedValue = event;
 	}
 }

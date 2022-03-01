@@ -248,6 +248,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			// Reason: avoid https://stackoverflow.com/a/54358133/1617590
 			// tslint:disable-next-line: no-null-keyword
 			this.propagateChange(null);
+			this.valueChange.emit(null);
 		} else {
 			const intlNo = number
 				? this.phoneUtil.format(number, lpn.PhoneNumberFormat.INTERNATIONAL)
@@ -258,7 +259,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				this.value = this.removeDialCode(intlNo);
 			}
 
-			this.propagateChange({
+			const changedValue = {
 				number: this.value,
 				internationalNumber: intlNo,
 				nationalNumber: number
@@ -269,20 +270,12 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					: '',
 				countryCode: countryCode.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
-			});
+			}
 
-			this.valueChange.emit({
-				number: this.value,
-				internationalNumber: intlNo,
-				nationalNumber: number
-					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL)
-					: '',
-				e164Number: number
-					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.E164)
-					: '',
-				countryCode: countryCode.toUpperCase(),
-				dialCode: '+' + this.selectedCountry.dialCode,
-			})
+			this.propagateChange(changedValue);
+
+			// emiting value change event for update
+			this.valueChange.emit(changedValue)
 		}
 	}
 
