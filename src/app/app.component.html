@@ -25,6 +25,7 @@
 				[phoneValidation]="true"
 				[separateDialCode]="separateDialCode"
 				[numberFormat]="PhoneNumberFormat.National"
+				(valueChange)="onValueChange($event)"
 				name="phone"
 				formControlName="phone">
 			</ngx-intl-tel-input>
@@ -44,7 +45,7 @@
 		<pre>{{ f.form.valid }}</pre>
 	</div>
 	<div><strong>Form value:</strong>
-		<pre>{{ f.form.value | json }}</pre>
+		<pre>{{ changedValue | json }}</pre>
 	</div>
 	<div><strong>Form validation errors:</strong>
 		<pre>{{ f.form.controls['phone'].errors | json }}</pre>

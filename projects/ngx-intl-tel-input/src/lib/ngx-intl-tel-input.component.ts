@@ -65,6 +65,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
+	@Output() readonly valueChange = new EventEmitter<ChangeData>();
 
 	selectedCountry: Country = {
 		areaCodes: undefined,
@@ -88,8 +89,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	@ViewChild('countryList') countryList: ElementRef;
 
-	onTouched = () => {};
-	propagateChange = (_: ChangeData) => {};
+	onTouched = () => { };
+	propagateChange = (_: ChangeData) => { };
 
 	constructor(private countryCodeData: CountryCode) {
 		// If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
@@ -269,6 +270,19 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				countryCode: countryCode.toUpperCase(),
 				dialCode: '+' + this.selectedCountry.dialCode,
 			});
+
+			this.valueChange.emit({
+				number: this.value,
+				internationalNumber: intlNo,
+				nationalNumber: number
+					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL)
+					: '',
+				e164Number: number
+					? this.phoneUtil.format(number, lpn.PhoneNumberFormat.E164)
+					: '',
+				countryCode: countryCode.toUpperCase(),
+				dialCode: '+' + this.selectedCountry.dialCode,
+			})
 		}
 	}
 
@@ -384,7 +398,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		let number: lpn.PhoneNumber;
 		try {
 			number = this.phoneUtil.parse(phoneNumber, countryCode.toUpperCase());
-		} catch (e) {}
+		} catch (e) { }
 		return number;
 	}
 
