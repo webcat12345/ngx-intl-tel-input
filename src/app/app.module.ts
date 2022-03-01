@@ -1,6 +1,6 @@
 import {
 	NgxIntlTelInputModule
-} from 'projects/ngx-intl-tel-input/src/lib/ngx-intl-tel-input.module';
+} from 'projects/ngx-custom-intl-tel/src/lib/ngx-custom-intl-tel.module';
 
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,4 +21,4 @@ import { AppComponent } from './app.component';
 	providers: [],
 	bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

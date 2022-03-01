@@ -2,20 +2,20 @@
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
-[![Build Status](https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master)](https://travis-ci.org/webcat12345/ngx-intl-tel-input) [![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
+[![Build Status](https://travis-ci.org/webcat12345/ngx-custom-intl-tel.svg?branch=master)](https://travis-ci.org/webcat12345/ngx-custom-intl-tel) [![npm version](https://badge.fury.io/js/ngx-custom-intl-tel.svg)](https://badge.fury.io/js/ngx-custom-intl-tel) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-custom-intl-tel)
 
 An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
-![alt](readme-assets/ngx-intl-tel-input.jpg)
+![alt](readme-assets/ngx-custom-intl-tel.jpg)
 
 **Compatibility:**
 
 Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 
-| ngx-intl-tel-input | Angular        | ngx-bootstrap |
-| ------------------ | -------------- | ------------- |
-| 3.x.x              | 9.x.x - 12.x.x | 6.0.0         |
-| 2.x.x              | 8.x.x - 9.1.x  | 5.6.x         |
+| ngx-custom-intl-tel | Angular        | ngx-bootstrap |
+| ------------------- | -------------- | ------------- |
+| 3.x.x               | 9.x.x - 12.x.x | 6.0.0         |
+| 2.x.x               | 8.x.x - 9.1.x  | 5.6.x         |
 
 ## Installation
 
@@ -52,7 +52,7 @@ to **angular.json** styles array:
 
 ### Install This Library
 
-`$ npm install ngx-intl-tel-input --save`
+`$ npm install ngx-custom-intl-tel --save`
 
 ## Usage
 
@@ -70,19 +70,19 @@ Refer to main app in this repository for working example.
 
 Or this:
 
-[Stackblitz Demo (Angular 8)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-8)
+[Stackblitz Demo (Angular 8)](https://stackblitz.com/edit/ngx-custom-intl-tel-demo-ng-8)
 
-[Stackblitz Demo (Angular 9)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-9)
+[Stackblitz Demo (Angular 9)](https://stackblitz.com/edit/ngx-custom-intl-tel-demo-ng-9)
 
-[Stackblitz Demo (Angular 10)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-10)
+[Stackblitz Demo (Angular 10)](https://stackblitz.com/edit/ngx-custom-intl-tel-demo-ng-10)
 
-[Stackblitz Demo (Angular 11)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-11)
+[Stackblitz Demo (Angular 11)](https://stackblitz.com/edit/ngx-custom-intl-tel-demo-ng-11)
 
-[Stackblitz Demo (Angular 12)](https://stackblitz.com/edit/ngx-intl-tel-input-demo-ng-12)
+[Stackblitz Demo (Angular 12)](https://stackblitz.com/edit/ngx-custom-intl-tel-demo-ng-12)
 
 ```html
 <form #f="ngForm" [formGroup]="phoneForm">
-	<ngx-intl-tel-input
+	<ngx-custom-intl-tel
 		[cssClass]="'custom'"
 		[preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
 		[enableAutoCountrySelect]="false"
@@ -96,7 +96,7 @@ Or this:
 		[inputId]="my-input-id"
 		name="phone"
 		formControlName="phone"
-	></ngx-intl-tel-input>
+	></ngx-custom-intl-tel>
 </form>
 ```
 
@@ -133,7 +133,7 @@ Following formats are supported
 ## Library Contributions
 
 - Fork repo.
-- Update `./projects/ngx-intl-tel-input`
+- Update `./projects/ngx-custom-intl-tel`
 - Build / test library.
 - Update `./src/app` with new functionality.
 - Update README.md
@@ -163,16 +163,16 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/webcat12345"><img src="https://avatars3.githubusercontent.com/u/19761422?v=4?s=100" width="100px;" alt=""/><br /><sub><b>webcat_black</b></sub></a><br /><a href="#design-webcat12345" title="Design">🎨</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=webcat12345" title="Code">💻</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=webcat12345" title="Documentation">📖</a> <a href="#ideas-webcat12345" title="Ideas, Planning, & Feedback">🤔</a> <a href="#question-webcat12345" title="Answering Questions">💬</a> <a href="#infra-webcat12345" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#example-webcat12345" title="Examples">💡</a> <a href="#maintenance-webcat12345" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/pulls?q=is%3Apr+reviewed-by%3Awebcat12345" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=webcat12345" title="Tests">⚠️</a></td>
-    <td align="center"><a href="http://pasevin.com"><img src="https://avatars2.githubusercontent.com/u/1058469?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aleksandr Pasevin</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=pasevin" title="Code">💻</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=pasevin" title="Documentation">📖</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/issues?q=author%3Apasevin" title="Bug reports">🐛</a> <a href="#platform-pasevin" title="Packaging/porting to new platform">📦</a> <a href="#plugin-pasevin" title="Plugin/utility libraries">🔌</a> <a href="#question-pasevin" title="Answering Questions">💬</a> <a href="#infra-pasevin" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#example-pasevin" title="Examples">💡</a> <a href="#maintenance-pasevin" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/pulls?q=is%3Apr+reviewed-by%3Apasevin" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=pasevin" title="Tests">⚠️</a></td>
-    <td align="center"><a href="https://github.com/Dviejopomata"><img src="https://avatars0.githubusercontent.com/u/6862893?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dviejo</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=Dviejopomata" title="Code">💻</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/issues?q=author%3ADviejopomata" title="Bug reports">🐛</a> <a href="#example-Dviejopomata" title="Examples">💡</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=Dviejopomata" title="Tests">⚠️</a> <a href="#question-Dviejopomata" title="Answering Questions">💬</a> <a href="#maintenance-Dviejopomata" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/pulls?q=is%3Apr+reviewed-by%3ADviejopomata" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://www.fosforito.net"><img src="https://avatars3.githubusercontent.com/u/5000255?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jens Wagner</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=Fosforito" title="Code">💻</a></td>
-    <td align="center"><a href="http://kino.codes"><img src="https://avatars3.githubusercontent.com/u/22554212?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kino Roy</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=kinoroy" title="Code">💻</a></td>
-    <td align="center"><a href="https://twitter.com/wwwalkerrun"><img src="https://avatars2.githubusercontent.com/u/457187?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nathan Walker</b></sub></a><br /><a href="#maintenance-NathanWalker" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=NathanWalker" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/jiarongxu"><img src="https://avatars0.githubusercontent.com/u/502605?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jiarong Xu</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=jiarongxu" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/webcat12345"><img src="https://avatars3.githubusercontent.com/u/19761422?v=4?s=100" width="100px;" alt=""/><br /><sub><b>webcat_black</b></sub></a><br /><a href="#design-webcat12345" title="Design">🎨</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=webcat12345" title="Code">💻</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=webcat12345" title="Documentation">📖</a> <a href="#ideas-webcat12345" title="Ideas, Planning, & Feedback">🤔</a> <a href="#question-webcat12345" title="Answering Questions">💬</a> <a href="#infra-webcat12345" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#example-webcat12345" title="Examples">💡</a> <a href="#maintenance-webcat12345" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/pulls?q=is%3Apr+reviewed-by%3Awebcat12345" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=webcat12345" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://pasevin.com"><img src="https://avatars2.githubusercontent.com/u/1058469?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aleksandr Pasevin</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=pasevin" title="Code">💻</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=pasevin" title="Documentation">📖</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/issues?q=author%3Apasevin" title="Bug reports">🐛</a> <a href="#platform-pasevin" title="Packaging/porting to new platform">📦</a> <a href="#plugin-pasevin" title="Plugin/utility libraries">🔌</a> <a href="#question-pasevin" title="Answering Questions">💬</a> <a href="#infra-pasevin" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#example-pasevin" title="Examples">💡</a> <a href="#maintenance-pasevin" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/pulls?q=is%3Apr+reviewed-by%3Apasevin" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=pasevin" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Dviejopomata"><img src="https://avatars0.githubusercontent.com/u/6862893?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dviejo</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=Dviejopomata" title="Code">💻</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/issues?q=author%3ADviejopomata" title="Bug reports">🐛</a> <a href="#example-Dviejopomata" title="Examples">💡</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=Dviejopomata" title="Tests">⚠️</a> <a href="#question-Dviejopomata" title="Answering Questions">💬</a> <a href="#maintenance-Dviejopomata" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/pulls?q=is%3Apr+reviewed-by%3ADviejopomata" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://www.fosforito.net"><img src="https://avatars3.githubusercontent.com/u/5000255?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jens Wagner</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=Fosforito" title="Code">💻</a></td>
+    <td align="center"><a href="http://kino.codes"><img src="https://avatars3.githubusercontent.com/u/22554212?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kino Roy</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=kinoroy" title="Code">💻</a></td>
+    <td align="center"><a href="https://twitter.com/wwwalkerrun"><img src="https://avatars2.githubusercontent.com/u/457187?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nathan Walker</b></sub></a><br /><a href="#maintenance-NathanWalker" title="Maintenance">🚧</a> <a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=NathanWalker" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/jiarongxu"><img src="https://avatars0.githubusercontent.com/u/502605?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jiarong Xu</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=jiarongxu" title="Code">💻</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://crutchcorn.dev"><img src="https://avatars.githubusercontent.com/u/9100169?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Corbin Crutchley</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=crutchcorn" title="Code">💻</a></td>
+    <td align="center"><a href="https://crutchcorn.dev"><img src="https://avatars.githubusercontent.com/u/9100169?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Corbin Crutchley</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-custom-intl-tel/commits?author=crutchcorn" title="Code">💻</a></td>
   </tr>
 </table>
 

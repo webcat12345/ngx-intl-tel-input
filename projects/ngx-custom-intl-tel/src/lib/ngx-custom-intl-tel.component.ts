@@ -21,14 +21,14 @@ import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
 import type { ChangeData } from './interfaces/change-data';
 import type { Country } from './model/country.model';
-import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
+import { phoneNumberValidator } from './ngx-custom-intl-tel.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
 
 @Component({
 	// tslint:disable-next-line: component-selector
-	selector: 'ngx-intl-tel-input',
-	templateUrl: './ngx-intl-tel-input.component.html',
-	styleUrls: ['./bootstrap-dropdown.css', './ngx-intl-tel-input.component.css'],
+	selector: 'ngx-custom-intl-tel',
+	templateUrl: './ngx-custom-intl-tel.component.html',
+	styleUrls: ['./bootstrap-dropdown.css', './ngx-custom-intl-tel.component.css'],
 	providers: [
 		CountryCode,
 		{
@@ -486,7 +486,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	}
 
 	/**
-	 * Clearing the list to avoid duplicates (https://github.com/webcat12345/ngx-intl-tel-input/issues/248)
+	 * Clearing the list to avoid duplicates (https://github.com/webcat12345/ngx-custom-intl-tel/issues/248)
 	 */
 	protected fetchCountryData(): void {
 		this.allCountries = [];

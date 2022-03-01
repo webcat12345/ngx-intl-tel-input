@@ -53,7 +53,7 @@ body {
 	}
 }
 
-ngx-intl-tel-input input {
+ngx-custom-intl-tel input {
 	height: 44px;
 	margin-bottom: 20px;
 	padding: 10px;
@@ -64,36 +64,36 @@ ngx-intl-tel-input input {
 	font-size: 18px;
 }
 
-ngx-intl-tel-input.ng-invalid.ng-touched input {
+ngx-custom-intl-tel.ng-invalid.ng-touched input {
 	border: 1px solid #c0392b;
 }
 
-ngx-intl-tel-input input:hover {
+ngx-custom-intl-tel input:hover {
 	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.24);
 }
 
-ngx-intl-tel-input input:focus {
+ngx-custom-intl-tel input:focus {
 	outline: none !important;
 	border-color: #3498db;
 	box-shadow: 0 0 0 0 #000;
 }
 
-ngx-intl-tel-input input::-webkit-input-placeholder {
+ngx-custom-intl-tel input::-webkit-input-placeholder {
 	color: #bac2c7;
 }
 
-ngx-intl-tel-input input:-ms-input-placeholder {
+ngx-custom-intl-tel input:-ms-input-placeholder {
 	color: #bac2c7;
 }
 
-ngx-intl-tel-input input::-ms-input-placeholder {
+ngx-custom-intl-tel input::-ms-input-placeholder {
 	color: #bac2c7;
 }
 
-ngx-intl-tel-input input::placeholder {
+ngx-custom-intl-tel input::placeholder {
 	color: #bac2c7;
 }
 
-ngx-intl-tel-input input[disabled] {
+ngx-custom-intl-tel input[disabled] {
 	background-color: #e5eaf1;
 }

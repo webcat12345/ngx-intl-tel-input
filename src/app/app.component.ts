@@ -1,9 +1,9 @@
-import { CountryISO } from 'projects/ngx-intl-tel-input/src/lib/enums/country-iso.enum';
-import { SearchCountryField } from 'projects/ngx-intl-tel-input/src/lib/enums/search-country-field.enum';
+import { CountryISO } from 'projects/ngx-custom-intl-tel/src/lib/enums/country-iso.enum';
+import { SearchCountryField } from 'projects/ngx-custom-intl-tel/src/lib/enums/search-country-field.enum';
 
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ChangeData, PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
+import { ChangeData, PhoneNumberFormat } from 'projects/ngx-custom-intl-tel/src/public_api';
 
 @Component({
 	selector: 'app-root',

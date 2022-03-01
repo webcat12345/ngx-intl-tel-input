@@ -1,6 +1,6 @@
 {
-	"name": "ngx-intl-tel-input",
-	"version": "3.1.3",
+	"name": "ngx-custom-intl-tel",
+	"version": "0.0.0",
 	"peerDependencies": {
 		"@angular/common": "8.x - 12.x",
 		"@angular/core": "8.x - 12.x",
@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/webcat12345/ngx-intl-tel-input"
+		"url": "git+https://github.com/webcat12345/ngx-custom-intl-tel"
 	},
 	"author": {
 		"name": "webcat12345",
@@ -33,7 +33,7 @@
 	],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/webcat12345/ngx-intl-tel-input/issues"
+		"url": "https://github.com/webcat12345/ngx-custom-intl-tel/issues"
 	},
 	"devDependencies": {
 		"@types/google-libphonenumber": "^7.4.17"

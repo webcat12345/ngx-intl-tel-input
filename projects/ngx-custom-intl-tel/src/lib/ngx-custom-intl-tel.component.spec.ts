@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
+import { NgxIntlTelInputComponent } from './ngx-custom-intl-tel.component';
 
 describe('NgxIntlTelInputComponent', () => {
 	let component: NgxIntlTelInputComponent;
@@ -8,9 +8,9 @@ describe('NgxIntlTelInputComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [ NgxIntlTelInputComponent ]
+			declarations: [NgxIntlTelInputComponent]
 		})
-		.compileComponents();
+			.compileComponents();
 	}));
 
 	beforeEach(() => {

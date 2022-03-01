@@ -13,7 +13,7 @@
 	<form #f="ngForm"
 		[formGroup]="phoneForm">
 		<div class="wrapper">
-			<ngx-intl-tel-input [cssClass]="'custom'"
+			<ngx-custom-intl-tel [cssClass]="'custom'"
 				[preferredCountries]="preferredCountries"
 				[enableAutoCountrySelect]="true"
 				[enablePlaceholder]="true"
@@ -28,7 +28,7 @@
 				(valueChange)="onValueChange($event)"
 				name="phone"
 				formControlName="phone">
-			</ngx-intl-tel-input>
+			</ngx-custom-intl-tel>
 		</div>
 		<div class="wrapper">
 			<button (click)="f.reset()">Reset</button>
