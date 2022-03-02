@@ -50,14 +50,15 @@ export const phoneNumberValidator = (control: any) => {
 						lpn.PhoneNumberUtil.getInstance().getNumberType(number);
 					const numberTypesValues = inputBox.getAttribute(
 						"numberType"
-					) as unknown as lpn.PhoneNumberType[];
+					)?.split(',')
+					?.map(value => lpn.PhoneNumberType[value]) as unknown as lpn.PhoneNumberType[];
 
 					if (
 						!lpn.PhoneNumberUtil.getInstance().isValidNumberForRegion(
 							number,
 							control.value.countryCode
 						) ||
-						!numberTypesValues?.includes(numberType)
+						(numberTypesValues && !numberTypesValues?.includes(numberType))
 					) {
 						return error;
 					} else {

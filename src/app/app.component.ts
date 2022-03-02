@@ -1,9 +1,9 @@
-import { CountryISO } from 'projects/ngx-intl-tel-input/src/lib/enums/country-iso.enum';
-import { SearchCountryField } from 'projects/ngx-intl-tel-input/src/lib/enums/search-country-field.enum';
-
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
+import { CountryISO } from 'projects/ngx-intl-tel-input/src/lib/enums/country-iso.enum';
+import { SearchCountryField } from 'projects/ngx-intl-tel-input/src/lib/enums/search-country-field.enum';
+import { PhoneNumberFormat, PhoneNumberType } from 'projects/ngx-intl-tel-input/src/public_api';
+
 
 @Component({
 	selector: 'app-root',
@@ -15,6 +15,7 @@ export class AppComponent {
 	SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
 	PhoneNumberFormat = PhoneNumberFormat;
+	PhoneNumberType = PhoneNumberType;
 	preferredCountries: CountryISO[] = [
 		CountryISO.UnitedStates,
 		CountryISO.UnitedKingdom,

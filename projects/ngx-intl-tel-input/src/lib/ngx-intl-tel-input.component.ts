@@ -1,5 +1,3 @@
-import * as lpn from "google-libphonenumber";
-
 import {
 	Component,
 	ElementRef,
@@ -10,20 +8,22 @@ import {
 	OnInit,
 	Output,
 	SimpleChanges,
-	ViewChild,
+	ViewChild
 } from "@angular/core";
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from "@angular/forms";
-
+import * as lpn from "google-libphonenumber";
+import { PhoneNumberType } from "google-libphonenumber";
 import { setTheme } from "ngx-bootstrap/utils";
-
 import { CountryCode } from "./data/country-code";
 import { CountryISO } from "./enums/country-iso.enum";
+import { PhoneNumberFormat } from "./enums/phone-number-format.enum";
 import { SearchCountryField } from "./enums/search-country-field.enum";
 import type { ChangeData } from "./interfaces/change-data";
 import type { Country } from "./model/country.model";
 import { phoneNumberValidator } from "./ngx-intl-tel-input.validator";
-import { PhoneNumberFormat } from "./enums/phone-number-format.enum";
-import { PhoneNumberType } from "google-libphonenumber";
+
+
+
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -51,7 +51,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() enablePlaceholder = true;
 	@Input() customPlaceholder: string;
 	@Input() numberFormat: PhoneNumberFormat = PhoneNumberFormat.International;
-	@Input() numberType?: PhoneNumberType;
+	@Input() numberType?: PhoneNumberType[];
 	@Input()
 	cssClass = "form-control";
 	@Input() onlyCountries: Array<string> = [];
