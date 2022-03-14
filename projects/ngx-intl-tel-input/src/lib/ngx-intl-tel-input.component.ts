@@ -29,7 +29,7 @@ import { phoneNumberValidator } from "./ngx-intl-tel-input.validator";
 	// tslint:disable-next-line: component-selector
 	selector: "ngx-intl-tel-input",
 	templateUrl: "./ngx-intl-tel-input.component.html",
-	styleUrls: ["./bootstrap-dropdown.css", "./ngx-intl-tel-input.component.css"],
+	styleUrls: ["./bootstrap-dropdown.scss", "./ngx-intl-tel-input.component.scss"],
 	providers: [
 		CountryCode,
 		{
