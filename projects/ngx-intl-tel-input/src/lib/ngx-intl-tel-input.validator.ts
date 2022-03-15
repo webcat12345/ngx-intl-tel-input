@@ -1,4 +1,4 @@
-import * as lpn from 'google-libphonenumber';
+import * as lpn from "google-libphonenumber";
 
 /*
 We use "control: any" instead of "control: FormControl" to silence:
@@ -20,12 +20,12 @@ export const phoneNumberValidator = (control: any) => {
 		: undefined;
 	if (inputBox) {
 		const id = inputBox.id;
-		const isCheckValidation = inputBox.getAttribute('validation');
-		if (isCheckValidation === 'true') {
+		const isCheckValidation = inputBox.getAttribute("validation");
+		if (isCheckValidation === "true") {
 			const isRequired = control.errors && control.errors.required === true;
 			const error = { validatePhoneNumber: { valid: false } };
 
-			inputBox.setCustomValidity('Invalid field.');
+			inputBox.setCustomValidity("Invalid field.");
 
 			let number: lpn.PhoneNumber;
 
@@ -38,7 +38,7 @@ export const phoneNumberValidator = (control: any) => {
 				if (isRequired === true) {
 					return error;
 				} else {
-					inputBox.setCustomValidity('');
+					inputBox.setCustomValidity("");
 				}
 			}
 
@@ -46,20 +46,28 @@ export const phoneNumberValidator = (control: any) => {
 				if (!number) {
 					return error;
 				} else {
+					const numberType =
+						lpn.PhoneNumberUtil.getInstance().getNumberType(number);
+					const numberTypesValues = inputBox.getAttribute(
+						"numberType"
+					)?.split(',')
+					?.map(value => lpn.PhoneNumberType[value]) as unknown as lpn.PhoneNumberType[];
+
 					if (
 						!lpn.PhoneNumberUtil.getInstance().isValidNumberForRegion(
 							number,
 							control.value.countryCode
-						)
+						) ||
+						(numberTypesValues && !numberTypesValues?.includes(numberType))
 					) {
 						return error;
 					} else {
-						inputBox.setCustomValidity('');
+						inputBox.setCustomValidity("");
 					}
 				}
 			}
-		} else if (isCheckValidation === 'false') {
-			inputBox.setCustomValidity('');
+		} else if (isCheckValidation === "false") {
+			inputBox.setCustomValidity("");
 
 			control.clearValidators();
 		}

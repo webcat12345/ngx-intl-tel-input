@@ -1,99 +1,70 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 .dropup,
 .dropright,
 .dropdown,
 .dropleft {
-	position: relative;
+	@apply relative;
 }
 
 .dropdown-toggle {
-	white-space: nowrap;
+	@apply whitespace-nowrap;
 }
 .dropdown-toggle::after {
-	display: inline-block;
-	margin-left: 0.255em;
-	vertical-align: 0.255em;
-	content: "";
-	border-top: 0.3em solid;
-	border-right: 0.3em solid transparent;
-	border-bottom: 0;
-	border-left: 0.3em solid transparent;
+	@apply inline-block ms-[0.255rem] align-[0.255rem] border-t-[0.3em] border-x-[0.3em] border-x-transparent border-b-0;
 }
 .dropdown-toggle:empty::after {
-	margin-left: 0;
+	@apply ms-0;
 }
 
 .dropdown-menu {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	z-index: 1000;
-	display: none;
-	float: left;
-	min-width: 10rem;
-	padding: 0.5rem 0;
-	margin: 0.125rem 0 0;
-	font-size: 1rem;
-	color: #212529;
-	text-align: left;
-	list-style: none;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 0.25rem;
+	@apply absolute top-full start-0 z-[1000] hidden float-start min-w-40 py-2 mt-0.5 text-[1rem] text-[#212529] list-none bg-white bg-clip-padding border border-black border-opacity-20 rounded-[0.25rem];
 }
 
 .dropdown-menu-left {
-	right: auto;
-	left: 0;
+	@apply end-auto start-0;
 }
 
 .dropdown-menu-right {
-	right: 0;
-	left: auto;
+	@apply end-0 start-auto;
 }
 
 @media (min-width: 576px) {
 	.dropdown-menu-sm-left {
-		right: auto;
-		left: 0;
+		@apply end-auto start-0;
 	}
 
 	.dropdown-menu-sm-right {
-		right: 0;
-		left: auto;
+		@apply end-0 start-auto;
 	}
 }
 @media (min-width: 768px) {
 	.dropdown-menu-md-left {
-		right: auto;
-		left: 0;
+		@apply end-auto start-0;
 	}
 
 	.dropdown-menu-md-right {
-		right: 0;
-		left: auto;
+		@apply end-0 start-auto;
 	}
 }
 @media (min-width: 992px) {
 	.dropdown-menu-lg-left {
-		right: auto;
-		left: 0;
+		@apply end-auto start-0;
 	}
 
 	.dropdown-menu-lg-right {
-		right: 0;
-		left: auto;
+		@apply end-0 start-auto;
 	}
 }
 @media (min-width: 1200px) {
 	.dropdown-menu-xl-left {
-		right: auto;
-		left: 0;
+		@apply end-auto start-0;
 	}
 
 	.dropdown-menu-xl-right {
-		right: 0;
-		left: auto;
+		@apply end-0 start-auto;
 	}
 }
 .dropup .dropdown-menu {
@@ -172,7 +143,10 @@
 	vertical-align: 0;
 }
 
-.dropdown-menu[x-placement^=top], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left] {
+.dropdown-menu[x-placement^="top"],
+.dropdown-menu[x-placement^="right"],
+.dropdown-menu[x-placement^="bottom"],
+.dropdown-menu[x-placement^="left"] {
 	right: auto;
 	bottom: auto;
 }
@@ -196,17 +170,20 @@
 	background-color: transparent;
 	border: 0;
 }
-.dropdown-item:hover, .dropdown-item:focus {
+.dropdown-item:hover,
+.dropdown-item:focus {
 	color: #16181b;
 	text-decoration: none;
 	background-color: #f8f9fa;
 }
-.dropdown-item.active, .dropdown-item:active {
+.dropdown-item.active,
+.dropdown-item:active {
 	color: #fff;
 	text-decoration: none;
 	background-color: #007bff;
 }
-.dropdown-item.disabled, .dropdown-item:disabled {
+.dropdown-item.disabled,
+.dropdown-item:disabled {
 	color: #6c757d;
 	pointer-events: none;
 	background-color: transparent;

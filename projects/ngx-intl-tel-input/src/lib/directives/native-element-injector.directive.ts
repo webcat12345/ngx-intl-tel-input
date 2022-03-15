@@ -1,5 +1,5 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { Directive, ElementRef, OnInit } from "@angular/core";
+import { NgControl } from "@angular/forms";
 
 /*
 "Property 'nativeElement' does not exist on type 'FormControl'".
@@ -11,7 +11,7 @@ https://stackoverflow.com/a/54075119/1617590
 */
 @Directive({
 	// tslint:disable-next-line: directive-selector
-	selector: '[ngModel], [formControl], [formControlName]',
+	selector: "[ngModel], [formControl], [formControlName]",
 })
 export class NativeElementInjectorDirective implements OnInit {
 	constructor(
@@ -20,7 +20,7 @@ export class NativeElementInjectorDirective implements OnInit {
 	) {}
 	ngOnInit() {
 		if (this.controlDir.control) {
-			this.controlDir.control['nativeElement'] = this.host.nativeElement;
+			this.controlDir.control["nativeElement"] = this.host.nativeElement;
 		}
 	}
 }
