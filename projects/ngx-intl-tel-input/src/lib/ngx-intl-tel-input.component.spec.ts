@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxIntlTelInputComponent } from "./ngx-intl-tel-input.component";
+import { NgxIntlTelInputComponent } from './ngx-intl-tel-input.component';
 
-describe("NgxIntlTelInputComponent", () => {
+describe('NgxIntlTelInputComponent', () => {
 	let component: NgxIntlTelInputComponent;
 	let fixture: ComponentFixture<NgxIntlTelInputComponent>;
 
@@ -18,7 +18,7 @@ describe("NgxIntlTelInputComponent", () => {
 		fixture.detectChanges();
 	});
 
-	it("should create", () => {
+	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
 });
