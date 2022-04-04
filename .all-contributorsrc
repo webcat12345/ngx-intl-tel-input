@@ -118,6 +118,15 @@
         "question",
         "maintenance"
       ]
+    },
+    {
+      "login": "rushvora",
+      "name": "Rushabh Vora",
+      "avatar_url": "https://avatars.githubusercontent.com/u/602333?v=4",
+      "profile": "http://rushvora.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
