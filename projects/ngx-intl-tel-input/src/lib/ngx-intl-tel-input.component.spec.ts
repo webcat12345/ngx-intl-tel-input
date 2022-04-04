@@ -8,9 +8,8 @@ describe('NgxIntlTelInputComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [ NgxIntlTelInputComponent ]
-		})
-		.compileComponents();
+			declarations: [NgxIntlTelInputComponent],
+		}).compileComponents();
 	}));
 
 	beforeEach(() => {
