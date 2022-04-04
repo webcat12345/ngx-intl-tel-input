@@ -106,6 +106,18 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "NayeBeckham",
+      "name": "Nayeli Beckham",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78670199?v=4",
+      "profile": "https://www.linkedin.com/in/nayeli-beckham-martínez/",
+      "contributions": [
+        "code",
+        "platform",
+        "question",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
