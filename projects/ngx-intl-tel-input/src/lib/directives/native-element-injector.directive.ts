@@ -20,7 +20,8 @@ export class NativeElementInjectorDirective implements OnInit {
 	) {}
 	ngOnInit() {
 		if (this.controlDir.control) {
-			this.controlDir.control['nativeElement'] = this.host.nativeElement;
+			// @ts-ignore
+      this.controlDir.control['nativeElement'] = this.host.nativeElement;
 		}
 	}
 }
