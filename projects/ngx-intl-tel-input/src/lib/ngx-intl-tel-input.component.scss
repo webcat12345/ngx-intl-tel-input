@@ -141,6 +141,7 @@ $box-shadow: 0 5px 24px rgba(57, 65, 92, 0.15);
 
   &__dropdown {
     max-height: 288px !important;
+    overflow-y: auto;
   }
 
   &__dropdown-stroked {

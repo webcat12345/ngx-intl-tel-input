@@ -25,10 +25,9 @@ export class NgxIntlTelInputService {
         dialCode: c[2].toString(),
         priority: +c[3] || 0,
         areaCodes: c[4] as string[] || undefined,
-        flagClass: c[1].toString().toLocaleLowerCase(),
+        flagClass: `iti__flag iti__${c[1].toString().toLocaleLowerCase()}`,
         placeHolder: ''
       };
-
       if (enablePlaceholder) {
         country.placeHolder = this.getPhoneNumberPlaceHolder(country.iso2.toUpperCase());
       }

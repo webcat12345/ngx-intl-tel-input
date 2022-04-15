@@ -20,13 +20,14 @@ import {Country} from './model/country.model';
 import * as lpn from 'google-libphonenumber';
 import {TooltipLabel} from './enums/tooltip-label.enum';
 import {CountryISO} from './enums/country-iso.enum';
-import {ErrorStateMatcher, FloatLabelType} from '@angular/material/core';
+import {ErrorStateMatcher} from '@angular/material/core';
 import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-options.enum';
 import {NgxIntlTelInputService} from './services/ngx-intl-tel-input.service';
 import {SearchCountryField} from './enums/search-country-field.enum';
 import {NgxDropdownService} from './services/ngx-dropdown.service';
 import {NgxIntlTelInputErrorMatcher} from './services/ngx-intl-tel-input-error-matcher';
 import {NgxIntlTelFormService} from './services/ngx-intl-tel-form.service';
+import {FloatLabelType} from '@angular/material/form-field';
 
 @Component({
   selector: 'ngx-intl-tel-input',
@@ -162,7 +163,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
   menuOpened = new EventEmitter<boolean>();
 
   get dropdownClass(): string | string[] {
-    return this._dropdownPanelClass.join(' ');
+    return [
+      ...this._dropdownPanelClass,
+      ...(this.stroked ? ['ngx-intl-tel__dropdown-stroked'] : ['ngx-intl-tel__dropdown'])
+    ].join(' ');
   }
 
   get errorStateMatcher(): ErrorStateMatcher {
@@ -189,7 +193,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
     return this.control.dirty && this.control.touched;
   }
 
-  private readonly _dropdownPanelClass: string[] = this.stroked ? ['ngx-intl-tel__dropdown'] : ['ngx-intl-tel__dropdown-stroked'];
+  private readonly _dropdownPanelClass: string[] = [];
 
   selectedCountry: Country = {
     areaCodes: undefined,
