@@ -14,7 +14,7 @@
     <div class="mb-2">
         <label><input type="checkbox" [(ngModel)]="changeDisabled" (ngModelChange)="toggleDisabled()">Disable input</label>
     </div>
-    <form #f="ngForm" [formGroup]="phoneForm" (ngSubmit)="onSubmit($event)">
+    <form #f="ngForm" [formGroup]="phoneForm" (ngSubmit)="onSubmit()">
         <div class="mb-2
                 ngx-intl-tel-input-wrapper">
             <ngx-intl-tel-input

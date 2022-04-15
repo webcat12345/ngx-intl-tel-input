@@ -35,7 +35,7 @@ import {NgxIntlTelFormService} from './services/ngx-intl-tel-form.service';
   exports: [NgxIntlTelInputComponent]
 })
 export class NgxIntlTelInputModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<NgxIntlTelInputModule> {
     return {
       ngModule: NgxIntlTelInputModule,
       providers: [
