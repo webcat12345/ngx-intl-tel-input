@@ -56,7 +56,7 @@
 		[id]="inputId"
 		autocomplete="off"
 		[ngClass]="cssClass"
-		(blur)="onTouched()"
+		(blur)="onLostFocus()"
 		(keypress)="onInputKeyPress($event)"
 		[(ngModel)]="phoneNumber"
 		(ngModelChange)="onPhoneNumberChange()"
