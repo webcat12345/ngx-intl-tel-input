@@ -121,6 +121,7 @@ Or this:
 | selectedCountryISO       | `<CountryISO>`           | `None`                            | Set specific country on load.                                                                                 |
 | separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
 | countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
+| onInputBlur              | `string`                 | `None`                            | Emits the current value set on the input.                                        |
 
 ## Supported Formats
 
