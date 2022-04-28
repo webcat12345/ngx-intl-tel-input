@@ -3,7 +3,8 @@
      [class.ngx-intl-tel_error]="invalid && (dirtyAndTouched || (ngxIntlTelForm.submitted$ | async))"
      [class.ngx-intl-tel_opened]="ngxDropdownService.menuState$ | async"
      [class.ngx-intl-tel_focus]="isFocused">
-    <ngx-intl-tel-trigger class="ngx-intl-tel__trigger"
+    <ngx-intl-tel-trigger *ngIf="!disableCountrySelect"
+                          class="ngx-intl-tel__trigger"
                           [class.ngx-intl-tel__trigger_small]="small"
                           #connectedElement
                           [country]="selectedCountry"

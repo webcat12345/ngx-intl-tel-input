@@ -132,6 +132,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
   applyCodeOnFocus: boolean = true;
 
   @Input()
+  disableCountrySelect: boolean = false;
+
+  @Input()
   set dropdownClass(panelClass: string | string[]) {
     const classes = (typeof panelClass === 'string') ? [panelClass] : panelClass;
     this._dropdownPanelClass.push(...classes);
