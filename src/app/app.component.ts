@@ -16,6 +16,8 @@ import {NgxIntlTelFormService} from '../../projects/ngx-intl-tel-input/src/lib/s
 export class AppComponent {
   separateDialCode = false;
   replaceDialCode = true;
+  stroked = true;
+  disableCountrySelect = false;
   changeDisabled = false;
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;

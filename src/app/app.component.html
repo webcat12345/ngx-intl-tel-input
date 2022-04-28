@@ -12,6 +12,12 @@
         <label><input type="checkbox" [(ngModel)]="replaceDialCode"> Replace Dial Code?</label>
     </div>
     <div class="mb-2">
+        <label><input type="checkbox" [(ngModel)]="stroked"> Stroked</label>
+    </div>
+    <div class="mb-2">
+        <label><input type="checkbox" [(ngModel)]="disableCountrySelect"> Disable country select?</label>
+    </div>
+    <div class="mb-2">
         <label><input type="checkbox" [(ngModel)]="changeDisabled" (ngModelChange)="toggleDisabled()">Disable input</label>
     </div>
     <form #f="ngForm" [formGroup]="phoneForm" (ngSubmit)="onSubmit()">
@@ -19,6 +25,7 @@
                 ngx-intl-tel-input-wrapper">
             <ngx-intl-tel-input
                     [cssClass]="'custom'"
+                    [disableCountrySelect]="disableCountrySelect"
                     [preferredCountries]="preferredCountries"
                     [enableAutoCountrySelect]="true"
                     [enablePlaceholder]="true"
@@ -29,7 +36,7 @@
                     [phoneValidation]="true"
                     [separateDialCode]="separateDialCode"
                     [replaceDialCode]="replaceDialCode"
-                    [stroked]="true"
+                    [stroked]="stroked"
                     [dropdownParams]="dropdownParams"
                     (countryChange)="lastCountryChange = $event"
                     formControlName="phone">
