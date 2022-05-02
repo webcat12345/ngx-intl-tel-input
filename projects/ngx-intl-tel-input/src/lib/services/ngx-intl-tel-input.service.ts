@@ -128,7 +128,7 @@ export class NgxIntlTelInputService {
   }
 
   onInputKeyPress(event: KeyboardEvent): void {
-    const allowedChars = /[0-9\+\-\ ]/;
+    const allowedChars = /[\d\s+-]/;
     const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
     const allowedOtherKeys = [
       'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown',

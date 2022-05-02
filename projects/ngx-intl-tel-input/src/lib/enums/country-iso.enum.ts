@@ -1,3 +1,5 @@
+// noinspection NonAsciiCharacters,JSNonASCIINames
+
 export enum CountryISO {
   Afghanistan = 'af',
   Albania = 'al',

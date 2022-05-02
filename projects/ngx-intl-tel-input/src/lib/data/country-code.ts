@@ -1,3 +1,5 @@
+// noinspection JSNonASCIINames
+
 import {CountryISO} from '../enums/country-iso.enum';
 
 export class CountryCode {
