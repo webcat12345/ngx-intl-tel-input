@@ -36,7 +36,7 @@
                (ngModelChange)="onPhoneNumberChange()"
                (blur)="onBlurEvent()"
                (focus)="onFocusEvent()"
-               (keypress)="ngxIntlTelInputService.onInputKeyPress($event)">
+               (keydown)="ngxIntlTelInputService.onInputKeyPress($event)">
         <mat-error *ngIf="matErrorContainer.children.length === 0 && hasError">
             {{ (errors && errors[errorKey]) || control.getError(errorKey) }}
         </mat-error>

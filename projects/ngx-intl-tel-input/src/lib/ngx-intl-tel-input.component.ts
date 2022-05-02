@@ -54,7 +54,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
 
   @HostListener('window:keypress', ['$event'])
   onKeyPress($event: KeyboardEvent): void {
-    if (/[0-9a-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.ngxDropdownService.getMenuState()) {
+    if (/[\da-zA-Zа-яА-ЯіІїЇєЄ]/.test($event.key) && this.ngxDropdownService.getMenuState()) {
       this.searchBuffer = `${this.searchBuffer}${$event.key}`;
       const countries = this.ngxIntlTelInputService.searchCountry(this.searchBuffer, [SearchCountryField.All]);
       if (countries.length === 0) {
@@ -68,7 +68,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
   @ViewChild('dropdownTemplate', {static: true})
   dropdownTemplate: TemplateRef<HTMLDivElement>;
 
-  @ViewChild('connectedElement', {static: true, read: ElementRef})
+  @ViewChild('connectedElement', {static: false, read: ElementRef})
   connectedElement: ElementRef<HTMLDivElement>;
 
   @Input()
@@ -318,7 +318,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
     }
 
     let countryCode = this.selectedCountry.iso2;
-    // auto select country based on the extension (and areaCode if needed) (e.g select Canada if number starts with +1 416)
+    // auto select country based on the extension (and areaCode if needed) (e.g. select Canada if number starts with +1 416)
     if (this.enableAutoCountrySelect) {
       countryCode = number && number.getCountryCode()
         ? this.ngxIntlTelInputService.getCountryIsoCode(number.getCountryCode(), number)
@@ -416,7 +416,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
 
   removeDialCode(phoneNumber: string): string {
     if (this.separateDialCode && phoneNumber) {
-      phoneNumber = phoneNumber.substr(phoneNumber.indexOf(' ') + 1);
+      phoneNumber = phoneNumber.substring(phoneNumber.indexOf(' ') + 1);
     }
     return phoneNumber;
   }
