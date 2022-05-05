@@ -33,7 +33,7 @@
 						<div class="iti__flag"
 							[ngClass]="country.flagClass"></div>
 					</div>
-					<span class="iti__country-name">{{country.name}}</span>
+					<span class="iti__country-name">{{translationPrefix + country.iso2 | translate }}</span>
 					<span class="iti__dial-code">+{{country.dialCode}}</span>
 				</li>
 				<li class="iti__divider"
@@ -46,7 +46,7 @@
 						<div class="iti__flag"
 							[ngClass]="country.flagClass"></div>
 					</div>
-					<span class="iti__country-name">{{country.name}}</span>
+					<span class="iti__country-name">{{ translationPrefix + country.iso2 | translate }}</span>
 					<span class="iti__dial-code">+{{country.dialCode}}</span>
 				</li>
 			</ul>

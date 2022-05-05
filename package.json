@@ -28,6 +28,8 @@
     "@angular/platform-browser": "8.x - 13.x",
     "@angular/platform-browser-dynamic": "8.x - 13.x",
     "@angular/router": "8.x - 13.x",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
     "google-libphonenumber": "^3.2.3",

@@ -16,13 +16,14 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { setTheme } from 'ngx-bootstrap/utils';
 
-import { CountryCode } from './data/country-code';
-import { CountryISO } from './enums/country-iso.enum';
-import { SearchCountryField } from './enums/search-country-field.enum';
 import { ChangeData } from './interfaces/change-data';
 import { Country } from './model/country.model';
-import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
+import { CountryCode } from './data/country-code';
+import { CountryISO } from './enums/country-iso.enum';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
+import { SearchCountryField } from './enums/search-country-field.enum';
+import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
+import { translationPrefix } from './data';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -85,6 +86,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
+  translationPrefix = `${translationPrefix}.`;
 
 	@ViewChild('countryList') countryList: ElementRef;
 

@@ -64,6 +64,18 @@ Add `NgxIntlTelInputModule` to your module file:
 imports: [NgxIntlTelInputModule];
 ```
 
+### Translation support
+ create .json file in your app in assets/i18n/{lang}.json. That file should have following structure:
+ ```{
+ "ngx-intl-tel-input-country": {
+    "nl": "Nederland"
+    ...
+    }
+ }
+ ```
+  Fill in translations. Key - iso code ("nl"), and value - translation for country ("Nederland")).
+  If translation is missing English version is used.
+
 ## Example
 
 Refer to main app in this repository for working example.
