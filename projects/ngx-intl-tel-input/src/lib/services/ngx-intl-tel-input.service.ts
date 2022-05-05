@@ -132,11 +132,11 @@ export class NgxIntlTelInputService {
     const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
     const allowedOtherKeys = [
       'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown',
-      'Home', 'End', 'Insert', 'Delete', 'Backspace'
+      'Home', 'End', 'Insert', 'Delete', 'Backspace', 'Tab'
     ];
 
     if (!allowedChars.test(event.key)
-      && !(event.ctrlKey && allowedCtrlChars.test(event.key))
+      && !((event.ctrlKey || event.metaKey) && allowedCtrlChars.test(event.key))
       && !(allowedOtherKeys.includes(event.key))) {
       event.preventDefault();
     }
