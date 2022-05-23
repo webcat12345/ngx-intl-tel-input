@@ -1,33 +1,39 @@
 import {
-  AfterViewInit, ChangeDetectorRef,
-  Component, ElementRef,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
   EventEmitter,
   forwardRef,
-  HostListener, Injector,
+  HostListener,
+  Injector,
   Input,
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges, TemplateRef,
+  SimpleChanges,
+  TemplateRef,
   ViewChild,
   ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
 import {FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
-import {CountryCode} from './data/country-code';
-import {phoneNumberValidator} from './ngx-intl-tel-input.validator';
-import {Country} from './model/country.model';
-import * as lpn from 'google-libphonenumber';
-import {TooltipLabel} from './enums/tooltip-label.enum';
-import {CountryISO} from './enums/country-iso.enum';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-options.enum';
-import {NgxIntlTelInputService} from './services/ngx-intl-tel-input.service';
-import {SearchCountryField} from './enums/search-country-field.enum';
-import {NgxDropdownService} from './services/ngx-dropdown.service';
-import {NgxIntlTelInputErrorMatcher} from './services/ngx-intl-tel-input-error-matcher';
-import {NgxIntlTelFormService} from './services/ngx-intl-tel-form.service';
 import {FloatLabelType} from '@angular/material/form-field';
+import * as lpn from 'google-libphonenumber';
+import {CountryCode} from './data/country-code';
+import {CountryDropdownDisplayOptions} from './enums/country-dropdown-display-options.enum';
+import {CountryISO} from './enums/country-iso.enum';
+import {SearchCountryField} from './enums/search-country-field.enum';
+import {TooltipLabel} from './enums/tooltip-label.enum';
+import {Country} from './model/country.model';
+import {IntlTelModel} from './model/intl-tel.model';
+import {phoneNumberValidator} from './ngx-intl-tel-input.validator';
+import {NgxDropdownService} from './services/ngx-dropdown.service';
+import {NgxIntlTelFormService} from './services/ngx-intl-tel-form.service';
+import {NgxIntlTelInputErrorMatcher} from './services/ngx-intl-tel-input-error-matcher';
+import {NgxIntlTelInputService} from './services/ngx-intl-tel-input.service';
+import {NgxIntlTelModelAdapter} from './services/ngx-intl-tel-model-adapter';
 
 @Component({
   selector: 'ngx-intl-tel-input',
@@ -228,7 +234,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
   onTouched = () => {
   }
 
-  propagateChange = (_: any) => {
+  propagateChange = (_: IntlTelModel | null) => {
   }
 
   control: FormControl;
@@ -236,6 +242,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
   constructor(public readonly ngxIntlTelInputService: NgxIntlTelInputService,
               public readonly ngxIntlTelForm: NgxIntlTelFormService,
               public readonly ngxDropdownService: NgxDropdownService,
+              private readonly ngxIntlTelModelAdapter: NgxIntlTelModelAdapter,
               private readonly viewContainerRef: ViewContainerRef,
               private readonly changeDetector: ChangeDetectorRef,
               private injector: Injector) {
@@ -302,7 +309,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
         if (this.phoneNumber) {
           this.onPhoneNumberChange();
         } else {
-          this.propagateChange(undefined);
+          this.propagateChange(null);
         }
       }
     }
@@ -344,7 +351,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
         this.phoneNumber = this.removeDialCode(intlNo);
       }
 
-      this.propagateChange({
+      const value = this.ngxIntlTelModelAdapter.modelToValue({
         number: this.value,
         internationalNumber: intlNo,
         nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
@@ -352,6 +359,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
         dialCode: '+' + this.selectedCountry.dialCode,
         id: this.id
       });
+      this.propagateChange(value);
     }
   }
 
@@ -378,7 +386,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
       this.phoneNumber = this.removeDialCode(intlNo);
     }
 
-    this.propagateChange({
+    const value = this.ngxIntlTelModelAdapter.modelToValue({
       number: this.value,
       internationalNumber: intlNo,
       nationalNumber: number ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL) : '',
@@ -386,6 +394,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
       dialCode: '+' + this.selectedCountry.dialCode,
       id: this.id
     });
+    this.propagateChange(value);
 
     if (el) {
       el.focus();
@@ -408,7 +417,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges, AfterViewIni
     if (obj == null) {
       this.init();
     }
-    this.phoneNumber = obj;
+    this.phoneNumber = this.ngxIntlTelModelAdapter.valueToString(obj);
     setTimeout(() => {
       this.onPhoneNumberChange();
     }, 1);
