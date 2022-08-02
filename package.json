@@ -20,14 +20,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "8.x - 13.x",
-    "@angular/common": "8.x - 13.x",
-    "@angular/compiler": "8.x - 13.x",
-    "@angular/core": "8.x - 13.x",
-    "@angular/forms": "8.x - 13.x",
-    "@angular/platform-browser": "8.x - 13.x",
-    "@angular/platform-browser-dynamic": "8.x - 13.x",
-    "@angular/router": "8.x - 13.x",
+    "@angular/animations": "8.x - 14.x",
+    "@angular/common": "8.x - 14.x",
+    "@angular/compiler": "8.x - 14.x",
+    "@angular/core": "8.x - 14.x",
+    "@angular/forms": "8.x - 14.x",
+    "@angular/platform-browser": "8.x - 14.x",
+    "@angular/platform-browser-dynamic": "8.x - 14.x",
+    "@angular/router": "8.x - 14.x",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
     "google-libphonenumber": "^3.2.3",
@@ -40,10 +40,10 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "8.x - 13.x",
-    "@angular/cli": "8.x - 13.x",
-    "@angular/compiler-cli": "8.x - 13.x",
-    "@angular/language-service": "8.x - 13.x",
+    "@angular-devkit/build-angular": "8.x - 14.x",
+    "@angular/cli": "8.x - 14.x",
+    "@angular/compiler-cli": "8.x - 14.x",
+    "@angular/language-service": "8.x - 14.x",
     "@types/google-libphonenumber": "^7.4.23",
     "@types/jasmine": "~3.8.0",
     "@types/jasminewd2": "~2.0.3",
@@ -68,8 +68,8 @@
     "webpack-bundle-analyzer": "^3.9.0"
   },
   "peerDependencies": {
-    "@angular/common": "8.x - 13.x",
-    "@angular/core": "8.x - 13.x",
-    "@angular/forms": "8.x - 13.x"
+    "@angular/common": "8.x - 14.x",
+    "@angular/core": "8.x - 14.x",
+    "@angular/forms": "8.x - 14.x"
   }
 }
