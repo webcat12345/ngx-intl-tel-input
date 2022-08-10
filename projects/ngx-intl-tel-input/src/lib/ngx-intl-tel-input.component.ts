@@ -160,34 +160,35 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 				});
 			return;
 		}
-		const countrySearchTextLower = this.countrySearchText.toLowerCase();
+    // Lower case the search text to match the country name and iso2 and ignore `+` from the dial code.
+		const countrySearchTextFormatted = this.countrySearchText.toLowerCase().replace(/[+]/g, '');
     // @ts-ignore
 		const country = this.allCountries.filter((c) => {
 			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
 				// Search in all fields
-				if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+				if (c.iso2.toLowerCase().startsWith(countrySearchTextFormatted)) {
 					return c;
 				}
-				if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+				if (c.name.toLowerCase().startsWith(countrySearchTextFormatted)) {
 					return c;
 				}
-				if (c.dialCode.startsWith(this.countrySearchText)) {
+				if (c.dialCode.startsWith(countrySearchTextFormatted)) {
 					return c;
 				}
 			} else {
 				// Or search by specific SearchCountryField(s)
 				if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
-					if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+					if (c.iso2.toLowerCase().startsWith(countrySearchTextFormatted)) {
 						return c;
 					}
 				}
 				if (this.searchCountryField.indexOf(SearchCountryField.Name) > -1) {
-					if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+					if (c.name.toLowerCase().startsWith(countrySearchTextFormatted)) {
 						return c;
 					}
 				}
 				if (this.searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
-					if (c.dialCode.startsWith(this.countrySearchText)) {
+					if (c.dialCode.startsWith(countrySearchTextFormatted)) {
 						return c;
 					}
 				}
