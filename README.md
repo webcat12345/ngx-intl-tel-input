@@ -13,7 +13,7 @@ An Angular package for entering and validating international telephone numbers. 
 Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 
 | ngx-intl-tel-input | Angular        | ngx-bootstrap |
-| ------------------ |----------------| ------------- |
+| ------------------ | -------------- | ------------- |
 | 3.x.x              | 9.x.x - 13.x.x | 6.0.0         |
 | 2.x.x              | 8.x.x - 9.1.x  | 5.6.x         |
 
@@ -82,21 +82,21 @@ Or this:
 
 ```html
 <form #f="ngForm" [formGroup]="phoneForm">
-	<ngx-intl-tel-input
-		[cssClass]="'custom'"
-		[preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
-		[enableAutoCountrySelect]="false"
-		[enablePlaceholder]="true"
-		[searchCountryFlag]="true"
-		[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-		[selectFirstCountry]="false"
-		[selectedCountryISO]="CountryISO.India"
-		[maxLength]="15"
-		[phoneValidation]="true"
-		[inputId]="my-input-id"
-		name="phone"
-		formControlName="phone"
-	></ngx-intl-tel-input>
+  <ngx-intl-tel-input
+    [cssClass]="'custom'"
+    [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+    [enableAutoCountrySelect]="false"
+    [enablePlaceholder]="true"
+    [searchCountryFlag]="true"
+    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+    [selectFirstCountry]="false"
+    [selectedCountryISO]="CountryISO.India"
+    [maxLength]="15"
+    [phoneValidation]="true"
+    [inputId]="my-input-id"
+    name="phone"
+    formControlName="phone"
+  ></ngx-intl-tel-input>
 </form>
 ```
 
