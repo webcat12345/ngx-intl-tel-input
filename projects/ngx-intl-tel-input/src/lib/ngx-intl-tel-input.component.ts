@@ -268,7 +268,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       }
 
       if (this.maskPlaceholder) {
-        this.phoneNumber = this.maskWithPlaceholder();
+        this.phoneNumber = this.maskWithPlaceholder(countryCode.toUpperCase());
       }
       this.propagateChange({
         number: this.maskPlaceholder ? this.phoneNumber : this.value,
@@ -285,29 +285,33 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     }
   }
 
-  maskWithPlaceholder() {
-    let mask = this.resolvePlaceholder()
-      .replace(/[{()}]/g, '')
-      .replace(/-/g, ' ');
-    let tempPhone = '';
-    this.phoneNumber?.split('').forEach((char, index) => {
-      if (char === ' ') {
-        tempPhone += ' ';
-      } else {
-        if (mask[index] !== ' ') {
-          tempPhone += char;
-        } else {
-          tempPhone += ' ' + char;
-          // mask = this.setCharAt(mask, index, '');
-        }
-      }
-    });
-    return tempPhone;
-  }
+  maskWithPlaceholder(countryCode: string) {
+    const formatter = new AsYouTypeFormatter(countryCode);
 
-  setCharAt(str: string, index: number, chr: string) {
-    if (index > str.length - 1) return str;
-    return str.substring(0, index) + chr + str.substring(index + 1);
+    this.phoneNumber = this.phoneNumber?.replace(/\s/g, '');
+    let tempPhone = '';
+    this.phoneNumber?.split('').forEach((char) => {
+      tempPhone = formatter.inputDigit(char);
+    });
+    console.log(tempPhone);
+    return tempPhone;
+
+    //AsYouTypeFormatter.
+    // let mask = this.resolvePlaceholder()
+    //   .replace(/[{()}]/g, '')
+    //   .replace(/-/g, ' ');
+    // let tempPhone = '';
+    // this.phoneNumber?.split('').forEach((char, index) => {
+    //   if (char === ' ') {
+    //     tempPhone += ' ';
+    //   } else {
+    //     if (mask[index] !== ' ') {
+    //       tempPhone += char;
+    //     } else {
+    //       tempPhone += ' ' + char;
+    //     }
+    //   }
+    // });
   }
 
   public onCountrySelect(country: Country, el: { focus: () => void }): void {

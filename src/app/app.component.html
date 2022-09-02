@@ -8,6 +8,10 @@
     </button>
   </div>
   <div class="wrapper">
+    <input type="checkbox" [(ngModel)]="maskPlaceholder" />
+    <label>&nbsp;Mask As You Type?</label>
+  </div>
+  <div class="wrapper">
     <input type="checkbox" [(ngModel)]="separateDialCode" />
     <label>&nbsp;Separate Dial Code?</label>
   </div>
@@ -29,7 +33,7 @@
         [phoneValidation]="true"
         [separateDialCode]="separateDialCode"
         [numberFormat]="PhoneNumberFormat.National"
-        [maskPlaceholder]="true"
+        [maskPlaceholder]="maskPlaceholder"
         name="phone"
         formControlName="phone"
       >
