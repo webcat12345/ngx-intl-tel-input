@@ -21,6 +21,7 @@ export class AppComponent {
   ];
 
   maskPlaceholder = false;
+  maskAsYouType = false;
   phoneForm = new FormGroup({
     phone: new FormControl(undefined, [Validators.required]),
   });

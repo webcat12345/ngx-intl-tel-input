@@ -67,6 +67,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   separateDialCodeClass: string;
 
   @Input() maskPlaceholder: boolean = false;
+  @Input() maskAsYouType: boolean = false;
 
   @Output() readonly countryChange = new EventEmitter<Country>();
 
@@ -268,10 +269,18 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       }
 
       if (this.maskPlaceholder) {
-        this.phoneNumber = this.maskWithPlaceholder(countryCode.toUpperCase());
+        this.phoneNumber = this.maskWithPlaceholder();
+      } else if (this.maskAsYouType) {
+        this.phoneNumber = this.maskAsYouTypeFormatter(
+          countryCode.toUpperCase()
+        );
       }
+
       this.propagateChange({
-        number: this.maskPlaceholder ? this.phoneNumber : this.value,
+        number:
+          this.maskPlaceholder || this.maskAsYouType
+            ? this.phoneNumber
+            : this.value,
         internationalNumber: intlNo,
         nationalNumber: number
           ? this.phoneUtil.format(number, lpn.PhoneNumberFormat.NATIONAL)
@@ -285,7 +294,26 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     }
   }
 
-  maskWithPlaceholder(countryCode: string) {
+  maskWithPlaceholder() {
+    let mask = this.resolvePlaceholder()
+      .replace(/[{()}]/g, '')
+      .replace(/-/g, ' ');
+    let tempPhone = '';
+    this.phoneNumber?.split('').forEach((char, index) => {
+      if (char === ' ') {
+        tempPhone += ' ';
+      } else {
+        if (mask[index] !== ' ') {
+          tempPhone += char;
+        } else {
+          tempPhone += ' ' + char;
+        }
+      }
+    });
+    return tempPhone;
+  }
+
+  maskAsYouTypeFormatter(countryCode: string) {
     const formatter = new AsYouTypeFormatter(countryCode);
 
     this.phoneNumber = this.phoneNumber?.replace(/\s/g, '');
@@ -293,25 +321,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.phoneNumber?.split('').forEach((char) => {
       tempPhone = formatter.inputDigit(char);
     });
-    console.log(tempPhone);
     return tempPhone;
-
-    //AsYouTypeFormatter.
-    // let mask = this.resolvePlaceholder()
-    //   .replace(/[{()}]/g, '')
-    //   .replace(/-/g, ' ');
-    // let tempPhone = '';
-    // this.phoneNumber?.split('').forEach((char, index) => {
-    //   if (char === ' ') {
-    //     tempPhone += ' ';
-    //   } else {
-    //     if (mask[index] !== ' ') {
-    //       tempPhone += char;
-    //     } else {
-    //       tempPhone += ' ' + char;
-    //     }
-    //   }
-    // });
   }
 
   public onCountrySelect(country: Country, el: { focus: () => void }): void {

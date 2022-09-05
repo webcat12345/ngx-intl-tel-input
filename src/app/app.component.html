@@ -8,8 +8,12 @@
     </button>
   </div>
   <div class="wrapper">
-    <input type="checkbox" [(ngModel)]="maskPlaceholder" />
+    <input type="checkbox" [(ngModel)]="maskAsYouType" />
     <label>&nbsp;Mask As You Type?</label>
+  </div>
+  <div class="wrapper">
+    <input type="checkbox" [(ngModel)]="maskPlaceholder" />
+    <label>&nbsp;Mask With Placeholder?</label>
   </div>
   <div class="wrapper">
     <input type="checkbox" [(ngModel)]="separateDialCode" />
@@ -34,6 +38,7 @@
         [separateDialCode]="separateDialCode"
         [numberFormat]="PhoneNumberFormat.National"
         [maskPlaceholder]="maskPlaceholder"
+        [maskAsYouType]="maskAsYouType"
         name="phone"
         formControlName="phone"
       >
