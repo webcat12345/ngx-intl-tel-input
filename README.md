@@ -122,6 +122,7 @@ Or this:
 | separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
 | countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
 | maskPlaceholder          | `boolean`                | `false`                           | Masks the input as you type with the placeholder.                                                             |
+| maskAsYouType            | `boolean`                | `false`                           | Masks the input as you type with using AsYouTypeFormatter.                                                    |
 
 ## Supported Formats
 
