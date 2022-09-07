@@ -268,7 +268,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
         this.value = this.removeDialCode(intlNo);
       }
 
-      if (this.maskPlaceholder) {
+      if (this.maskPlaceholder && !this.customPlaceholder) {
         this.phoneNumber = this.maskWithPlaceholder();
       } else if (this.maskAsYouType) {
         this.phoneNumber = this.maskAsYouTypeFormatter(
