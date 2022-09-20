@@ -16,7 +16,8 @@
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "npm run copy-files && cd dist/ngx-intl-tel-input && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc",
+    "prepare": "npm run build"
   },
   "private": true,
   "dependencies": {
