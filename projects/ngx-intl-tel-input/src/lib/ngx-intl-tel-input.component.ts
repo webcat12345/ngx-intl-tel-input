@@ -65,6 +65,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() separateDialCode = false;
   separateDialCodeClass: string;
 
+  @Input() symbolToMaskPlaceholderWith: string = 'X';
   @Input() noDigitsPlaceholder: boolean = false;
   @Input() maskPlaceholder: boolean = false;
   @Input() maskAsYouType: boolean = false;
@@ -308,7 +309,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       .replace(/[{()}]/g, '')
       .replace(/-/g, ' ');
 
-    this.customPlaceholder = mask.replace(new RegExp('[0-9]', 'g'), 'X');
+    this.customPlaceholder = mask.replace(
+      new RegExp('[0-9]', 'g'),
+      this.symbolToMaskPlaceholderWith
+    );
   }
 
   maskWithPlaceholder() {

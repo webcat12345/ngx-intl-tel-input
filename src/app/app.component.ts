@@ -21,7 +21,6 @@ export class AppComponent {
   ];
 
   noDigitPlaceholder = false;
-
   maskPlaceholder = false;
   maskAsYouType = false;
   phoneForm = new FormGroup({
