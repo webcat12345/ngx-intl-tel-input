@@ -23,8 +23,7 @@ import { ChangeData } from './interfaces/change-data';
 import { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
-const AsYouTypeFormatter = require('google-libphonenumber').AsYouTypeFormatter;
-declare var require: any;
+import * as phoneLib from 'google-libphonenumber';
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'ngx-intl-tel-input',
@@ -275,13 +274,14 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
         this.value = this.removeDialCode(intlNo);
       }
 
-      if (this.maskPlaceholder) {
-        this.phoneNumber = this.maskWithPlaceholder();
-      }
       if (this.maskAsYouType) {
         this.phoneNumber = this.maskAsYouTypeFormatter(
           countryCode.toUpperCase()
         );
+      }
+
+      if (this.maskPlaceholder) {
+        this.phoneNumber = this.maskWithPlaceholder();
       }
 
       this.propagateChange({
@@ -331,7 +331,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   }
 
   maskAsYouTypeFormatter(countryCode: string) {
-    const formatter = new AsYouTypeFormatter(countryCode);
+    const formatter = new phoneLib.AsYouTypeFormatter(countryCode);
 
     this.phoneNumber = this.phoneNumber?.replace(/\s/g, '');
     let tempPhone = '';
