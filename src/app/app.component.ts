@@ -20,6 +20,8 @@ export class AppComponent {
     CountryISO.UnitedKingdom,
   ];
 
+  noDigitPlaceholder = false;
+
   maskPlaceholder = false;
   maskAsYouType = false;
   phoneForm = new FormGroup({

@@ -66,6 +66,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() separateDialCode = false;
   separateDialCodeClass: string;
 
+  @Input() noDigitsPlaceholder: boolean = false;
   @Input() maskPlaceholder: boolean = false;
   @Input() maskAsYouType: boolean = false;
 
@@ -104,6 +105,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.init();
+    if (this.noDigitsPlaceholder) {
+      this.generateCustomPlaceholder();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -149,6 +153,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   setSelectedCountry(country: Country) {
     this.selectedCountry = country;
     this.countryChange.emit(country);
+    if (this.noDigitsPlaceholder) {
+      this.generateCustomPlaceholder();
+    }
   }
 
   /**
@@ -268,9 +275,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
         this.value = this.removeDialCode(intlNo);
       }
 
-      if (this.maskPlaceholder && !this.customPlaceholder) {
+      if (this.maskPlaceholder) {
         this.phoneNumber = this.maskWithPlaceholder();
-      } else if (this.maskAsYouType) {
+      }
+      if (this.maskAsYouType) {
         this.phoneNumber = this.maskAsYouTypeFormatter(
           countryCode.toUpperCase()
         );
@@ -292,6 +300,15 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
         dialCode: '+' + this.selectedCountry.dialCode,
       });
     }
+  }
+
+  generateCustomPlaceholder() {
+    this.customPlaceholder = '';
+    let mask = this.resolvePlaceholder()
+      .replace(/[{()}]/g, '')
+      .replace(/-/g, ' ');
+
+    this.customPlaceholder = mask.replace(new RegExp('[0-9]', 'g'), 'X');
   }
 
   maskWithPlaceholder() {

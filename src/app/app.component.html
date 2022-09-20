@@ -8,6 +8,10 @@
     </button>
   </div>
   <div class="wrapper">
+    <input type="checkbox" [(ngModel)]="noDigitPlaceholder" />
+    <label>&nbsp;No Digits Placeholder?</label>
+  </div>
+  <div class="wrapper">
     <input type="checkbox" [(ngModel)]="maskAsYouType" />
     <label>&nbsp;Mask As You Type?</label>
   </div>
@@ -39,6 +43,7 @@
         [numberFormat]="PhoneNumberFormat.National"
         [maskPlaceholder]="maskPlaceholder"
         [maskAsYouType]="maskAsYouType"
+        [noDigitsPlaceholder]="noDigitPlaceholder"
         name="phone"
         formControlName="phone"
       >
