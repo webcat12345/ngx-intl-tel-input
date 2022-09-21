@@ -71,6 +71,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() maskAsYouType: boolean = false;
   @Input() dynamicMaxLength: boolean = false;
 
+  dynamicMaxLen: number;
+
   @Output() readonly countryChange = new EventEmitter<Country>();
 
   selectedCountry: Country = {
@@ -315,9 +317,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       .replace(/[{()}]/g, '')
       .replace(/-/g, ' ');
     if (this.maskPlaceholder || this.maskAsYouType) {
-      this.maxLength = mask.length;
+      this.dynamicMaxLen = mask.length;
     } else {
-      this.maxLength =
+      this.dynamicMaxLen =
         mask.length - (mask.match(new RegExp(' ', 'g')) || []).length;
     }
   }
