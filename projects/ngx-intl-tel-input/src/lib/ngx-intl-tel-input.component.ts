@@ -69,6 +69,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() noDigitsPlaceholder: boolean = false;
   @Input() maskPlaceholder: boolean = false;
   @Input() maskAsYouType: boolean = false;
+  @Input() dynamicMaxLength: boolean = false;
 
   @Output() readonly countryChange = new EventEmitter<Country>();
 
@@ -107,6 +108,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.init();
     if (this.noDigitsPlaceholder) {
       this.generateCustomPlaceholder();
+    }
+    if (this.dynamicMaxLength) {
+      this.generateDynamicMaxLength();
     }
   }
 
@@ -155,6 +159,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.countryChange.emit(country);
     if (this.noDigitsPlaceholder) {
       this.generateCustomPlaceholder();
+    }
+    if (this.dynamicMaxLength) {
+      this.generateDynamicMaxLength();
     }
   }
 
@@ -300,6 +307,18 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
         countryCode: countryCode.toUpperCase(),
         dialCode: '+' + this.selectedCountry.dialCode,
       });
+    }
+  }
+
+  generateDynamicMaxLength() {
+    let mask = this.resolvePlaceholder()
+      .replace(/[{()}]/g, '')
+      .replace(/-/g, ' ');
+    if (this.maskPlaceholder || this.maskAsYouType) {
+      this.maxLength = mask.length;
+    } else {
+      this.maxLength =
+        mask.length - (mask.match(new RegExp(' ', 'g')) || []).length;
     }
   }
 

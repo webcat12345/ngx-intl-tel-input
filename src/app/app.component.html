@@ -12,6 +12,10 @@
     <label>&nbsp;No Digits Placeholder?</label>
   </div>
   <div class="wrapper">
+    <input type="checkbox" [(ngModel)]="enableMaxLength" />
+    <label>&nbsp;dynamic Max Length Check?</label>
+  </div>
+  <div class="wrapper">
     <input type="checkbox" [(ngModel)]="maskAsYouType" />
     <label>&nbsp;Mask As You Type?</label>
   </div>
@@ -19,6 +23,7 @@
     <input type="checkbox" [(ngModel)]="maskPlaceholder" />
     <label>&nbsp;Mask With Placeholder?</label>
   </div>
+
   <div class="wrapper">
     <input type="checkbox" [(ngModel)]="separateDialCode" />
     <label>&nbsp;Separate Dial Code?</label>
@@ -44,6 +49,7 @@
         [maskPlaceholder]="maskPlaceholder"
         [maskAsYouType]="maskAsYouType"
         [noDigitsPlaceholder]="noDigitPlaceholder"
+        [dynamicMaxLength]="enableMaxLength"
         name="phone"
         formControlName="phone"
       >

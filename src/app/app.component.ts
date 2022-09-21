@@ -19,7 +19,7 @@ export class AppComponent {
     CountryISO.UnitedStates,
     CountryISO.UnitedKingdom,
   ];
-
+  enableMaxLength = false;
   noDigitPlaceholder = false;
   maskPlaceholder = false;
   maskAsYouType = false;
