@@ -40,8 +40,7 @@
           SearchCountryField.Iso2,
           SearchCountryField.Name
         ]"
-        [selectFirstCountry]="false"
-        [selectedCountryISO]="CountryISO.India"
+        [selectFirstCountry]="true"
         [maxLength]="15"
         [phoneValidation]="true"
         [separateDialCode]="separateDialCode"
@@ -50,6 +49,7 @@
         [maskAsYouType]="maskAsYouType"
         [noDigitsPlaceholder]="noDigitPlaceholder"
         [dynamicMaxLength]="enableMaxLength"
+        [onlyCountries]="countries"
         name="phone"
         formControlName="phone"
       >

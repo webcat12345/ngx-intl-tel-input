@@ -27,6 +27,8 @@ export class AppComponent {
     phone: new FormControl(undefined, [Validators.required]),
   });
 
+  countries = ['jmd', 'jmzxc'];
+
   changePreferredCountries() {
     this.preferredCountries = [CountryISO.India, CountryISO.Canada];
   }

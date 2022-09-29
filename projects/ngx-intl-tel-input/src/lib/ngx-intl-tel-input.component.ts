@@ -141,9 +141,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       this.updatePreferredCountries();
     }
     if (this.onlyCountries.length) {
-      this.allCountries = this.allCountries.filter((c) =>
+      let countries = this.allCountries.filter((c) =>
         this.onlyCountries.includes(c.iso2)
       );
+
+      if (countries.length > 0) {
+        this.allCountries = countries;
+      }
     }
     if (this.selectFirstCountry) {
       if (this.preferredCountriesInDropDown.length) {
@@ -341,14 +345,16 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       .replace(/[{()}]/g, '')
       .replace(/-/g, ' ');
     let tempPhone = '';
+    let count = 0;
     this.phoneNumber?.split('').forEach((char, index) => {
       if (char === ' ') {
         tempPhone += ' ';
       } else {
-        if (mask[index] !== ' ') {
+        if (mask[index + count] !== ' ') {
           tempPhone += char;
         } else {
           tempPhone += ' ' + char;
+          count += 1;
         }
       }
     });
