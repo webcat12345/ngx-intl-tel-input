@@ -205,7 +205,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	public onPhoneNumberChange(): void {
 		let countryCode: string | undefined;
-		console.log(this.selectedCountry);
 		// Handle the case where the user sets the value programatically based on a persisted ChangeData obj.
 		if (this.phoneNumber && typeof this.phoneNumber === "object") {
 			const numberObj: ChangeData = this.phoneNumber;
