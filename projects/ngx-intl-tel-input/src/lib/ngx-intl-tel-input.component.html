@@ -28,6 +28,7 @@
 			<ul class="iti__country-list" #countryList>
 				<li
 					class="iti__country iti__preferred"
+					ngbDropdownItem
 					*ngFor="let country of preferredCountriesInDropDown"
 					(click)="onCountrySelect(country, focusable)"
 					[id]="country.htmlId + '-preferred'"
@@ -43,6 +44,7 @@
 					*ngIf="preferredCountriesInDropDown?.length"
 				></li>
 				<li
+					ngbDropdownItem
 					class="iti__country iti__standard"
 					*ngFor="let country of allCountries"
 					(click)="onCountrySelect(country, focusable)"
