@@ -1,6 +1,6 @@
 {
 	"name": "ngx-intl-tel-input",
-	"version": "3.2.0",
+	"version": "3.3.0",
 	"peerDependencies": {
 		"@angular/common": "8.x - 14.x",
 		"@angular/core": "8.x - 14.x",
@@ -28,7 +28,7 @@
 		"angular 11",
 		"angular 12",
 		"angular 13",
-    "angular 14",
+    	"angular 14",
 		"intl-tel-input",
 		"phone number",
 		"validation"
