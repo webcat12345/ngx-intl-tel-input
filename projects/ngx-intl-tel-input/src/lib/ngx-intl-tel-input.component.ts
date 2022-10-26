@@ -23,6 +23,7 @@ import { ChangeData } from './interfaces/change-data';
 import { Country } from './model/country.model';
 import { phoneNumberValidator } from './ngx-intl-tel-input.validator';
 import { PhoneNumberFormat } from './enums/phone-number-format.enum';
+import { BsDropdownDirective } from 'ngx-bootstrap/dropdown';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -78,6 +79,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	};
 
 	phoneNumber: string | undefined = '';
+	countriesList: Array<Country> = [];
 	allCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
 	// Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
@@ -85,7 +87,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
+  startTabIndexCounter = 3;
 
+	@ViewChild('dropdownToggle') dropdownToggle: ElementRef;
+	@ViewChild('countryListDropdown') countryListDropdown: BsDropdownDirective;
 	@ViewChild('countryList') countryList: ElementRef;
 
 	onTouched = () => {};
@@ -146,6 +151,20 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		this.countryChange.emit(country);
 	}
 
+  public openCountryList(event: Event) {
+    event.preventDefault();
+    this.countrySearchText = '';
+    this.countriesList = [...this.allCountries];
+    this.dropdownToggle.nativeElement.blur();
+
+    if (this.countryListDropdown.isOpen) {
+      this.countryListDropdown.hide();
+    } else {
+      this.countryListDropdown.show();
+      document.getElementById('country-search-box')?.focus();
+    }
+  }
+
 	/**
 	 * Search country based on country name, iso2, dialCode or all of them.
 	 */
@@ -158,54 +177,49 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 					block: 'nearest',
 					inline: 'nearest',
 				});
+      this.countriesList = [...this.allCountries];
 			return;
 		}
-		const countrySearchTextLower = this.countrySearchText.toLowerCase();
+    // Lower case the search text to match the country name and iso2 and ignore `+` from the dial code.
+		const countrySearchTextFormatted = this.countrySearchText.toLowerCase().replace(/[+]/g, '');
     // @ts-ignore
-		const country = this.allCountries.filter((c) => {
+		const countries = this.allCountries.filter((c) => {
 			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
 				// Search in all fields
-				if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+				if (c.iso2.toLowerCase().startsWith(countrySearchTextFormatted)) {
 					return c;
 				}
-				if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+				if (c.name.toLowerCase().startsWith(countrySearchTextFormatted)) {
 					return c;
 				}
-				if (c.dialCode.startsWith(this.countrySearchText)) {
+				if (c.dialCode.startsWith(countrySearchTextFormatted)) {
 					return c;
 				}
 			} else {
 				// Or search by specific SearchCountryField(s)
 				if (this.searchCountryField.indexOf(SearchCountryField.Iso2) > -1) {
-					if (c.iso2.toLowerCase().startsWith(countrySearchTextLower)) {
+					if (c.iso2.toLowerCase().startsWith(countrySearchTextFormatted)) {
 						return c;
 					}
 				}
 				if (this.searchCountryField.indexOf(SearchCountryField.Name) > -1) {
-					if (c.name.toLowerCase().startsWith(countrySearchTextLower)) {
+					if (c.name.toLowerCase().startsWith(countrySearchTextFormatted)) {
 						return c;
 					}
 				}
 				if (this.searchCountryField.indexOf(SearchCountryField.DialCode) > -1) {
-					if (c.dialCode.startsWith(this.countrySearchText)) {
+					if (c.dialCode.startsWith(countrySearchTextFormatted)) {
 						return c;
 					}
 				}
 			}
 		});
 
-		if (country.length > 0) {
-			const el = this.countryList.nativeElement.querySelector(
-				'#' + country[0].htmlId
-			);
-			if (el) {
-				el.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
-				});
-			}
-		}
+		if (countries.length > 0) {
+      this.countriesList = countries;
+		} else {
+      this.countriesList = [...this.allCountries];
+    }
 
 		this.checkSeparateDialCodeStyle();
 	}
@@ -278,6 +292,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 	public onCountrySelect(country: Country, el: { focus: () => void; }): void {
 		this.setSelectedCountry(country);
+    this.countryListDropdown.hide();
 
 		this.checkSeparateDialCodeStyle();
 
@@ -506,6 +521,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
 			this.allCountries.push(country);
 		});
+    this.countriesList = [...this.allCountries];
 	}
 
 	/**
