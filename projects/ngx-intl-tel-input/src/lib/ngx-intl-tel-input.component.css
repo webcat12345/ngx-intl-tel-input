@@ -1,6 +1,9 @@
 li.iti__country:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 }
+li.iti__country:focus {
+	background-color: rgba(0, 0, 0, 0.1);
+}
 .iti__selected-flag.dropdown-toggle:after {
 	content: none;
 }
