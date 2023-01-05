@@ -68,8 +68,8 @@
     "webpack-bundle-analyzer": "^3.9.0"
   },
   "peerDependencies": {
-    "@angular/common": "8.x - 13.x",
-    "@angular/core": "8.x - 13.x",
-    "@angular/forms": "8.x - 13.x"
+    "@angular/common": "8.x - 14.x",
+    "@angular/core": "8.x - 14.x",
+    "@angular/forms": "8.x - 14.x"
   }
 }
