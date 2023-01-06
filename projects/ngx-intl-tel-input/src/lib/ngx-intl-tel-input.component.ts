@@ -62,6 +62,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
+  @Input() scrollAnimationBehavior: 'auto'|'instant'|'smooth' = 'smooth';
+  @Input() scrollAnimationBlock: 'start'|'center'|'end'|'nearest' = 'nearest';
+  @Input() scrollAnimationInline: 'start'|'center'|'end'|'nearest' = 'nearest';
 	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
@@ -200,9 +203,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			);
 			if (el) {
 				el.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest',
+					behavior: this.scrollAnimationBehavior,
+					block: this.scrollAnimationBlock,
+					inline: this.scrollAnimationInline,
 				});
 			}
 		}
