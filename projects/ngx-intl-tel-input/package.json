@@ -5,8 +5,8 @@
 		"@angular/common": ">= 16.x",
 		"@angular/core": ">= 16.x",
 		"@angular/forms": ">= 16.x",
-		"google-libphonenumber": "^3.2.3",
-		"intl-tel-input": "^17.0.3",
+		"google-libphonenumber": "^3.2.33",
+		"intl-tel-input": "^18.2.1",
 		"ngx-bootstrap": ">= 11.0.0"
 	},
 	"repository": {
