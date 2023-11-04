@@ -162,5 +162,5 @@
 			}
 		}
 	},
-	"defaultProject": "ngx-intl-tel-input-app"
+  	"defaultProject": "ngx-intl-tel-input-app"
 }
