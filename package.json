@@ -1,6 +1,6 @@
 {
   "name": "ngx-intl-tel-input-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,7 +18,7 @@
     "package": "npm run build_lib && npm run npm_pack",
     "postinstall": "ngcc"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "8.x - 16.x",
     "@angular/common": "8.x - 16.x",
