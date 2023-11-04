@@ -14,10 +14,10 @@ describe('AppComponent', () => {
 		expect(app).toBeTruthy();
 	});
 
-	it(`should have as title 'ngx-intl-tel-input-app'`, () => {
+	it(`should have as title 'ng-international-phone-field'`, () => {
 		const fixture = TestBed.createComponent(AppComponent);
 		const app = fixture.debugElement.componentInstance;
-		expect(app.title).toEqual('ngx-intl-tel-input-app');
+		expect(app.title).toEqual('ng-international-phone-field');
 	});
 
 	it('should render title in a h1 tag', () => {
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
 		fixture.detectChanges();
 		const compiled = fixture.debugElement.nativeElement;
 		expect(compiled.querySelector('h1').textContent).toContain(
-			'Welcome to ngx-intl-tel-input-app!'
+			'Welcome to ng-international-phone-field!'
 		);
 	});
 });

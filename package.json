@@ -1,5 +1,5 @@
 {
-  "name": "ngx-intl-tel-input-app",
+  "name": "ng-international-phone-field",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_stats": "ng build --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/ngx-intl-tel-input-app/stats.json",
+    "analyze": "webpack-bundle-analyzer dist/ng-international-phone-field/stats.json",
     "build_lib": "ng build ngx-intl-tel-input",
     "copy-license": "cp ./LICENSE ./dist/ngx-intl-tel-input",
     "copy-readme": "cp ./README.md ./dist/ngx-intl-tel-input",
