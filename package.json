@@ -1,6 +1,6 @@
 {
-  "name": "ngx-intl-tel-input-app",
-  "version": "0.0.0",
+  "name": "ng-international-phone-field",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_stats": "ng build --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/ngx-intl-tel-input-app/stats.json",
+    "analyze": "webpack-bundle-analyzer dist/ng-international-phone-field/stats.json",
     "build_lib": "ng build ngx-intl-tel-input",
     "copy-license": "cp ./LICENSE ./dist/ngx-intl-tel-input",
     "copy-readme": "cp ./README.md ./dist/ngx-intl-tel-input",
@@ -18,32 +18,32 @@
     "package": "npm run build_lib && npm run npm_pack",
     "postinstall": "ngcc"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
-    "@angular/animations": "8.x - 14.x",
-    "@angular/common": "8.x - 14.x",
-    "@angular/compiler": "8.x - 14.x",
-    "@angular/core": "8.x - 14.x",
-    "@angular/forms": "8.x - 14.x",
-    "@angular/platform-browser": "8.x - 14.x",
-    "@angular/platform-browser-dynamic": "8.x - 14.x",
-    "@angular/router": "8.x - 14.x",
+    "@angular/animations": "8.x - 16.x",
+    "@angular/common": "8.x - 16.x",
+    "@angular/compiler": "8.x - 16.x",
+    "@angular/core": "8.x - 16.x",
+    "@angular/forms": "8.x - 16.x",
+    "@angular/platform-browser": "8.x - 16.x",
+    "@angular/platform-browser-dynamic": "8.x - 16.x",
+    "@angular/router": "8.x - 16.x",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
     "google-libphonenumber": "^3.2.3",
     "intl-tel-input": "^17.0.3",
     "jquery": "^3.5.0",
-    "ngx-bootstrap": "^9.0.0",
+    "ngx-bootstrap": "^11.0.2",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.13.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "8.x - 14.x",
-    "@angular/cli": "8.x - 14.x",
-    "@angular/compiler-cli": "8.x - 14.x",
-    "@angular/language-service": "8.x - 14.x",
+    "@angular-devkit/build-angular": "8.x - 16.x",
+    "@angular/cli": "8.x - 16.x",
+    "@angular/compiler-cli": "8.x - 16.x",
+    "@angular/language-service": "8.x - 16.x",
     "@types/google-libphonenumber": "^7.4.23",
     "@types/jasmine": "~3.8.0",
     "@types/jasminewd2": "~2.0.3",
@@ -57,7 +57,7 @@
     "karma-coverage-istanbul-reporter": "^2.0.6",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^14.0.0",
+    "ng-packagr": "^16.2.3",
     "prettier": "^2.0.5",
     "protractor": "^7.0.0",
     "rollup": "^2.22.0",
@@ -68,8 +68,8 @@
     "webpack-bundle-analyzer": "^3.9.0"
   },
   "peerDependencies": {
-    "@angular/common": "8.x - 13.x",
-    "@angular/core": "8.x - 13.x",
-    "@angular/forms": "8.x - 13.x"
+    "@angular/common": "8.x - 16.x",
+    "@angular/core": "8.x - 16.x",
+    "@angular/forms": "8.x - 16.x"
   }
 }
