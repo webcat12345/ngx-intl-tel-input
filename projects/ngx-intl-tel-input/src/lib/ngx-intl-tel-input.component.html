@@ -1,27 +1,28 @@
 <div class="iti iti--allow-dropdown"
-	[ngClass]="separateDialCodeClass">
+	 [ngClass]="separateDialCodeClass">
 	<div class="iti__flag-container"
-		dropdown
-		[ngClass]="{'disabled': disabled}"
-		[isDisabled]="disabled">
+		 dropdown
+		 [ngClass]="{'disabled': disabled}"
+		 [isDisabled]="disabled">
 		<div class="iti__selected-flag dropdown-toggle"
-			dropdownToggle>
+			 dropdownToggle>
 			<div class="iti__flag"
-				[ngClass]="selectedCountry.flagClass || ''"></div>
+				 [ngClass]="selectedCountry.flagClass || ''"></div>
 			<div *ngIf="separateDialCode"
-				class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
+				 class="selected-dial-code">+{{ selectedCountry.dialCode }}
+			</div>
 			<div class="iti__arrow"></div>
 		</div>
 		<div *dropdownMenu
-			class="dropdown-menu country-dropdown">
+			 class="dropdown-menu iti__dropdown-content">
 			<div class="search-container"
-				*ngIf="searchCountryFlag && searchCountryField">
+				 *ngIf="searchCountryFlag && searchCountryField">
 				<input id="country-search-box"
-					[(ngModel)]="countrySearchText"
-					(keyup)="searchCountry()"
-					(click)="$event.stopPropagation()"
-					[placeholder]="searchCountryPlaceholder"
-					autofocus>
+					   [(ngModel)]="countrySearchText"
+					   (keyup)="searchCountry()"
+					   (click)="$event.stopPropagation()"
+					   [placeholder]="searchCountryPlaceholder"
+					   autofocus>
 			</div>
 			<ul class="iti__country-list"
 				#countryList>
@@ -31,10 +32,10 @@
 					[id]="country.htmlId+'-preferred'">
 					<div class="iti__flag-box">
 						<div class="iti__flag"
-							[ngClass]="country.flagClass"></div>
+							 [ngClass]="country.flagClass"></div>
 					</div>
-					<span class="iti__country-name">{{country.name}}</span>
-					<span class="iti__dial-code">+{{country.dialCode}}</span>
+					<span class="iti__country-name">{{ country.name }}</span>
+					<span class="iti__dial-code">+{{ country.dialCode }}</span>
 				</li>
 				<li class="iti__divider"
 					*ngIf="preferredCountriesInDropDown?.length"></li>
@@ -44,25 +45,26 @@
 					[id]="country.htmlId">
 					<div class="iti__flag-box">
 						<div class="iti__flag"
-							[ngClass]="country.flagClass"></div>
+							 [ngClass]="country.flagClass"></div>
 					</div>
-					<span class="iti__country-name">{{country.name}}</span>
-					<span class="iti__dial-code">+{{country.dialCode}}</span>
+					<span class="iti__country-name">{{ country.name }}</span>
+					<span class="iti__dial-code">+{{ country.dialCode }}</span>
 				</li>
 			</ul>
 		</div>
 	</div>
 	<input type="tel"
-		[id]="inputId"
-		autocomplete="off"
-		[ngClass]="cssClass"
-		(blur)="onTouched()"
-		(keypress)="onInputKeyPress($event)"
-		[(ngModel)]="phoneNumber"
-		(ngModelChange)="onPhoneNumberChange()"
-		[disabled]="disabled"
-		[placeholder]="resolvePlaceholder()"
-		[attr.maxLength]="maxLength"
-		[attr.validation]="phoneValidation"
-		#focusable>
+		   [id]="inputId"
+		   class="iti__tel-input"
+		   autocomplete="off"
+		   [ngClass]="cssClass"
+		   (blur)="onTouched()"
+		   (keypress)="onInputKeyPress($event)"
+		   [(ngModel)]="phoneNumber"
+		   (ngModelChange)="onPhoneNumberChange()"
+		   [disabled]="disabled"
+		   [placeholder]="resolvePlaceholder()"
+		   [attr.maxLength]="maxLength"
+		   [attr.validation]="phoneValidation"
+		   #focusable>
 </div>

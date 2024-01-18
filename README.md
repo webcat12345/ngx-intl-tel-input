@@ -14,7 +14,7 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 | ngx-intl-tel-input | Angular        | ngx-bootstrap |
 |--------------------|----------------|---------------|
-| 16.x.x             | 16.x.x         | \>= 11.0.0    |
+| 16.x.x             | 16.x.x         | 11.x.x        |
 | 3.x.x              | 9.x.x - 14.x.x | \>= 6.0.0     |
 | 2.x.x              | 8.x.x - 9.1.x  | 5.6.x         |
 
@@ -22,7 +22,7 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 ### Install Dependencies
 
-`$ npm install intl-tel-input@18.2.1 --save`
+`$ npm install intl-tel-input@19 --save`
 
 `$ npm install google-libphonenumber --save`
 
