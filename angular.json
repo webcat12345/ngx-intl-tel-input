@@ -156,6 +156,8 @@
 				}
 			}
 		}
-	},
-	"defaultProject": "ngx-intl-tel-input-app"
+  },
+  "cli": {
+    "analytics": false
+  }
 }
