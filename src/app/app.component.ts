@@ -9,6 +9,7 @@ import { PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
+	standalone: false,
 })
 export class AppComponent {
 	separateDialCode = false;

@@ -8,8 +8,8 @@ import { NativeElementInjectorDirective } from "./directives/native-element-inje
 import { NgxIntlTelInputComponent } from "./ngx-intl-tel-input.component";
 
 @NgModule({
-	declarations: [NgxIntlTelInputComponent, NativeElementInjectorDirective],
-	imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbDropdownModule],
+	declarations: [NgxIntlTelInputComponent],
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbDropdownModule, NativeElementInjectorDirective],
 	exports: [NgxIntlTelInputComponent, NativeElementInjectorDirective],
 })
 export class NgxIntlTelInputModule {}

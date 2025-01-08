@@ -27,6 +27,7 @@ import { PhoneNumberFormat } from "./enums/phone-number-format.enum";
 	selector: "ngx-intl-tel-input",
 	templateUrl: "./ngx-intl-tel-input.component.html",
 	styleUrls: ["./bootstrap-dropdown.css", "./ngx-intl-tel-input.component.css"],
+	standalone: false,
 	providers: [
 		CountryCode,
 		{
