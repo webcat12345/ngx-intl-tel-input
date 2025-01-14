@@ -114,6 +114,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 			this.updatePreferredCountries();
 		}
 		this.checkSeparateDialCodeStyle();
+    if (changes['onlyCountries']) {
+      this.allCountries = this.allCountries.filter((c) => this.onlyCountries.includes(c.iso2));
+    }
 	}
 
 	/*
