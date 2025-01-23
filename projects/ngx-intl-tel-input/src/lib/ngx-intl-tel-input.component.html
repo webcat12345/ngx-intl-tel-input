@@ -21,6 +21,7 @@
 					(keyup)="searchCountry()"
 					(click)="$event.stopPropagation()"
 					[placeholder]="searchCountryPlaceholder"
+					[autocomplete]="searchCountryAutocomplete"
 					autofocus>
 			</div>
 			<ul class="iti__country-list"
