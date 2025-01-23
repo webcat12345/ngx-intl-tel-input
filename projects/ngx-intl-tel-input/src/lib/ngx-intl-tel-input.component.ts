@@ -321,6 +321,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		const allowedChars = /[0-9\+\-\(\)\ ]/;
 		const allowedCtrlChars = /[axcv]/; // Allows copy-pasting
 		const allowedOtherKeys = [
+			'Add',
 			'ArrowLeft',
 			'ArrowUp',
 			'ArrowRight',
