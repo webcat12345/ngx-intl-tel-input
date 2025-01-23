@@ -28,7 +28,7 @@
     "@angular/platform-browser": "8.x - 14.x",
     "@angular/platform-browser-dynamic": "8.x - 14.x",
     "@angular/router": "8.x - 14.x",
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^5.0.0",
     "core-js": "^3.6.5",
     "google-libphonenumber": "^3.2.3",
     "intl-tel-input": "^17.0.3",
