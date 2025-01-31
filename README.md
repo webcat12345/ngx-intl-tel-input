@@ -1,8 +1,12 @@
 # International Telephone Input for Angular (NgxIntlTelInput)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+[![Build Status](https://github.com/webcat12345/ngx-intl-tel-input/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/webcat12345/ngx-intl-tel-input/actions/workflows/ci.yml)
+[![GitHub Pages](https://img.shields.io/badge/Demo-blue?logo=angular&label=Pages&color=7952B3)](https://webcat12345.github.io/ngx-intl-tel-input/demo/)
+[![license](https://img.shields.io/github/license/webcat12345/ngx-intl-tel-input)](https://github.com/webcat12345/ngx-intl-tel-input/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/ngx-intl-tel-input)](https://badge.fury.io/js/ngx-intl-tel-input)
+[![npm](https://img.shields.io/npm/dm/ngx-intl-tel-input)](https://www.npmjs.com/package/ngx-intl-tel-input)
 
-[![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg)](#contributors)
 
 An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
