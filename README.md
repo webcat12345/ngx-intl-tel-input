@@ -2,7 +2,7 @@
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
-[![Build Status](https://travis-ci.org/webcat12345/ngx-intl-tel-input.svg?branch=master)](https://travis-ci.org/webcat12345/ngx-intl-tel-input) [![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
+[![npm version](https://badge.fury.io/js/ngx-intl-tel-input.svg)](https://badge.fury.io/js/ngx-intl-tel-input) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/ngx-intl-tel-input)
 
 An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
@@ -12,10 +12,11 @@ An Angular package for entering and validating international telephone numbers. 
 
 Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 
-| ngx-intl-tel-input | Angular        | ngx-bootstrap |
-| ------------------ |----------------| ------------- |
-| 3.x.x              | 9.x.x - 14.x.x | >= 6.0.0      |
-| 2.x.x              | 8.x.x - 9.1.x  | 5.6.x         |
+| ngx-intl-tel-input | Angular         | ngx-bootstrap |
+| ------------------ |-----------------| ------------- |
+| 14.x.x             | 12.x.x - 14.x.x | >= 6.0.0      |
+| 3.x.x              | 12.x.x - 13.x.x | >= 6.0.0      |
+| 2.x.x              | 8.x.x - 9.1.x   | 5.6.x         |
 
 ## Installation
 
