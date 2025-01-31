@@ -1,52 +1,57 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="margin: 50px">
-	<h1>Test International Telephone Input Form</h1>
-	<br>
-	<div class="wrapper">
-		<button (click)="changePreferredCountries()">Change Preferred Countries</button>
-	</div>
-	<div class="wrapper">
-		<input type="checkbox"
-			[(ngModel)]="separateDialCode">
-		<label>&nbsp;Separate Dial Code?</label>
-	</div>
-	<form #f="ngForm"
-		[formGroup]="phoneForm">
-		<div class="wrapper">
-			<ngx-intl-tel-input [cssClass]="'custom'"
-				[preferredCountries]="preferredCountries"
-				[enableAutoCountrySelect]="true"
-				[enablePlaceholder]="true"
-				[searchCountryFlag]="true"
-				[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-				[selectFirstCountry]="false"
-				[selectedCountryISO]="CountryISO.India"
-				[maxLength]="15"
-				[phoneValidation]="true"
-				[separateDialCode]="separateDialCode"
-				[numberFormat]="PhoneNumberFormat.National"
-				name="phone"
-				formControlName="phone">
-			</ngx-intl-tel-input>
-		</div>
-		<div class="wrapper">
-			<button (click)="f.reset()">Reset</button>
-		</div>
-	</form>
-	<br>
-	<div><strong>Is input valid:</strong>
-		<pre>{{ !f.form.controls['phone'].invalid }}</pre>
-	</div>
-	<div><strong>Is input touched:</strong>
-		<pre>{{ f.form.controls['phone'].touched }}</pre>
-	</div>
-	<div><strong>Is form valid:</strong>
-		<pre>{{ f.form.valid }}</pre>
-	</div>
-	<div><strong>Form value:</strong>
-		<pre>{{ f.form.value | json }}</pre>
-	</div>
-	<div><strong>Form validation errors:</strong>
-		<pre>{{ f.form.controls['phone'].errors | json }}</pre>
-	</div>
+  <h1>Test International Telephone Input Form</h1>
+  <br />
+  <div class="wrapper">
+    <button (click)="changePreferredCountries()">Change Preferred Countries</button>
+  </div>
+  <div class="wrapper">
+    <input type="checkbox" [(ngModel)]="separateDialCode" />
+    <label>&nbsp;Separate Dial Code?</label>
+  </div>
+  <form #f="ngForm" [formGroup]="phoneForm">
+    <div class="wrapper">
+      <ngx-intl-tel-input
+        [cssClass]="'custom'"
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true"
+        [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [selectFirstCountry]="false"
+        [selectedCountryISO]="CountryISO.India"
+        [maxLength]="15"
+        [phoneValidation]="true"
+        [separateDialCode]="separateDialCode"
+        [numberFormat]="PhoneNumberFormat.National"
+        name="phone"
+        formControlName="phone"
+      >
+      </ngx-intl-tel-input>
+    </div>
+    <div class="wrapper">
+      <button (click)="f.reset()">Reset</button>
+    </div>
+  </form>
+  <br />
+  <div>
+    <strong>Is input valid:</strong>
+    <pre>{{ !f.form.controls['phone'].invalid }}</pre>
+  </div>
+  <div>
+    <strong>Is input touched:</strong>
+    <pre>{{ f.form.controls['phone'].touched }}</pre>
+  </div>
+  <div>
+    <strong>Is form valid:</strong>
+    <pre>{{ f.form.valid }}</pre>
+  </div>
+  <div>
+    <strong>Form value:</strong>
+    <pre>{{ f.form.value | json }}</pre>
+  </div>
+  <div>
+    <strong>Form validation errors:</strong>
+    <pre>{{ f.form.controls['phone'].errors | json }}</pre>
+  </div>
 </div>
