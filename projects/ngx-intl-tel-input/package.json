@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcat12345/ngx-intl-tel-input"
+    "url": "git+https://github.com/webcat12345/ngx-intl-tel-input.git"
   },
   "author": {
     "name": "webcat12345",
