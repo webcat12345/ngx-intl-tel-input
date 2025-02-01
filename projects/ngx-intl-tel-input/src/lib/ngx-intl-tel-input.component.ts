@@ -117,9 +117,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   }
 
   /*
-		This is a wrapper method to avoid calling this.ngOnInit() in writeValue().
-		Ref: http://codelyzer.com/rules/no-life-cycle-call/
-	*/
+    This is a wrapper method to avoid calling this.ngOnInit() in writeValue().
+    Ref: http://codelyzer.com/rules/no-life-cycle-call/
+  */
   init() {
     this.fetchCountryData();
     if (this.preferredCountries.length) {
@@ -227,6 +227,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
           : this.selectedCountry.iso2;
       if (countryCode && countryCode !== this.selectedCountry.iso2) {
         const newCountry = this.allCountries
+          .slice()
           .sort((a, b) => {
             return a.priority - b.priority;
           })
@@ -418,9 +419,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
 
     /*
-			Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
-			If no matches found, fallback to the main country.
-		*/
+      Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
+      If no matches found, fallback to the main country.
+    */
     secondaryCountries.forEach(country => {
       // @ts-ignore
       country.areaCodes.forEach(areaCode => {
