@@ -10,7 +10,7 @@ li.iti__country:hover {
 .iti.iti--allow-dropdown .flag-container.disabled:hover .iti__selected-flag {
   background: none;
 }
-.iti__dropdown-content {
+.country-dropdown {
   border: 1px solid #ccc;
   width: fit-content;
   padding: 1px;
@@ -34,7 +34,7 @@ li.iti__country:hover {
 .iti__country-list {
   position: relative;
   border: none;
-  max-height: 170px;
+  /* max-height: 170px; */
 }
 
 .iti input#country-search-box {
