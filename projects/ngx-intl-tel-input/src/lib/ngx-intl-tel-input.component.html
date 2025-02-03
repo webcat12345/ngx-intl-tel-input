@@ -7,11 +7,14 @@
   >
     <div class="iti__selected-flag dropdown-toggle" dropdownToggle>
       <div class="iti__flag" [ngClass]="selectedCountry.flagClass || ''"></div>
-      <div *ngIf="separateDialCode" class="selected-dial-code">+{{ selectedCountry.dialCode }}</div>
+      @if (separateDialCode) {
+      <div class="selected-dial-code">+{{ selectedCountry.dialCode }}</div>
+      }
       <div class="iti__arrow"></div>
     </div>
     <div *dropdownMenu class="dropdown-menu country-dropdown">
-      <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
+      @if (searchCountryFlag && searchCountryField) {
+      <div class="search-container">
         <input
           id="country-search-box"
           [(ngModel)]="countrySearchText"
@@ -21,10 +24,11 @@
           autofocus
         />
       </div>
+      }
       <ul class="iti__country-list" #countryList>
+        @for (country of preferredCountriesInDropDown; track country) {
         <li
           class="iti__country iti__preferred"
-          *ngFor="let country of preferredCountriesInDropDown"
           (click)="onCountrySelect(country, focusable)"
           [id]="country.htmlId + '-preferred'"
         >
@@ -34,10 +38,11 @@
           <span class="iti__country-name">{{ country.name }}</span>
           <span class="iti__dial-code">+{{ country.dialCode }}</span>
         </li>
-        <li class="iti__divider" *ngIf="preferredCountriesInDropDown?.length"></li>
+        } @if (preferredCountriesInDropDown.length) {
+        <li class="iti__divider"></li>
+        } @for (country of allCountries; track country) {
         <li
           class="iti__country iti__standard"
-          *ngFor="let country of allCountries"
           (click)="onCountrySelect(country, focusable)"
           [id]="country.htmlId"
         >
@@ -47,6 +52,7 @@
           <span class="iti__country-name">{{ country.name }}</span>
           <span class="iti__dial-code">+{{ country.dialCode }}</span>
         </li>
+        }
       </ul>
     </div>
   </div>

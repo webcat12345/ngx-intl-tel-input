@@ -29,7 +29,7 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 ### Install Dependencies
 
-`$ npm install intl-tel-input@17.0.3 --save`
+`$ npm install intl-tel-input@23.8.0 --save`
 
 `$ npm install google-libphonenumber --save`
 
