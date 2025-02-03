@@ -16,6 +16,9 @@
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "npm run copy-files && cd dist/ngx-intl-tel-input && npm pack",
     "package": "rimraf ./dist && npm run build_lib && npm run npm_pack",
+    "ci:publish": "npm run build_lib && npm run semantic-release",
+    "semantic-release": "semantic-release",
+    "postversion": "cp -r package.json ../../projects/ngx-intl-tel-input",
     "postinstall": "ngcc"
   },
   "private": true,
@@ -60,8 +63,29 @@
     "prettier": "^2.0.5",
     "protractor": "^7.0.0",
     "rollup": "^2.22.0",
+    "semantic-release": "^18.0.0",
     "ts-node": "~7.0.0",
     "typescript": "~4.8.2",
     "webpack-bundle-analyzer": "^3.9.0"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "dist/ngx-intl-tel-input"
+        }
+      ],
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": "projects/ngx-intl-tel-input/package.json",
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   }
 }
