@@ -1,4 +1,4 @@
 export enum PhoneNumberFormat {
-	International = 'INTERNATIONAL',
-	National = 'NATIONAL',
+  International = 'INTERNATIONAL',
+  National = 'NATIONAL',
 }
