@@ -28,6 +28,22 @@
       ]
     },
     {
+      "login": "cmckni3",
+      "name": "Chris McKnight",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/735717?v=4",
+      "profile": "https://github.com/cmckni3",
+      "contributions": [
+        "question",
+        "code",
+        "doc",
+        "ideas",
+        "infra",
+        "plugin",
+        "review",
+        "tool"
+      ]
+    },
+    {
       "login": "pasevin",
       "name": "Aleksandr Pasevin",
       "avatar_url": "https://avatars2.githubusercontent.com/u/1058469?v=4",
@@ -59,15 +75,6 @@
         "question",
         "maintenance",
         "review"
-      ]
-    },
-    {
-      "login": "Fosforito",
-      "name": "Jens Wagner",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/5000255?v=4",
-      "profile": "https://www.fosforito.net",
-      "contributions": [
-        "code"
       ]
     },
     {
@@ -228,15 +235,82 @@
       ]
     },
     {
-      "login": "jenslw",
-      "name": "jlw",
+      "login": "riderx",
+      "name": "Martin DONADIEU",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4084527?v=4",
+      "profile": "https://martin.solos.ventures/",
+      "contributions": [
+        "code",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "nicolasl-alight",
+      "name": "Nico",
+      "avatar_url": "https://avatars.githubusercontent.com/u/133889962?v=4",
+      "profile": "https://github.com/nicolasl-alight",
+      "contributions": [
+        "code",
+        "doc",
+        "platform",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "zaizac",
+      "name": "zaizac",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9007583?v=4",
+      "profile": "https://github.com/zaizac",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "nicolasleb",
+      "name": "nicolasleb",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4135062?v=4",
+      "profile": "https://github.com/nicolasleb",
+      "contributions": [
+        "code",
+        "maintenance",
+        "platform",
+        "review",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "jljabben",
+      "name": "jlj",
       "avatar_url": "https://avatars.githubusercontent.com/u/5000255?v=4",
-      "profile": "https://wagner.pink",
+      "profile": "https://github.com/jljabben",
+      "contributions": [
+        "code",
+        "userTesting",
+        "bug"
+      ]
+    },
+    {
+      "login": "ahmedasif1",
+      "name": "Ahmed Asif",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5271212?v=4",
+      "profile": "https://github.com/ahmedasif1",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "snmhinge",
+      "name": "snmhinge",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10630821?v=4",
+      "profile": "https://github.com/snmhinge",
       "contributions": [
         "code"
       ]
     }
   ],
   "contributorsPerLine": 7,
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
