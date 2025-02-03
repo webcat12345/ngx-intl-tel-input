@@ -23,10 +23,10 @@
     "moduleResolution": "node",
     "strictPropertyInitialization": false,
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "es2020",
+    "target": "es2022",
+    "module": "es2022",
     "lib": [
-      "es2020",
+      "es2022",
       "dom"
     ],
     "useDefineForClassFields": false

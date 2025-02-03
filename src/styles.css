@@ -16,7 +16,7 @@ body {
   margin-bottom: 20px;
 }
 
-.iti .dropdown-menu.country-dropdown {
+.iti .dropdown-menu.iti__dropdown-content {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-color: #c7cace;
