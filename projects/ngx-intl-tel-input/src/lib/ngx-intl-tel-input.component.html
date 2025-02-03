@@ -10,7 +10,7 @@
       <div *ngIf="separateDialCode" class="selected-dial-code">+{{ selectedCountry.dialCode }}</div>
       <div class="iti__arrow"></div>
     </div>
-    <div *dropdownMenu class="dropdown-menu country-dropdown">
+    <div *dropdownMenu class="dropdown-menu iti__dropdown-content">
       <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
         <input
           id="country-search-box"
@@ -53,6 +53,7 @@
   <input
     type="tel"
     [id]="inputId"
+    class="iti__tel-input"
     autocomplete="off"
     [ngClass]="cssClass"
     (blur)="onTouched()"

@@ -29,7 +29,7 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 ### Install Dependencies
 
-`$ npm install intl-tel-input@17.0.3 --save`
+`$ npm install intl-tel-input@19 --save`
 
 `$ npm install google-libphonenumber --save`
 
@@ -60,7 +60,7 @@ to **angular.json** styles array:
 
 ### Install This Library
 
-`$ npm install ngx-intl-tel-input --save`
+`$ npm install @justin-s/ngx-intl-tel-input --save`
 
 ## Usage
 
