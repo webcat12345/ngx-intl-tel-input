@@ -56,7 +56,7 @@
     autocomplete="off"
     class="iti__tel-input"
     [ngClass]="cssClass"
-    (blur)="onTouched()"
+    (blur)="onLostFocus()"
     (keypress)="onInputKeyPress($event)"
     [(ngModel)]="phoneNumber"
     (ngModelChange)="onPhoneNumberChange()"
