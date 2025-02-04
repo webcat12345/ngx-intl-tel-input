@@ -6,7 +6,7 @@
     [isDisabled]="disabled"
   >
     <div class="iti__selected-flag dropdown-toggle" dropdownToggle>
-      <div class="iti__flag" [ngClass]="selectedCountry.flagClass || ''"></div>
+      <div class="iti__flag" [ngClass]="selectedCountry?.flagClass"></div>
       <div *ngIf="separateDialCode" class="selected-dial-code">+{{ selectedCountry.dialCode }}</div>
       <div class="iti__arrow"></div>
     </div>
@@ -40,12 +40,16 @@
           *ngFor="let country of allCountries"
           (click)="onCountrySelect(country, focusable)"
           [id]="country.htmlId"
+          [hidden]="noCountriesFound"
         >
           <div class="iti__flag-box">
             <div class="iti__flag" [ngClass]="country.flagClass"></div>
           </div>
           <span class="iti__country-name">{{ country.name }}</span>
           <span class="iti__dial-code">+{{ country.dialCode }}</span>
+        </li>
+        <li class="iti__country" [hidden]="!noCountriesFound">
+          {{ noCountriesText }}
         </li>
       </ul>
     </div>
