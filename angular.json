@@ -24,6 +24,7 @@
               "src/styles.css"
             ],
             "scripts": [],
+            "allowedCommonJsDependencies": ["google-libphonenumber"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
