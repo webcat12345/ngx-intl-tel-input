@@ -6,7 +6,7 @@
 [![npm version](https://img.shields.io/npm/v/ngx-intl-tel-input)](https://badge.fury.io/js/ngx-intl-tel-input)
 [![npm](https://img.shields.io/npm/dm/ngx-intl-tel-input)](https://www.npmjs.com/package/ngx-intl-tel-input)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg)](#contributors)
+[![All Contributors](https://img.shields.io/github/all-contributors/webcat12345/ngx-intl-tel-input?color=ee8449&style=flat-square)](#contributors)
 
 An Angular package for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
 
