@@ -308,9 +308,19 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "juju-sunrise",
+      "name": "juju-sunrise",
+      "avatar_url": "https://avatars.githubusercontent.com/u/139119987?v=4",
+      "profile": "https://github.com/juju-sunrise",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
