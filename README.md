@@ -210,7 +210,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/snmhinge"><img src="https://avatars.githubusercontent.com/u/10630821?v=4?s=100" width="100px;" alt="snmhinge"/><br /><sub><b>snmhinge</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=snmhinge" title="Code">💻</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/juju-sunrise"><img src="https://avatars.githubusercontent.com/u/139119987?v=4?s=100" width="100px;" alt="juju-sunrise"/><br /><sub><b>juju-sunrise</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=juju-sunrise" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/juju-sunrise"><img src="https://avatars.githubusercontent.com/u/139119987?v=4?s=100" width="100px;" alt="juju-sunrise"/><br /><sub><b>juju-sunrise</b></sub></a><br /><a href="https://github.com/webcat12345/ngx-intl-tel-input/commits?author=juju-sunrise" title="Code">💻</a> <a href="#maintenance-juju-sunrise" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
