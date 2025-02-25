@@ -317,6 +317,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "danielstvn",
+      "name": "danielstvn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83106033?v=4",
+      "profile": "https://github.com/danielstvn",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
