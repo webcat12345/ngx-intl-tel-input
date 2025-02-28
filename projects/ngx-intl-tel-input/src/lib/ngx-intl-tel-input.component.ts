@@ -64,6 +64,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() separateDialCode = false;
   separateDialCodeClass: string;
 
+  // take string input to be customized with project language
+  @Input() noCountriesText = 'No Countries Found';
+
   @Output() readonly countryChange = new EventEmitter<Country>();
 
   selectedCountry: Country = {
@@ -85,6 +88,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   disabled = false;
   errors: Array<any> = ['Phone number is required.'];
   countrySearchText = '';
+  // flag if no countries found
+  noCountriesFound: boolean = false;
+  // flag to do the settimeout if the view not ended yet
+  comingFromFalseFlag: boolean = false;
 
   @ViewChild('countryList') countryList: ElementRef;
 
@@ -191,14 +198,31 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     });
 
     if (country.length > 0) {
+      this.noCountriesFound = false;
       const el = this.countryList.nativeElement.querySelector('#' + country[0].htmlId);
       if (el) {
-        el.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'nearest',
-        });
+        if (!this.comingFromFalseFlag) {
+          el.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'nearest',
+          });
+        } else {
+          // added setTimeout to make scroll happen because the view is
+          // not done yet before setTimeout if this.noCountriesFound changed state from true to false
+          setTimeout(() => {
+            el.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'nearest',
+            });
+          }, 0);
+          this.comingFromFalseFlag = false;
+        }
       }
+    } else {
+      this.noCountriesFound = true;
+      this.comingFromFalseFlag = true;
     }
 
     this.checkSeparateDialCodeStyle();

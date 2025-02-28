@@ -19,6 +19,7 @@ export class AppComponent {
   phoneForm = new FormGroup({
     phone: new FormControl(undefined, [Validators.required]),
   });
+  noFoundCountries: string = 'No Countries Found'
 
   changePreferredCountries() {
     this.preferredCountries = [CountryISO.India, CountryISO.Canada];
