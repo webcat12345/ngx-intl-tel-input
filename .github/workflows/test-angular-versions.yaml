@@ -1,0 +1,68 @@
+name: Test Angular Versions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-angular-versions:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        angular_version: ["16", "17", "18", "19"]
+
+    steps:
+      - name: Checkout 🔔
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine TypeScript version for Angular ${{ matrix.angular_version }} 🔄
+        run: |
+          case ${{ matrix.angular_version }} in
+            "15") TS_VERSION="~4.8.0" ;;
+            "16") TS_VERSION="~4.9.0" ;;
+            "17") TS_VERSION="~5.2.0" ;;
+            "18") TS_VERSION="~5.5.0" ;;
+            "19") TS_VERSION="~5.5.0" ;;
+            *) echo "Unsupported Angular version"; exit 1 ;;
+          esac
+          echo "Using TypeScript version $TS_VERSION"
+          npm install typescript@$TS_VERSION --save-dev --force
+
+      - name: Install Angular version ${{ matrix.angular_version }}
+        run: |
+          npm run ng version
+
+          # Angular runtime dependencies
+          npm install @angular/animations@${{ matrix.angular_version }} --save --force
+          npm install @angular/common@${{ matrix.angular_version }} --save --force
+          npm install @angular/compiler@${{ matrix.angular_version }} --save --force
+          npm install @angular/core@${{ matrix.angular_version }} --save --force
+          npm install @angular/forms@${{ matrix.angular_version }} --save --force
+          npm install @angular/platform-browser@${{ matrix.angular_version }} --save --force
+          npm install @angular/platform-browser-dynamic@${{ matrix.angular_version }} --save --force
+          npm install @angular/router@${{ matrix.angular_version }} --save --force
+
+          # Angular dev dependencies
+          npm install @angular-devkit/build-angular@${{ matrix.angular_version }} --save-dev --force
+          npm install @angular/cli@${{ matrix.angular_version }} --save-dev --force
+          npm install @angular/compiler-cli@${{ matrix.angular_version }} --save-dev --force
+          npm install @angular/language-service@${{ matrix.angular_version }} --save-dev --force
+
+          npm install --force
+
+          npm run ng update @angular/cli@${{ matrix.angular_version }} -- --force --allow-dirty
+          npm run ng update @angular/core@${{ matrix.angular_version }} -- --force --allow-dirty
+          npm run ng update -- --force --allow-dirty
+
+      - name: Run Angular build 🔧
+        run: npm run build
+
