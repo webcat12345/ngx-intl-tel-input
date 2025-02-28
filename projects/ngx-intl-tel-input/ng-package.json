@@ -2,11 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ngx-intl-tel-input",
   "lib": {
-    "entryFile": "src/public_api.ts",
-    "umdModuleIds": {
-      "google-libphonenumber": "^3.2.3",
-      "ngx-bootstrap": "^6.0.0",
-      "ngx-bootstrap/dropdown": "ngx-bootstrap-dropdown"
-    }
+    "entryFile": "src/public_api.ts"
   }
 }
