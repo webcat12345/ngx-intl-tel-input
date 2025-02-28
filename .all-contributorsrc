@@ -328,6 +328,16 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "kapcake",
+      "name": "kapcake",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9072781?v=4",
+      "profile": "https://github.com/kapcake",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
