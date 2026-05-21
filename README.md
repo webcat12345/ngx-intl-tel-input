@@ -131,6 +131,8 @@ Or this:
 | selectedCountryISO       | `<CountryISO>`           | `None`                            | Set specific country on load.                                                                                 |
 | separateDialCode         | `boolean`                | `false`                           | Visually separate dialcode into the drop down element.                                                        |
 | countryChange            | `<Country>`              | `None`                            | Emits country value when the user selects a country from the dropdown.                                        |
+| dropdownMatchInputWidth  | `boolean`                | `false`                           | When enabled, the
+  country dropdown width will match the full width of the input element. |
 
 ## Supported Formats
 

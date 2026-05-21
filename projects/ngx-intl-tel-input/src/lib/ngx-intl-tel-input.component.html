@@ -10,7 +10,7 @@
       <div *ngIf="separateDialCode" class="selected-dial-code">+{{ selectedCountry.dialCode }}</div>
       <div class="iti__arrow"></div>
     </div>
-    <div *dropdownMenu class="dropdown-menu iti__dropdown-content">
+    <div *dropdownMenu class="dropdown-menu iti__dropdown-content" [style.width.px]="dropdownMatchInputWidth ? (telInput.offsetWidth - 0.5) : null">
       <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
         <input
           id="country-search-box"
@@ -65,5 +65,6 @@
     [attr.maxLength]="maxLength"
     [attr.validation]="phoneValidation"
     #focusable
+    #telInput
   />
 </div>

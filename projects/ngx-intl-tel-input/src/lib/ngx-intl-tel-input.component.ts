@@ -62,6 +62,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() phoneValidation = true;
   @Input() inputId = 'phone';
   @Input() separateDialCode = false;
+  @Input() dropdownMatchInputWidth = false;
   separateDialCodeClass: string;
 
   @Output() readonly countryChange = new EventEmitter<Country>();
@@ -223,7 +224,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       countryCode =
         number && number.getCountryCode()
           ? // @ts-ignore
-            this.getCountryIsoCode(number.getCountryCode(), number)
+          this.getCountryIsoCode(number.getCountryCode(), number)
           : this.selectedCountry.iso2;
       if (countryCode && countryCode !== this.selectedCountry.iso2) {
         const newCountry = this.allCountries
@@ -370,7 +371,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let number: lpn.PhoneNumber;
     try {
       number = this.phoneUtil.parse(phoneNumber, countryCode.toUpperCase());
-    } catch (e) {}
+    } catch (e) { }
     // @ts-ignore
     return number;
   }

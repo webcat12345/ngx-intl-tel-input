@@ -47,11 +47,6 @@ body {
   outline: none;
 }
 
-@media screen and (max-width: 479px) {
-  .iti .iti__country-list {
-    width: 88.3vw;
-  }
-}
 
 ngx-intl-tel-input input {
   height: 44px;
