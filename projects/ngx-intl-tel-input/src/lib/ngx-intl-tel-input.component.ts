@@ -431,6 +431,20 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       });
     });
 
+    // If we haven't matched a secondary country, check whether the typed number is still
+    // a partial prefix of any secondary area code (e.g. '80' is a prefix of DO's '809').
+    // In that case return undefined so the caller keeps the currently selected country
+    // rather than prematurely falling back to the main country (e.g. US).
+    if (matchedCountry === (mainCountry ? mainCountry.iso2 : undefined)) {
+      const isPotentialSecondaryMatch = secondaryCountries.some(
+        // @ts-ignore
+        c => c.areaCodes.some((areaCode: string) => areaCode.startsWith(rawNumber))
+      );
+      if (isPotentialSecondaryMatch) {
+        return undefined;
+      }
+    }
+
     return matchedCountry;
   }
 
