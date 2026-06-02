@@ -88,8 +88,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   @ViewChild('countryList') countryList: ElementRef;
 
-  onTouched = () => {};
-  propagateChange = (_: ChangeData) => {};
+  onTouched = () => { };
+  propagateChange = (_: ChangeData) => { };
 
   constructor(private countryCodeData: CountryCode) {
     // If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
@@ -223,7 +223,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       countryCode =
         number && number.getCountryCode()
           ? // @ts-ignore
-            this.getCountryIsoCode(number.getCountryCode(), number)
+          this.getCountryIsoCode(number.getCountryCode(), number)
           : this.selectedCountry.iso2;
       if (countryCode && countryCode !== this.selectedCountry.iso2) {
         const newCountry = this.allCountries
@@ -370,7 +370,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let number: lpn.PhoneNumber;
     try {
       number = this.phoneUtil.parse(phoneNumber, countryCode.toUpperCase());
-    } catch (e) {}
+    } catch (e) { }
     // @ts-ignore
     return number;
   }
@@ -431,7 +431,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       });
     });
 
-    // If we haven't matched a secondary country, check whether the typed number is still
+    // If a secondary country was not matched, check whether the typed number is still
     // a partial prefix of any secondary area code (e.g. '80' is a prefix of DO's '809').
     // In that case return undefined so the caller keeps the currently selected country
     // rather than prematurely falling back to the main country (e.g. US).
