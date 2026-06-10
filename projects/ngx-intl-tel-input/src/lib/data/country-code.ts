@@ -121,7 +121,7 @@ export class CountryCode {
     ['Czech Republic (Česká republika)', CountryISO.CzechRepublic, '420'],
     ['Denmark (Danmark)', CountryISO.Denmark, '45'],
     ['Djibouti', CountryISO.Djibouti, '253'],
-    ['Dominica', CountryISO.Dominica, '1767'],
+    ['Dominica', CountryISO.Dominica, '1', 1, ['767']],
     [
       'Dominican Republic (República Dominicana)',
       CountryISO.DominicanRepublic,
