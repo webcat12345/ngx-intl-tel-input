@@ -18,6 +18,9 @@ Validation with [google-libphonenumber](https://github.com/ruimarinho/google-lib
 
 | ngx-intl-tel-input | Angular         | ngx-bootstrap |
 | ------------------ |-----------------| ------------- |
+| 20.x.x             | >= 20.x.x       | >= 20.0.0     |
+| 19.x.x             | >= 19.x.x       | >= 19.0.0     |
+| 18.x.x             | >= 18.x.x       | >= 18.0.0     |
 | 17.x.x             | >= 17.x.x       | >= 12.0.0     |
 | 16.x.x             | >= 16.x.x       | >= 11.0.0     |
 | 15.x.x             | >= 15.x.x       | >= 10.0.0     |
@@ -62,7 +65,7 @@ to **angular.json** styles array:
 
 ### Install This Library
 
-`$ npm install ngx-intl-tel-input --save`
+`$ npm install @justin-s/ngx-intl-tel-input --save`
 
 ## Usage
 

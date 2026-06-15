@@ -43,6 +43,7 @@ import { PhoneNumberFormat } from './enums/phone-number-format.enum';
       multi: true,
     },
   ],
+  standalone: false
 })
 export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @Input() value: string | undefined = '';

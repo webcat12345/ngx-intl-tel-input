@@ -9,6 +9,7 @@ import { SearchCountryField } from 'projects/ngx-intl-tel-input/src/lib/enums/se
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  standalone: false
 })
 export class AppComponent {
   separateDialCode = false;

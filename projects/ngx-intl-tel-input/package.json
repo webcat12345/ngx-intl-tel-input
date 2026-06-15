@@ -1,22 +1,27 @@
 {
-  "name": "ngx-intl-tel-input",
-  "version": "17.0.0",
+  "name": "@justin-s/ngx-intl-tel-input",
+  "version": "20.0.0",
   "peerDependencies": {
-    "@angular/common": ">= 17.0.0",
-    "@angular/core": ">= 17.0.0",
-    "@angular/forms": ">= 17.0.0",
+    "@angular/common": ">= 20.0.0",
+    "@angular/core": ">= 20.0.0",
+    "@angular/forms": ">= 20.0.0",
     "google-libphonenumber": "^3.0.0",
     "intl-tel-input": "^19.0.0",
-    "ngx-bootstrap": ">= 12.0.0"
+    "ngx-bootstrap": ">= 20.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcat12345/ngx-intl-tel-input.git"
+    "url": "git+https://github.com/juju-sunrise/ngx-intl-tel-input.git"
   },
   "author": {
     "name": "webcat12345",
     "email": "webcat91@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "justin-s"
+    }
+  ],
   "keywords": [
     "angular",
     "angular 2",
@@ -30,6 +35,9 @@
     "ng15",
     "ng16",
     "ng17",
+    "ng18",
+    "ng19",
+    "ng20",
     "angular 8",
     "angular 9",
     "angular 10",
@@ -40,6 +48,9 @@
     "angular 15",
     "angular 16",
     "angular 17",
+    "angular 18",
+    "angular 19",
+    "angular 20",
     "intl-tel-input",
     "phone number",
     "validation"
