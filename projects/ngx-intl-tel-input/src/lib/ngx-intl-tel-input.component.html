@@ -1,16 +1,19 @@
 <div class="iti iti--allow-dropdown" [ngClass]="separateDialCodeClass">
   <div
     class="iti__flag-container"
-    dropdown
+    #flagContainer
     [ngClass]="{ disabled: disabled }"
-    [isDisabled]="disabled"
   >
-    <div class="iti__selected-flag dropdown-toggle" dropdownToggle>
+    <div
+      class="iti__selected-flag dropdown-toggle"
+      (click)="toggleDropdown($event)"
+      [attr.aria-expanded]="dropdownOpen"
+    >
       <div class="iti__flag" [ngClass]="selectedCountry.flagClass || ''"></div>
       <div *ngIf="separateDialCode" class="selected-dial-code">+{{ selectedCountry.dialCode }}</div>
       <div class="iti__arrow"></div>
     </div>
-    <div *dropdownMenu class="dropdown-menu iti__dropdown-content">
+    <div *ngIf="dropdownOpen" class="dropdown-menu show iti__dropdown-content">
       <div class="search-container" *ngIf="searchCountryFlag && searchCountryField">
         <input
           id="country-search-box"
