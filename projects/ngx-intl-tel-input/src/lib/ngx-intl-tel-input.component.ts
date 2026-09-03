@@ -7,14 +7,16 @@ import {
   forwardRef,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   Output,
+  Renderer2,
   SimpleChanges,
   ViewChild,
+  HostListener,
+  NgZone,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-
-import { setTheme } from 'ngx-bootstrap/utils';
 
 import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
@@ -44,7 +46,7 @@ import { PhoneNumberFormat } from './enums/phone-number-format.enum';
     },
   ],
 })
-export class NgxIntlTelInputComponent implements OnInit, OnChanges {
+export class NgxIntlTelInputComponent implements OnInit, OnChanges, OnDestroy {
   @Input() value: string | undefined = '';
   @Input() preferredCountries: Array<string> = [];
   @Input() enablePlaceholder = true;
@@ -83,22 +85,70 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   // Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
   phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
   disabled = false;
+  dropdownOpen = false;
   errors: Array<any> = ['Phone number is required.'];
   countrySearchText = '';
 
   @ViewChild('countryList') countryList: ElementRef;
+  @ViewChild('flagContainer') flagContainer: ElementRef;
 
   onTouched = () => {};
   propagateChange = (_: ChangeData) => {};
+  private removeDocumentClickListener = () => {};
 
-  constructor(private countryCodeData: CountryCode) {
-    // If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
-    // Add the wrong classes and such
-    setTheme('bs4');
+  constructor(
+    private countryCodeData: CountryCode,
+    private renderer: Renderer2,
+    private ngZone: NgZone,
+  ) {}
+
+  public toggleDropdown(event: MouseEvent): void {
+    if (this.disabled) {
+      return;
+    }
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  public closeDropdown(event: Event): void {
+    const targetNode = event.target as Node | null;
+    if (
+      !targetNode ||
+      typeof targetNode.nodeType !== 'number' ||
+      !this.flagContainer?.nativeElement.contains(targetNode)
+    ) {
+      this.dropdownOpen = false;
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  public closeDropdownOnEscape(): void {
+    this.dropdownOpen = false;
   }
 
   ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.removeDocumentClickListener = this.renderer.listen('document', 'click', (event: Event) => {
+        if (!this.dropdownOpen) {
+          return;
+        }
+
+        const targetNode = event.target as Node | null;
+        if (
+          !targetNode ||
+          typeof targetNode.nodeType !== 'number' ||
+          this.flagContainer?.nativeElement.contains(targetNode)
+        ) {
+          return;
+        }
+
+        this.ngZone.run(() => this.closeDropdown(event));
+      });
+    });
     this.init();
+  }
+
+  ngOnDestroy() {
+    this.removeDocumentClickListener();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -268,6 +318,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   }
 
   public onCountrySelect(country: Country, el: { focus: () => void }): void {
+    this.dropdownOpen = false;
     this.setSelectedCountry(country);
 
     this.checkSeparateDialCodeStyle();
